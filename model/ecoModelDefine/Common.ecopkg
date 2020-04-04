@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package Name="Common" AdditionalNamespaces="" CodeGenCharacterMode="AllowUnicode" DefaultLength="255" GenerateNullableTypes="True" NameSpace="&lt;Default&gt;" ORMappingConfigMode="Medium" PluralSuffix="" id="14a1c79d-c6fd-4d0f-9dbc-d8eadb4b8598">
+  <TaggedValue>
+    <TaggedValue Tag="Eco.DefaultSuperClass" Value="" />
+  </TaggedValue>
+</Package>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Diagram Name="Base_Diagram" ChangeDate="0001-01-01 00:00:00" ColorOnNew="0" Comment="" Designer="" ShowAssociationNames="DimDefaults" ShowMethodReturnTypes="False" ShowMethodSignatures="False" ShowVisibility="False" SnapGridSize="8" SquareNewAssociations="False" SquareNewGeneralizations="False" ZoomScaleFactor="1.79585632602213" Id="5645dc19-1102-4a2d-add7-1d48e8791815">
+  <PlacedClass>
+    <PlacedClass ClassId="23930703-074f-4c37-993d-90192aafdeeb" Color="1692800256" LastKnownName="Zone" PickedFeatureVisibility="ShowAll" RenderedHeight="75" RenderedWidth="114" ShowAttributes="False" ShowMethods="False" Size="1" x="808" y="248" id="2ab18286-ade6-473e-b547-e607fd87497f">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="True" x="-57" y="32" id="2d3e3029-fd75-4052-ad90-6727fef92236">
+          <AssociationEnd>
+            <AssociationEnd Name="Zone" idref="f443f82e-2f4c-4e07-aa7f-a1605f77fa78" />
+          </AssociationEnd>
+          <next>
+            <FreeAirViaPoint NextLegDrawKind="0" x="608" y="264" id="c75da552-854e-45ea-bc05-d0732ca8cbeb">
+              <next>
+                <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="77" y="56" id="1122c4e3-807e-43be-bd40-a70088bb9364">
+                  <AssociationEnd>
+                    <AssociationEnd Name="ReleaseTask" idref="c2b0b2a1-31ce-4f86-826b-03c349cf2c3a" />
+                  </AssociationEnd>
+                </AssociationEndConnection>
+              </next>
+            </FreeAirViaPoint>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="True" x="0" y="75" id="78b7ee4b-bc26-4237-8909-a6e9050700d2">
+          <AssociationEnd>
+            <AssociationEnd Name="Zone" idref="ab9ab1a9-486d-4557-b1c9-6ad3dbc13b24" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="32" y="0" id="d6c8d953-b5e9-47b3-a179-d8c53374622d">
+              <AssociationEnd>
+                <AssociationEnd Name="Region" idref="a8b52ade-a4e4-4f16-a0b2-f5d5ae4ddc05" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="True" x="-57" y="8" id="baadaedb-5e82-4add-9ec3-6e598619649f">
+          <AssociationEnd>
+            <AssociationEnd Name="Zone" idref="2aae1983-2e34-488c-8e71-0200a2764662" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-2.56682965750715" LabelDistance="20.5347723978528" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="56" y="248" id="f19c924c-e9f5-4a13-bf69-b911c3d1e2ac">
+              <AssociationEnd>
+                <AssociationEnd Name="HostResource" idref="56e69e9e-f1d9-4bc5-bf68-270a95e8e1bc" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="Zone" idref="23930703-074f-4c37-993d-90192aafdeeb" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="beebf626-a267-4ca7-9b56-e619cad7bae0" Color="1692800256" LastKnownName="HostResource" PickedFeatureVisibility="ShowAll" RenderedHeight="248" RenderedWidth="125" ShowAttributes="False" ShowMethods="False" Size="1" x="584" y="0" id="36a9055e-b3fd-4f38-929c-906633054e7e">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="True" x="-62.5" y="24" id="c189a7b3-5320-4656-9078-66fa75d2912b">
+          <AssociationEnd>
+            <AssociationEnd Name="HostResource" idref="f6289849-49b8-414e-8921-f4a395e9ccde" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="63" y="24" id="e2fc8417-450f-4141-a8f9-292dbbc972b5">
+              <AssociationEnd>
+                <AssociationEnd Name="DockerInstance" idref="e8cc7cdc-9153-47e9-94db-76b8743f1d56" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-2.56682965750715" LabelDistance="20.5347723978528" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="56" y="248" id="f19c924c-e9f5-4a13-bf69-b911c3d1e2ac">
+          <AssociationEnd>
+            <AssociationEnd Name="HostResource" idref="56e69e9e-f1d9-4bc5-bf68-270a95e8e1bc" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="HostResource" idref="beebf626-a267-4ca7-9b56-e619cad7bae0" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="a4ddbbff-51b0-4268-87c0-f0703c0c05bb" Color="1692800256" LastKnownName="AppType" PickedFeatureVisibility="ShowAll" RenderedHeight="95" RenderedWidth="144" ShowAttributes="False" ShowMethods="False" Size="1" x="88" y="528" id="371bd7d4-fc0a-48fc-996f-160a46d0218b">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="True" x="16" y="0" id="8e69c47a-1158-404c-8792-c07f6274f52c">
+          <AssociationEnd>
+            <AssociationEnd Name="AppType" idref="03b6dd75-d7b8-4579-9d00-506f696e9851" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="-24" y="167" id="cd36dbb5-65ba-4bbe-9874-8365790a8d8e">
+              <AssociationEnd>
+                <AssociationEnd Name="MicroServiceApp" idref="e0bcf44c-6f3f-488f-9d1b-fb9e53a839b3" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="AppType" idref="a4ddbbff-51b0-4268-87c0-f0703c0c05bb" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="ae42d7f3-0413-4f1f-9057-ba7d78d88613" Color="1692800256" LastKnownName="FileItem" PickedFeatureVisibility="ShowAll" RenderedHeight="167" RenderedWidth="146" ShowAttributes="False" ShowMethods="False" Size="1" x="440" y="448" id="37c16a92-9300-420a-9968-8f942f40291e">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="-40" y="0" id="72f452b8-a1ce-4f48-a570-e1955600d946">
+          <AssociationEnd>
+            <AssociationEnd Name="FileItem" idref="fef22ab6-09b9-4cda-9c2e-7c1fc544913c" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="FileItem" idref="ae42d7f3-0413-4f1f-9057-ba7d78d88613" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="15424766-6d26-40c1-a16e-b01559d90032" Color="1692800256" LastKnownName="RegionApps" PickedFeatureVisibility="ShowAll" RenderedHeight="28" RenderedWidth="102" ShowAttributes="False" ShowMethods="False" Size="1" x="352" y="672" id="4185bf89-4aa1-438f-8a03-68f0e69a1aa4">
+      <AssociationConnection>
+        <AssociationConnection NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="True" x="8" y="0" id="b8958e97-6b25-40a8-8aab-dc119ca9ba63">
+          <Association>
+            <Association Name="MicroServiceAppMicroServiceAppRegionRegion" idref="81faa811-090b-44b2-8c9a-6615c0e15f2b" />
+          </Association>
+          <next>
+            <LinkClassConnectViaPoint AssociationId="" NextLegDrawKind="0" PercentFromStart="50" x="358.354783874154" y="597.01563800746" id="33898e9a-7762-4a8f-8b90-b39e833576ad">
+              <AssociationEndConnection>
+                <AssociationEndConnection idref="0308812c-eae9-4382-b05e-45b4c6529a3d" />
+              </AssociationEndConnection>
+            </LinkClassConnectViaPoint>
+          </next>
+        </AssociationConnection>
+      </AssociationConnection>
+      <Class>
+        <Class Name="RegionApps" idref="15424766-6d26-40c1-a16e-b01559d90032" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="c0a063d6-121c-495a-98c5-20acac43202a" Color="1692800256" LastKnownName="ReleaseTask" PickedFeatureVisibility="ShowAll" RenderedHeight="167" RenderedWidth="154" ShowAttributes="False" ShowMethods="False" Size="1" x="320" y="96" id="4881eaac-e727-4ba6-85e4-ca6624d4d456">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="77" y="56" id="1122c4e3-807e-43be-bd40-a70088bb9364">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="c2b0b2a1-31ce-4f86-826b-03c349cf2c3a" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="True" x="-8" y="167" id="238b59a3-2dd9-4695-9f75-d1fcc16ed63c">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="066bdb7b-6baa-45d5-980c-05f05adc0f93" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="0" y="0" id="4f6cef36-d12c-46ec-8d6c-99f241787738">
+              <AssociationEnd>
+                <AssociationEnd Name="appVersion" idref="517f081d-7892-416b-ac64-02de5b9b0198" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="True" x="-77" y="8" id="4abda568-d020-49c8-8dd3-3ed2b2b2c613">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="9e31b069-80de-4775-b72d-4e590012fc0b" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-1.24745310340387" LabelDistance="10.5990220631486" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="63" y="64" id="249da96b-c34a-4c7f-8b4a-61fdf2896ed9">
+              <AssociationEnd>
+                <AssociationEnd Name="DockerInstance" idref="8a33f9cf-89c0-4610-bbb4-1e836ad2c069" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="True" x="-77" y="56" id="a421a058-2168-4192-b158-9fd7eaf91460">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="831b8cdb-cdb4-40d8-bc8d-54e38c55a2aa" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-2.83092838013728" LabelDistance="12.8382922677097" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="72" y="16" id="5e15add6-179e-4e26-a281-4001195b71f6">
+              <AssociationEnd>
+                <AssociationEnd Name="MicroServiceApp" idref="c0bff062-935c-4667-b180-16d8cf02c377" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="True" x="77" y="96" id="c599296a-f06e-46cf-a712-fff2610dd0a7">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="b9395ddf-185e-4fdf-84dc-e62261c3787c" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="3.32715707014309" LabelDistance="81.6324974668053" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="-24" y="0" id="aa8c50f4-6ff3-42f8-a505-f82dfd1f5869">
+              <AssociationEnd>
+                <AssociationEnd idref="e2e833c3-0b70-4d9d-b57a-7dbc44168b63" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-2.86630529663688" LabelDistance="14.4378720445969" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="True" x="32" y="167" id="e28cd7e9-206e-46f5-80fa-e075c237f284">
+          <AssociationEnd>
+            <AssociationEnd Name="ReleaseTask" idref="3237d88b-210e-43a7-9def-c36be3b14d96" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="3.96945548686701" LabelDistance="65.814497927313" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="0" y="0" id="6c987f24-d92b-4eb6-8768-a341de851e62">
+              <AssociationEnd>
+                <AssociationEnd Name="Region" idref="be43fa5a-84d3-41f6-b06d-d0a54af14b25" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="ReleaseTask" idref="c0a063d6-121c-495a-98c5-20acac43202a" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="4879b7c1-18c7-43f6-b00d-d074f1f14602" Color="1692800256" LastKnownName="appVersion" PickedFeatureVisibility="ShowAll" RenderedHeight="65" RenderedWidth="114" ShowAttributes="False" ShowMethods="False" Size="1" x="328" y="360" id="66433813-eb72-49d7-8d24-ddc981c52ddd">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="0" y="0" id="4f6cef36-d12c-46ec-8d6c-99f241787738">
+          <AssociationEnd>
+            <AssociationEnd Name="appVersion" idref="517f081d-7892-416b-ac64-02de5b9b0198" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="True" x="57" y="8" id="57e0c8d5-371e-4e2e-82dc-61366fd3cca4">
+          <AssociationEnd>
+            <AssociationEnd Name="appVersion" idref="6a9e41f3-ae61-4996-bd7f-edba610dc2dd" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-3.06575412683735" LabelDistance="15.0511820795425" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-58" y="32" id="cfc605c6-b4b5-4ee2-b061-30787d8426f3">
+              <AssociationEnd>
+                <AssociationEnd Name="HostTask" idref="33c73693-57dd-47ef-a0ad-4327f9222cd5" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-57" y="16" id="c587ddc3-9111-48c8-8fbf-bebf46a05394">
+          <AssociationEnd>
+            <AssociationEnd Name="appVersion" idref="f86ae08e-cc73-4c19-91aa-858aabe2cf28" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="True" x="-8" y="65" id="e79da55d-b5a8-4817-a147-b17db046fbe9">
+          <AssociationEnd>
+            <AssociationEnd Name="appVersion" idref="1a0aeaf2-abaf-4bec-a3ed-d16bd3b728f2" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="-40" y="0" id="72f452b8-a1ce-4f48-a570-e1955600d946">
+              <AssociationEnd>
+                <AssociationEnd Name="FileItem" idref="fef22ab6-09b9-4cda-9c2e-7c1fc544913c" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="appVersion" idref="4879b7c1-18c7-43f6-b00d-d074f1f14602" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="7c741383-5e60-4cc9-8da4-0f044b5d6aa3" Color="1692800256" LastKnownName="MicroServiceApp" PickedFeatureVisibility="ShowAll" RenderedHeight="167" RenderedWidth="144" ShowAttributes="False" ShowMethods="False" Size="1" x="96" y="208" id="81fb1ed3-8155-4221-9981-7e060f20bd41">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-2.05296849953285" LabelDistance="105.616769545229" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="True" x="56" y="167" id="0308812c-eae9-4382-b05e-45b4c6529a3d">
+          <AssociationConnection>
+            <LinkClassConnectViaPoint idref="33898e9a-7762-4a8f-8b90-b39e833576ad" />
+          </AssociationConnection>
+          <AssociationEnd>
+            <AssociationEnd Name="MicroServiceApp" idref="eeae8bfd-fbdf-424c-83fc-4cdad407dd7d" />
+          </AssociationEnd>
+          <next>
+            <FreeAirViaPoint NextLegDrawKind="0" x="376" y="616" id="0a797bb0-a888-4bf5-8701-86f9c447f3e2">
+              <next>
+                <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-39" y="8" id="3f425dba-a44b-4d2d-a37f-422db8aece22">
+                  <AssociationEnd>
+                    <AssociationEnd Name="Region" idref="cd59090f-75f9-48fa-abb9-333f2a4ed8ff" />
+                  </AssociationEnd>
+                </AssociationEndConnection>
+              </next>
+            </FreeAirViaPoint>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="True" x="72" y="48" id="54985eb5-43fe-4a4a-bcf5-eb998f08cc4e">
+          <AssociationEnd>
+            <AssociationEnd Name="MicroServiceApp" idref="5e674238-d078-4aa6-876f-ec8a7d955b72" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-57" y="16" id="c587ddc3-9111-48c8-8fbf-bebf46a05394">
+              <AssociationEnd>
+                <AssociationEnd Name="appVersion" idref="f86ae08e-cc73-4c19-91aa-858aabe2cf28" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-2.83092838013728" LabelDistance="12.8382922677097" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="72" y="16" id="5e15add6-179e-4e26-a281-4001195b71f6">
+          <AssociationEnd>
+            <AssociationEnd Name="MicroServiceApp" idref="c0bff062-935c-4667-b180-16d8cf02c377" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="3.72068980575394" LabelDistance="47.8705584307724" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="True" x="-16" y="0" id="97f2c7df-c1ed-4209-8d4d-1c10ed94136e">
+          <AssociationEnd>
+            <AssociationEnd Name="MicroServiceApp" idref="9ddb1e32-64fb-47a5-baf4-cd81075516d4" />
+          </AssociationEnd>
+          <next>
+            <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="-16" y="75" id="05aa5ccc-1c58-4d9f-b71b-c064b6983c91">
+              <AssociationEnd>
+                <AssociationEnd Name="DockerInstance" idref="f587d3f5-1f6d-42db-a44a-894e06b9e372" />
+              </AssociationEnd>
+            </AssociationEndConnection>
+          </next>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="-24" y="167" id="cd36dbb5-65ba-4bbe-9874-8365790a8d8e">
+          <AssociationEnd>
+            <AssociationEnd Name="MicroServiceApp" idref="e0bcf44c-6f3f-488f-9d1b-fb9e53a839b3" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="MicroServiceApp" idref="7c741383-5e60-4cc9-8da4-0f044b5d6aa3" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="3e05e19a-09d8-410e-897f-80fff5d69cc7" Color="1692800256" LastKnownName="HostTask" PickedFeatureVisibility="ShowAll" RenderedHeight="105" RenderedWidth="116" ShowAttributes="False" ShowMethods="False" Size="1" x="584" y="280" id="a802e975-7ca5-4bbc-be8c-143af5635988">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="3.32715707014309" LabelDistance="81.6324974668053" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="-24" y="0" id="aa8c50f4-6ff3-42f8-a505-f82dfd1f5869">
+          <AssociationEnd>
+            <AssociationEnd Name="HostTask" idref="e2e833c3-0b70-4d9d-b57a-7dbc44168b63" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-3.06575412683735" LabelDistance="15.0511820795425" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-58" y="32" id="cfc605c6-b4b5-4ee2-b061-30787d8426f3">
+          <AssociationEnd>
+            <AssociationEnd Name="HostTask" idref="33c73693-57dd-47ef-a0ad-4327f9222cd5" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="HostTask" idref="3e05e19a-09d8-410e-897f-80fff5d69cc7" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="e1968076-472b-409b-b981-1f3b7f90bcf3" Color="1692800256" LastKnownName="DockerInstance" PickedFeatureVisibility="ShowAll" RenderedHeight="75" RenderedWidth="126" ShowAttributes="False" ShowMethods="False" Size="1" x="80" y="24" id="adc8d667-3610-4b83-9f45-e74c19fbebd3">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="2" ViaPointsStartsHere="False" x="-16" y="75" id="05aa5ccc-1c58-4d9f-b71b-c064b6983c91">
+          <AssociationEnd>
+            <AssociationEnd Name="DockerInstance" idref="f587d3f5-1f6d-42db-a44a-894e06b9e372" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-1.24745310340387" LabelDistance="10.5990220631486" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="63" y="64" id="249da96b-c34a-4c7f-8b4a-61fdf2896ed9">
+          <AssociationEnd>
+            <AssociationEnd Name="DockerInstance" idref="8a33f9cf-89c0-4610-bbb4-1e836ad2c069" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="1" ViaPointsStartsHere="False" x="63" y="24" id="e2fc8417-450f-4141-a8f9-292dbbc972b5">
+          <AssociationEnd>
+            <AssociationEnd Name="DockerInstance" idref="e8cc7cdc-9153-47e9-94db-76b8743f1d56" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="DockerInstance" idref="e1968076-472b-409b-b981-1f3b7f90bcf3" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="7dec5c42-b6f7-4ec8-86f2-3791dcb08fd8" Color="1692800256" LastKnownName="dsFunc" PickedFeatureVisibility="ShowAll" RenderedHeight="54" RenderedWidth="100" ShowAttributes="False" ShowMethods="False" Size="1" x="336" y="608" id="bc1f1b7b-3917-404b-8789-710697a6023d">
+      <Class>
+        <Class Name="dsFunc" idref="7dec5c42-b6f7-4ec8-86f2-3791dcb08fd8" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="3edb18bc-1038-4833-b6d4-77caa3a070ea" Color="1692800256" LastKnownName="Region" PickedFeatureVisibility="ShowAll" RenderedHeight="54" RenderedWidth="78" ShowAttributes="False" ShowMethods="False" Size="1" x="688" y="560" id="c5abcd94-0ea0-4ae7-bc32-cda434baa01a">
+      <AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="3" ViaPointsStartsHere="False" x="-39" y="8" id="3f425dba-a44b-4d2d-a37f-422db8aece22">
+          <AssociationEnd>
+            <AssociationEnd Name="Region" idref="cd59090f-75f9-48fa-abb9-333f2a4ed8ff" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="3.96945548686701" LabelDistance="65.814497927313" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="0" y="0" id="6c987f24-d92b-4eb6-8768-a341de851e62">
+          <AssociationEnd>
+            <AssociationEnd Name="Region" idref="be43fa5a-84d3-41f6-b06d-d0a54af14b25" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+        <AssociationEndConnection LabelAngle="-0.785398163397448" LabelDistance="15" NextLegDrawKind="0" SideToUse="0" ViaPointsStartsHere="False" x="32" y="0" id="d6c8d953-b5e9-47b3-a179-d8c53374622d">
+          <AssociationEnd>
+            <AssociationEnd Name="Region" idref="a8b52ade-a4e4-4f16-a0b2-f5d5ae4ddc05" />
+          </AssociationEnd>
+        </AssociationEndConnection>
+      </AssociationEndConnection>
+      <Class>
+        <Class Name="Region" idref="3edb18bc-1038-4833-b6d4-77caa3a070ea" />
+      </Class>
+    </PlacedClass>
+    <PlacedClass ClassId="33abb285-b98a-47ef-a6c1-6c9ea8f475dc" Color="1692800256" LastKnownName="SysFunc" PickedFeatureVisibility="ShowAll" RenderedHeight="228" RenderedWidth="114" ShowAttributes="False" ShowMethods="False" Size="1" x="232" y="632" id="eae64a8b-2e08-44cb-bef9-4c58236aa8ac">
+      <Class>
+        <Class Name="SysFunc" idref="33abb285-b98a-47ef-a6c1-6c9ea8f475dc" />
+      </Class>
+    </PlacedClass>
+  </PlacedClass>
+  <PlacedNote>
+    <PlacedNote Color="-922747136" Height="47" LastKnownName="" NoteContent="UEsDBBQAAAAIAI58cFDwxQiOlwIAAOUHAAASABwAWGFtbC9Eb2N1bWVudC54YW1sIKIYACigFAAAAAAAAAAAAAAAAAAAAAAAAAAAAIWVz2/TMBTH/5UonNc0BQZMbaVqW9lEN6FlMMHtNX1LrDl2ZDtbs9POiGkS2pEDiAsaEhyZOPDXLOzfwG7akdJ0zim2P+/X1/ZzO8BQEc6ccUKZ7LixUuma58kwxgRkIyGh4JIfqkbIE++EsMOx12o2V70xJNRLBUpkCowD13hYkymE2HEnC+IYXWcfx6pHScQSDXbcAR4q1xkQhltIoljP9DLFXWdbbuVpjGziapPBkOKo4/aBSiwdU2BRx0W2kknX6VN+skFEmXnpdJ/vGX+us5slQxRBNpSKqMwAjfWMqkxgwDNhkjMp1XLVgU5MTu10PM5UHxJC8467M1PEeQO6BufVdrkeqJxq57tcJEDLqYNpidW5QAlUYfzfJDnVpn7LjARGgmdMV/+g329OPq1invJIQBrnjUABG4EYDUgEJju9Z/siwzlmXfvURWZA76M2iAx1MrpYEHkFnKpeIbeIVFyQcM7fItZjjJeHoUcVCr2ZhmsuSa3KLOT2L6JWJKmN9kJbE3MoFsuHlCiggT6LE2DRdh0kBsgkUeQYl0YwW6rzIGGAyrcBLRvw0AY8sgGPbcCqDXhiA57agGdWoZpWwqqlbxXTt6rpW+X0rXr6VkF9q6K+VVLfqmmrVtO+gGkDnPWSqjkFGePoLQpeZ7sDyjR4ZW7Yc4F4VAdtglQ9SYBtjlMUauk9eQ1CQ0rWJjK9jPWLugmj0Dd1vncuApUXpAa6y/OAjFRcH+mOGeiHJIOoPtysuQYnRr17mtcS4G7T5htgt/0SBEyYbnsvY5UX7TReCZnbvbk+u7m+Kn5///PxvHj3ufh1eXv5tbi4Ks4/6Z9yFdL0CPPiw/tyWJK3334UF1+Ki59tTzvutr1KJG/6tnf/AlBLAwQKAAAAAACOfHBQP2IY+QwBAAAMAQAACwAcAF9yZWxzLy5yZWxzIKIYACigFAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04Ij8+PFJlbGF0aW9uc2hpcHMgeG1sbnM9Imh0dHA6Ly9zY2hlbWFzLm9wZW54bWxmb3JtYXRzLm9yZy9wYWNrYWdlLzIwMDYvcmVsYXRpb25zaGlwcyI+PFJlbGF0aW9uc2hpcCBUeXBlPSJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dwZi8yMDA1LzEwL3hhbWwvZW50cnkiIFRhcmdldD0iL1hhbWwvRG9jdW1lbnQueGFtbCIgSWQ9IlIzOGJmYjkyYTU4OTg0NzAxIiAvPjwvUmVsYXRpb25zaGlwcz5QSwMECgAAAAAAjnxwUDXN9XcqAQAAKgEAABMAHABbQ29udGVudF9UeXBlc10ueG1sIKIYACigFAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04Ij8+PFR5cGVzIHhtbG5zPSJodHRwOi8vc2NoZW1hcy5vcGVueG1sZm9ybWF0cy5vcmcvcGFja2FnZS8yMDA2L2NvbnRlbnQtdHlwZXMiPjxEZWZhdWx0IEV4dGVuc2lvbj0ieGFtbCIgQ29udGVudFR5cGU9ImFwcGxpY2F0aW9uL3ZuZC5tcy13cGYueGFtbCt4bWwiIC8+PERlZmF1bHQgRXh0ZW5zaW9uPSJyZWxzIiBDb250ZW50VHlwZT0iYXBwbGljYXRpb24vdm5kLm9wZW54bWxmb3JtYXRzLXBhY2thZ2UucmVsYXRpb25zaGlwcyt4bWwiIC8+PC9UeXBlcz5QSwECLQAUAAAACACOfHBQ8MUIjpcCAADlBwAAEgAAAAAAAAAAAAAAAAAAAAAAWGFtbC9Eb2N1bWVudC54YW1sUEsBAi0ACgAAAAAAjnxwUD9iGPkMAQAADAEAAAsAAAAAAAAAAAAAAAAA4wIAAF9yZWxzLy5yZWxzUEsBAi0ACgAAAAAAjnxwUDXN9XcqAQAAKgEAABMAAAAAAAAAAAAAAAAANAQAAFtDb250ZW50X1R5cGVzXS54bWxQSwUGAAAAAAMAAwC6AAAAqwUAAAAA" RenderedHeight="57" RenderedWidth="226" Size="1" Width="216" x="112" y="424" id="8e63d05a-ccb8-4d99-ab2a-ae02aa4f2330" />
+  </PlacedNote>
+</Diagram>

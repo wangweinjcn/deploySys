@@ -1,0 +1,2098 @@
+﻿发生时间：2020-04-03 14:53:54,870 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:55,016 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:55,185 
+内容： 
+[ReaderExecuting]Input String @P_0 = '84-7B-EB-55-BF-1D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:55,288 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:55,362 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:55,476 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:55,566 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:55,676 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:55,773 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:55,884 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:55,964 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:56,026 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:56,086 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:56,154 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:53:56,218 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:53:56,241 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 14:54:02,273 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 14:54:02,394 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 14:54:02,414 
+内容： 
+[NonQueryExecuting]Input String @P_0 = 'Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz';
+Input String @P_1 = '-1';
+Input DateTime @P_2 = '2020/4/3 14:54:02';
+Input Int32 @P_3 = 1;
+UPDATE [HostResource] SET [cpuName]=@P_0,[UpdaterID]=@P_1,[UpdateDt]=@P_2 WHERE [HostResource].[Id] = @P_3
+ 
+ 
+发生时间：2020-04-03 14:54:02,450 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 15:00:43,390 
+内容： 
+[ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:43,439 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 15:00:43,512 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 15:00:43,548 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:43,604 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:00:43,622 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:00:43,651 
+内容： 
+[ScalarExecuting]Input String @P_0 = '7cd5a4ae-8f3c-402c-9c86-fcd13da3c88e';
+Input DateTime @P_1 = '2020/4/3 20:00:43';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/4/3 15:00:43';
+Input DateTime @P_8 = '2020/4/3 15:00:43';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+ 
+ 
+发生时间：2020-04-03 15:00:43,713 
+内容： 
+[ScalarExecuted]4 
+ 
+发生时间：2020-04-03 15:00:43,730 
+内容： 
+[NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (3)
+ 
+ 
+发生时间：2020-04-03 15:00:43,748 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 15:00:43,853 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:43,971 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 15:00:44,026 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 15:00:44,043 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:44,073 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-04-03 15:00:44,114 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:00:44,133 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-04-03 15:00:44,170 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:00:44,197 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-04-03 15:00:44,208 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:00:44,229 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-04-03 15:00:44,249 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:00:44,269 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-04-03 15:00:44,288 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:00:44,310 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-04-03 15:00:44,314 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:00:44,337 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-04-03 15:00:44,351 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:00:44,371 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-04-03 15:00:44,394 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:00:44,413 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-04-03 15:00:44,417 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:00:48,057 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:48,079 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-04-03 15:00:48,131 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:48,154 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:00:48,237 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:48,315 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:00:48,451 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:48,504 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:00:48,550 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:00:48,588 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:00:48,617 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:48,677 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:52,696 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:52,714 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:00:52,717 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:00:52,737 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:00:52,748 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:52,829 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:55,444 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:55,461 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:00:55,466 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:00:55,488 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:00:55,507 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:00:55,619 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:38,519 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:38,622 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:38,749 
+内容： 
+[ReaderExecuting]Input String @P_0 = '84-7B-EB-55-BF-1D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:38,847 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:38,925 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,028 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:39,117 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,224 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:39,312 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,428 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:39,509 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,635 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:39,702 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,808 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:39,876 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:39,917 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:04:45,004 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:04:45,091 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:04:45,129 
+内容： 
+[NonQueryExecuting]Input String @P_0 = 'Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz';
+Input String @P_1 = '-1';
+Input DateTime @P_2 = '2020/4/3 15:04:45';
+Input Int32 @P_3 = 1;
+UPDATE [HostResource] SET [cpuName]=@P_0,[UpdaterID]=@P_1,[UpdateDt]=@P_2 WHERE [HostResource].[Id] = @P_3
+ 
+ 
+发生时间：2020-04-03 15:04:45,153 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 15:06:12,806 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:12,902 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 15:06:12,959 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 15:06:12,966 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:06:13,008 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-04-03 15:06:13,071 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:06:13,104 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-04-03 15:06:13,112 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:06:13,139 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-04-03 15:06:13,163 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:06:13,169 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-04-03 15:06:13,188 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:06:13,191 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-04-03 15:06:13,221 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:06:13,242 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-04-03 15:06:13,251 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:06:13,259 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-04-03 15:06:13,285 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:06:13,300 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-04-03 15:06:13,306 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 15:06:13,331 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-04-03 15:06:13,346 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 15:06:15,933 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:15,949 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-04-03 15:06:15,998 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:06:16,041 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:06:16,088 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:16,225 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:06:16,335 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:16,382 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:06:16,407 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:06:16,421 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:06:16,503 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:16,572 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:06:20,517 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:20,564 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 15:06:20,591 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:06:20,615 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:06:20,635 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:20,709 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:06:22,950 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 15:06:22,974 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 15:06:23,002 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:06:23,135 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:11,133 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:11,240 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:11,364 
+内容： 
+[ReaderExecuting]Input String @P_0 = '84-7B-EB-55-BF-1D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:11,472 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:11,542 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:11,641 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:11,727 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:11,823 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:11,917 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:12,015 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:12,115 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:12,205 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:12,302 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:12,368 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:12,431 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:12,474 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:11:15,374 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:11:15,457 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:11:15,497 
+内容： 
+[NonQueryExecuting]Input String @P_0 = 'Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz';
+Input String @P_1 = '-1';
+Input DateTime @P_2 = '2020/4/3 15:11:15';
+Input Int32 @P_3 = 1;
+UPDATE [HostResource] SET [cpuName]=@P_0,[UpdaterID]=@P_1,[UpdateDt]=@P_2 WHERE [HostResource].[Id] = @P_3
+ 
+ 
+发生时间：2020-04-03 15:11:15,534 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 15:18:33,340 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:18:33,444 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:40,263 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:40,378 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:40,494 
+内容： 
+[ReaderExecuting]Input String @P_0 = '84-7B-EB-55-BF-1D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:40,610 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:40,686 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:40,803 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:40,886 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:40,987 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:41,067 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:41,160 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:41,213 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:41,300 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:41,373 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:41,476 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 15:21:41,509 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:21:41,548 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 15:21:44,984 
+内容： 
+[NonQueryExecuting]Input String @P_0 = 'Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz';
+Input String @P_1 = '-1';
+Input DateTime @P_2 = '2020/4/3 15:21:44';
+Input Int32 @P_3 = 1;
+UPDATE [HostResource] SET [cpuName]=@P_0,[UpdaterID]=@P_1,[UpdateDt]=@P_2 WHERE [HostResource].[Id] = @P_3
+ 
+ 
+发生时间：2020-04-03 15:21:45,011 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 15:22:02,153 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 15:22:02,189 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:28,484 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:28,578 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:28,708 
+内容： 
+[ReaderExecuting]Input String @P_0 = '84-7B-EB-55-BF-1D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:28,812 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:28,894 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:28,995 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:29,079 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:29,185 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:29,275 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:29,381 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:29,452 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:29,562 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:29,672 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:29,758 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:46:29,830 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:29,855 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:46:33,288 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:46:33,389 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:53:55,759 
+内容： 
+[ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:53:55,883 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 16:53:55,919 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 16:53:55,921 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:53:55,987 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+ 
+ 
+发生时间：2020-04-03 16:53:56,013 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 16:53:56,054 
+内容： 
+[ScalarExecuting]Input String @P_0 = '120ef7da-0fd5-4411-b72b-4dd160153cbe';
+Input DateTime @P_1 = '2020/4/3 21:53:55';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/4/3 16:53:56';
+Input DateTime @P_8 = '2020/4/3 16:53:56';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+ 
+ 
+发生时间：2020-04-03 16:53:56,086 
+内容： 
+[ScalarExecuted]5 
+ 
+发生时间：2020-04-03 16:53:56,094 
+内容： 
+[NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (4)
+ 
+ 
+发生时间：2020-04-03 16:53:56,122 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 16:53:56,231 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:53:56,374 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 16:53:56,420 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 16:53:56,472 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:53:56,507 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-04-03 16:53:56,584 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 16:53:56,633 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-04-03 16:53:56,644 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 16:53:56,658 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-04-03 16:53:56,668 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 16:53:56,689 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-04-03 16:53:56,712 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 16:53:56,733 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-04-03 16:53:56,763 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 16:53:56,783 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-04-03 16:53:56,802 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 16:53:56,834 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-04-03 16:53:56,855 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 16:53:56,882 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-04-03 16:53:56,884 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 16:53:56,916 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-04-03 16:53:56,932 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 16:53:59,949 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:53:59,957 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-04-03 16:54:00,004 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:54:00,042 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 16:54:00,136 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:00,192 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 16:54:00,286 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:00,359 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 16:54:00,394 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 16:54:00,443 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 16:54:00,453 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:00,536 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:54:03,073 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:03,105 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 16:54:03,123 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 16:54:03,150 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 16:54:03,171 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:03,236 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:54:05,751 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:05,830 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 16:54:05,834 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 16:54:05,851 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 16:54:05,872 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:05,973 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:54:07,877 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:54:08,056 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 16:59:43,832 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 16:59:43,912 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:05,439 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:05,543 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:05,656 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:05,765 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:05,848 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:05,971 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:06,068 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:06,193 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:06,282 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:06,376 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:06,429 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:06,522 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:06,600 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:06,640 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 18:43:08,108 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:08,176 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:43:41,408 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 18:43:41,444 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 18:43:41,454 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:43:41,566 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:49:24,959 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:49:24,963 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 18:57:46,762 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 18:57:46,764 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 19:11:54,510 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 19:11:54,524 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 19:40:27,608 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 19:40:27,623 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 19:56:50,399 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 19:56:50,412 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 20:04:15,302 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 20:04:15,304 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 21:38:03,751 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:38:03,759 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 21:52:45,621 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:45,630 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 21:52:45,685 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 21:52:45,695 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 21:52:45,731 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-04-03 21:52:45,741 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 21:52:45,762 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-04-03 21:52:45,764 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 21:52:45,778 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-04-03 21:52:45,781 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 21:52:45,784 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-04-03 21:52:45,812 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 21:52:45,814 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-04-03 21:52:45,816 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 21:52:45,818 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-04-03 21:52:45,830 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 21:52:45,834 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-04-03 21:52:45,837 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 21:52:45,849 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-04-03 21:52:45,851 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 21:52:45,856 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-04-03 21:52:45,866 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 21:52:48,835 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:48,850 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-04-03 21:52:48,859 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 21:52:48,859 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 21:52:48,871 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:48,890 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 21:52:49,023 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:49,037 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 21:52:49,045 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 21:52:49,056 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 21:52:49,061 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:49,083 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 21:52:52,454 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:52,470 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 21:52:52,474 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 21:52:52,485 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 21:52:52,488 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:52,492 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 21:52:55,037 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:55,058 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 21:52:55,061 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 21:52:55,065 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 21:52:55,083 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:55,087 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 21:52:57,545 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 21:52:57,563 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,408 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-FF-43-68-74-8D';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,440 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,555 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-62';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,562 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,592 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2A-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,601 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,619 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-01';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,625 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,640 
+内容： 
+[ReaderExecuting]Input String @P_0 = '00-50-56-C0-00-08';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,652 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,660 
+内容： 
+[ReaderExecuting]Input String @P_0 = '28-16-AD-D2-1C-61';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[macId] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,676 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:00:44,737 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:44,746 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:00:46,190 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:00:46,198 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:14:58,475 
+内容： 
+[ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:14:58,487 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 22:14:58,511 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 22:14:58,516 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:14:58,562 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+ 
+ 
+发生时间：2020-04-03 22:14:58,569 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:14:58,593 
+内容： 
+[ScalarExecuting]Input String @P_0 = '23d0d316-8389-41ba-bcb3-51ca91686d6c';
+Input DateTime @P_1 = '2020/4/4 3:14:58';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/4/3 22:14:58';
+Input DateTime @P_8 = '2020/4/3 22:14:58';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+ 
+ 
+发生时间：2020-04-03 22:14:58,614 
+内容： 
+[ScalarExecuted]5 
+ 
+发生时间：2020-04-03 22:14:58,631 
+内容： 
+[NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (4)
+ 
+ 
+发生时间：2020-04-03 22:14:58,633 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-04-03 22:14:58,709 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:14:58,714 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-04-03 22:14:58,747 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-04-03 22:14:58,760 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:14:58,773 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-04-03 22:14:58,777 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 22:14:58,792 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-04-03 22:14:58,795 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 22:14:58,807 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-04-03 22:14:58,811 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 22:14:58,815 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-04-03 22:14:58,817 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 22:14:58,819 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-04-03 22:14:58,830 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 22:14:58,832 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-04-03 22:14:58,834 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 22:14:58,837 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-04-03 22:14:58,849 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 22:14:58,851 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-04-03 22:14:58,853 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-04-03 22:14:58,858 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-04-03 22:14:58,867 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-04-03 22:15:00,625 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:00,632 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:15:00,653 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-04-03 22:15:00,662 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:15:00,671 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:00,681 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 22:15:00,790 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:00,799 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 22:15:00,816 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 22:15:00,822 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:15:00,835 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:00,844 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:15:03,870 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:03,885 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-04-03 22:15:03,888 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-04-03 22:15:03,891 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:15:03,912 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:03,917 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:15:05,810 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:05,813 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:15:05,835 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 22:15:05,838 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:15:05,842 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:05,855 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:15:08,121 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:15:08,138 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:27:26,797 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:27:26,821 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-04-03 22:27:26,840 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-04-03 22:27:26,844 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-04-03 22:27:26,871 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:27:26,898 
+内容： 
+[ReaderExecuted]22 
+ 
+发生时间：2020-04-03 22:27:31,152 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[haveNginx] AS [haveNginx],[HostResource].[nginxIsRun] AS [nginxIsRun],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[nginxConfPath] AS [nginxConfPath],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE [HostResource].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-04-03 22:27:31,176 
+内容： 
+[ReaderExecuted]22 
+ 

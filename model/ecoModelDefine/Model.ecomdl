@@ -1,0 +1,18 @@
+<Model>
+  <Packages>
+    <Package Name="deploySys.Model" FileName="deploySys.Model" GUID="0b7afabd-7d99-42cb-9b94-0a428df3f689" />
+    <Package Name="Common" FileName="Common" GUID="14a1c79d-c6fd-4d0f-9dbc-d8eadb4b8598" />
+    <Package Name="Application.Model.Base" FileName="Application.Model.Base" GUID="cf791860-0a6c-4d4a-ad4d-ebe1b6a3f514" />
+  </Packages>
+  <ReferencedPackages />
+  <TagExtensions />
+  <Diagrams>
+    <Diagram Name="StateDiagram" FileName="StateDiagram" GUID="0261c31c-8a30-41aa-a335-1db70de98487" />
+    <Diagram Name="Base_Diagram" FileName="Base_Diagram" GUID="5645dc19-1102-4a2d-add7-1d48e8791815" />
+  </Diagrams>
+  <Spans />
+  <Report />
+  <ModlrProject>
+    <ModlrProject Name="ModlrProject" FileName="ModlrProject" GUID="{ModlrProject}" />
+  </ModlrProject>
+</Model>

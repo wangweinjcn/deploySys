@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+@{
+    Layout = "_Layout";
+}
+<script src="~/js/jquery.md5.js"></script>
+<style>
+    .login-wrap {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        position: absolute;
+        background: #3283AC url(../img/login/admin-login-bg.jpg) no-repeat center;
+    }
+    .ms-title {
+        width:400px;
+        margin:0px auto;
+        margin-top:80px;
+        font-size: 36px;
+        color:white;
+    }
+    .ms-login {
+        width: 400px;
+        padding: 40px;
+        border: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -200px;
+        margin-top: -200px;
+        background: url(../img/login/admin-loginform-bg.png) no-repeat;
+    }
+    .infoMess {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .demo-ruleForm p{
+        font-size:12px;
+        line-height:30px;
+        color:#686868;
+        text-align:center;
+        margin-top:10px;
+    }
+</style>
+<script language="JavaScript">
+
+    if (window != top)
+        top.location.href = location.href;
+    layui.use('layer', function () {
+        var layer = layui.layer;
+
+    });
+</script>
+
+<div id="app"> 
+    <template>
+        <div class="login-wrap">
+            <div class="ms-title"></div>
+            <div class="ms-login">
+                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
+                    <el-form-item prop="LoginId">
+                        <el-input v-model="ruleForm.LoginId" auto-complete="off" placeholder="用户名"></el-input>
+                    </el-form-item>
+                    <el-form-item prop="password">
+                        <el-input type="password" auto-complete="off" placeholder="密码" v-model="ruleForm.PasswordShow"></el-input>
+                        <span>{{ruleForm.errorMsg}}</span>
+                        <div class="info-item infoMess">
+                            <el-input type="password" style="display:none" auto-complete="off" placeholder="password" v-model="ruleForm.Password"></el-input>
+                        </div>
+                    </el-form-item>
+                    <el-checkbox v-model="ruleForm.saveauto">自动登陆</el-checkbox>
+                    <div class="login-btn">
+                        <el-button type="primary" v-on:click.native="submitForm()">登录</el-button>
+                    </div>
+                    <p style="font-size:12px;line-height:30px;color:#686868;text-align:center;margin-top:10px"> </p>
+                </el-form>
+            </div>
+        </div>
+    </template>
+</div>
+
+<script>
+    var instance = axios.create();
+    var app = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                ruleForm: {
+                    LoginId: '',
+                    Password: '',
+                    saveauto:false,
+                    errorMsg: ''
+                },
+                rules: {
+                    LoginId: [
+                        { required: true, message: '请输入用户名', trigger: 'blur' }
+                    ],
+                    Password: [
+                        { required: true, message: '请输入密码', trigger: 'blur' }
+                    ]
+                }
+            }
+        },
+        methods: {
+            submitForm() {
+                app.ruleForm.Password = $.md5($.trim(app.ruleForm.PasswordShow))
+                $vmpa.post("/comm/account/login", app.ruleForm, function (res) {
+                 
+                    if (res.Status === ResultStatus.OK) {
+
+                        console.log(res);
+                        if (res && res.Data.access_token) {
+                            var type = ''
+                            if (!app.ruleForm.saveauto) {
+                                type = 'sessionStorage'
+                                storage.set('jwtToken', res.Data.access_token, res.Data.profile.expires_at, type)
+                            } else {
+                                cookie.set('jwtToken', res.Data.access_token, res.Data.profile.expires_at)
+                            }
+                            storage.set('userinfo', res.Data)
+                        }
+                        top.location.href  = "/Home/Index";
+
+                    } else {
+                        app.ruleForm.errorMsg = res.Msg
+                    }
+                });
+             
+               
+            }
+        }
+    })
+</script>
+
+<style scoped lang="less">
+    .ms-title {
+       
+    }
+    .login-btn {
+        text-align: center;
+        margin-top: 22px;
+    }
+
+        .login-btn button {
+            width: 100%;
+            height: 36px;
+        }
+</style>
+
+

@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+ <div id="app">
+    <ve-line :data="chartData"></ve-line>
+  </div>
+@section vueScript{
+
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: function () {
+        return {
+          chartData: {
+            columns: ['reportDt', 'cpuLoad','memoryUsage'],
+            rows: []
+          }
+        }
+        },
+        created() {
+            this.getdata();
+            setInterval(this.getdata, 60000);
+        },
+        methods: {
+            getdata() {
+                var _this = this;
+                 $vmpa.get("/Api/sysconf/HostResourcePerfs/@ViewBag.hostId", null, function (result) {
+                     if (result.Status == ResultStatus.OK) {
+                         _this.chartData.rows = result.Data;
+                    }
+                });
+            }
+        }
+    })
+  </script>
+    }

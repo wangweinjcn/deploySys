@@ -1,0 +1,9 @@
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\netstandard2.0\deploySys.Common.deps.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\netstandard2.0\deploySys.Common.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\netstandard2.0\deploySys.Common.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.csproj.CoreCompileInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.AssemblyInfoInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.AssemblyInfo.cs
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Release\netstandard2.0\deploySys.Common.csprojAssemblyReference.cache

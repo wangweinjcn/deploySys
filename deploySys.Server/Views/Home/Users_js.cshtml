@@ -1,0 +1,75 @@
+﻿
+
+
+<el-dialog title="用户信息维护" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="800px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="姓名："  :rules="[
+      { required: true, message: '姓名不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.LoginId" :disabled="false"  placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="登录名：" :rules="[
+      { required: true, message: '登录名不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.LoginId" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+            <el-col :span="12">
+                <el-form-item label="邮件：" :rules="[
+      { required: true, message: '邮件不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.Email" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="手机号：" :rules="[
+      { required: true, message: '手机号不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.Mobile" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+            <el-col :span="12">
+                <el-form-item label="密码：" :rules="[
+      { required: true, message: '密码不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.OrigonPassword" :disabled="false" type="password" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="工 号：">
+                    <el-input v-model="mainDialog.EditModel.OtherLoginId" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+           
+            <el-col :span="12">
+                <el-form-item label="角色：" :rules="[
+      { required: true, message: '角色不能为空'}      
+    ]">
+                    <el-select v-model="mainDialog.EditModel.allroles" multiple placeholder="请选择">
+                        <el-option v-for="item in rolesOptions"
+                                   :key="item.Id"
+                                   :label="item.Name"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+        </el-row>              
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+
+

@@ -1,0 +1,138 @@
+﻿
+
+
+<el-dialog title="发布版本" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="800px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="集群：" :rules="[ { required: true, message: '集群不能为空'}  ]">
+                    <el-select v-model="mainDialog.EditModel.Ass_Zone_Id" placeholder="请选择" v-on:change="mainDialog.editZoneOnchange()">
+                        <el-option v-for="item in categorys"
+                                   :key="item.Id"
+                                   :label="item.Name"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+    <el-col :span="12">
+                <el-form-item label="分配主机：" >
+                    <el-select v-model="hostIds" multiple  placeholder="请选择">
+                        <el-option v-for="item in mainDialog.zoneHosts"
+                                   :key="item.Id"
+                                   :label="item.IP"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+        </el-row>
+        <el-row>
+                <el-col :span="12">
+                <el-form-item label="微服务应用：" :rules="[ { required: true, message: '应用不能为空'}  ]">
+                    <el-select v-model="mainDialog.EditModel.Ass_MicroServiceApp_Id" placeholder="请选择">
+                        <el-option v-for="item in msApps"
+                                   :key="item.Id"
+                                   :label="item.appName"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+          
+        </el-row>
+         <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="打包文件（rar格式，文件目录）：">
+                    <input type="file" id="importfile1" class="file">
+                </el-form-item>
+            </el-col>
+        </el-row>
+ <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="发布版本:">
+                    <el-input v-model="mainDialog.EditModel.Version" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="发布数量:">
+                    <el-input v-model="mainDialog.EditModel.count" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
+          <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="主机策略:">                    
+                      <el-radio-group v-model="mainDialog.EditModel.selectHostPolicy">
+    <el-radio :label="0">负载最低</el-radio>
+    <el-radio :label="1">实例最少</el-radio>  
+  </el-radio-group>
+
+                </el-form-item>
+            </el-col>
+              <el-col :span="12">
+                <el-form-item label="配置文件覆盖:">                    
+                      <el-radio-group v-model="mainDialog.EditModel.confFileOverride">
+    <el-radio :label="0">不覆盖</el-radio>
+    <el-radio :label="1">覆盖</el-radio>  
+  </el-radio-group>
+
+                </el-form-item>
+            </el-col>
+             </el-row>
+              <el-row>
+                  <el-col :span="12">
+                <el-form-item label="发布类型:">                    
+                      <el-radio-group v-model="mainDialog.EditModel.overridePolicy">
+    <el-radio :label="0">增量包覆盖</el-radio>
+    <el-radio :label="1">全量包比对覆盖</el-radio>  
+                           <el-radio :label="1">全量包全覆盖</el-radio>  
+  </el-radio-group>
+
+                </el-form-item>
+            </el-col>
+              </el-row>
+       <el-row :gutter="10">
+          
+           <el-col :span="12">
+                <el-form-item label="覆盖类型:">
+                  <el-radio-group v-model="mainDialog.EditModel.overRideType">
+    <el-radio :label="0">部分覆盖</el-radio>
+    <el-radio :label="1">全覆盖</el-radio>  
+  </el-radio-group>
+                </el-form-item>
+            </el-col>
+            
+                <el-col :span="12">
+                <el-form-item label="docker网络:">                    
+                      <el-radio-group v-model="mainDialog.EditModel.dockerNetType">
+    <el-radio :label="0">bridge</el-radio>
+    <el-radio :label="1">host</el-radio>  
+  </el-radio-group>
+
+                </el-form-item>
+            </el-col>
+
+        </el-row>
+     <el-row :gutter="10">
+            <el-col :span="20">
+                <el-form-item label="备注:">
+                    <el-input v-model="mainDialog.EditModel.memo" :disabled="false" placeholder="请输入" style="width:450px"></el-input>
+                </el-form-item>
+            </el-col>
+         </el-row>
+       
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+
+

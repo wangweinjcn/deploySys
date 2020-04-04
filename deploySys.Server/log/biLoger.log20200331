@@ -1,0 +1,36 @@
+31 Mar 2020 07:30:54,898  INFO [28] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Home/Login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:30:59,497  INFO [31] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:31:00,101  INFO [31] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:31:04,616  INFO [7] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Home/appTypes||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:31:05,189  INFO [31] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Api/sysconf/AppTypes?_dc=1585611064878&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:32:02,537  INFO [6] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Api/sysconf/auAppType||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:32:02,766  INFO [6] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Api/sysconf/AppTypes?_dc=1585611122554&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:32:11,579  INFO [6] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Api/sysconf/auAppType||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}
+31 Mar 2020 07:32:11,726  INFO [27] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Api/sysconf/AppTypes?_dc=1585611131591&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||{
+  "uid": "92",
+  "sid": "b1bd8b3c-2518-4bd9-a637-17bc0c8149a9"
+}

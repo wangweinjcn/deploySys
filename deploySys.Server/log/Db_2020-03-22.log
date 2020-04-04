@@ -1,0 +1,674 @@
+﻿发生时间：2020-03-22 19:25:52,907 
+内容： 
+[ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:53,000 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-03-22 19:25:53,077 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-22 19:25:53,082 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:25:53,171 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:25:53,190 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:25:53,235 
+内容： 
+[ScalarExecuting]Input String @P_0 = 'b7f69b43-863f-4ab9-be0d-93062fee8a58';
+Input DateTime @P_1 = '2020/3/23 0:25:53';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/3/22 19:25:53';
+Input DateTime @P_8 = '2020/3/22 19:25:53';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+ 
+ 
+发生时间：2020-03-22 19:25:53,291 
+内容： 
+[ScalarExecuted]3 
+ 
+发生时间：2020-03-22 19:25:53,303 
+内容： 
+[NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (2)
+ 
+ 
+发生时间：2020-03-22 19:25:53,309 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-03-22 19:25:53,497 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:53,614 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-03-22 19:25:53,708 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-22 19:25:53,713 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:25:53,784 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-03-22 19:25:53,821 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:25:53,848 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-03-22 19:25:53,851 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:25:53,915 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-03-22 19:25:53,932 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:25:53,938 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-03-22 19:25:53,955 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:25:53,972 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-03-22 19:25:53,986 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:25:53,999 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-03-22 19:25:54,004 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:25:54,030 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-03-22 19:25:54,045 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:25:54,050 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-03-22 19:25:54,067 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:25:54,081 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-03-22 19:25:54,093 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:25:56,701 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-22 19:25:56,708 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:25:56,709 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:56,765 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:25:56,810 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:56,851 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:25:56,978 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:57,083 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:25:57,101 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:25:57,126 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:25:57,147 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:25:57,207 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:26:01,188 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:26:01,204 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:26:01,221 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:26:01,226 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:26:01,247 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:26:01,301 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:26:05,070 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:26:05,104 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:26:05,130 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:26:05,134 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:26:05,222 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:26:05,300 
+内容： 
+[ReaderExecuted]19 
+ 
+发生时间：2020-03-22 19:27:38,927 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-22 19:27:38,943 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:27:38,959 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-03-22 19:27:39,002 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:27:39,012 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-03-22 19:27:39,024 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:27:39,040 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-03-22 19:27:39,059 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:27:39,070 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-03-22 19:27:39,083 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:27:39,097 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-03-22 19:27:39,103 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:27:39,121 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-03-22 19:27:39,132 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:27:39,149 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-03-22 19:27:39,164 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:27:39,170 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-03-22 19:27:39,189 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:27:39,203 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-03-22 19:27:39,207 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:27:44,294 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:27:44,294 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-22 19:27:44,337 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:27:44,341 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:27:44,367 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:27:44,412 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:27:44,602 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:27:44,696 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:27:44,727 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:27:44,815 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:27:47,790 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:27:47,800 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:27:47,821 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:27:47,874 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:27:50,415 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:27:50,445 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:27:50,475 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:27:50,539 
+内容： 
+[ReaderExecuted]19 
+ 
+发生时间：2020-03-22 19:32:29,834 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:29,866 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-03-22 19:32:29,951 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-22 19:32:29,955 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:32:30,040 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-03-22 19:32:30,046 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:32:30,061 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-03-22 19:32:30,063 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:32:30,111 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-03-22 19:32:30,113 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:32:30,116 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-03-22 19:32:30,119 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:32:30,121 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-03-22 19:32:30,123 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:32:30,129 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-03-22 19:32:30,131 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:32:30,135 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-03-22 19:32:30,137 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:32:30,140 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-03-22 19:32:30,143 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-22 19:32:30,146 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-03-22 19:32:30,149 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-22 19:32:33,818 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:33,821 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-22 19:32:33,823 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:32:33,823 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:32:33,915 
+内容： 
+[ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:33,921 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:32:34,078 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:34,083 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:32:34,097 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:32:34,102 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:32:34,108 
+内容： 
+[ReaderExecuting]Input String @P_0 = '2';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:34,114 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:32:36,821 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE [Region].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:36,828 
+内容： 
+[ReaderExecuted]10 
+ 
+发生时间：2020-03-22 19:32:36,832 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:32:36,836 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:32:36,839 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE (NOT ([Zone].[IsDeleted] = 1) AND [Zone].[Ass_Region] = @P_0) ORDER BY [Zone].[CreateDt] DESC LIMIT 100 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:36,849 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:32:39,169 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [Zone].[Id] AS [Id],[Zone].[Name] AS [Name],[Zone].[Key] AS [Key],[Zone].[Ass_Region] AS [Ass_Region_Id],[Zone].[UpdaterID] AS [UpdaterID],[Zone].[UpdaterName] AS [UpdaterName],[Zone].[CreateDt] AS [CreateDt],[Zone].[UpdateDt] AS [UpdateDt],[Zone].[IsDeleted] AS [IsDeleted],[Zone].[CreaterName] AS [CreaterName],[Zone].[CreaterID] AS [CreaterID] FROM [Zone] AS [Zone] WHERE [Zone].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:39,174 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-22 19:32:39,193 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT COUNT(1) AS [C] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0)
+ 
+ 
+发生时间：2020-03-22 19:32:39,199 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-22 19:32:39,284 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [HostResource].[Id] AS [Id],[HostResource].[IP] AS [IP],[HostResource].[clientSessionId] AS [clientSessionId],[HostResource].[allocFromPort] AS [allocFromPort],[HostResource].[nodePort] AS [nodePort],[HostResource].[nodeId] AS [nodeId],[HostResource].[allocEndPort] AS [allocEndPort],[HostResource].[appBaseDir] AS [appBaseDir],[HostResource].[hostName] AS [hostName],[HostResource].[macId] AS [macId],[HostResource].[cpuName] AS [cpuName],[HostResource].[Ass_Zone] AS [Ass_Zone_Id],[HostResource].[UpdaterID] AS [UpdaterID],[HostResource].[UpdaterName] AS [UpdaterName],[HostResource].[CreateDt] AS [CreateDt],[HostResource].[UpdateDt] AS [UpdateDt],[HostResource].[IsDeleted] AS [IsDeleted],[HostResource].[CreaterName] AS [CreaterName],[HostResource].[CreaterID] AS [CreaterID] FROM [HostResource] AS [HostResource] WHERE (NOT ([HostResource].[IsDeleted] = 1) AND [HostResource].[Ass_Zone] = @P_0) ORDER BY [HostResource].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-22 19:32:39,289 
+内容： 
+[ReaderExecuted]19 
+ 

@@ -1,0 +1,231 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <el-row :gutter="20">
+        <el-col :span="8">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.Id" placeholder="请选择">
+                    <el-option v-for="item in allAppTypes"
+                               :key="item.Id"
+                               :label="item.name"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+            <el-col :span="12">
+            <div class="grid-content">
+                <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+            </div>
+        </el-col>
+        
+    </el-row>
+
+
+       
+}
+@section _command{
+    <el-button-group>
+        <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
+        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+         <el-button type="primary" icon="el-icon-s-grid" v-on:click="openAppVersions" :disabled="mainCommandDisnable||disableOssCbe">查看版本</el-button>
+        <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppInstances" :disabled="mainCommandDisnable||disableOssCbe">查看实例</el-button>
+       
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                  v-on:on-custom-comp="customCompFunc"
+                 :paging-index="(mainPageIndex-1)*pageSize">
+                
+        </v-table>
+
+        <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    </div>
+    <div>
+        @Html.Partial("msApps_js")
+    </div>
+</template>
+
+
+@section vueScript{
+
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.allAppTypes = [];
+
+            me.data.mainSearchModel = { "keyword": null, "Id": 1 };
+
+
+            me.data.mainTableConfig.columns = [
+                 {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'key', width: 150, titleAlign: 'center', title: 'key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'memo', width: 300, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+            me.methods.customCompFunc = function (params) {
+                console.log(params);
+
+               
+            }
+             me.methods.openAppVersions = function () {
+                if (me.data.appVDialog != null) {
+                    me.data.appVDialog.Open(me.data.mainSelectedModel, "版本列表");
+                }
+            }
+         me.methods.openAppInstances = function () {
+                var xx = top.layui.element;
+                var tabUrl = "/home/appInstances/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "appInstances-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "应用运行实例[" + me.data.mainSelectedModel.key + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            }
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            me.mainLoadTablePagedDataUrl = "/Api/sysconf/MicroServiceApps";
+            me.mainAddUrl = "/Api/sysconf/auMicroServiceApp";
+            me.mainDeleteUrl = "/Api/sysconf/deleteMicroServiceApp";
+            me.mainUpdateUrl = "/Api/sysconf/auMicroServiceApp";
+            me.data.mainDialog = new goodsDialog(this, true);
+            me.data.appVDialog = new appVersionsDialog(this,true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+
+                $vmpa.get("/Api/sysconf/AppTypes?PageSize=100", null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.allAppTypes = result.Data.DataList;
+                    }
+                });
+               
+            }
+            me.methods.mainAdd = function () {
+                var newmodel = { Id: -1, allroles: [] };
+                me.OnMainEdit(newmodel, "新增");
+            }
+        }
+        function goodsDialog(vm, _ismain) {
+            var me = this;
+            DialogBase.call(me, vm, _ismain);
+            me.editAppTypeOnchange = function () {
+                me._vm.data.allAppTypes.forEach(function (value, index, array) {
+                    if (value.Id == me.EditModel.Ass_AppType_Id) {
+                        if (me.EditModel.buildScript == null) {
+                            me.EditModel.buildScript = value.buildScript;
+                        };
+                         if (me.EditModel.startCommand == null) {
+                            me.EditModel.startCommand = value.startCommand;
+                        };
+                         if (me.EditModel.stopCommand == null) {
+                            me.EditModel.stopCommand = value.stopCommand;
+                        };
+                        if (me.EditModel.createContainerParams == null) {
+                            me.EditModel.createContainerParams = value.createContainerParams;
+                        };
+                    }
+                });
+                
+            }
+            me.OnSave = function (model) {
+                var updateurl = "";
+
+
+                if (me.EditModel[me._vm.ModelKeyName] > 0) {
+
+
+                    if (me.isMain)
+                        updateurl = me._vm.mainUpdateUrl + "/" + me.EditModel["Ass_AppType_Id"];
+                    else
+                        updateurl = me._vm.slaveUpdateUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                } else {
+                    if (me.isMain)
+                        updateurl = me._vm.mainAddUrl + "/" + me.EditModel["Ass_AppType_Id"];
+                    else
+                        updateurl = me._vm.slaveAddUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                }
+            }
+
+
+        }
+
+        function appVersionsDialog(vm, _ismain) {
+            var me = this;
+             me.tableData = [];
+            DialogBase.call(me, vm, _ismain);
+             me.refreshTable = function () {
+                $vmpa.get("/Api/sysconf/lastAppVersions/" + me.EditModel.Id, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        console.log("now refresh tabledata")
+                        me.tableData = result.Data;
+                    }
+                });
+            }
+            me.OnOpen = function () {
+
+
+                me.refreshTable();
+            }
+        }
+       
+    </script>
+
+}
+

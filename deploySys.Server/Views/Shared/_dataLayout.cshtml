@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+<script src="~/js/jquery.md5.js"></script>
+<style>
+    .el-row {
+        margin-bottom: 20px !important;
+    }
+
+    .v-page-ul {
+        margin-top: 20px;
+        float: right;
+    }
+
+    .pages .v-page-ul {
+        margin-top: 20px;
+        float: left;
+    }
+</style>
+<div id="app">
+    @section _Scripts{
+
+        @Html.Partial("_searchcomponent")
+    }
+    <el-row class="container" style="height: 100%">
+        <el-col :span="9">
+            @RenderSection("_search", required: false)
+        </el-col>
+        <el-col :lg="9" :offset="3">
+            @RenderSection("_command", required: false)
+        </el-col>
+    </el-row>
+
+    <el-row class="container" style="height: 100%">
+        @RenderBody()
+    </el-row>
+</div>
+@RenderSection("vueScript",required:true)
+
+

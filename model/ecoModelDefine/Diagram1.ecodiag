@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Diagram Name="Diagram1" ChangeDate="0001-01-01 00:00:00" ColorOnNew="0" Comment="" Designer="" ShowAssociationNames="DimDefaults" ShowMethodReturnTypes="False" ShowMethodSignatures="False" ShowVisibility="False" SnapGridSize="8" SquareNewAssociations="False" SquareNewGeneralizations="False" ZoomScaleFactor="1.47745544378906" Id="79c74227-fd21-4bdd-99ef-730506b6da19">
+  <PlacedClass>
+    <PlacedClass ClassId="8aa7beac-aba2-46ef-b6af-ebf3362dfe3e" Color="1692800256" LastKnownName="ServerType" PickedFeatureVisibility="ShowAll" RenderedHeight="65" RenderedWidth="98" ShowAttributes="False" ShowMethods="False" Size="1" x="72" y="136" id="01ccc626-f192-4f61-b5cd-2625130d2688" />
+    <PlacedClass ClassId="4e7de06e-b592-4eba-9b65-4b9c58d28d84" Color="1692800256" LastKnownName="Server" PickedFeatureVisibility="ShowAll" RenderedHeight="105" RenderedWidth="123" ShowAttributes="False" ShowMethods="False" Size="1" x="408" y="24" id="1bdc89df-f28b-4fe0-a643-34fbe00a173c" />
+    <PlacedClass ClassId="54ad6dc9-5b5d-43b6-b22a-d3915874e293" Color="1692800256" LastKnownName="Params" PickedFeatureVisibility="ShowAll" RenderedHeight="54" RenderedWidth="78" ShowAttributes="False" ShowMethods="False" Size="1" x="344" y="336" id="1f15f40c-051d-405e-a0ca-5674a8683843" />
+  </PlacedClass>
+</Diagram>

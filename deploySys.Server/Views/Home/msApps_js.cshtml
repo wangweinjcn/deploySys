@@ -1,0 +1,165 @@
+﻿
+
+
+<el-dialog title="集群信息" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="800px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="24">
+                <el-form-item label="应用类型：" :rules="[ { required: true, message: '应用类型不能为空'}  ]">
+                    <el-select v-model="mainDialog.EditModel.Ass_AppType_Id" placeholder="请选择" v-on:change="mainDialog.editAppTypeOnchange()">
+                        <el-option v-for="item in allAppTypes"
+                                   :key="item.Id"
+                                   :label="item.name"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+  
+        </el-row>
+ <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="key:">
+                    <el-input v-model="mainDialog.EditModel.key" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="应用名称:">
+                    <el-input v-model="mainDialog.EditModel.appName" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
+         <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="服务端口:">
+                    <el-input v-model="mainDialog.EditModel.port" :disabled="false" placeholder="请输入" style="width:100px"></el-input>
+                </el-form-item>
+            </el-col>
+              <el-col :span="12">
+                <el-form-item label="代理端口:">
+                    <el-input v-model="mainDialog.EditModel.proxyPort" :disabled="false" placeholder="请输入" style="width:350px"></el-input>
+                </el-form-item>
+            </el-col>
+           
+
+
+        </el-row>
+        <el-row>
+            <el-col :span="12">
+                <el-radio-group v-model="mainDialog.EditModel.serviceType">
+        <el-radio :label="0">微服务</el-radio>
+        <el-radio :label="1">Web站点</el-radio>  
+                     <el-radio :label="2">socket</el-radio>
+                     <el-radio :label="3">需要域名解析的微服务</el-radio>
+
+  </el-radio-group>
+               
+                
+            </el-col>
+             </el-row>
+         <el-row>
+              <el-col :span="12">
+                <el-form-item label="配置文件列表:">
+                    <el-input v-model="mainDialog.EditModel.confFileNames" :disabled="false" placeholder="请输入" style="width:500px"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+          <el-row>
+              <el-col :span="12">
+                <el-form-item label="反代域名:">
+                    <el-input v-model="mainDialog.EditModel.hostname" :disabled="false" placeholder="请输入" style="width:500px"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+        <el-row>
+             <el-col :span="12">
+                <el-form-item label="其他备注:">
+                    <el-input v-model="mainDialog.EditModel.memo" :disabled="false" placeholder="请输入" style="width:500px"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
+       
+        <el-row>
+            <el-col :span="24">
+                    <el-form-item label="编译脚本:">
+                        <el-input v-model="mainDialog.EditModel.buildScript" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                    <el-form-item label="容器参数:">
+                        <el-input v-model="mainDialog.EditModel.createContainerParams" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:100px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+         <el-row>
+            <el-col :span="24">
+                    <el-form-item label="启动脚本:">
+                        <el-input v-model="mainDialog.EditModel.startCommand" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+         <el-row>
+            <el-col :span="24">
+                    <el-form-item label="停止脚本:">
+                        <el-input v-model="mainDialog.EditModel.stopCommand" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+      
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+<el-dialog title="发布版本列表" :visible="appVDialog.IsShow"
+           v-on:close='appVDialog.Close' v-on:open=""
+           v-loading="appVDialog.loading" width="900px">
+  
+    <el-row>
+        <el-col>
+            <el-table :data="appVDialog.tableData"
+                      border
+                      style="width: 100%">
+                <el-table-column fixed
+                                 prop="Id"
+                                 label="Id"
+                                 width="50">
+                </el-table-column>
+               
+                <el-table-column prop="version"
+                                 label="版本号"
+                                 width="150">
+                </el-table-column>
+                <el-table-column prop="CreateDt"
+                                 label="生成日期"
+                                 width="150">
+                </el-table-column>
+                <el-table-column prop="Creater"
+                                 label="创建人"
+                                 width="50">
+                </el-table-column>
+              
+            </el-table>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col>
+
+        </el-col>
+    </el-row>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="appVDialog.Close">关闭</el-button>
+
+    </div>
+</el-dialog>
+
+

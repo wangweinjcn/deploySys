@@ -1,0 +1,155 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+}
+@section _command{
+    <el-button-group>
+           <el-button type="primary" icon="el-icon-delete" v-on:click="stopInstance" :disabled="mainCommandDisnable"></el-button>
+           <el-button type="primary" icon="el-icon-magic-stick" v-on:click="restartInstance" :disabled="mainCommandDisnable"></el-button>
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                 :paging-index="(mainPageIndex-1)*pageSize"></v-table>
+
+       <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    <div>
+        @Html.Partial("appInstances_js")
+    </div>
+</template>
+
+
+@section vueScript{
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.deptOptions = [];
+            me.data.rolesOptions = [];
+            me.data.mainTableConfig.columns = [
+                {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'DockerInstance.instanceId', width: 200, titleAlign: 'center', title: '实例Id', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'DockerInstance.proxyPort', width: 100, titleAlign: 'center', title: '代理端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'DockerInstance.status', width: 100, titleAlign: 'center', title: '实例状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',formatter: function (rowData, rowIndex, pagingIndex, field) {
+                        console.log(rowData);
+                        return rowData.status == 0 ? '预分配' : rowData.status == 10 ? '待处理' : rowData.status == 20 ? '运行中' :rowData.status == -1 ? '已停止':rowData.status == 100 ? '等待停止':rowData.status == 101 ? '等待重启': '其他'
+                    }, isFrozen: true },
+                { field: 'DockerInstance.CreateDt', width: 100, titleAlign: 'center', title: '创建时间', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+
+                { field: 'MicroServiceApp.appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+           { field: 'MicroServiceApp.key', width: 100, titleAlign: 'center', title: '应用Key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+           { field: 'MicroServiceApp.port', width: 100, titleAlign: 'center', title: '应用端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+            me.methods.stopInstance = function () {
+                $vmpa.post("/Api/SysManage/stopInstance/"+me.data.mainSelectedModel.Id, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.refreshTable();
+                    }
+                });
+            };
+            me.methods.restartInstance = function () {
+                 $vmpa.post("/Api/SysManage/restartInstance/"+me.data.mainSelectedModel.Id, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.refreshTable();
+                    }
+                });
+            };
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            
+            me.mainLoadTablePagedDataUrl = "/Api/SysManage/MicroServiceAppsInstance?appId=@ViewBag.appId &hostId=@ViewBag.hostId";
+            me.mainAddUrl = "";
+            me.mainDeleteUrl = "";
+            me.mainUpdateUrl = "";
+            me.data.mainDialog = new appTypeDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+              
+            }
+        }
+        function appTypeDialog(vm, _ismain) {
+            var me = this;
+            DialogBase.call(me, vm, _ismain);
+            me.OnSave = function (model) {
+                var updateurl = "";
+                
+               
+                if (me.EditModel[me._vm.ModelKeyName] > 0) {
+
+
+                   
+
+                    if (me.isMain)
+                        updateurl = me._vm.mainUpdateUrl;
+                    else
+                        updateurl = me._vm.slaveUpdateUrl;
+                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                } else {
+                    if (me.isMain)
+                        updateurl = me._vm.mainAddUrl;
+                    else
+                        updateurl = me._vm.slaveAddUrl;
+                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                }
+            }
+        
+           
+        }
+    </script>
+
+}
+

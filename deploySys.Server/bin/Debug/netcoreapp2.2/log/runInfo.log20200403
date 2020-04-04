@@ -1,0 +1,32 @@
+2020-04-03 14:53:28,350 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 14:53:28,494 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 14:53:28,494 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 14:53:29,055 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 15:04:19,333 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 15:04:19,534 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 15:04:19,534 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 15:04:20,416 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 15:10:51,570 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 15:10:51,738 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 15:10:51,738 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 15:10:52,354 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 15:16:42,729 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 15:16:42,876 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 15:16:42,876 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 15:16:43,479 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 15:18:18,152 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 15:18:18,302 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 15:18:18,302 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 15:18:18,915 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 16:46:05,559 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 16:46:05,691 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 16:46:05,691 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 16:46:06,269 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 18:41:37,701 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 18:41:37,831 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 18:41:37,832 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 18:41:38,390 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-04-03 22:00:27,051 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-04-03 22:00:27,297 [1] INFO  runInfo [(null)] - [.ctor:196@Confg.cs]runconfig ok
+2020-04-03 22:00:27,297 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-04-03 22:00:27,877 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*

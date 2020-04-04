@@ -1,0 +1,39 @@
+﻿
+
+
+<el-dialog title="区域维护" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="1100px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="Key:">
+                    <el-input v-model="mainDialog.EditModel.key" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="名称:">
+                    <el-input v-model="mainDialog.EditModel.name" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
+      
+        <el-row>
+            <el-col :span="24">
+                    <el-form-item label="编译脚本:">
+                        <el-input v-model="mainDialog.EditModel.buildScript" type="textarea" :disabled="false" placeholder="请输入" style="width:500px;height:20px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+
+

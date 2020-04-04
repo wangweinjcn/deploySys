@@ -1,0 +1,9 @@
+﻿    Vue.component('searcheditor', {
+        props:['searchmodel'],
+        mounted: function () {
+         
+        },
+        template: '<el-input placeholder="请输入内容" v-model="searchmodel.keyword">            <el-button slot="append" icon="el-icon-search" v-on:click="$emit(\'dosearch\')"></el-button>   </el-input>'
+    })
+
+

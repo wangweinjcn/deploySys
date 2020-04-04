@@ -1,0 +1,227 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <el-row :gutter="20">
+        <el-col :span="8">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.Id" placeholder="请选择">
+                    <el-option v-for="item in categorys"
+                               :key="item.Id"
+                               :label="item.Name"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+            <el-col :span="12">
+            <div class="grid-content">
+                <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+            </div>
+        </el-col>
+        
+    </el-row>
+
+
+       
+}
+@section _command{
+    <el-button-group>
+        <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
+        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+       
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                  v-on:on-custom-comp="customCompFunc"
+                 :paging-index="(mainPageIndex-1)*pageSize">
+                
+        </v-table>
+
+        <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    </div>
+    <div>
+        @Html.Partial("zones_js")
+    </div>
+</template>
+
+
+@section vueScript{
+
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        Vue.component('table-Image',{
+        template:`<span>
+        <a href="" v-on:click.stop.prevent="ViewBar(rowData,index)">查看二维码</a>&nbsp;
+      
+     <!--   <img :src='rowData["barCodeUrl"]'  alt=""  style="width: 200px; height: 100px" /> -->
+    
+        </span>`,
+            props: {
+               
+            rowData:{
+                type:Object
+            },
+            field:{
+                type:String
+            },
+            index:{
+                type:Number
+            }
+        },
+        methods:{
+            ViewBar(){
+
+               // 参数根据业务场景随意构造
+               let params = {type:'ViewBar',index:this.index,rowData:this.rowData};
+               this.$emit('on-custom-comp',params);
+            },
+
+            deleteRow(){
+
+                // 参数根据业务场景随意构造
+                let params = {type:'delete',index:this.index};
+                this.$emit('on-custom-comp',params);
+
+            }
+        }
+    })
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.categorys = [];
+            me.data.barImageUrl = "";
+            me.data.barCode = "";
+            me.data.mainSearchModel = { "keyword": null, "Id": 1 };
+            me.data.CurrencyList = [];
+            me.data.CountryKeyList = [];
+            me.data.UMlist = [];
+
+            me.data.mainTableConfig.columns = [
+                 {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'Key', width: 330, titleAlign: 'center', title: 'Key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'Name', width: 330, titleAlign: 'center', title: '集群名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+            me.methods.customCompFunc = function (params) {
+                console.log(params);
+
+                if (params.type === 'delete') { // do delete operation
+
+                    //this.$delete(this.tableData, params.index);
+
+                } else if (params.type === 'ViewBar') { // do edit operation
+                    me.data.barImageUrl = params.rowData['barCodeUrl'];
+                    me.data.barCode = params.rowData['BarCode'];
+                    me.data.barImageDialog.Open(null);
+                }
+            }
+
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            me.mainLoadTablePagedDataUrl = "/Api/sysconf/Zones";
+            me.mainAddUrl = "/Api/sysconf/auZone";
+            me.mainDeleteUrl = "/Api/sysconf/deleteZone";
+            me.mainUpdateUrl = "/Api/sysconf/auZone";
+            me.data.mainDialog = new goodsDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+
+                $vmpa.get("/Api/sysconf/Regions?PageSize=100", null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.categorys = result.Data.DataList;
+                    }
+                });
+               
+            }
+            me.methods.mainAdd = function () {
+                var newmodel = { Id: -1, allroles: [] };
+                me.OnMainEdit(newmodel, "新增");
+            }
+        }
+        function goodsDialog(vm, _ismain) {
+            var me = this;
+            DialogBase.call(me, vm, _ismain);
+
+            me.OnSave = function (model) {
+                var updateurl = "";
+
+
+                if (me.EditModel[me._vm.ModelKeyName] > 0) {
+
+
+                    if (me.isMain)
+                        updateurl = me._vm.mainUpdateUrl + "/" + me.EditModel["Ass_Region_Id"];
+                    else
+                        updateurl = me._vm.slaveUpdateUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                } else {
+                    if (me.isMain)
+                        updateurl = me._vm.mainAddUrl + "/" + me.EditModel["Ass_Region_Id"];
+                    else
+                        updateurl = me._vm.slaveAddUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                }
+            }
+
+
+        }
+
+       
+       
+    </script>
+
+}
+

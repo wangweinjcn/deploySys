@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+}
+@section _command{
+    <el-button-group>
+        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                 :paging-index="(mainPageIndex-1)*pageSize"></v-table>
+
+       <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    <div>
+        @Html.Partial("taskHosts_js")
+    </div>
+</template>
+
+
+@section vueScript{
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.deptOptions = [];
+            me.data.rolesOptions = [];
+            me.data.mainTableConfig.columns = [
+                {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'Version', width: 330, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'IP', width: 330, titleAlign: 'center', title: 'IP', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'hostName', width: 100, titleAlign: 'center', title: '主机名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'allocPort', width: 100, titleAlign: 'center', title: '分配端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'dockerInanceId', width: 100, titleAlign: 'center', title: 'docker实例Id', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'Status', width: 100, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            
+            me.mainLoadTablePagedDataUrl = "/Api/SysManage/taskHosts/@ViewBag.taskId";
+            me.mainAddUrl = " ";
+            me.mainDeleteUrl = "/Api/SysManage/deletetaskHosts";
+            me.mainUpdateUrl = "";
+            me.data.mainDialog = new appTypeDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+              
+            }
+        }
+        function appTypeDialog(vm, _ismain) {
+            var me = this;
+            DialogBase.call(me, vm, _ismain);
+            me.OnSave = function (model) {
+                var updateurl = "";
+                
+               
+                if (me.EditModel[me._vm.ModelKeyName] > 0) {
+
+
+                   
+
+                    if (me.isMain)
+                        updateurl = me._vm.mainUpdateUrl;
+                    else
+                        updateurl = me._vm.slaveUpdateUrl;
+                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                } else {
+                    if (me.isMain)
+                        updateurl = me._vm.mainAddUrl;
+                    else
+                        updateurl = me._vm.slaveAddUrl;
+                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                }
+            }
+        
+           
+        }
+    </script>
+
+}
+

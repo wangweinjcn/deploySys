@@ -1,0 +1,15 @@
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\ModelCore.dll.config
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\ModelCore.deps.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\ModelCore.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\ModelCore.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\deploySys.Common.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\deploySys.Common.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.xml
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.csprojAssemblyReference.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.csproj.CoreCompileInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.AssemblyInfoInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.AssemblyInfo.cs
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.csproj.CopyComplete
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Debug\netcoreapp2.2\ModelCore.pdb

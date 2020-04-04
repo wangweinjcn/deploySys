@@ -1,0 +1,344 @@
+﻿发生时间：2020-03-31 07:30:59,048 
+内容： 
+[ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:30:59,158 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-03-31 07:30:59,237 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-31 07:30:59,243 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-31 07:30:59,336 
+内容： 
+[ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+ 
+ 
+发生时间：2020-03-31 07:30:59,344 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-31 07:30:59,391 
+内容： 
+[ScalarExecuting]Input String @P_0 = 'bd6851ae-9343-465c-8090-694667f5282f';
+Input DateTime @P_1 = '2020/3/31 12:30:59';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/3/31 7:30:59';
+Input DateTime @P_8 = '2020/3/31 7:30:59';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+ 
+ 
+发生时间：2020-03-31 07:30:59,428 
+内容： 
+[ScalarExecuted]2 
+ 
+发生时间：2020-03-31 07:30:59,439 
+内容： 
+[NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (1)
+ 
+ 
+发生时间：2020-03-31 07:30:59,447 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-03-31 07:30:59,641 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:30:59,704 
+内容： 
+[ReaderExecuted]28 
+ 
+发生时间：2020-03-31 07:30:59,743 
+内容： 
+[ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+ 
+ 
+发生时间：2020-03-31 07:30:59,749 
+内容： 
+[ReaderExecuted]11 
+ 
+发生时间：2020-03-31 07:30:59,820 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+ 
+ 
+发生时间：2020-03-31 07:30:59,846 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-31 07:30:59,859 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+ 
+ 
+发生时间：2020-03-31 07:30:59,862 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-31 07:30:59,912 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+ 
+ 
+发生时间：2020-03-31 07:30:59,916 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-31 07:30:59,930 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+ 
+ 
+发生时间：2020-03-31 07:30:59,940 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-31 07:30:59,950 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+ 
+ 
+发生时间：2020-03-31 07:30:59,963 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-31 07:30:59,978 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+ 
+ 
+发生时间：2020-03-31 07:30:59,982 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-31 07:30:59,998 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+ 
+ 
+发生时间：2020-03-31 07:31:00,007 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-31 07:31:00,024 
+内容： 
+[ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+ 
+ 
+发生时间：2020-03-31 07:31:00,039 
+内容： 
+[ReaderExecuted]13 
+ 
+发生时间：2020-03-31 07:31:00,058 
+内容： 
+[ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+ 
+ 
+发生时间：2020-03-31 07:31:00,061 
+内容： 
+[ReaderExecuted]12 
+ 
+发生时间：2020-03-31 07:31:04,961 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-31 07:31:04,964 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-31 07:31:05,078 
+内容： 
+[ReaderExecuting]SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1) ORDER BY [AppType].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:31:05,131 
+内容： 
+[ReaderExecuted]14 
+ 
+发生时间：2020-03-31 07:32:02,252 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 2;
+SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE [AppType].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:32:02,350 
+内容： 
+[ReaderExecuted]14 
+ 
+发生时间：2020-03-31 07:32:02,397 
+内容： 
+[NonQueryExecuting]Input String @P_0 = '{
+  "Hostname": "",
+  "Domainname": "",
+  "User": "", 
+  "Image": "microsoft/dotnet:2.2-sdk",
+  
+  "Volumes":{‘/home/user1/’: {‘bind’: ‘/mnt/vol2’, ‘mode’: ‘rw’}, ‘/var/www’: {‘bind’: ‘/mnt/vol1’, ‘mode’: ‘ro’}},
+  "WorkingDir": "{0}",
+  "NetworkDisabled": false,
+  "MacAddress": "12:34:56:78:9a:bc",
+  "ExposedPorts": {
+  },
+  "StopSignal": "SIGTERM",
+  "StopTimeout": 10,
+  "HostConfig": {
+    "Binds": [
+      "/tmp:/tmp"
+    ],    
+    "PublishAllPorts": false,
+    "Privileged": false,
+    "ReadonlyRootfs": false,
+      
+    "RestartPolicy": {
+      "Name": "always",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": true,
+    "NetworkMode": "host",
+    
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "SecurityOpt": [],
+    "StorageOpt": {},
+    "CgroupParent": "",
+    "VolumeDriver": "",
+    "ShmSize": 67108864
+  },
+  
+}';
+Input DateTime @P_1 = '2020/3/31 7:32:02';
+Input Int32 @P_2 = 2;
+UPDATE [AppType] SET [createContainerParams]=@P_0,[UpdateDt]=@P_1 WHERE [AppType].[Id] = @P_2
+ 
+ 
+发生时间：2020-03-31 07:32:02,494 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-03-31 07:32:02,696 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-31 07:32:02,703 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-31 07:32:02,718 
+内容： 
+[ReaderExecuting]SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1) ORDER BY [AppType].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:32:02,761 
+内容： 
+[ReaderExecuted]14 
+ 
+发生时间：2020-03-31 07:32:11,265 
+内容： 
+[ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE [AppType].[Id] = @P_0 LIMIT 1 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:32:11,338 
+内容： 
+[ReaderExecuted]14 
+ 
+发生时间：2020-03-31 07:32:11,426 
+内容： 
+[NonQueryExecuting]Input String @P_0 = '{
+  "Hostname": "",
+  "Domainname": "",
+  "User": "", 
+  "Image": "microsoft/dotnet:2.2-sdk",
+  
+  "Volumes":{‘/home/user1/’: {‘bind’: ‘/mnt/vol2’, ‘mode’: ‘rw’}, ‘/var/www’: {‘bind’: ‘/mnt/vol1’, ‘mode’: ‘ro’}},
+  "WorkingDir": "{0}",
+  "NetworkDisabled": false,
+  "MacAddress": "12:34:56:78:9a:bc",
+  "ExposedPorts": {
+  },
+  "StopSignal": "SIGTERM",
+  "StopTimeout": 10,
+  "HostConfig": {
+    "Binds": [
+      "/tmp:/tmp"
+    ],
+   
+    "PortBindings": {
+      "9002/tcp": [
+        {
+          "HostPort": "{1}"
+        }
+      ]
+    },
+    "PublishAllPorts": false,
+    "Privileged": false,
+    "ReadonlyRootfs": false,
+      
+    "RestartPolicy": {
+      "Name": "always",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": true,
+    "NetworkMode": "bridge",
+    
+    "LogConfig": {
+      "Type": "json-file",
+      "Config": {}
+    },
+    "SecurityOpt": [],
+    "StorageOpt": {},
+    "CgroupParent": "",
+    "VolumeDriver": "",
+    "ShmSize": 67108864
+  },
+  
+}';
+Input DateTime @P_1 = '2020/3/31 7:32:11';
+Input Int32 @P_2 = 1;
+UPDATE [AppType] SET [createContainerParams]=@P_0,[UpdateDt]=@P_1 WHERE [AppType].[Id] = @P_2
+ 
+ 
+发生时间：2020-03-31 07:32:11,554 
+内容： 
+[NonQueryExecuted]1 
+ 
+发生时间：2020-03-31 07:32:11,664 
+内容： 
+[ReaderExecuting]SELECT COUNT(1) AS [C] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1)
+ 
+ 
+发生时间：2020-03-31 07:32:11,674 
+内容： 
+[ReaderExecuted]1 
+ 
+发生时间：2020-03-31 07:32:11,682 
+内容： 
+[ReaderExecuting]SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1) ORDER BY [AppType].[CreateDt] DESC LIMIT 10 OFFSET 0
+ 
+ 
+发生时间：2020-03-31 07:32:11,718 
+内容： 
+[ReaderExecuted]14 
+ 

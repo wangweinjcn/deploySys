@@ -1,0 +1,342 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <el-row :gutter="10">
+         <el-col :span="12">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.regionId" placeholder="请选择" v-on:change="regionOnchange()">
+                    <el-option v-for="item in regions"
+                               :key="item.Id"
+                               :label="item.Name"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+        <el-col :span="12">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.Id" placeholder="请选择">
+                    <el-option v-for="item in categorys"
+                               :key="item.Id"
+                               :label="item.Name"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+          
+         </el-row>
+        <el-row>
+             <el-col :span="8">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.appTypeId" placeholder="请选择" v-on:change="appTypeOnchange()">
+                    <el-option v-for="item in appTypes"
+                               :key="item.Id"
+                               :label="item.name"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+                      <el-col :span="8">
+            <div class="grid-content">
+                <el-select v-model="mainSearchModel.msAppId" placeholder="请选择">
+                    <el-option v-for="item in msApps"
+                               :key="item.Id"
+                               :label="item.appName"
+                               :value="item.Id">
+                    </el-option>
+                </el-select>
+            </div>
+        </el-col>
+          <el-col :span="8">
+            <div class="grid-content">
+                <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+            </div>
+        </el-col>
+       
+    </el-row>
+
+}
+@section _command{
+    <el-button-group>
+        <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
+        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+         <el-button type="primary" icon="el-icon-key" v-on:click="auditTask" :disabled="mainCommandDisnable">审核</el-button>
+        <el-button type="primary" icon="el-icon-s-operation" v-on:click="openFileItems" :disabled="mainCommandDisnable">发布文件</el-button>
+        <el-button type="primary" icon="el-icon-set-up" v-on:click="openHostTask" :disabled="mainCommandDisnable">主机任务</el-button>
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                  v-on:on-custom-comp="customCompFunc"
+                 :paging-index="(mainPageIndex-1)*pageSize">
+                
+        </v-table>
+
+        <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    </div>
+    <div>
+        @Html.Partial("releaseVersions_js")
+    </div>
+</template>
+
+
+@section vueScript{
+
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+      
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.categorys = [];
+            me.data.regions = [];
+            me.data.appTypes = [];
+            me.data.msApps = [];
+            me.data.hostIds = [];
+            me.data.mainSearchModel = { "keyword": null, "Id": null ,"regionId":0,"appTypeId":null,"msAppId":null};
+
+
+            me.data.mainTableConfig.columns = [
+                 {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'Version', width: 200, titleAlign: 'center', title: '发布版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'releaseType', width: 100, titleAlign: 'center', title: '发布类型', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', formatter: function (rowData, rowIndex, pagingIndex, field) {                        
+                        return rowData.releaseType == 0 ? '新增实例' : rowData.releaseType == 1 ? '更新实例' : '其他'
+                    },isFrozen: true },
+                { field: 'overRideType', width: 100, titleAlign: 'center', title: '覆盖方式', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {                        
+                        return rowData.overRideType == 0 ? '部分覆盖' : rowData.overRideType == 1 ? '全部覆盖' : '其他'
+                    },isFrozen: true },
+
+                 { field: 'FileName', width: 200, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'status', width: 50, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'count', width: 100, titleAlign: 'center', title: '数量', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true }  
+
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+            me.methods.openFileItems = function () {
+                var xx = top.layui.element;
+                var tabUrl = "/rtask/taskFiles/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "taskFiles-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "版本文件[" + me.data.mainSelectedModel.Version + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            };
+            me.methods.openHostTask = function () {
+                 var tabUrl = "/home/appVersions/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "appInstances-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "应用运行实例[" + me.data.mainSelectedModel.Version + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            };
+            me.methods.openTaskAudit = function () {
+                $vmpa.confirm("确定要发布该任务吗？", me.auditTask);
+            };
+            me.methods.auditTask = function () {
+                 var url ="/Api/sysmanaer/auditReleaseTask"+ "/" + me.data.mainSelectedModel[me.ModelKeyName];
+                var params = {};
+                $vmpa.post(url, params, function (result) {
+                    var msg = result.Msg || "审核成功";
+                    $vmpa.msg(msg);
+                    me.refreshTable();
+                    me.data.mainSelectedModel = null;
+
+                });
+            };
+            me.methods.regionOnchange = function () {
+                me.data.categorys = [];
+                me.data.mainTableConfig.tableData = [];
+                me.data.mainSearchModel.Id = null;
+                $vmpa.get("/Api/sysconf/Zones?PageSize=100&Id=" + me.data.mainSearchModel.regionId, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.categorys = result.Data.DataList;
+                    }
+                });
+            };
+            me.methods.appTypeOnchange = function () {
+                me.data.msApps = [];
+                me.data.mainTableConfig.tableData = [];
+                me.data.mainSearchModel.msAppId = null;
+                $vmpa.get("/Api/sysconf/MicroServiceApps?PageSize=100&Id=" + me.data.mainSearchModel.appTypeId, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.msApps = result.Data.DataList;
+                    }
+                });
+            };
+
+            me.methods.customCompFunc = function (params) {
+                console.log(params);
+            };
+
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            me.mainLoadTablePagedDataUrl = "/Api/SysManage/ReleaseTasks";
+            me.mainAddUrl = "/Api/SysManage/auReleaseTask";
+            me.mainDeleteUrl = "/Api/SysManage/deleteReleaseTask";
+            me.mainUpdateUrl = "/Api/SysManage/auReleaseTask";
+            me.data.mainDialog = new goodsDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+
+                $vmpa.get("/Api/sysconf/Regions?PageSize=100", null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.regions = result.Data.DataList;
+                        if (me.data.regions.length > 0) {
+                            me.data.mainSearchModel.regionId = me.data.regions[0].Id;
+                            me.methods.regionOnchange();
+                        }
+                    }
+                });
+                $vmpa.get("/Api/sysconf/appTypes?PageSize=100", null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.appTypes = result.Data.DataList;
+                        if (me.data.regions.length > 0) {
+                            me.data.mainSearchModel.appTypeId = me.data.appTypes[0].Id;
+                            me.methods.appTypeOnchange();
+                        }
+                    }
+                });
+            }
+            me.methods.mainAdd = function () {
+                var newmodel = { Id: -1, confFileOverride: 0,overridePolicy:0,releaseType:1,dockerNetType:0, };
+                me.OnMainEdit(newmodel, "新增");
+            };
+            me.methods.mainEdit = function () {
+                if (me.data.mainSelectedModel.HostIds == null) {
+                    me.data.hostIds = [];
+                }
+                else {
+                    me.data.hostIds = me.data.mainSelectedModel.HostIds.split(',');
+                        }
+                    me.OnMainEdit(me.data.mainSelectedModel, "编辑");
+             }
+        }
+        function goodsDialog(vm, _ismain) {
+            var me = this;
+            me.zoneHosts = [];
+            DialogBase.call(me, vm, _ismain);
+            me.editZoneOnchange = function () {
+                 $vmpa.get("/Api/sysconf/HostResources?PageSize=100&Id=" + me.EditModel.Ass_Zone_Id, null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.zoneHosts = result.Data.DataList;
+                    }
+                });
+            }
+            me.OnSave = function (model) {
+                var updateurl = "";
+                 if (me.EditModel.Id > 0)
+                return;
+                var formData = new window.FormData()
+                var files = document.getElementById("importfile1").files;
+                if (files.length < 1) {
+                    alert("请选择文件");
+                    return;
+                }
+                for (var x = 0; x < files.length; x++) {
+                    formData.append("importfile1", files[x]);
+                };
+               
+                formData.append("Version", me.EditModel.Version);
+                formData.append("count", me.EditModel.count);
+               formData.append("releaseType", me.EditModel.releaseType);
+                formData.append("overridePolicy", me.EditModel.overridePolicy);
+                formData.append("confFileOverride", me.EditModel.confFileOverride);
+                formData.append("regId", me._vm.data.mainSearchModel.regionId);
+                formData.append("zoneId", me.EditModel.Ass_Zone_Id);
+                formData.append("serverAppId", me.EditModel.Ass_MicroServiceApp_Id);
+                formData.append("selectHostPolicy", me.EditModel.selectHostPolicy);
+                formData.append("memo", me.EditModel.memo);
+                formData.append("HostIds", me._vm.data.hostIds.join(','));
+          
+
+
+                $.ajax({
+                    url: vm.mainAddUrl,
+                    type: "POST",
+                    timeout: 1200000,
+                    data: formData,
+                    /**
+                    *必须false才会自动加上正确的Content-Type
+                    */
+                    contentType: false,
+                    dataType: "json",
+                    /**
+                    * 必须false才会避开jQuery对 formdata 的默认处理
+                    * XMLHttpRequest会对 formdata 进行正确的处理
+                    */
+                    processData: false,
+                    complete: function (xhr) {
+                       
+                    },
+                    success: function (result) {
+                        if (result.Status == 100) {
+                            me.Close();
+                             me.refreshTable();
+
+                        } else {
+
+                        }
+                    },
+                    error: function () {
+                        alert("上传失败！");
+                    }
+                });
+
+               
+            }
+
+
+        }
+
+       
+       
+    </script>
+
+}
+

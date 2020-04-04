@@ -1,0 +1,46 @@
+﻿
+
+
+<el-dialog title="集群信息" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="800px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="24">
+                <el-form-item label="区域：" :rules="[ { required: true, message: '区域不能为空'}  ]">
+                    <el-select v-model="mainDialog.EditModel.Ass_Region_Id" placeholder="请选择">
+                        <el-option v-for="item in categorys"
+                                   :key="item.Id"
+                                   :label="item.Name"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+  
+        </el-row>
+ <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="Key:">
+                    <el-input v-model="mainDialog.EditModel.Key" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="集群名称:">
+                    <el-input v-model="mainDialog.EditModel.Name" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
+      
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+
+

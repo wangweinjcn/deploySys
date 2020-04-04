@@ -1,0 +1,21 @@
+2020-03-22 19:10:41,675 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-03-22 19:12:20,457 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-03-22 19:12:23,566 [1] ERROR runInfo [(null)] - [.ctor:200@Confg.cs]init system error;
+Object reference not set to an instance of an object.
+2020-03-22 19:12:23,567 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-03-22 19:12:24,881 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-03-22 19:17:07,288 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-03-22 19:17:11,125 [1] ERROR runInfo [(null)] - [.ctor:200@Confg.cs]init system error;
+Object reference not set to an instance of an object.
+2020-03-22 19:17:11,126 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-03-22 19:17:12,316 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-03-22 19:25:37,085 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-03-22 19:25:40,580 [1] ERROR runInfo [(null)] - [.ctor:200@Confg.cs]init system error;
+Object reference not set to an instance of an object.
+2020-03-22 19:25:40,580 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-03-22 19:25:41,809 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
+2020-03-22 19:32:01,434 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
+2020-03-22 19:32:03,648 [1] ERROR runInfo [(null)] - [.ctor:200@Confg.cs]init system error;
+Object reference not set to an instance of an object.
+2020-03-22 19:32:03,648 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
+2020-03-22 19:32:04,971 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*

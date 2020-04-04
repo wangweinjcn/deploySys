@@ -1,0 +1,28 @@
+@using Newtonsoft.Json.Linq
+@model JArray
+@{
+    if (Model.Count > 0)
+    {
+        foreach (var obj in Model)
+        {
+
+            if (obj["IsMenu"].ToObject<bool>())
+            {
+                <dd><a href="#" data-url="@obj["UrlAddress"].ToString()" data-title="@obj["Name"]" data-id="@obj["Id"]" class="site-demo-active" data-type="tabAdd">@obj["Name"].ToString()</a></dd>
+            }
+            else
+            {
+                
+                <dd>
+                    <a href="javascript:;">
+                        @obj["Name"].ToString()
+                    </a>
+                    <dl class="layui-nav-child">
+                       @Html.Partial("subMenuPartial",obj["ChildNodes"] as JArray)
+                    </dl>
+                </dd>
+
+            }
+        }
+    }
+}
