@@ -72,5 +72,23 @@ public   partial class AppType : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

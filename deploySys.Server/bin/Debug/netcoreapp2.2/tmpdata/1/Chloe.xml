@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Chloe</name>
+    </assembly>
+    <members>
+        <member name="P:Chloe.Annotations.ColumnAttribute.DbType">
+            <summary>
+            -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
+            </summary>
+        </member>
+        <member name="P:Chloe.Annotations.ColumnAttribute.Size">
+            <summary>
+            -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
+            </summary>
+        </member>
+        <member name="P:Chloe.Annotations.ColumnAttribute.Scale">
+            <summary>
+            -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
+            </summary>
+        </member>
+        <member name="P:Chloe.Annotations.ColumnAttribute.Precision">
+            <summary>
+            -1 表示未指定确切的值，用该属性的时候务必做 -1 判断。
+            </summary>
+        </member>
+        <member name="T:Chloe.Case">
+            <summary>
+            usage: Case.When(a.Gender == Gender.Man).Then("Man").When(a.Gender == Gender.Woman).Then("Woman").Else(null)
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.eq">
+            <summary>
+            ==
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.neq">
+            <summary>
+            !=
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.gt">
+            <summary>
+            &gt;
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.gte">
+            <summary>
+            >=
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.lt">
+            <summary>
+            &lt;
+            </summary>
+        </member>
+        <member name="F:Chloe.CompareType.lte">
+            <summary>
+            &lt;=
+            </summary>
+        </member>
+        <member name="P:Chloe.Core.DbSession.CurrentTransaction">
+            <summary>
+            如果未开启事务，则返回 null
+            </summary>
+        </member>
+        <member name="T:Chloe.Core.IDbValueConverter">
+            <summary>
+            转换从 DataReader 读出来的数据库原始值
+            </summary>
+        </member>
+        <member name="M:Chloe.Core.IDbValueConverter.Convert(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="readerValue">调用 IDataReader.GetValue() 方法读出来的原始值，有可能为 DBNull.Value。</param>
+            <returns>与实体属性类型相同的值。如果 readerValue 为 DBNull.Value，可返回 null。</returns>
+        </member>
+        <member name="P:Chloe.Core.InternalAdoSession.DbTransaction">
+            <summary>
+            如果未开启事务，则返回 null
+            </summary>
+        </member>
+        <member name="T:Chloe.Core.Visitors.EvaluableDbExpressionTransformerBase">
+            <summary>
+            将 DbExpression 中可求值的表达式计算出来，转换成 DbParameterExpression
+            </summary>
+        </member>
+        <member name="M:Chloe.Core.Visitors.EvaluableDbExpressionTransformerBase.CanTranslateToSql(Chloe.DbExpressions.DbMemberExpression)">
+            <summary>
+            是否可以将 exp.Member 翻译成数据库对应的语法
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Core.Visitors.EvaluableDbExpressionTransformerBase.CanTranslateToSql(Chloe.DbExpressions.DbMethodCallExpression)">
+            <summary>
+            是否可以将 exp.Method 翻译成数据库对应的语法
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Chloe.DbExpressions.DbColumnAccessExpression">
+            <summary>
+            T.Id
+            </summary>
+        </member>
+        <member name="T:Chloe.DbExpressions.DbColumnSegment">
+            <summary>
+            T.Name as Alias
+            </summary>
+        </member>
+        <member name="P:Chloe.DbExpressions.DbColumnSegment.Body">
+            <summary>
+            T.Name 部分
+            </summary>
+        </member>
+        <member name="P:Chloe.DbExpressions.DbMemberExpression.Expression">
+            <summary>
+            字段或属性的包含对象
+            </summary>
+        </member>
+        <member name="M:Chloe.DbExpressions.DbSqlQueryExpression.#ctor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type">作为子句时，有时候可以指定返回的 Type，如 select A = (select id from users)，(select id from users) 就可以表示拥有一个返回的类型 Int</param>
+        </member>
+        <member name="T:Chloe.DbExpressions.DbTableSegment">
+            <summary>
+            User as T1 , (select * from User) as T1
+            </summary>
+        </member>
+        <member name="P:Chloe.DbExpressions.DbTableSegment.Body">
+            <summary>
+            User、(select * from User)
+            </summary>
+        </member>
+        <member name="P:Chloe.DbParam.ExplicitParameter">
+            <summary>
+            如果设置了该自定义参数，框架内部就会忽视 DbParam 类的其他属性，使用该属性值
+            </summary>
+        </member>
+        <member name="M:Chloe.InternalExtensions.DbExpressionExtension.TryConvertToParameterExpression(Chloe.DbExpressions.DbMemberExpression,Chloe.DbExpressions.DbParameterExpression@)">
+            <summary>
+            尝试将 exp 转换成 DbParameterExpression。
+            </summary>
+            <param name="exp"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.InternalExtensions.DbExpressionExtension.ConvertToParameterExpression(Chloe.DbExpressions.DbMemberExpression)">
+            <summary>
+            对 memberExpression 进行求值
+            </summary>
+            <param name="exp"></param>
+            <returns>返回 DbParameterExpression</returns>
+        </member>
+        <member name="M:Chloe.InternalExtensions.DbExpressionExtension.AffirmExpressionRetValueIsNull(Chloe.DbExpressions.DbExpression)">
+            <summary>
+            判定 exp 返回值肯定是 null
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.InternalExtensions.DbExpressionExtension.AffirmExpressionRetValueIsNotNull(Chloe.DbExpressions.DbExpression)">
+            <summary>
+            判定 exp 返回值肯定不是 null
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.appConfig.dbConfig.#ctor(Chloe.Ext.Intf.IConfig)">
+            <summary>
+            传入配置接口类，配置字段同名
+            </summary>
+            <param name="conf"></param>
+        </member>
+        <member name="M:Chloe.Ext.appConfig.dbConfig.#ctor(System.String,System.Int32,System.Int32,System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="_connstr"></param>
+            <param name="_cachExpireSeconds"></param>
+            <param name="_cachCount"></param>
+            <param name="_dbtype"></param>
+            <param name="connCount"></param>
+            <param name="_useTrackEntity"></param>
+            <param name="_canIntercepte"></param>
+            <param name="_useDbStateM"></param>
+        </member>
+        <member name="M:Chloe.Ext.appConfig.dbConfig.#ctor">
+             <summary>
+            使用默认的配置文件，且配置字段名称相同 
+             </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.AssociaID">
+            <summary>
+            关联关系ID，应该唯一,表明两个关联关系是同一个关联关系
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.DbFieldName">
+            <summary>
+            数据库字段名，compositeOfOneToOne和moreOfOneToMore时使用
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.RelationType">
+            <summary>
+            关联关系类型
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.AssociaClass">
+            <summary>
+            多对多关系中关联类的名字,自身在多对多类中的名字是属性名；字段同样取PropertyDescriptor中的_colume
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.AsscoisSourcePropertyName">
+            <summary>
+            多对多关系中自己在关联类中的名字，实际使用时表字段的名字要通过PropertyDescriptor中的_colum字段获取
+            
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.AssociaFieldAttribute.AsscoisDestPropertyName">
+            <summary>
+            多对多对方在关联类中的名字，实际使用时表字段的名字要通过PropertyDescriptor中的_colum字段获取
+            一对多关系中的对端属性的名字
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Attribute.UmlElementAttribute.Id">
+            <summary>
+            关联关系ID，应该唯一,表明两个关联关系是同一个关联关系
+            </summary>
+        </member>
+        <member name="F:Chloe.Ext.BaseContextSpace.smScheme">
+            <summary>
+            基于class的name为键值，同一个class的不同字段工作流放在一个wfStateMachine,
+            来自构造函数生成的使用数据库的工作流，指向一个静态公用数据
+            </summary>
+        </member>
+        <member name="F:Chloe.Ext.BaseContextSpace.NodbsmScheme">
+            <summary>
+            使用dll库中的工作流，本地静态；结构同smScheme
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.BaseContextSpace.Session">
+            <summary>
+            重新定义session
+            </summary>
+        </member>
+        <member name="M:Chloe.Ext.BaseContextSpace.applyValueFromOffObject(Chloe.Ext.Intf.ICSObject,Chloe.Ext.Intf.ICSObject,System.String[],System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="onlineobj">在线对象</param>
+            <param name="offobj">离线对象</param>
+            <param name="Fieldslist">字段名列表</param>
+            <param name="isBlackList">黑名单标记，如果true，则字段名在Fieldslist中不拷贝；如果是false，在不在列表中的不拷贝</param>
+        </member>
+        <member name="M:Chloe.Ext.BaseContextSpace.TableExist(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tablename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.BaseContextSpace.Insert``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            context.Insert&lt;User&gt;(() => new User() { Name = "lu", Age = 18, Gender = Gender.Woman, CityId = 1, OpTime = DateTime.Now })
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="content"></param>
+            <returns>It will return null if an entity does not define primary key,other wise return primary key value.</returns>
+        </member>
+        <member name="M:Chloe.Ext.BaseContextSpace.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+            <summary>
+            context.Update&lt;User&gt;(a => a.Id == 1, a => new User() { Name = "lu", Age = a.Age + 1, Gender = Gender.Woman, OpTime = DateTime.Now })
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="condition"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.BaseContextSpace.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            context.Delete&lt;User&gt;(a => a.Id == 1)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Chloe.Ext.cacheObjectChangeEventargs.changeType">
+            <summary>
+            -1:删除，0：更新，1：新增
+            </summary>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICacheSpace.ObjectForKey(System.String)">
+            <summary>
+            根据key获取离线对象副本
+            </summary>
+            <param name="key">缓存key值，小写，对象类名!主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICacheSpace.KeyForObject(Chloe.Ext.Intf.ICSObject)">
+            <summary>
+            返回key值
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICacheSpace.haveObject(System.String)">
+            <summary>
+            判断是否存在指定key值的缓存元素
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICacheSpace.addOrUpdateObject(Chloe.Ext.Intf.ICSObject)">
+            <summary>
+            添加或更新缓存元素
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICacheSpace.clearCache">
+            <summary>
+            清除缓存队列
+            </summary>
+        </member>
+        <member name="P:Chloe.Ext.Intf.ICacheSpace.delimiterChar">
+            <summary>
+            类名和主键的分隔符
+            </summary>
+        </member>
+        <member name="T:Chloe.Ext.Intf.ICSObject">
+            <summary>
+            ContentContextObject
+            带上下文的对象
+            </summary>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICSObject.setAssociationValue(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            设置关联属性值
+            </summary>
+            <param name="pi"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Chloe.Ext.Intf.ICSObject.getStateMachineNextAction(System.String)">
+            <summary>
+            获取状态机的可执行Actions，
+            </summary>
+            <param name="statePName">字段名</param>
+            <returns>json数组</returns>
+        </member>
+        <member name="T:Chloe.Ext.ObjectSpaceService">
+            <summary>
+            数据连接池
+            </summary>
+        </member>
+        <member name="M:Chloe.Ext.ObjectSpaceService.initWithConf(Chloe.Ext.appConfig.dbConfig)">
+            <summary>
+            使用自定义配置
+            如果不调用，则默认生成配置，取默认配置文件
+            </summary>
+            <param name="_dbconf"></param>
+        </member>
+        <member name="M:Chloe.Ext.ObjectSpaceService.getContextSpace">
+            <summary>
+            获取连接
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext.ObjectSpaceService.returnContextSpace(Chloe.Ext.Intf.IContextSpace)">
+            <summary>
+            使用完成，必须归还连接
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Chloe.Ext.OjbectSpaceFactory.initFactoryForfw(System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            使用framework时的初始化
+            </summary>
+            <param name="connstring"></param>
+            <param name="dbtype"></param>
+            <param name="spacedllName"></param>
+            <param name="cacheCount"></param>
+            <param name="cacheExpireSeconds"></param>
+            <param name="useTrackEntity"></param>
+            <param name="useDbStateM"></param>
+            <param name="CanIntercepte"></param>
+        </member>
+        <member name="P:Chloe.Ext.stateMachine.wfAction.startorEnd">
+            <summary>
+            0:开始,1:中间,-1:结束
+            </summary>
+        </member>
+        <member name="F:Chloe.Ext.stateMachine.wfAction.fromstateID">
+            <summary>
+            只用于解析xml文件时，生成多条action记录。
+            实际生成状态机时，只取froms列表中数据
+            </summary>
+        </member>
+        <member name="M:Chloe.Ext.stateMachine.wfStateMachine.addState(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            添加状态
+            </summary>
+            <param name="id">主键</param>
+            <param name="name">名称</param>
+            <param name="regionName">区域名称</param>
+            <param name="fname">字段名称</param>
+            <param name="isregionState">是否是区域状态</param>
+        </member>
+        <member name="M:Chloe.Ext.stateMachine.wfStateMachine.addAction(System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fname">状态字段名</param>
+            <param name="name">活动名</param>
+            <param name="fromstateId">其实状态名</param>
+            <param name="tostateId">目标状态名</param>
+            <param name="startOrEnd">活动类型,0:开始,1:中间,-1:结束</param>
+            <param name="trigger">触发函数名</param>
+            <param name="guard">保留</param>
+            <param name="effect"></param>
+            <param name="regionName"></param>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.GetWfStateMachine">
+            <summary>
+            兼容原先在外部引用stateMachine使用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.getTypeJson">
+            <summary>
+            获取类的json结构对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.setAssicationId(System.Object,System.String)">
+            <summary>
+            设置关联关系的ID
+            </summary>
+            <param name="value"></param>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.setAssociationIdValue(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            可能有错,新对象的id为-1;更新数据库后,没有重写关联值(???)
+            </summary>
+            <param name="pi"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.getAssociationIdWithReget(System.Reflection.PropertyInfo)">
+            <summary>
+            获取关联属性ID值
+            </summary>
+            <param name="pi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.getMoreToMoreOppListForRemove(System.Reflection.PropertyInfo)">
+            <summary>
+            用于多对多关联关系删除对方列表中的对象；
+            </summary>
+            <param name="pi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext._baseObject.getAssociationValue(System.Reflection.PropertyInfo)">
+            <summary>
+            获取关联属性
+            </summary>
+            <param name="pi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Ext._baseObjectList`1.op_Implicit(System.Collections.Generic.List{`0})~Chloe.Ext._baseObjectList{`0}">
+            <summary>
+            增加显示构造
+            </summary>
+            <param name="listparam"></param>
+        </member>
+        <member name="T:Chloe.Ext.InterfaceConverter`2">
+            <summary>
+            json.net 反序列化时使用该类生成列表属性
+            </summary>
+            <typeparam name="ICSObjectList"></typeparam>
+            <typeparam name="_baseObjectList"></typeparam>
+        </member>
+        <member name="M:Chloe.IDbContext.QueryByKey``1(System.Object,System.String,Chloe.LockType,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="key">If the entity just has one primary key, input a value that it's type is same as the primary key. If the entity has multiple keys, input an instance that defines the same properties as the keys like 'new { Key1 = "1", Key2 = "2" }'.</param>
+            <param name="table"></param>
+            <param name="lock"></param>
+            <param name="tracking"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.JoinQuery``2(System.Linq.Expressions.Expression{System.Func{``0,``1,System.Object[]}})">
+            <summary>
+            context.JoinQuery&lt;User, City&gt;((user, city) => new object[] 
+            { 
+                JoinType.LeftJoin, user.CityId == city.Id 
+            })
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="joinInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.JoinQuery``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,System.Object[]}})">
+            <summary>
+            context.JoinQuery&lt;User, City, Province&gt;((user, city, province) => new object[] 
+            { 
+                JoinType.LeftJoin, user.CityId == city.Id, 
+                JoinType.LeftJoin, city.ProvinceId == province.Id 
+            })
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="joinInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.SqlQuery``1(System.String,System.Object)">
+            <summary>
+            dbContext.SqlQuery&lt;User&gt;("select * from Users where Id=@Id", new { Id = 1 }).ToList();
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sql"></param>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.Insert``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            context.Insert&lt;User&gt;(() => new User() { Name = "lu", Age = 18, Gender = Gender.Woman, CityId = 1, OpTime = DateTime.Now })
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="content"></param>
+            <returns>It will return null if an entity does not define primary key,other wise return primary key value.</returns>
+        </member>
+        <member name="M:Chloe.IDbContext.InsertRange``1(System.Collections.Generic.List{``0},System.Boolean,System.String)">
+            <summary>
+            批量插入操作
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="entities"></param>
+            <param name="keepIdentity">是否要把自增属性值插入到数据库</param>
+            <param name="table"></param>
+        </member>
+        <member name="M:Chloe.IDbContext.Update``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,``0}})">
+            <summary>
+            context.Update&lt;User&gt;(a => a.Id == 1, a => new User() { Name = "lu", Age = a.Age + 1, Gender = Gender.Woman, OpTime = DateTime.Now })
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="condition"></param>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.Delete``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            context.Delete&lt;User&gt;(a => a.Id == 1)
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbContext.DeleteByKey``1(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="key">If the entity just has one primary key, input a value that it's type is same as the primary key. If the entity has multiple keys, input an instance that defines the same properties as the keys like 'new { Key1 = "1", Key2 = "2" }'.</param>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Chloe.IDbSession.CurrentTransaction">
+            <summary>
+            如果未开启事务，则返回 null
+            </summary>
+        </member>
+        <member name="M:Chloe.IDbSession.ExecuteNonQuery(System.String,System.Data.CommandType,System.Object)">
+            <summary>
+            dbSession.ExecuteNonQuery("update Users set Age=18 where Id=@Id", CommandType.Text, new { Id = 1 })
+            </summary>
+            <param name="cmdText"></param>
+            <param name="cmdType"></param>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbSession.ExecuteScalar(System.String,System.Data.CommandType,System.Object)">
+            <summary>
+            dbSession.ExecuteScalar("select Age from Users where Id=@Id", CommandType.Text, new { Id = 1 })
+            </summary>
+            <param name="cmdText"></param>
+            <param name="cmdType"></param>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IDbSession.ExecuteReader(System.String,System.Data.CommandType,System.Object)">
+            <summary>
+            dbSession.ExecuteReader("select * from Users where Id=@Id", CommandType.Text, new { Id = 1 })
+            </summary>
+            <param name="cmdText"></param>
+            <param name="cmdType"></param>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Infrastructure.DbConfiguration.UseTypeBuilders(Chloe.Entity.IEntityTypeBuilder[])">
+            <summary>
+            Fluent Mapping
+            </summary>
+            <param name="entityTypeBuilders"></param>
+        </member>
+        <member name="M:Chloe.Infrastructure.DbConfiguration.UseTypeBuilders(System.Type[])">
+            <summary>
+            Fluent Mapping
+            </summary>
+            <param name="entityTypeBuilderTypes"></param>
+        </member>
+        <member name="M:Chloe.Infrastructure.EntityTypeContainer.UseBuilders(Chloe.Entity.IEntityTypeBuilder[])">
+            <summary>
+            Fluent Mapping
+            </summary>
+            <param name="entityTypeBuilders"></param>
+        </member>
+        <member name="M:Chloe.Infrastructure.EntityTypeContainer.UseBuilders(System.Type[])">
+            <summary>
+            Fluent Mapping
+            </summary>
+            <param name="entityTypeBuilderTypes"></param>
+        </member>
+        <member name="M:Chloe.Infrastructure.MappingTypeSystem.Configure(Chloe.Infrastructure.IMappingType)">
+            <summary>
+            配置映射的类型。
+            </summary>
+            <param name="mappingType"></param>
+        </member>
+        <member name="M:Chloe.IQuery`1.Max``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            求最大值。考虑到满足条件的数据个数为零的情况，为避免报错，可在 lambda 中将相应字段强转成可空类型，如 query.Max(a => (double?)a.Price)。
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.IQuery`1.Min``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            求最小值。考虑到满足条件的数据个数为零的情况，为避免报错，可在 lambda 中将相应字段强转成可空类型，如 query.Min(a => (double?)a.Price)。
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Chloe.Query.MappingObjectExpression.ConstructorDescriptor">
+            <summary>
+            返回类型
+            </summary>
+        </member>
+        <member name="M:Chloe.Query.MappingObjectExpression.GetMappingMemberExpression(System.Reflection.MemberInfo)">
+            <summary>
+            考虑匿名函数构造函数参数和其只读属性的对应
+            </summary>
+            <param name="memberInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Chloe.Query.Mapping.MappingEntity.MappingMembers">
+            <summary>
+            映射成员集合。以 MemberInfo 为 key，读取 DataReader 时的 Ordinal 为 value
+            </summary>
+        </member>
+        <member name="P:Chloe.Query.Mapping.MappingEntity.ComplexMembers">
+            <summary>
+            复杂类型成员集合。
+            </summary>
+        </member>
+        <member name="M:Chloe.Query.Query`1.CreateAggregateQuery``1(System.Reflection.MethodInfo,System.Collections.Generic.List{System.Linq.Expressions.Expression})">
+            <summary>
+            类<see cref="T:Chloe.Query.Visitors.GeneralExpressionParser"/>有引用该方法[反射]
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="method"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Chloe.Query.ResultElement">
+            <summary>
+            查询的结果集
+            </summary>
+        </member>
+        <member name="P:Chloe.Query.ResultElement.InheritOrderings">
+            <summary>
+            Orderings 是否是传承下来的
+            </summary>
+        </member>
+        <member name="P:Chloe.Query.ResultElement.FromTable">
+            <summary>
+            如 takequery 了以后，则 table 的 Expression 类似 (select T.Id.. from User as T),Alias 则为新生成的
+            </summary>
+        </member>
+        <member name="M:Chloe.Query.SelectorResolver.VisitMemberAccess(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            a => a.Id   a => a.Name   a => a.User
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Sql.Equals``1(``0,``0)">
+            <summary>
+            比较两个相同类型的对象值是否相等，仅支持在 lambda 表达式树中使用。
+            使用此方法与双等号（==）的区别是：a => Sql.Equals(a.Name, a.XName) 会被翻译成 a.Name == a.XName，而 a => a.Name == a.XName 则会被翻译成 a.Name == a.XName or (a.Name is null and a.XName is null)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Sql.NotEquals``1(``0,``0)">
+            <summary>
+            比较两个相同类型的对象值是否不相等，仅支持在 lambda 表达式树中使用。
+            使用此方法与不等号（!=）的区别是：a => Sql.NotEquals(a.Name, a.XName) 会被翻译成 a.Name &lt;&gt; a.XName，而 a => a.Name != a.XName 则会被翻译成 a.Name &lt;&gt; a.XName or (a.Name is null and a.XName is not null) or (a.Name is not null and a.XName is null)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Sql.Compare``1(``0,Chloe.CompareType,``0)">
+            <summary>
+            比较两个相同类型的对象值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value1"></param>
+            <param name="compareType"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Sql.Max``1(``0)">
+            <summary>
+            求最大值。考虑到满足条件的数据个数为零的情况，为避免报错，可在 lambda 中将相应字段强转成可空类型，如 query.Select(a => Sql.Max((double?)a.Price))。
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Chloe.Sql.Min``1(``0)">
+            <summary>
+            求最小值。考虑到满足条件的数据个数为零的情况，为避免报错，可在 lambda 中将相应字段强转成可空类型，如 query.Select(a => Sql.Min((double?)a.Price))。
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

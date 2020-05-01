@@ -41,13 +41,13 @@ public   partial class HostResource : Application.Model.Base.BaseObject{
 
 {
             var result = new List<int>();
-            var list1 = GetSpace().SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource == this).Select(a =>  a.proxyPort ).ToCommList().ToList();
+            List<int> list1 = GetSpace().SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource == this && a.proxyPort>=this.allocFromPort).Select(a =>  a.proxyPort ).ToCommList().ToList();
              list1.Sort();
             var j = 0;
             for (int i = this.allocFromPort; i <= this.allocEndPort; i++)
             {
 
-                if (list1[j] == i)
+                if ( list1.Count()>j && list1[j] == i )
                 {
                     j++;
                     continue;
@@ -78,6 +78,24 @@ public   partial class HostResource : Application.Model.Base.BaseObject{
 {
  
        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

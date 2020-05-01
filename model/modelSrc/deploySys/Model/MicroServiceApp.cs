@@ -72,5 +72,23 @@ public   partial class MicroServiceApp : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

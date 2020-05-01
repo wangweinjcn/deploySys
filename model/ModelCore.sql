@@ -1,2 +1,2 @@
-Alter  table `HostResource` add   `cpuCoreNumber` integer Not Null ;
+Alter  table `webSite` add   `siteDirName` Varchar(255) DEFAULT NULL ;
 

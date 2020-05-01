@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Chloe.MySql</name>
+    </assembly>
+    <members>
+        <member name="M:Chloe.ObjectSpace.MysqlContextSpace.InsertRange``1(System.Collections.Generic.List{``0},System.Boolean)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity">批量插入的实体类型</typeparam>
+            <param name="entities">实体列表</param>
+            <param name="keepIdentity">插入语句中是否包括自增长字段，默认false，不包括自增长</param>
+        </member>
+    </members>
+</doc>

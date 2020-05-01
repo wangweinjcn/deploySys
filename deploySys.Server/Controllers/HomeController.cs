@@ -147,7 +147,17 @@ namespace deploySys.Server.Controllers
             ViewBag.hostId = hostId;
             return View();
         }
-       
+
+        [HttpGet]
+        [Route("{id}")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult webSites([FromRoute]string id, [FromQuery]string hostId = "-1")
+        {
+            ViewBag.appId = id;
+            ViewBag.hostId = hostId;
+            return View();
+        }
+
         [HttpGet]
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult hostResouces()

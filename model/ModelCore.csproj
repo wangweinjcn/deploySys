@@ -37,11 +37,9 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ExpressionEvaluator" Version="2.0.4" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="MailKit" Version="2.0.2" />
     <PackageReference Include="MessagePack" Version="1.7.3.4" />
-    <PackageReference Include="Microsoft.PinYinConverter" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
    
    </ItemGroup>

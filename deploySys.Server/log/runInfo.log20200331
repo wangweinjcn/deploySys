@@ -1,5 +1,0 @@
-2020-03-31 07:30:37,637 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
-2020-03-31 07:30:40,178 [1] ERROR runInfo [(null)] - [.ctor:200@Confg.cs]init system error;
-Object reference not set to an instance of an object.
-2020-03-31 07:30:40,178 [1] INFO  runInfo [(null)] - [initOtherServices:51@Startup.cs]rpc server started at 8080
-2020-03-31 07:30:41,532 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*

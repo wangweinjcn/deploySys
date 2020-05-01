@@ -28,6 +28,8 @@
                  v-on:sort-change="sortChange"
                  :paging-index="(mainPageIndex-1)*pageSize"></v-table>
 
+
+        
        <div class="mt20 mb20 bold"></div>
 
         <div class="pages">
@@ -35,6 +37,7 @@
 
             </v-pagination>
         </div>
+    </div>
     <div>
         @Html.Partial("taskFiles_js")
     </div>
@@ -53,12 +56,12 @@
             me.data.rolesOptions = [];
             me.data.mainTableConfig.columns = [
                 {
-                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:false
                 },
-                { field: 'retationPath', width: 330, titleAlign: 'center', title: '相对路径', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'fileName', width: 330, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'dllVersion', width: 100, titleAlign: 'center', title: 'dll版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                  { field: 'fileSize', width: 100, titleAlign: 'center', title: '文件大小', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'retationPath', width: 330, titleAlign: 'center', title: '相对路径', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                { field: 'fileName', width: 330, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                { field: 'dllVersion', width: 100, titleAlign: 'center', title: 'dll版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                { field: 'fileSize', width: 150, titleAlign: 'center', title: '文件大小', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
 
 
 

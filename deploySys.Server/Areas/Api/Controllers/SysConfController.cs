@@ -393,13 +393,18 @@ namespace deploySys.Server.Controller.Admin
         /// <returns></returns>
         [HttpGet]     
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
-        public IActionResult HostResources([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int Id)
+        public IActionResult HostResources([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int Id,[FromQuery]int regionId=-1)
         {
             Zone zo = objectSpace.ObjectForIntId<Zone>(Id);
-            if (zo == null)
-                return FailedMsg("区域不存在");
+            Region reg = objectSpace.ObjectForIntId<Region>(regionId);
 
-            var q = objectSpace.SpaceQuery<HostResource>().Where(a => !a.IsDeleted && a.Ass_Zone == zo);
+            var q = objectSpace.SpaceQuery<HostResource>().Where(a => !a.IsDeleted);
+            if(zo!=null)
+            q=q.Where(a=> a.Ass_Zone == zo);
+            if (reg != null)
+            {
+                q = q.Join<Zone>(JoinType.InnerJoin, (a, b) => a.Ass_Zone == b && b.Ass_Region == reg).Select((a, b) => a);
+            }
             if (!string.IsNullOrEmpty(keyword))
             {
                 q = q.Where(a => a.macId.Contains(keyword) || a.hostName.Contains(keyword) || a.IP.Contains(keyword) || a.clientSessionId.Contains(keyword));
@@ -448,6 +453,8 @@ namespace deploySys.Server.Controller.Admin
                 obj = new HostResource(objectSpace);
             }
             objectSpace.applyValueFromOffObject(obj, offobj);
+            if(!string.IsNullOrEmpty(obj.macId))
+                obj.macId=obj.macId.Replace(":","").Replace("-","").ToLower();
             obj.Ass_Zone = zo;
             UpdateDatabase();
             return SuccessData(obj);
@@ -594,6 +601,12 @@ namespace deploySys.Server.Controller.Admin
             var count = q.Count();
             var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
                 .Take(pagination.PageSize).ToCommList();
+            var allids = (from x in list select x.Id).ToList();
+            var allregionapps = objectSpace.SpaceQuery<RegionApps>().Where(a => allids.Contains(a.AssC_MicroServiceApp_Id)).Select(a => a.AssC_Region_Id).ToCommList();
+            foreach (var apps in list)
+            {
+                apps.regionIds = string.Join(",", (from x in allregionapps select x.ToString()).ToArray());
+            }
             JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
             PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
             return this.SuccessData(pagedData);
@@ -630,7 +643,13 @@ namespace deploySys.Server.Controller.Admin
             if (reg == null)
                 return FailedMsg("区域不存在");
             MicroServiceApp obj = objectSpace.ObjectForIntId<MicroServiceApp>(offobj.Id);
-
+            if ((offobj.serviceType == (int)EnumAppServiceType.webSite
+                || offobj.serviceType == (int)EnumAppServiceType.webServiceSite) && string.IsNullOrEmpty(offobj.hostname))
+                return FailedMsg("web站点，域名不能为空");
+            if (!MetarnetRegex.IsNumAndEnCh(offobj.key))
+            {
+                return FailedMsg("应用Key只能使用英文字符和数字");
+            }
             if (obj == null)
             {
                 if (offobj.Id > 0)
@@ -638,6 +657,33 @@ namespace deploySys.Server.Controller.Admin
                 obj = new MicroServiceApp(objectSpace);
             }
             objectSpace.applyValueFromOffObject(obj, offobj);
+            IList<int> newIdlist = null;
+            if (!string.IsNullOrEmpty(offobj.regionIds))
+                newIdlist = offobj.regionIds.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList();
+            else
+                newIdlist = new List<int>();
+            var oldregions = objectSpace.SpaceQuery<Region>().Join<RegionApps>(JoinType.InnerJoin, (a, b) => b.AssC_Region == a && b.AssC_MicroServiceApp_Id == obj.Id).Select((a, b) => a.Id).ToCommList();
+
+            if (obj.Id > 0)
+            {
+                List<int> deleteIdlist = new List<int>();
+                foreach (var oid in oldregions)
+                {
+                    if (!newIdlist.Contains(oid))
+                        deleteIdlist.Add(oid);
+
+                }
+                objectSpace.BatchDelete<RegionApps>(a => a.AssC_MicroServiceApp == obj && deleteIdlist.Contains(a.AssC_Region_Id));
+            }
+            foreach (var nid in newIdlist)
+            {
+                if (!oldregions.Contains(nid))
+                {
+                    RegionApps ra = new RegionApps(objectSpace);
+                    ra.AssC_MicroServiceApp = obj;
+                    ra.AssC_Region_Id = nid;
+                }
+            }
             if(!string.IsNullOrEmpty(obj.confFileNames))
                 obj.confFileNames = obj.confFileNames.Replace("，", ";").Replace(",", ";").Replace("；", ";");
             if (!string.IsNullOrEmpty(obj.hostname))

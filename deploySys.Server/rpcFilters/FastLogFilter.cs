@@ -22,10 +22,9 @@ namespace deploySys.Server.rpcFilters
 
         protected override void OnExecuting(ActionContext filterContext)
         {
-          //  var log = string.Format("Time:{0} Client:{1} Action:{2} Message:{3}", DateTime.Now.ToString("mm:ss"), filterContext.Session, filterContext.Action, this.message);
-          //  RunConfig.Instance.runlog.Debug(String.Format(log));
+
             FastSession fs = filterContext.Session;
-              //fs.Tag[""].ToString();
+           
         }
     }
 }

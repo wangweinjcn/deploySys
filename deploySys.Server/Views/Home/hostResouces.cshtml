@@ -44,6 +44,10 @@
         <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-s-data" v-on:click="openViewPerf" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppInstances" :disabled="mainCommandDisnable">查看实例</el-button>
+         <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppWebSites" :disabled="mainCommandDisnable">查看站点</el-button>
+         <el-button type="primary" icon="el-icon-s-tools" v-on:click="openHostTask" :disabled="mainCommandDisnable">查看主机任务</el-button>
+
+        
     </el-button-group>
 }
 
@@ -52,6 +56,7 @@
         <v-table is-vertical-resize
                  :vertical-resize-offset='60'
                  is-horizontal-resize
+                  column-width-drag
                  style="width:100%"
                  :multiple-sort="false"
                  :min-height="550"
@@ -134,20 +139,20 @@
 
             me.data.mainTableConfig.columns = [
                  {
-                    field: 'Id', width: 30, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                    field: 'Id', width: 30, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:true
                 },
-                { field: 'hostName', width: 100, titleAlign: 'center', title: '主机名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'IP', width: 150, titleAlign: 'center', title: 'Ip地址', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'macId', width: 150, titleAlign: 'center', title: 'mac地址', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'hostName', width: 100, titleAlign: 'center', title: '主机名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'IP', width: 150, titleAlign: 'center', title: 'Ip地址', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'macId', width: 150, titleAlign: 'center', title: 'mac地址', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
 
-                 { field: 'nodePort', width: 50, titleAlign: 'center', title: '端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'inLine', width: 50, titleAlign: 'center', title: '在线', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'OsName', width: 200, titleAlign: 'center', title: '操作系统', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'lastRegisteDt', width: 200, titleAlign: 'center', title: '注册时间', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'aliveDt', width: 200, titleAlign: 'center', title: '心跳', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                 { field: 'nodePort', width: 50, titleAlign: 'center', title: '端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'inLine', width: 50, titleAlign: 'center', title: '在线', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'OsName', width: 200, titleAlign: 'center', title: '操作系统', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'lastRegisteDt', width: 200, titleAlign: 'center', title: '注册时间', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'aliveDt', width: 200, titleAlign: 'center', title: '心跳', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
 
-                { field: 'cpuName', width: 150, titleAlign: 'center', title: 'cpu', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'cpuCoreNumber', width: 50, titleAlign: 'center', title: 'cpu个数', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'cpuName', width: 200, titleAlign: 'center', title: 'cpu', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'cpuCoreNumber', width: 50, titleAlign: 'center', title: 'cpu核', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
 
 
             ];
@@ -156,20 +161,36 @@
         function vmExtend() {
             var me = this;
             me.methods.regionOnchange = function () {
+                if (me.data.mainSearchModel.regionId == null || me.data.mainSearchModel.regionId <= 0)
+                    return;
                 me.data.categorys = [];
                 me.data.mainTableConfig.tableData = [];
                 me.data.mainSearchModel.Id = null;
+
                 $vmpa.get("/Api/sysconf/Zones?PageSize=100&Id=" + me.data.mainSearchModel.regionId, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.categorys = result.Data.DataList;
                     }
                 });
             }
+            me.methods.openHostTask = function () {
+                   var tabUrl = "/rtask/taskHosts/-1?HostId=" + me.data.mainSelectedModel.Id;
+                var tabDDid = "hostTaskHosts-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "主机任务[" + me.data.mainSelectedModel.Id + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            }
              me.methods.openAppInstances = function () {
                 var xx = top.layui.element;
                 var tabUrl = "/home/appInstances/-1&hostId=" + me.data.mainSelectedModel.Id;
-                var tabDDid = "appInstances-" + me.data.mainSelectedModel.Id;
-                var tabTitle = "主机运行实例[" + me.data.mainSelectedModel.key + "]";
+                var tabDDid = "hostInstances-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "主机运行实例[" + me.data.mainSelectedModel.hostName + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            }
+              me.methods.openAppWebSites = function () {
+                var xx = top.layui.element;
+                var tabUrl = "/home/webSites/-1&hostId=" + me.data.mainSelectedModel.Id;
+                var tabDDid = "website-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "主机运行站点[" + me.data.mainSelectedModel.hostName + "]";
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
             }
              me.methods.openViewPerf = function () {
@@ -232,7 +253,7 @@
                
             }
             me.methods.mainAdd = function () {
-                var newmodel = { Id: -1 };
+                var newmodel = { Id: -1,nginxConfPath:"/opt/nginx",haveNginx:false };
                 me.OnMainEdit(newmodel, "新增");
             }
         }

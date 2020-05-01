@@ -26,26 +26,26 @@ public   partial class appVersion : Application.Model.Base.BaseObject{
        ///
        ///</summary>
         [UmlElement(Id="03cd8666-cf6f-4c79-9ae7-89b59e499399")]
-        public  IList<FileItem>  CompareDiffFile(  IList<FileItem>  inputlist)
+        public  IList<FileItem>  CompareDiffFile(  IList<FileItem>  newFileList,  IList<FileItem>  oldFileList)
 
 {
             List<FileItem> resultlist = new List<FileItem>();
             
-            foreach (var obj in this.Ass_FileItem)
+            foreach (var obj in newFileList)
             {
-                var remoteObj = (from x in inputlist where string.Equals(obj.retationPath, x.retationPath, StringComparison.CurrentCultureIgnoreCase) && string.Equals(obj.fileName, x.fileName, StringComparison.CurrentCultureIgnoreCase) select x).FirstOrDefault();
+                var remoteObj = (from x in oldFileList where string.Equals(obj.retationPath, x.retationPath, StringComparison.CurrentCultureIgnoreCase) && string.Equals(obj.fileName, x.fileName, StringComparison.CurrentCultureIgnoreCase) select x).FirstOrDefault();
 
                 if (remoteObj!=null)
                 {
                     
                     if (obj.needUpdate(remoteObj))
                         resultlist.Add(obj);
-                    inputlist.Remove(remoteObj);
+                    oldFileList.Remove(remoteObj);
                 }
                 else
                     resultlist.Add(obj);
             }
-            foreach (var obj in inputlist)
+            foreach (var obj in oldFileList)
             {
                 obj.remoteShouldDeleted = true;
                 resultlist.Add(obj);
@@ -70,6 +70,24 @@ public   partial class appVersion : Application.Model.Base.BaseObject{
 {
  
        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

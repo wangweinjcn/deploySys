@@ -120,12 +120,7 @@ namespace FrmLib.web
         public void ConfigureServices(IServiceCollection services)
         {
             _allservice = services;
-            services.AddDistributedRedisCache(options =>
-            {
-                options.Configuration = Globals.Configuration["redis:connections"];
-                options.InstanceName =Assembly.GetEntryAssembly().FullName;
-
-            });
+           
             FrmLib.Log.commLoger.runLoger.InfoFormat("now configure main service");
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
@@ -178,11 +173,11 @@ namespace FrmLib.web
                 //注册我们定义的ReferencesMetadataReferenceFeatureProvider到ASP.NET CORE MVC管理器来代替上面移除的MetadataReferenceFeatureProvider
               //  manager.FeatureProviders.Add(new ReferencesMetadataReferenceFeatureProvider());
             });
-            //services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(x =>
-            //{
-            //    x.ValueLengthLimit = 2147483647;
-            //    x.MultipartBodyLengthLimit = 2147483647; //2G
-            //});
+            services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(x =>
+            {
+                x.ValueLengthLimit = 2147483647;
+                x.MultipartBodyLengthLimit = 2147483647; //2G
+            });
             services.AddSession();
             initSwagger(services);
             initOtherServices(services);

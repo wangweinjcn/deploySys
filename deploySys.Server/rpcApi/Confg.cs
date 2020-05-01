@@ -178,7 +178,10 @@ namespace deploySys.Server
             //返回主机sessionid和对应的端口
             return null;
         }
-     
+        public void delayInitClientFiles()
+        {
+                         this.clientFiles.initFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, clientSoftDir));
+        }
         private RunConfig()
      {
 
@@ -187,17 +190,17 @@ namespace deploySys.Server
 
 
                
-             static_sysdata.DateTimeFormatter = "yyyyMMddHHmmss";
+            
              nodedeviceStat_dic = new Dictionary<string, UnitNodeSession>();
 
                 this.rpcBackLength = int.Parse(Globals.Configuration["deploySys:rpcBackLength"]);
                 this.rpcPort = int.Parse(Globals.Configuration["deploySys:rpcPort"]);
                 this.maxNodeStateLength = int.Parse(Globals.Configuration["deploySys:maxNodeStateLength"]);
                 this.clientSoftDir = (Globals.Configuration["deploySys:clientSoftDir"]);
-                this.clientFiles = SoftUpdateFiles.instance;
-                this.clientFiles.initFiles(clientSoftDir);
+                this.clientFiles = SoftUpdateFiles.instance;  
 
-                maxOfflineMinutes = int.Parse(Globals.Configuration["deploySys:maxOfflineMinutes"]);;
+                maxOfflineMinutes = int.Parse(Globals.Configuration["deploySys:maxOfflineMinutes"]);
+                delayInitClientFiles();
                 runlog.Info("runconfig ok");
          }
          catch (Exception e)
@@ -234,11 +237,10 @@ namespace deploySys.Server
         {
             if (_queue.Count >= _maxCount)
             {
-                T tmpobj;
-                if (_queue.TryDequeue(out tmpobj))
+                T tmpobj=Dequeue();
+                if (tmpobj!=null)
                 {
                     _queue.Enqueue(obj);
-                    lastobj = obj;
                     lists.Add(obj);
                 }
                 else
@@ -248,8 +250,10 @@ namespace deploySys.Server
             else
             {
                 lists.Add(obj);
+               
                 _queue.Enqueue(obj);
             }
+             lastobj = obj;
         }
         public T Dequeue()
         {

@@ -1,0 +1,134 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+}
+@section _command{
+    <el-button-group>
+
+         <el-button type="primary" icon="el-icon-delete" v-on:click="openRemoveInstance" :disabled="mainCommandDisnable"></el-button>
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 column-width-drag
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                 :paging-index="(mainPageIndex-1)*pageSize"></v-table>
+
+       <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+
+</template>
+
+
+@section vueScript{
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.deptOptions = [];
+            me.data.rolesOptions = [];
+            me.data.mainTableConfig.columns = [
+                {
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:true
+                },
+               { field: 'domain', width: 100, titleAlign: 'center', title: '域名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+
+                { field: 'status', width: 100, titleAlign: 'center', title: '实例状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',formatter: function (rowData, rowIndex, pagingIndex, field) {
+                        console.log(rowData);
+                        return rowData.status == 0 ? '运行' :rowData.status == 102 ? '等待删除': '其他未知'
+                    }, isResize: true },
+                { field: 'CreateDt', width: 100, titleAlign: 'center', title: '创建时间', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+
+                { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'siteDirName', width: 200, titleAlign: 'center', title: '站点目录', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'key', width: 100, titleAlign: 'center', title: '应用Key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+             { field: 'Version', width: 100, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+           { field: 'isWebService', width: 100, titleAlign: 'center', title: 'Web服务', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+             me.methods.openRemoveInstance = function () {
+                $vmpa.confirm("确定要删除该实例吗？", me.methods.removeInstance);
+            };
+            me.methods.removeInstance = function () {
+                 var url ="/Api/SysManage/removeWebSite/" + me.data.mainSelectedModel.Id;
+                var params = {};
+                var _this = this;
+                $vmpa.post(url, params, function (result) {
+                    var msg = result.Msg || "处理成功";
+                    $vmpa.msg(msg);
+                    if (result.Status == ResultStatus.OK) {
+                        me.methods.getMainTableData();
+                        me.methods.mainSelectedModel = null;
+                    }
+                });
+            };
+
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            
+            me.mainLoadTablePagedDataUrl = "/Api/SysManage/webSites?appId=@ViewBag.appId &hostId=@ViewBag.hostId";
+            me.mainAddUrl = "";
+            me.mainDeleteUrl = "";
+            me.mainUpdateUrl = "";
+            me.data.mainDialog = new appTypeDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+              
+            }
+        }
+        function appTypeDialog(vm, _ismain) {
+            var me = this;
+            DialogBase.call(me, vm, _ismain);
+          
+        
+           
+        }
+    </script>
+
+}
+

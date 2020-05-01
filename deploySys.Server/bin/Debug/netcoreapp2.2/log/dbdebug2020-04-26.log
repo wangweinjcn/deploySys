@@ -1,0 +1,79 @@
+﻿26 Apr 2020 15:56:11,281  DEBUG [6] ?.?  - [ReaderExecuting]Input String @P_0 = 'admin';
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE ([SysUser].[IsEnabled] = 1 AND ([SysUser].[AppSiteKey] IS NULL OR [SysUser].[AppSiteKey] = '*') AND ([SysUser].[LoginId] = @P_0 OR [SysUser].[Mobile] = @P_0 OR [SysUser].[Email] = @P_0)) LIMIT 1 OFFSET 0
+
+26 Apr 2020 15:56:11,381  DEBUG [6] ?.?  - [ReaderExecuted]28
+26 Apr 2020 15:56:11,456  DEBUG [6] ?.?  - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+26 Apr 2020 15:56:11,464  DEBUG [6] ?.?  - [ReaderExecuted]11
+26 Apr 2020 15:56:11,522  DEBUG [6] ?.?  - [ReaderExecuting]Input String @P_0 = '1';
+SELECT [LoginHistory].[Id] AS [C] FROM [LoginHistory] AS [LoginHistory] WHERE ([LoginHistory].[valid] = 1 AND [LoginHistory].[Ass_SysUser] = @P_0)
+
+26 Apr 2020 15:56:11,539  DEBUG [6] ?.?  - [ReaderExecuted]1
+26 Apr 2020 15:56:11,578  DEBUG [6] ?.?  - [ScalarExecuting]Input String @P_0 = '1809b987-375b-4ecc-b9bd-2e9b66e83fed';
+Input DateTime @P_1 = '2020/4/26 20:56:11';
+Input Boolean @P_2 = True;
+Input String @P_3 = '127.0.0.1';
+Input Int32 @P_4 = 1;
+Input String @P_5 = '1';
+Input String @P_6 = 'admin';
+Input DateTime @P_7 = '2020/4/26 15:56:11';
+Input DateTime @P_8 = '2020/4/26 15:56:11';
+Input Boolean @P_9 = False;
+INSERT INTO [LoginHistory]([Token],[ExpireDt],[valid],[IpFrom],[Ass_SysUser],[UpdaterID],[UpdaterName],[CreateDt],[UpdateDt],[IsDeleted],[CreaterName],[CreaterID]) VALUES(@P_0,@P_1,@P_2,@P_3,@P_4,@P_5,@P_6,@P_7,@P_8,@P_9,@P_6,@P_5);SELECT LAST_INSERT_ROWID()
+
+26 Apr 2020 15:56:11,630  DEBUG [6] ?.?  - [ScalarExecuted]15
+26 Apr 2020 15:56:11,647  DEBUG [6] ?.?  - [NonQueryExecuting]UPDATE [LoginHistory] SET [valid]=0 WHERE [LoginHistory].[Id] IN (14)
+
+26 Apr 2020 15:56:11,654  DEBUG [6] ?.?  - [NonQueryExecuted]1
+26 Apr 2020 15:56:11,789  DEBUG [29] ?.?  - [ReaderExecuting]Input Int32 @P_0 = 1;
+SELECT [SysUser].[Id] AS [Id],[SysUser].[Email] AS [Email],[SysUser].[UserName] AS [UserName],[SysUser].[Mobile] AS [Mobile],[SysUser].[Password] AS [Password],[SysUser].[IsEnabled] AS [IsEnabled],[SysUser].[UserType] AS [UserType],[SysUser].[RecomendId] AS [RecomendId],[SysUser].[Birthday] AS [Birthday],[SysUser].[IdentityId] AS [IdentityId],[SysUser].[Photo] AS [Photo],[SysUser].[TelNo] AS [TelNo],[SysUser].[ComName] AS [ComName],[SysUser].[loginType] AS [loginType],[SysUser].[AppSiteKey] AS [AppSiteKey],[SysUser].[secretKey] AS [secretKey],[SysUser].[Description] AS [Description],[SysUser].[LoginId] AS [LoginId],[SysUser].[sex] AS [sex],[SysUser].[OtherLoginId] AS [OtherLoginId],[SysUser].[Ass_Areas] AS [Ass_Areas_Id],[SysUser].[UpdaterID] AS [UpdaterID],[SysUser].[UpdaterName] AS [UpdaterName],[SysUser].[CreateDt] AS [CreateDt],[SysUser].[UpdateDt] AS [UpdateDt],[SysUser].[IsDeleted] AS [IsDeleted],[SysUser].[CreaterName] AS [CreaterName],[SysUser].[CreaterID] AS [CreaterID] FROM [SysUser] AS [SysUser] WHERE [SysUser].[Id] = @P_0 LIMIT 1 OFFSET 0
+
+26 Apr 2020 15:56:11,878  DEBUG [29] ?.?  - [ReaderExecuted]28
+26 Apr 2020 15:56:11,919  DEBUG [29] ?.?  - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+26 Apr 2020 15:56:11,924  DEBUG [29] ?.?  - [ReaderExecuted]11
+26 Apr 2020 15:56:11,948  DEBUG [29] ?.?  - [ReaderExecuting]Input Int32 @P_0 = 0;
+SELECT [MenuGroup].[Id] AS [Id],[MenuGroup].[Icon] AS [Icon],[MenuGroup].[Name] AS [Name],[MenuGroup].[SortCode] AS [SortCode],[MenuGroup].[Ass_Parent] AS [Ass_Parent_Id],[MenuGroup].[UpdaterID] AS [UpdaterID],[MenuGroup].[UpdaterName] AS [UpdaterName],[MenuGroup].[CreateDt] AS [CreateDt],[MenuGroup].[UpdateDt] AS [UpdateDt],[MenuGroup].[IsDeleted] AS [IsDeleted],[MenuGroup].[CreaterName] AS [CreaterName],[MenuGroup].[CreaterID] AS [CreaterID] FROM [MenuGroup] AS [MenuGroup] WHERE ([MenuGroup].[Ass_Parent] IS NULL OR [MenuGroup].[Ass_Parent] <= @P_0)
+
+26 Apr 2020 15:56:11,972  DEBUG [29] ?.?  - [ReaderExecuted]12
+26 Apr 2020 15:56:12,005  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+
+26 Apr 2020 15:56:12,008  DEBUG [29] ?.?  - [ReaderExecuted]13
+26 Apr 2020 15:56:12,035  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+
+26 Apr 2020 15:56:12,041  DEBUG [29] ?.?  - [ReaderExecuted]12
+26 Apr 2020 15:56:12,057  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+
+26 Apr 2020 15:56:12,059  DEBUG [29] ?.?  - [ReaderExecuted]13
+26 Apr 2020 15:56:12,071  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+
+26 Apr 2020 15:56:12,082  DEBUG [29] ?.?  - [ReaderExecuted]12
+26 Apr 2020 15:56:12,091  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+
+26 Apr 2020 15:56:12,105  DEBUG [29] ?.?  - [ReaderExecuted]13
+26 Apr 2020 15:56:12,119  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+
+26 Apr 2020 15:56:12,121  DEBUG [29] ?.?  - [ReaderExecuted]12
+26 Apr 2020 15:56:12,135  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+
+26 Apr 2020 15:56:12,146  DEBUG [29] ?.?  - [ReaderExecuted]13
+26 Apr 2020 15:56:12,153  DEBUG [29] ?.?  - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+
+26 Apr 2020 15:56:12,164  DEBUG [29] ?.?  - [ReaderExecuted]12
+26 Apr 2020 15:56:14,469  DEBUG [29] ?.?  - [ReaderExecuting]SELECT COUNT(1) AS [C] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1)
+
+26 Apr 2020 15:56:14,469  DEBUG [7] ?.?  - [ReaderExecuting]SELECT COUNT(1) AS [C] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1)
+
+26 Apr 2020 15:56:14,478  DEBUG [28] ?.?  - [ReaderExecuting]SELECT COUNT(1) AS [C] FROM [ReleaseTask] AS [ReleaseTask] INNER JOIN [MicroServiceApp] AS [MicroServiceApp] ON (NOT ([ReleaseTask].[IsDeleted] = 1) AND [ReleaseTask].[Ass_MicroServiceApp] = [MicroServiceApp].[Id])
+
+26 Apr 2020 15:56:14,486  DEBUG [29] ?.?  - [ReaderExecuted]1
+26 Apr 2020 15:56:14,503  DEBUG [7] ?.?  - [ReaderExecuted]1
+26 Apr 2020 15:56:14,548  DEBUG [29] ?.?  - [ReaderExecuting]SELECT [Region].[Id] AS [Id],[Region].[Key] AS [Key],[Region].[Name] AS [Name],[Region].[UpdaterID] AS [UpdaterID],[Region].[UpdaterName] AS [UpdaterName],[Region].[CreateDt] AS [CreateDt],[Region].[UpdateDt] AS [UpdateDt],[Region].[IsDeleted] AS [IsDeleted],[Region].[CreaterName] AS [CreaterName],[Region].[CreaterID] AS [CreaterID] FROM [Region] AS [Region] WHERE NOT ([Region].[IsDeleted] = 1) ORDER BY [Region].[CreateDt] DESC LIMIT 100 OFFSET 0
+
+26 Apr 2020 15:56:14,555  DEBUG [7] ?.?  - [ReaderExecuting]SELECT [AppType].[Id] AS [Id],[AppType].[stopCommand] AS [stopCommand],[AppType].[name] AS [name],[AppType].[key] AS [key],[AppType].[startCommand] AS [startCommand],[AppType].[createContainerParams] AS [createContainerParams],[AppType].[buildScript] AS [buildScript],[AppType].[UpdaterID] AS [UpdaterID],[AppType].[UpdaterName] AS [UpdaterName],[AppType].[CreateDt] AS [CreateDt],[AppType].[UpdateDt] AS [UpdateDt],[AppType].[IsDeleted] AS [IsDeleted],[AppType].[CreaterName] AS [CreaterName],[AppType].[CreaterID] AS [CreaterID] FROM [AppType] AS [AppType] WHERE NOT ([AppType].[IsDeleted] = 1) ORDER BY [AppType].[CreateDt] DESC LIMIT 100 OFFSET 0
+
+26 Apr 2020 15:56:14,557  DEBUG [28] ?.?  - [ReaderExecuted]1
+26 Apr 2020 15:56:14,571  DEBUG [29] ?.?  - [ReaderExecuted]10
+26 Apr 2020 15:56:14,588  DEBUG [7] ?.?  - [ReaderExecuted]14
+26 Apr 2020 15:56:14,597  DEBUG [28] ?.?  - [ReaderExecuting]SELECT [ReleaseTask].[Id] AS [Id],[ReleaseTask].[HostIds] AS [HostIds],[ReleaseTask].[Ass_Zone] AS [Ass_Zone_Id],[ReleaseTask].[Ass_Region] AS [Ass_Region_Id],[ReleaseTask].[Ass_MicroServiceApp] AS [Ass_MicroServiceApp_Id],[ReleaseTask].[count] AS [count],[ReleaseTask].[CreateDt] AS [CreateDt],[ReleaseTask].[CreaterID] AS [CreaterID],[ReleaseTask].[CreaterName] AS [CreaterName],[ReleaseTask].[dockerNetType] AS [dockerNetType],[ReleaseTask].[FileGuid] AS [FileGuid],[ReleaseTask].[FileName] AS [FileName],[ReleaseTask].[memo] AS [memo],[ReleaseTask].[overridePolicy] AS [overridePolicy],[ReleaseTask].[ProcessInfo] AS [ProcessInfo],[ReleaseTask].[releaseType] AS [releaseType],[ReleaseTask].[selectHostPolicy] AS [selectHostPolicy],[ReleaseTask].[status] AS [status],[ReleaseTask].[unzipInServer] AS [unzipInServer],[ReleaseTask].[UpdateDt] AS [UpdateDt],[ReleaseTask].[UpdaterID] AS [UpdaterID],[ReleaseTask].[UpdaterName] AS [UpdaterName],[ReleaseTask].[useWIP] AS [useWIP],[ReleaseTask].[Version] AS [Version],[MicroServiceApp].[appName] AS [appName],[MicroServiceApp].[key] AS [key],[ReleaseTask].[sslKey] AS [sslKey],[ReleaseTask].[sslPem] AS [sslPem] FROM [ReleaseTask] AS [ReleaseTask] INNER JOIN [MicroServiceApp] AS [MicroServiceApp] ON (NOT ([ReleaseTask].[IsDeleted] = 1) AND [ReleaseTask].[Ass_MicroServiceApp] = [MicroServiceApp].[Id]) ORDER BY [ReleaseTask].[CreateDt] DESC LIMIT 10 OFFSET 0
+

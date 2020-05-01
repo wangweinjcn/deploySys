@@ -71,7 +71,7 @@ namespace deploySys.Node
                 .ConfigureLogging((hostContext, configLogging) =>
                 {
                     configLogging.AddConsole();
-                    configLogging.AddDebug();
+                    
                 })
                 .Build();
                  host.Run();

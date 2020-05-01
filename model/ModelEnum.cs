@@ -60,6 +60,10 @@ namespace deploySys.Model
         waitForTaskStop = 100,
         [Description("等待重启")]
         waitForTaskRestart = 101,
+        [Description("等待删除")]
+        waitForTaskRemove = 102,
+        [Description("未知状态")]
+        other = 1000,
     }
     public enum EnumReleaseTaskStatus
     {
@@ -98,8 +102,12 @@ namespace deploySys.Model
         stopDockerInstance = 10,
         [Description("重启docker实例")]
         restartDockerInstance = 15,
+        [Description("删除docker实例")]
+        removeDockerInstance = 30,
+        [Description("删除Nginx站点")]
+        removeNgixSite = 31,
         [Description("其他")]
-        other = 20,
+        other = 100,
     }
     public enum EnumHostTaskStatus
     {
@@ -111,5 +119,7 @@ namespace deploySys.Model
         started = 10,
         [Description("已完成")]
         finished = 20,
+        [Description("其他")]
+        other = 100,
     }
    }

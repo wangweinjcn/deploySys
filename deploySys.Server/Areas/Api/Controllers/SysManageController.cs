@@ -77,7 +77,7 @@ namespace deploySys.Server.Controller.Admin
         {
 
 
-            var q = objectSpace.SpaceQuery<ReleaseTask>().Where(a => !a.IsDeleted );
+            var q = objectSpace.SpaceQuery<ReleaseTask>().Join<MicroServiceApp>(JoinType.InnerJoin,( a,b) => !a.IsDeleted && a.Ass_MicroServiceApp==b  ).Select((a,b)=>new {a.Id,a.HostIds,a.Ass_Zone_Id,a.Ass_Region_Id,a.Ass_MicroServiceApp_Id,a.count,a.CreateDt,a.CreaterID,a.CreaterName,a.dockerNetType,a.FileGuid,a.FileName,a.memo,a.overridePolicy,a.ProcessInfo,a.releaseType,a.selectHostPolicy,a.status,a.unzipInServer,a.UpdateDt,a.UpdaterID,a.UpdaterName,a.useWIP,a.Version,b.appName,b.key,a.sslKey,a.sslPem});
             if (regId > 0)
                 q = q.Where(a => a.Ass_Region_Id == regId);
             if (zoneId > 0)
@@ -91,9 +91,28 @@ namespace deploySys.Server.Controller.Admin
             var count = q.Count();
             var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
                 .Take(pagination.PageSize).ToCommList();
+            
             JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
             PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
             return this.SuccessData(pagedData);
+        }
+        [HttpGet]
+        [Route("{Id?}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult getRleaseVersionFile([FromRoute]int Id)
+        {
+            ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(Id);
+            if (obj == null)
+                return FailedMsg("");
+
+            var content = SysFunc.getInstance(objectSpace).GetFile(obj.FileGuid);
+            var memory = new MemoryStream(content);
+            
+
+            memory.Position = 0;
+
+            return File(memory, "application/octet-stream", obj.FileName);
+
         }
         /// <summary>
         /// 新增或更改ReleaseTask
@@ -101,12 +120,11 @@ namespace deploySys.Server.Controller.Admin
         /// <param name="offobj"></param>
         /// <returns></returns>
         [HttpPost]
+        [RequestSizeLimit(100000000)] //最大100m左右
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auReleaseTask(IList<IFormFile> importfile1,[FromForm]ReleaseTask offobj, [FromForm]int regId,[FromForm]int zoneId,[FromForm]int serverAppId)
         {
-            Region reg = objectSpace.ObjectForIntId<Region>(regId);
-            if (reg == null)
-                return FailedMsg("区域不存在");
+
             Zone zo = objectSpace.ObjectForIntId<Zone>(zoneId);
             if (zo == null)
                 return FailedMsg("zo不存在");
@@ -115,24 +133,18 @@ namespace deploySys.Server.Controller.Admin
                 return FailedMsg("应用不存在");
             var count1 = objectSpace.SpaceQuery<appVersion>().Where(a => a.Ass_MicroServiceApp == msa && a.version == offobj.Version).Count();
             var count2 = objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.Ass_MicroServiceApp == msa && a.Version == offobj.Version).Count();
-            if (count1 > 0 || count2>0)
+            if ( offobj.Id<=0 &&( count1 > 0 || count2>0))
                 return FailedMsg("该应用有重复的版本号");
 
-            SysFunc sf = SysFunc.getInstance(objectSpace);
-            var fullfn = Path.GetFileName(importfile1[0].FileName);
-
-            var fn = System.IO.Path.GetFileName(fullfn);
-            FileVDir o = null;
-            using (MemoryStream fs = new MemoryStream())
+            if (offobj.releaseType == 0 && offobj.count>1 && (msa.serviceType==(int)EnumAppServiceType.webSite ||msa.serviceType==(int)EnumAppServiceType.webServiceSite))
             {
-                importfile1[0].CopyTo(fs);
+                return FailedMsg("对于需要反向代理的服务或站点，不允许发布数量大于1");
 
-                byte[] content = FrmLib.Extend.tools_static.StreamToBytes(fs);
-                o = sf.AddNewFile(content, fn);
-                UpdateDatabase();
             }
+            SysFunc sf = SysFunc.getInstance(objectSpace);
+           
 
-
+           
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(offobj.Id);
             if (obj == null)
             {
@@ -141,10 +153,32 @@ namespace deploySys.Server.Controller.Admin
                 obj = new ReleaseTask(objectSpace);
             }
             objectSpace.applyValueFromOffObject(obj, offobj);
-            obj.FileGuid = o.Guid;
-            obj.FileName = fullfn;
+            if (importfile1.Count > 0 && importfile1[0].Length > 0)
+            {
+                var fullfn = Path.GetFileName(importfile1[0].FileName);
+
+                var fn = System.IO.Path.GetFileName(fullfn);
+                FileVDir o = null;
+                using (MemoryStream fs = new MemoryStream())
+                {
+
+                    importfile1[0].CopyTo(fs);
+
+                    byte[] content = FrmLib.Extend.tools_static.StreamToBytes(fs);
+                    o = sf.AddNewFile(content, fn);
+                    objectSpace.updateOneDirtyObject(o);
+                    obj.FileGuid = o.Guid;
+                    obj.FileName = fullfn;
+                }
+            }
+            else
+            {
+                if (obj.isNew())
+                    return FailedMsg("文件不能为空");
+            }
+          
             obj.Ass_Zone = zo;
-            obj.Ass_Region = reg;
+            obj.Ass_Region = zo.Ass_Region;
             obj.Ass_MicroServiceApp = msa;
             UpdateDatabase();
             return SuccessData(obj);
@@ -168,7 +202,50 @@ namespace deploySys.Server.Controller.Admin
                     if (x > 0)
                         return FailedMsg("还有运行实例，不能删除");
                 }
-                obj.IsDeleted = true;
+                objectSpace.BatchDelete<HostTask>(a => a.Ass_ReleaseTask == obj);
+                if (obj.Ass_appVersion != null)
+                    obj.Ass_appVersion.choDelete();
+                obj.choDelete();
+
+                UpdateDatabase();
+
+            }
+            return SuccessMsg();
+        }
+        [HttpPost]
+        [Route("{Id?}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult restartHostTask([FromRoute]int Id)
+        {
+
+            HostTask obj = objectSpace.ObjectForIntId<HostTask>(Id);
+            if (obj.Ass_ReleaseTask != null)
+                return FailedMsg("版本发布必须使用版本重启");
+
+            if (obj != null && obj.Status != (int)EnumHostTaskStatus.finished)
+            {
+                obj.Status = (int)EnumHostTaskStatus.waitForProcess;
+               
+                UpdateDatabase();
+
+            }
+            return SuccessMsg();
+        }
+        [HttpPost]
+        [Route("{Id?}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult restartReleaseTask([FromRoute]int Id)
+        {
+
+            ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(Id);
+            if (obj != null && obj.status == (int)EnumReleaseTaskStatus.error)
+            {
+                obj.status = (int)EnumReleaseTaskStatus.assigned;
+                foreach (var ht in obj.Ass_HostTask)
+                {
+                    if (ht.Status == (int)EnumHostTaskStatus.failed)
+                        ht.Status = (int)EnumHostTaskStatus.waitForProcess;
+                }
                 UpdateDatabase();
 
             }
@@ -186,7 +263,7 @@ namespace deploySys.Server.Controller.Admin
         {
 
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(Id);
-            if (obj != null)
+            if (obj != null && obj.status ==(int)EnumReleaseTaskStatus.created)
             {
                 obj.status = (int)EnumReleaseTaskStatus.audited;
                 UpdateDatabase();
@@ -231,18 +308,18 @@ namespace deploySys.Server.Controller.Admin
         /// 发布任务的主机实例列表
         /// </summary>
         /// <param name="keyword"></param>
-        /// <param name="Id"></param>
+        /// <param name="Id">任务ID</param>
         /// <param name="pagination"></param>
         /// <returns></returns>
         [HttpGet]
         [Route("{Id?}")]
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
-        public IActionResult taskHosts([FromQuery]string keyword, [FromRoute]int Id, [FromQuery]Pagination pagination)
+        public IActionResult taskHosts([FromQuery]string keyword, [FromRoute]int Id,[FromQuery]int hostId, [FromQuery]Pagination pagination)
         {
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(Id);
             if (obj != null)
             {
-                var q = objectSpace.SpaceQuery<HostTask>().Join<ReleaseTask>(JoinType.InnerJoin, (a, b) => a.Ass_ReleaseTask == b && b == obj).Join<HostResource>(JoinType.InnerJoin,(a,b,c)=>a.HostId==c.Id).Select((a, b,c) => new {a.Id,a.CreateDt,a.allocPort,a.dockerInanceId,a.Status,b.Version,c.IP,c.hostName });
+                var q = objectSpace.SpaceQuery<HostTask>().Join<ReleaseTask>(JoinType.InnerJoin, (a, b) => a.Ass_ReleaseTask == b && b == obj).Join<HostResource>(JoinType.InnerJoin,(a,b,c)=>a.HostId==c.Id).Select((a, b,c) => new {a.Id,a.CreateDt,a.allocPort,a.dockerInanceId,a.Status,b.Version,c.IP,c.hostName,a.taskType });
                 if (!string.IsNullOrEmpty(keyword))
                 {
                     q = q.Where(a => a.dockerInanceId.ToString()==keyword || a.allocPort.ToString().Contains(keyword) || a.IP.Contains(keyword));
@@ -257,7 +334,18 @@ namespace deploySys.Server.Controller.Admin
             }
             else
             {
-                return FailedMsg("");
+                var q = objectSpace.SpaceQuery<HostTask>().Join<ReleaseTask>(JoinType.LeftJoin, (a, b) => a.Ass_ReleaseTask == b).Join<HostResource>(JoinType.InnerJoin, (a, b, c) => a.HostId == c.Id && c.Id==hostId).Select((a, b, c) => new { a.Id, a.CreateDt, a.allocPort, a.dockerInanceId, a.Status,Version= b==null?"": b.Version, c.IP, c.hostName, a.taskType });
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    q = q.Where(a => a.dockerInanceId.ToString() == keyword || a.allocPort.ToString().Contains(keyword) || a.IP.Contains(keyword));
+                }
+                var count = q.Count();
+                var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+                    .Take(pagination.PageSize).ToCommList();
+                JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+                PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
+                return this.SuccessData(pagedData);
+              
             }
         }
         #endregion
@@ -274,23 +362,31 @@ namespace deploySys.Server.Controller.Admin
         public IActionResult MicroServiceAppsInstance([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int appId=-1,[FromQuery]int hostId=-1)
         {
 
-            var q = objectSpace.SpaceQuery<DockerInstance>().Where(a => !a.IsDeleted ).Join<HostResource>(JoinType.InnerJoin, (a, b) => a.Ass_HostResource == b).Select((a, b) => new { DockerInstance = a, HostResource = b });
+            var q = objectSpace.SpaceQuery<DockerInstance>().Where(a => !a.IsDeleted ).Join<HostResource>(JoinType.InnerJoin, (a, b) => a.Ass_HostResource == b).Join<MicroServiceApp>(JoinType.LeftJoin,(a,b,c)=>a.Ass_MicroServiceApp==c).Select((a, b,c) => new {a.proxyPort,a.status, a.version,a.IP,a.domain,a.Id,a.Ass_MicroServiceApp_Id,a.baseDir,a.instanceId,b.appBaseDir,b.hostName,b.macId,hostId=b.Id,a.CreateDt,apps=c,appName=""});
             if (appId > 0)
             {
-                q = q.Where(a => a.DockerInstance.Ass_MicroServiceApp_Id == appId);
+                q = q.Where(a => a.Ass_MicroServiceApp_Id == appId);
             }
             if (hostId > 0)
             {
-                q = q.Where(a => a.HostResource.Id == hostId);
+                q = q.Where(a => a.hostId == hostId);
             }
             if (!string.IsNullOrEmpty(keyword))
             {
-                q = q.Where(a => a.DockerInstance.baseDir.Contains(keyword) || a.DockerInstance.instanceId.Contains(keyword) || a.HostResource.appBaseDir.Contains(keyword) || a.HostResource.hostName.Contains(keyword) || a.HostResource.IP.Contains(keyword) || a.HostResource.clientSessionId.Contains(keyword));
+                q = q.Where(a => a.baseDir.Contains(keyword) || a.instanceId.Contains(keyword) || a.appBaseDir.Contains(keyword) || a.hostName.Contains(keyword) || a.IP.Contains(keyword) || a.macId.Contains(keyword) || a.apps.key.Contains(keyword) );
             }
             var count = q.Count();
-            var list = q.OrderByDesc(a => a.DockerInstance.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+            var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
                 .Take(pagination.PageSize).ToCommList();
+
             JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+            foreach (JObject jobj in jarr)
+            {
+                if (FrmLib.Extend.tools_static.jobjectHaveKey(jobj, "apps") && jobj["apps"].HasValues &&
+                    FrmLib.Extend.tools_static.jobjectHaveKey(jobj["apps"] as JObject, "appName"))
+                    jobj["appName"] = jobj["apps"]["appName"];
+                
+            }
             PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
             return this.SuccessData(pagedData);
         }
@@ -327,6 +423,89 @@ namespace deploySys.Server.Controller.Admin
             return SuccessMsg();
 
         }
+       /// <summary>
+       /// 删除实例
+       /// </summary>
+       /// <param name="Id"></param>
+       /// <returns></returns>
+        [HttpPost]
+        [Route("{Id}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult removeInstance([FromRoute]string Id)
+        {
+            DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
+            if (di == null)
+                return FailedMsg("实例不存在");
+             di.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
+            
+            HostTask ht = new HostTask(objectSpace);
+            ht.dockerInanceId = di.instanceId;
+            ht.taskType = (int)EnumHostTaskType.removeDockerInstance;
+            ht.HostId = di.Ass_HostResource_Id.Value;
+            UpdateDatabase();
+            return SuccessMsg();
+
+        }
+        #endregion
+        #region 站点
+        /// <summary>
+        /// 删除站点
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("{Id}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult removeWebSite([FromRoute]string Id)
+        {
+            webSite ws = objectSpace.ObjectForId<webSite>(Id);
+            if (ws == null)
+                return FailedMsg("站点不存在");
+            ws.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
+
+            HostTask ht = new HostTask(objectSpace);
+          
+            ht.taskType = (int)EnumHostTaskType.removeNgixSite;
+            ht.dockerInanceId = ws.Ass_DockerInstance.instanceId;
+            ht.HostId = ws.Ass_DockerInstance.Ass_HostResource_Id.Value;
+            ht.taskParms = ws.Ass_MicroServiceApp.key;
+            UpdateDatabase();
+            return SuccessMsg();
+
+        }
+
+        /// <summary>
+        /// 微服务应用站点
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="pagination"></param>
+        /// <param name="appId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult webSites([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int appId = -1, [FromQuery]int hostId = -1)
+        {
+            var q = (objectSpace as BaseContextSpace).JoinQuery<webSite, DockerInstance, MicroServiceApp>((a, b, c) => new object[] { JoinType.LeftJoin, a.Ass_DockerInstance == b, JoinType.LeftJoin, a.Ass_MicroServiceApp == c }).Select((a,b,c)=>new {webSite=a,DockerInstance=b,MicroServiceApp=c });
+            if (appId > 0)
+                q = q.Where(a => a.MicroServiceApp.Id == appId);
+            if (hostId > 0)
+                q = q.Where(a => a.DockerInstance.Ass_HostResource_Id == hostId);
+            var  q2 = q.Select((a) => new { a.webSite.Id, a.webSite.siteDirName,a.webSite.domain,a.webSite.version,a.webSite.status,a.webSite.isWebService,a.MicroServiceApp.appName,a.webSite.CreateDt,a.webSite.CreaterName });
+           
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                q2 = q2.Where(a => a.domain.Contains(keyword) || a.version.Contains(keyword) || a.appName.Contains(keyword));
+            }
+            var count = q2.Count();
+            var list = q2.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+                .Take(pagination.PageSize).ToCommList();
+
+            JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+           
+            PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
+            return this.SuccessData(pagedData);
+        }
+
         #endregion
     }
 

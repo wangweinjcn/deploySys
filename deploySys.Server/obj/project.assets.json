@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "Antlr/3.5.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/Antlr3.Runtime.dll": {}
-        },
-        "runtime": {
-          "lib/Antlr3.Runtime.dll": {}
-        }
-      },
       "Baidu.AI/3.4.0": {
         "type": "package",
         "dependencies": {
@@ -128,18 +119,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/DotNetty.Transport.Libuv.dll": {}
-        }
-      },
-      "ExpressionEvaluator/2.0.4": {
-        "type": "package",
-        "dependencies": {
-          "Antlr": "3.5.0.2"
-        },
-        "compile": {
-          "lib/net40/ExpressionEvaluator.dll": {}
-        },
-        "runtime": {
-          "lib/net40/ExpressionEvaluator.dll": {}
         }
       },
       "Google.Protobuf/3.5.1": {
@@ -2982,7 +2961,7 @@
           "Microsoft.NETCore.DotNetAppHost": "2.2.0"
         }
       },
-      "Microsoft.NETCore.Platforms/3.0.0": {
+      "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -2998,15 +2977,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
-        }
-      },
-      "Microsoft.PinYinConverter/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/ChnCharInfo.dll": {}
-        },
-        "runtime": {
-          "lib/ChnCharInfo.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -3415,10 +3385,11 @@
           }
         }
       },
-      "SharpCompress/0.24.0": {
+      "SharpCompress/0.25.0": {
         "type": "package",
         "dependencies": {
-          "System.Text.Encoding.CodePages": "4.5.1"
+          "System.Memory": "4.5.4",
+          "System.Text.Encoding.CodePages": "4.7.0"
         },
         "compile": {
           "lib/netstandard2.0/SharpCompress.dll": {}
@@ -3502,20 +3473,6 @@
         },
         "runtime": {
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore/4.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerUI": "4.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.Annotations/4.0.1": {
@@ -4279,7 +4236,7 @@
           "lib/netstandard1.3/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Memory/4.5.3": {
+      "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -4710,7 +4667,7 @@
           "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+      "System.Runtime.CompilerServices.Unsafe/4.7.0": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
@@ -5227,11 +5184,11 @@
           "ref/netstandard1.3/System.Text.Encoding.dll": {}
         }
       },
-      "System.Text.Encoding.CodePages/4.6.0": {
+      "System.Text.Encoding.CodePages/4.7.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.0.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.0"
         },
         "compile": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
@@ -5569,7 +5526,7 @@
           "lib/netstandard2.0/Chloe.dll": {}
         }
       },
-      "wChloe.SQLite/3.9.1": {
+      "wChloe.SQLite/3.9.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "2.2.3",
@@ -5618,21 +5575,11 @@
         "dependencies": {
           "Baidu.AI": "3.4.0",
           "MailKit": "2.0.2",
-          "Microsoft.AspNetCore.Authentication": "2.2.0",
-          "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0",
-          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
-          "Microsoft.AspNetCore.Mvc.RazorPages": "2.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
-          "Microsoft.PinYinConverter": "1.0.0",
           "MongoDB.Driver": "2.4.4",
           "MySql.Data": "8.0.12",
           "Newtonsoft.Json": "11.0.2",
-          "Swashbuckle.AspNetCore": "4.0.1",
-          "Swashbuckle.AspNetCore.Annotations": "4.0.1",
-          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1",
-          "Swashbuckle.AspNetCore.SwaggerUI": "4.0.1",
           "System.ComponentModel.Annotations": "4.6.0",
           "System.Data.SqlClient": "4.7.0",
           "System.Reflection.Emit": "4.3.0",
@@ -5652,11 +5599,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "ExpressionEvaluator": "2.0.4",
           "MailKit": "2.0.2",
           "MessagePack": "2.1.90",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
-          "Microsoft.PinYinConverter": "1.0.0",
           "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel.Annotations": "4.6.0",
           "System.Reflection.Emit": "4.6.0",
@@ -5671,7 +5616,7 @@
           "bin/placeholder/ModelCore.dll": {}
         }
       },
-      "spNettyRPC/1.0.3": {
+      "spNettyRPC/1.0.4": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -5698,19 +5643,6 @@
     }
   },
   "libraries": {
-    "Antlr/3.5.0.2": {
-      "sha512": "CSfrVuDVMx3OrQhT84zed+tOdM1clljyRLWWlQM22fJsmG836RVDGQlE6tzysXh8X8p9UjkHbLr6OqEIVhtdEA==",
-      "type": "package",
-      "path": "antlr/3.5.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "antlr.3.5.0.2.nupkg.sha512",
-        "antlr.nuspec",
-        "lib/Antlr3.Runtime.dll",
-        "lib/Antlr3.Runtime.pdb"
-      ]
-    },
     "Baidu.AI/3.4.0": {
       "sha512": "3cwolDkg04OPoSxhJrRf0rAhd+N1jKNTuIfvRFeIcdW+m7GbESXRp0DVkNZDQejaftQup5VbkhcCYzlaurCliw==",
       "type": "package",
@@ -5815,18 +5747,6 @@
         "lib/net45/DotNetty.Transport.Libuv.xml",
         "lib/netstandard1.3/DotNetty.Transport.Libuv.dll",
         "lib/netstandard1.3/DotNetty.Transport.Libuv.xml"
-      ]
-    },
-    "ExpressionEvaluator/2.0.4": {
-      "sha512": "w8RqBrK5YkjgXmLE0M6PKcULee3/fVaz+aIt1lOEhyyb0PYIqGvbyovmZ9Mp5WCFV6EnUjxxkoEc4MS6wlyy5Q==",
-      "type": "package",
-      "path": "expressionevaluator/2.0.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "expressionevaluator.2.0.4.nupkg.sha512",
-        "expressionevaluator.nuspec",
-        "lib/net40/ExpressionEvaluator.dll"
       ]
     },
     "Google.Protobuf/3.5.1": {
@@ -8685,17 +8605,17 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.0.0": {
-      "sha512": "TsETIgVJb/AKoYfSP+iCxkuly5d3inZjTdx/ItZLk2CxY85v8083OBS3uai84kK3/baLnS5/b5XGs6zR7SuuHQ==",
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/3.0.0",
+      "path": "microsoft.netcore.platforms/3.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -8716,18 +8636,6 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "Microsoft.PinYinConverter/1.0.0": {
-      "sha512": "f5FvBtOhiZk/S/yqopvq+bo41Z1RErp2NTOpLgVHRanEpJjQ20+CgWLxWEP/+6JHBLKY7FI7REYvXH1ddcpisQ==",
-      "type": "package",
-      "path": "microsoft.pinyinconverter/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/ChnCharInfo.dll",
-        "microsoft.pinyinconverter.1.0.0.nupkg.sha512",
-        "microsoft.pinyinconverter.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -9420,19 +9328,18 @@
         "version.txt"
       ]
     },
-    "SharpCompress/0.24.0": {
-      "sha512": "3zpUOie9xRrEc6o33Z546rseYttnoxVDMC3wsGYsUa5wXas3wTG96v+dHxcGMCta/Kid9jFIl8/Lc/GbNpKZVA==",
+    "SharpCompress/0.25.0": {
+      "sha512": "sP7lD6xB56CjbEVPGNUkTFoH5bEyumJbakUz8uRIQWioKNLzyBHlFVu/5hdSxjYV01AL0RnYhu8aWNgalTJx+A==",
       "type": "package",
-      "path": "sharpcompress/0.24.0",
+      "path": "sharpcompress/0.25.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net35/SharpCompress.dll",
-        "lib/net45/SharpCompress.dll",
-        "lib/netstandard1.0/SharpCompress.dll",
+        "lib/net46/SharpCompress.dll",
         "lib/netstandard1.3/SharpCompress.dll",
         "lib/netstandard2.0/SharpCompress.dll",
-        "sharpcompress.0.24.0.nupkg.sha512",
+        "lib/netstandard2.1/SharpCompress.dll",
+        "sharpcompress.0.25.0.nupkg.sha512",
         "sharpcompress.nuspec"
       ]
     },
@@ -9526,18 +9433,6 @@
         "lib/netstandard1.5/StackExchange.Redis.StrongName.xml",
         "stackexchange.redis.strongname.1.2.6.nupkg.sha512",
         "stackexchange.redis.strongname.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore/4.0.1": {
-      "sha512": "Zq6lkFieuFPNDwXwQ+e8i5zy2VMrexcRFU8mQORxqIc8r7Y+qKX63vg57yL1HeGCINHQGGzxGfw2rP63IeEqhg==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore/4.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/Swashbuckle.AspNetCore.dll",
-        "swashbuckle.aspnetcore.4.0.1.nupkg.sha512",
-        "swashbuckle.aspnetcore.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore.Annotations/4.0.1": {
@@ -11637,22 +11532,24 @@
         "system.linq.queryable.nuspec"
       ]
     },
-    "System.Memory/4.5.3": {
-      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.memory/4.5.3",
+      "path": "system.memory/4.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
         "lib/netcoreapp2.1/_._",
         "lib/netstandard1.1/System.Memory.dll",
         "lib/netstandard1.1/System.Memory.xml",
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -12836,10 +12733,10 @@
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
-      "sha512": "HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+    "System.Runtime.CompilerServices.Unsafe/4.7.0": {
+      "sha512": "IpU1lcHz8/09yDr9N+Juc7SCgNUz+RohkCQI+KsWKR67XxpFr8Z6c8t1iENCXZuRuNCc4HBwme/MDHNVCwyAKg==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "path": "system.runtime.compilerservices.unsafe/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -12855,7 +12752,7 @@
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -14063,10 +13960,10 @@
         "system.text.encoding.nuspec"
       ]
     },
-    "System.Text.Encoding.CodePages/4.6.0": {
-      "sha512": "OCUK9C/U97+UheVwo+JE+IUcKySUE3Oe+BcHhVtQrvmKSUFLrUDO8B5zEPRL6mBGbczxZp4w1boSck6/fw4dog==",
+    "System.Text.Encoding.CodePages/4.7.0": {
+      "sha512": "aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
       "type": "package",
-      "path": "system.text.encoding.codepages/4.6.0",
+      "path": "system.text.encoding.codepages/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -14097,7 +13994,7 @@
         "runtimes/win/lib/netstandard1.3/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
         "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
-        "system.text.encoding.codepages.4.6.0.nupkg.sha512",
+        "system.text.encoding.codepages.4.7.0.nupkg.sha512",
         "system.text.encoding.codepages.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -15038,15 +14935,15 @@
         "wchloe.nuspec"
       ]
     },
-    "wChloe.SQLite/3.9.1": {
-      "sha512": "8EFcffWnGOB7ZFuZvfEkzSQFt96hsWC13yz36tv8UTrx3yJ2X6qlZQbt643MZ6eVJkXkjEjqT8aq1jSHHNkqow==",
+    "wChloe.SQLite/3.9.2": {
+      "sha512": "mAcBpgbhJupFkIh+KlrShdmSV5Z/79/Yzpj0PRpM5ApHM/KZr5NLQpYIsIoPd4zkNgd5Rfft3jcEy9EEpIE2xQ==",
       "type": "package",
-      "path": "wchloe.sqlite/3.9.1",
+      "path": "wchloe.sqlite/3.9.2",
       "files": [
         ".nupkg.metadata",
         "lib/net452/Chloe.SQLite.dll",
         "lib/netstandard2.0/Chloe.SQLite.dll",
-        "wchloe.sqlite.3.9.1.nupkg.sha512",
+        "wchloe.sqlite.3.9.2.nupkg.sha512",
         "wchloe.sqlite.nuspec"
       ]
     },
@@ -15165,7 +15062,7 @@
       "path": "../model/ModelCore.csproj",
       "msbuildProject": "../model/ModelCore.csproj"
     },
-    "spNettyRPC/1.0.3": {
+    "spNettyRPC/1.0.4": {
       "type": "project",
       "path": "../../rpc/spNettyRPC/spNettyRPC.csproj",
       "msbuildProject": "../../rpc/spNettyRPC/spNettyRPC.csproj"
@@ -15187,9 +15084,9 @@
       "ZKWeb.System.Drawing >= 4.0.1",
       "deploySys.Common >= 1.1.14.1",
       "log4net >= 2.0.8",
-      "sharpcompress >= 0.24.0",
-      "spNettyRPC >= 1.0.3",
-      "wChloe.SQLite >= 3.9.1"
+      "sharpcompress >= 0.25.0",
+      "spNettyRPC >= 1.0.4",
+      "wChloe.SQLite >= 3.9.2"
     ]
   },
   "packageFolders": {
@@ -15302,11 +15199,11 @@
           },
           "sharpcompress": {
             "target": "Package",
-            "version": "[0.24.0, )"
+            "version": "[0.25.0, )"
           },
           "wChloe.SQLite": {
             "target": "Package",
-            "version": "[3.9.1, )"
+            "version": "[3.9.2, )"
           }
         },
         "imports": [
@@ -15316,37 +15213,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1”而不是项目目标框架“.NETCoreApp,Version=v2.2”还原包“Antlr 3.5.0.2”。此包可能与项目不完全兼容。",
-      "libraryId": "Antlr",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1”而不是项目目标框架“.NETCoreApp,Version=v2.2”还原包“ExpressionEvaluator 2.0.4”。此包可能与项目不完全兼容。",
-      "libraryId": "ExpressionEvaluator",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "已使用“.NETFramework,Version=v4.6.1”而不是项目目标框架“.NETCoreApp,Version=v2.2”还原包“Microsoft.PinYinConverter 1.0.0”。此包可能与项目不完全兼容。",
-      "libraryId": "Microsoft.PinYinConverter",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  }
 }

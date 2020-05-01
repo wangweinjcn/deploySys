@@ -70,17 +70,11 @@ public    class choRpcApiService : FastApiService
         try
         {
 
-            DateTime oldTime = new DateTime(1970, 1, 1);
-            RunConfig.Instance.devlog.Info(String.Format("EcoFastApiService creator,thread id:{0}",
-                System.Threading.Thread.CurrentThread.ManagedThreadId));
-
-         
-           
-            RunConfig.Instance.devlog.Info(String.Format("EcoFastApiService init ok"));
+          
         }
         catch (Exception exp)
         {
-           RunConfig.Instance.devlog.Info(String.Format("EcoFastApiService init,exception {0}", exp.Message));
+           RunConfig.Instance.runlog.Error(String.Format("EcoFastApiService init,exception {0}", exp.Message));
 
         }
     }
@@ -92,8 +86,7 @@ public    class choRpcApiService : FastApiService
     {
         if (disposing)
         {
-           RunConfig.Instance.devlog.Info(String.Format("ecoFtpApiserver dispose ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
-
+         
             this.ManagedDispose(this._objectSpace);
             base.Dispose(disposing);
         }
@@ -102,7 +95,7 @@ public    class choRpcApiService : FastApiService
 
     protected virtual IDbContext ManagedCreate()
     {
-       RunConfig.Instance.devlog.Info(String.Format("ManagedCreate,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
+      
         IDbContext des = RunConfig.Instance.GetEcoSpace() ;
         return des;
     }

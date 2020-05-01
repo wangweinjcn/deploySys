@@ -422,5 +422,23 @@ public   partial class IpTable : _baseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

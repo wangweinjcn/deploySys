@@ -1,2 +1,0 @@
-22 Mar 2020 19:25:53,367  INFO [26] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||执行耗时:00:00:03.2254788
-22 Mar 2020 19:32:30,178  INFO [27] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:9002/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36||200||执行耗时:00:00:02.1309778

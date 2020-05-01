@@ -68,5 +68,23 @@ public   partial class HostTask : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

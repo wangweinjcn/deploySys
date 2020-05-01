@@ -66,8 +66,11 @@
         <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
         <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
          <el-button type="primary" icon="el-icon-key" v-on:click="auditTask" :disabled="mainCommandDisnable">审核</el-button>
+         <el-button type="primary" icon="el-icon-switch-button" v-on:click="openRestartTask" :disabled="mainCommandDisnable">重启</el-button>
         <el-button type="primary" icon="el-icon-s-operation" v-on:click="openFileItems" :disabled="mainCommandDisnable">发布文件</el-button>
         <el-button type="primary" icon="el-icon-set-up" v-on:click="openHostTask" :disabled="mainCommandDisnable">主机任务</el-button>
+        <el-button type="primary" icon="el-icon-download" v-on:click="downFile" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-document-copy" v-on:click="openCopyRtEdit" :disabled="mainCommandDisnable">复制</el-button>
     </el-button-group>
 }
 
@@ -76,6 +79,7 @@
         <v-table is-vertical-resize
                  :vertical-resize-offset='60'
                  is-horizontal-resize
+                  column-width-drag
                  style="width:100%"
                  :multiple-sort="false"
                  :min-height="550"
@@ -119,25 +123,29 @@
             me.data.regions = [];
             me.data.appTypes = [];
             me.data.msApps = [];
-            me.data.hostIds = [];
-            me.data.mainSearchModel = { "keyword": null, "Id": null ,"regionId":0,"appTypeId":null,"msAppId":null};
+            me.data.selectHostIds = [];
+            me.data.mainSearchModel = { "keyword": null, "Id": null ,"regionId":null,"appTypeId":null,"msAppId":null,"unzipInServer":0};
 
 
             me.data.mainTableConfig.columns = [
                  {
-                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:true
                 },
-                { field: 'Version', width: 200, titleAlign: 'center', title: '发布版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'Version', width: 200, titleAlign: 'center', title: '发布版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
                 { field: 'releaseType', width: 100, titleAlign: 'center', title: '发布类型', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', formatter: function (rowData, rowIndex, pagingIndex, field) {                        
                         return rowData.releaseType == 0 ? '新增实例' : rowData.releaseType == 1 ? '更新实例' : '其他'
-                    },isFrozen: true },
+                    },isResize: true },
                 { field: 'overRideType', width: 100, titleAlign: 'center', title: '覆盖方式', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {                        
                         return rowData.overRideType == 0 ? '部分覆盖' : rowData.overRideType == 1 ? '全部覆盖' : '其他'
-                    },isFrozen: true },
+                    },isResize: true },
 
-                 { field: 'FileName', width: 200, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'status', width: 50, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'count', width: 100, titleAlign: 'center', title: '数量', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true }  
+                 { field: 'FileName', width: 200, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+                { field: 'status', width: 50, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {
+                        console.log(rowData);
+                        return rowData.status == 0 ? '待处理' : rowData.status == 10 ? '已分配' : rowData.status == 20? '已发布' : rowData.status == 11 ? '已审核' : rowData.status == 30 ? "已注册" : rowData.status == -1 ? "已取消" :'其他'
+                    }, isResize: true },
+                { field: 'count', width: 100, titleAlign: 'center', title: '数量', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true }  
 
 
             ];
@@ -153,48 +161,86 @@
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
             };
             me.methods.openHostTask = function () {
-                 var tabUrl = "/home/appVersions/" + me.data.mainSelectedModel.Id;
-                var tabDDid = "appInstances-" + me.data.mainSelectedModel.Id;
-                var tabTitle = "应用运行实例[" + me.data.mainSelectedModel.Version + "]";
+                 var tabUrl = "/rtask/taskHosts/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "taskHosts-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "分配主机任务[" + me.data.mainSelectedModel.Version + "]";
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
             };
-            me.methods.openTaskAudit = function () {
-                $vmpa.confirm("确定要发布该任务吗？", me.auditTask);
+             me.methods.downFile = function () {
+                  var $eleForm = $("<form method='get'></form>");
+                $eleForm.attr("action", '/Api/SysManage/getRleaseVersionFile/' + me.data.mainSelectedModel.Id);
+                $(document.body).append($eleForm);
+                $eleForm.submit();
             };
-            me.methods.auditTask = function () {
-                 var url ="/Api/sysmanaer/auditReleaseTask"+ "/" + me.data.mainSelectedModel[me.ModelKeyName];
+            me.methods.openTaskAudit = function () {
+                $vmpa.confirm("确定要发布该任务吗？", me.methods.auditTask);
+            };
+             me.methods.auditTask = function () {
+                 var url ="/Api/SysManage/auditReleaseTask"+ "/" + me.data.mainSelectedModel[me.ModelKeyName];
                 var params = {};
+                var _this = this;
                 $vmpa.post(url, params, function (result) {
                     var msg = result.Msg || "审核成功";
                     $vmpa.msg(msg);
-                    me.refreshTable();
-                    me.data.mainSelectedModel = null;
+                    me.methods.getMainTableData();
+                    me.methods.mainSelectedModel = null;
 
                 });
             };
+            me.methods.openRestartTask = function () {
+                if (me.data.mainSelectedModel.status <0) {
+                    $vmpa.confirm("确定要重启该任务吗？", me.methods.restartTask);
+                }
+            };
+            
+             me.methods.restartTask = function () {
+                 var url ="/Api/SysManage/restartReleaseTask"+ "/" + me.data.mainSelectedModel[me.ModelKeyName];
+                var params = {};
+                var _this = this;
+                $vmpa.post(url, params, function (result) {
+                    me.methods.getMainTableData();
+                    me.methods.mainSelectedModel = null;
+                });
+            };
+           
             me.methods.regionOnchange = function () {
                 me.data.categorys = [];
-                me.data.mainTableConfig.tableData = [];
-                me.data.mainSearchModel.Id = null;
+                if (me.data.mainSearchModel.regionId <= 0)
+                    return;
                 $vmpa.get("/Api/sysconf/Zones?PageSize=100&Id=" + me.data.mainSearchModel.regionId, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.categorys = result.Data.DataList;
+                        if (me.data.categorys.length > 0) {
+                        me.data.mainSearchModel.Id = me.data.categorys[0].Id;
+                        }
                     }
                 });
             };
             me.methods.appTypeOnchange = function () {
                 me.data.msApps = [];
-                me.data.mainTableConfig.tableData = [];
-                me.data.mainSearchModel.msAppId = null;
+                if (me.data.mainSearchModel.appTypeId <= 0)
+                    return;
                 $vmpa.get("/Api/sysconf/MicroServiceApps?PageSize=100&Id=" + me.data.mainSearchModel.appTypeId, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.msApps = result.Data.DataList;
+                        if (me.data.msApps.length > 0) {
+                            me.data.mainSearchModel.msAppId = me.data.msApps[0].Id;
+                        }
                     }
                 });
             };
-
+            me.methods.openCopyRtEdit = function () {
+                var newobj = {};
+                console.log(me.data.mainSelectedModel)
+                $.extend(true, newobj, me.data.mainSelectedModel);
+                newobj.Id = -1;
+                var c = newobj.Version.split('.');
+                c[c.length - 1] =parseInt(c[c.length - 1]) + 1;
+                newobj.Version = c.join(".");
+                me.data.mainDialog.Open(newobj, "新增");
+            }
             me.methods.customCompFunc = function (params) {
-                console.log(params);
+                //console.log(params);
             };
 
             me.methods.sortChange = function (params) {
@@ -228,7 +274,7 @@
                     if (result.Status == ResultStatus.OK) {
                         me.data.regions = result.Data.DataList;
                         if (me.data.regions.length > 0) {
-                            me.data.mainSearchModel.regionId = me.data.regions[0].Id;
+                           me.data.mainSearchModel.regionId = me.data.regions[0].Id;
                             me.methods.regionOnchange();
                         }
                     }
@@ -244,15 +290,18 @@
                 });
             }
             me.methods.mainAdd = function () {
-                var newmodel = { Id: -1, confFileOverride: 0,overridePolicy:0,releaseType:1,dockerNetType:0, };
+                var newmodel = { Id: -1, confFileOverride: false,overridePolicy:0,releaseType:0,dockerNetType:0,useWIP:true,selectHostPolicy:1,unzipInServer:false,count:1 ,memo:"",Ass_Zone_Id:-1,domainName:"",sslPem:"",sslKey:"",memo:"",dockerNetType:1,useSSL:2,needRegister:false};
                 me.OnMainEdit(newmodel, "新增");
             };
             me.methods.mainEdit = function () {
+                console.log("now edit")
+                
                 if (me.data.mainSelectedModel.HostIds == null) {
-                    me.data.hostIds = [];
+                    me.data.selectHostIds = [];
                 }
                 else {
-                    me.data.hostIds = me.data.mainSelectedModel.HostIds.split(',');
+                    
+                    me.data.selectHostIds = me.data.mainSelectedModel.HostIds.split(',');
                         }
                     me.OnMainEdit(me.data.mainSelectedModel, "编辑");
              }
@@ -262,39 +311,55 @@
             me.zoneHosts = [];
             DialogBase.call(me, vm, _ismain);
             me.editZoneOnchange = function () {
+                if (me.EditModel.Ass_Zone_Id <= 0 || me.EditModel.Ass_Zone_Id ===null)
+                    return;
                  $vmpa.get("/Api/sysconf/HostResources?PageSize=100&Id=" + me.EditModel.Ass_Zone_Id, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.zoneHosts = result.Data.DataList;
                     }
                 });
             }
+            me.OnOpen = function () {
+                me.editZoneOnchange();
+            };
             me.OnSave = function (model) {
                 var updateurl = "";
-                 if (me.EditModel.Id > 0)
-                return;
+
                 var formData = new window.FormData()
                 var files = document.getElementById("importfile1").files;
                 if (files.length < 1) {
-                    alert("请选择文件");
-                    return;
+                    if (me.EditModel.Id < 0) {
+                        alert("请添加文件");
+                        return;
+                    }
+                } else {
+                    for (var x = 0; x < files.length; x++) {
+                        formData.append("importfile1", files[x]);
+                    };
                 }
-                for (var x = 0; x < files.length; x++) {
-                    formData.append("importfile1", files[x]);
-                };
-               
+                formData.append("Id", me.EditModel.Id);
+                
                 formData.append("Version", me.EditModel.Version);
                 formData.append("count", me.EditModel.count);
                formData.append("releaseType", me.EditModel.releaseType);
                 formData.append("overridePolicy", me.EditModel.overridePolicy);
                 formData.append("confFileOverride", me.EditModel.confFileOverride);
-                formData.append("regId", me._vm.data.mainSearchModel.regionId);
+               // formData.append("regId", me._vm.EditModel.regionId);
                 formData.append("zoneId", me.EditModel.Ass_Zone_Id);
                 formData.append("serverAppId", me.EditModel.Ass_MicroServiceApp_Id);
+                formData.append("useWIP", me.EditModel.useWIP);
                 formData.append("selectHostPolicy", me.EditModel.selectHostPolicy);
                 formData.append("memo", me.EditModel.memo);
-                formData.append("HostIds", me._vm.data.hostIds.join(','));
-          
+                formData.append("HostIds", me._vm.data.selectHostIds.join(','));
+                formData.append("unzipInServer", me.EditModel.unzipInServer);
+                formData.append("domainName", me.EditModel.domainName);
+                  formData.append("sslKey", me.EditModel.sslKey);
+                formData.append("sslPem", me.EditModel.sslPem);
+                formData.append("needRegister", me.EditModel.needRegister);
+                formData.append("useSSL", me.EditModel.useSSL);
+                formData.append("dockerNetType", me.EditModel.dockerNetType);
 
+                console.log(formData);
 
                 $.ajax({
                     url: vm.mainAddUrl,

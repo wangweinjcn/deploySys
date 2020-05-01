@@ -94,9 +94,11 @@ namespace FrmLib.Extend
                         {
                             nowFuncDoing = true;
                         }
-                     //   FrmLib.Log.commLoger.runLoger.Info( string.Format("now do func {0} at:{1}", _dodunc.Method.ToString(), DateTime.Now.ToLongTimeString()));
+                        //   FrmLib.Log.commLoger.runLoger.Info( string.Format("now do func {0} at:{1}", _dodunc.Method.ToString(), DateTime.Now.ToLongTimeString()));
                         //  Task.Factory.StartNew(delegate { _dodunc(); }) ;
+                        Console.WriteLine("now do func "+_dodunc.Method.ToString());
                         _dodunc();
+                         Console.WriteLine("now do func end "+_dodunc.Method.ToString());
                        // FrmLib.Log.commLoger.runLoger.Info(string.Format("now do func {0} end:{1}", _dodunc.Method.ToString(), DateTime.Now.ToLongTimeString()));
                     }
                     catch (Exception exp)

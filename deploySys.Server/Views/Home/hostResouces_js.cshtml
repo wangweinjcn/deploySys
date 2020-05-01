@@ -1,14 +1,14 @@
 ﻿
 
 
-<el-dialog title="主机资源" :visible="mainDialog.IsShow"
+<el-dialog :close-on-click-modal=false title="主机资源" :visible="mainDialog.IsShow"
            v-on:close='mainDialog.Close' v-on:open=""
            v-loading="mainDialog.loading" width="800px">
     <el-form :model="mainDialog.EditModel">
 
 
         <el-row :gutter="10">
-            <el-col :span="24">
+            <el-col :span="12">
                 <el-form-item label="集群：" :rules="[ { required: true, message: '区域不能为空'}  ]">
                     <el-select v-model="mainDialog.EditModel.Ass_Zone_Id" placeholder="请选择">
                         <el-option v-for="item in categorys"
@@ -26,18 +26,31 @@
             </el-col>
         </el-row>
  <el-row :gutter="10">
-            <el-col :span="12">
+            <el-col :span="14">
                 <el-form-item label="主机名称:">
                     <el-input v-model="mainDialog.EditModel.hostName" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
                 </el-form-item>
             </el-col>
-            <el-col :span="12">
-                <el-form-item label="IP地址:">
+          
+      <el-col :span="8">
+                <el-form-item label="" >
+                     <el-checkbox v-model="mainDialog.EditModel.canAutoAssign">是否自动分配</el-checkbox>
+                    </el-form-item>
+
+            </el-col>
+
+        </el-row>
+        <el-row :gutter="10">
+             <el-col :span="12">
+                <el-form-item label="本地IP:">
                     <el-input v-model="mainDialog.EditModel.IP" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
                 </el-form-item>
             </el-col>
-
-
+              <el-col :span="12">
+                <el-form-item label="公网地址:">
+                    <el-input v-model="mainDialog.EditModel.WIP" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
         </el-row>
         <el-row :gutter="10">
             <el-col :span="12">
@@ -80,6 +93,13 @@
                 </el-form-item>
             </el-col>
         </el-row>
+        <el-row>
+               <el-col :span="16">
+                <el-form-item label="nginx实例Id:">
+                    <el-input v-model="mainDialog.EditModel.nginxInstanceId" :disabled="true" placeholder="请输入" style="width:350px"></el-input>
+                </el-form-item>
+            </el-col>
+        </el-row>
          <el-row :gutter="10">
                <el-col :span="12">
                 <el-form-item label="cpu:">
@@ -94,20 +114,7 @@
             </el-col>
 
         </el-row>
-         <el-row :gutter="10">
-            <el-col :span="12">
-                <el-form-item label="mac地址:">
-                    <el-input v-model="mainDialog.EditModel.macId" :disabled="true" placeholder="请输入" style="width:250px"></el-input>
-                </el-form-item>
-            </el-col>
-            <el-col :span="12">
-                <el-form-item label="当前会话Id:">
-                    <el-input v-model="mainDialog.EditModel.clientSessionId" :disabled="true" placeholder="请输入" style="width:250px"></el-input>
-                </el-form-item>
-            </el-col>
 
-
-        </el-row>
        
     </el-form>
     <div slot="footer" class="dialog-footer">

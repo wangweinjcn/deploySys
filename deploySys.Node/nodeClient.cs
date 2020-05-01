@@ -57,7 +57,7 @@ namespace deploySys.Node
                         if (_instance == null)
                         {
                             _instance = new nodeClient();
-                            _instance.TimeOut = TimeSpan.FromSeconds(30);
+                            _instance.TimeOut = TimeSpan.FromSeconds(150);
                         }
                     }
                   
@@ -72,7 +72,7 @@ namespace deploySys.Node
         }
 
 
-        private nodeClient() : base(RunConfig.Instance.hostAddr, RunConfig.Instance.rpcPort,new mpSerializer())
+        private nodeClient() : base(RunConfig.Instance.hostAddr, RunConfig.Instance.rpcPort,null)
         { }
         private nodeClient(ISerializer _serializer):base(RunConfig.Instance.hostAddr,RunConfig.Instance.rpcPort, _serializer)
         {
@@ -117,13 +117,27 @@ namespace deploySys.Node
             }
 
         }
+        public byte[] getNginxConfFileContent(string fileName)
+        {
+            try
+            {
+                var x = InvokeApi<byte[]>("getNginxConfFileContent",fileName).GetAwaiter().GetResult();
+
+                return x;
+            }
+            catch (Exception ex)
+            {
+                FrmLib.Log.commLoger.runLoger.Error(FrmLib.Extend.tools_static.getExceptionMessage(ex));
+                return null;
+            }
+        }
 
         public HostResource  GetHost()
         {
             try
             {
                 var x = InvokeApi<HostResource>("getHostParam", osMetrics.getvalue()).GetAwaiter().GetResult();
-                Console.WriteLine(JsonConvert.SerializeObject(x));
+               
                 return x;
             }
             catch (Exception ex)
@@ -183,21 +197,32 @@ namespace deploySys.Node
                   }
                   FrmLib.Log.commLoger.runLoger.Error("node login some error:" + exp.Message);
                   */
-                FrmLib.Log.commLoger.runLoger.Error(FrmLib.Extend.tools_static.getExceptionMessage(ex));
+                FrmLib.Log.commLoger.runLoger.Error("report perf:"+ FrmLib.Extend.tools_static.getExceptionMessage(ex));
                 return -100;
             }
         }
 
         internal JArray getNodeTask()
         {
+            var i = 0;
             try
             {
-                var x = this.InvokeApi<List<Object>>("getAllTask").GetAwaiter().GetResult();
-                return JArray.FromObject(x);
+                Console.WriteLine("getAllTask");
+                i = 10;
+                var x = this.InvokeApi<string>("getAllTask").GetAwaiter().GetResult();
+                i = 20;
+                Console.WriteLine(x);
+                if (!string.IsNullOrEmpty(x))
+                {
+                    i = 30;
+                    var jarr = JArray.Parse(x);
+                    return jarr;
+                }
+                return null;
             }
             catch (Exception ex)
             {
-                 FrmLib.Log.commLoger.runLoger.Error(FrmLib.Extend.tools_static.getExceptionMessage(ex));
+                 FrmLib.Log.commLoger.runLoger.Error(i.ToString()+ " :getNodeTask error; "+ FrmLib.Extend.tools_static.getExceptionMessage(ex));
                 return new JArray();
             }
         
@@ -216,9 +241,10 @@ namespace deploySys.Node
                 return -100;
             }
         }
-        public int reportTaskFinish(int taskId)
+        public int reportTaskFinish(int taskId,string siteConfFile)
         {
-           try{  return this.InvokeApi<int>("setTaskComplete",taskId).GetAwaiter().GetResult();
+           try{
+                return this.InvokeApi<int>("setTaskComplete",taskId,siteConfFile).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
@@ -226,9 +252,11 @@ namespace deploySys.Node
                 return -100;
             }
         }
+       
         public int reportTaskFail(int taskId,string msg)
         {
-          try{   return this.InvokeApi<int>("setTaskFial",taskId,msg).GetAwaiter().GetResult();
+          try{
+                return this.InvokeApi<int>("setTaskFial",taskId,msg).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
@@ -246,9 +274,22 @@ namespace deploySys.Node
                 return -100;
             }
         }
-        public int addDockInstance(DockerInstance di,int hostid,int taskId,int msAppId,int htId)
+        /// <summary>
+        /// 添加docker实例
+        /// </summary>
+        /// <param name="di"></param>
+        /// <param name="hostid"></param>
+        /// <param name="taskId"></param>
+        /// <param name="msAppId"></param>
+        /// <param name="htId"></param>
+        /// <param name="isNninx"></param>
+        /// <param name="nginxConfDir"></param>
+        /// <returns></returns>
+        public int addDockInstance(DockerInstance di,int hostid,int taskId,int msAppId,int htId,bool isNninx,string nginxConfDir="")
         {
-         try{    return this.InvokeApi<int>("addNewDockerInstance", di.baseDir,di.instanceId,di.proxyPort,hostid,taskId,msAppId,htId).GetAwaiter().GetResult();
+         try{
+                Console.WriteLine("addDockInstance");
+                return this.InvokeApi<int>("addNewDockerInstance", di.baseDir,di.instanceId,di.proxyPort,hostid,taskId,msAppId,htId,isNninx,nginxConfDir).GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {

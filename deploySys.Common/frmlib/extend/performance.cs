@@ -74,6 +74,7 @@ namespace FrmLib.Extend
         {
             var info = new ProcessStartInfo("wmic");
             info.Arguments = query;
+            info.UseShellExecute = false;
             info.RedirectStandardOutput = redirectStandardOutput;
             var output = "";
             using (var process = Process.Start(info))
@@ -108,6 +109,7 @@ namespace FrmLib.Extend
             cpuMetrics cm = new cpuMetrics();
             var output = "";
             var info = new ProcessStartInfo("top");
+            info.UseShellExecute = false;
             info.FileName = "/bin/bash";
             //系统内核占比
             info.Arguments ="-c \"top -b -n 1 | grep Cpu | awk '{print $4}' \" ";
@@ -162,22 +164,12 @@ namespace FrmLib.Extend
                 Console.WriteLine(output);
             }
            
-             cm.cpuCoreNumber =int.Parse( output.Split(":".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]);
+             cm.cpuCoreNumber =int.Parse( output.Split(":".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0]);
             return cm;
         }
         private MemoryMetrics GetWindowsMemMetrics()
         {
-            var output = "";
-
-            var info = new ProcessStartInfo();
-            info.FileName = "wmic";
-            info.Arguments = "OS get FreePhysicalMemory,TotalVisibleMemorySize /Value";
-            info.RedirectStandardOutput = true;
-
-            using (var process = Process.Start(info))
-            {
-                output = process.StandardOutput.ReadToEnd();
-            }
+            var output =GetWmicOutput("OS get FreePhysicalMemory,TotalVisibleMemorySize /Value");
 
             var lines = output.Trim().Split("\n".ToCharArray());
             var freeMemoryParts = lines[0].Split("=".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);

@@ -8,4 +8,804 @@
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp2.2\publish\</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="AipSdk.dll">
+      <publishTime>04/09/2018 13:17:38</publishTime>
+    </File>
+    <File Include="appsettings.Development.json">
+      <publishTime>03/08/2020 08:19:01</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>03/08/2020 08:19:01</publishTime>
+    </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>08/17/2017 18:20:54</publishTime>
+    </File>
+    <File Include="Chloe.dll">
+      <publishTime>10/20/2019 12:20:50</publishTime>
+    </File>
+    <File Include="Chloe.SQLite.dll">
+      <publishTime>03/15/2020 05:39:48</publishTime>
+    </File>
+    <File Include="choDb/ds.db">
+      <publishTime>04/10/2020 19:13:19</publishTime>
+    </File>
+    <File Include="configs/access_auth.config">
+      <publishTime>03/15/2020 18:41:57</publishTime>
+    </File>
+    <File Include="configs/appsettings.json">
+      <publishTime>04/08/2020 14:24:37</publishTime>
+    </File>
+    <File Include="configs/CronTask.config">
+      <publishTime>04/07/2020 15:40:25</publishTime>
+    </File>
+    <File Include="configs/diWebServer.json">
+      <publishTime>04/08/2020 16:13:56</publishTime>
+    </File>
+    <File Include="configs/hosting.json">
+      <publishTime>04/04/2020 19:07:19</publishTime>
+    </File>
+    <File Include="configs/log4net.config">
+      <publishTime>04/08/2020 16:40:23</publishTime>
+    </File>
+    <File Include="configs/nlog.config">
+      <publishTime>05/16/2018 13:48:03</publishTime>
+    </File>
+    <File Include="configs/ViewModelConf/SysUser.json">
+      <publishTime>08/26/2018 16:25:24</publishTime>
+    </File>
+    <File Include="configs/webServerMainconf.conf">
+      <publishTime>04/11/2020 19:21:49</publishTime>
+    </File>
+    <File Include="configs/webSite.conf">
+      <publishTime>04/13/2020 13:55:39</publishTime>
+    </File>
+    <File Include="configs/websiteWithServer.conf">
+      <publishTime>04/14/2020 10:10:48</publishTime>
+    </File>
+    <File Include="deploySys.Common.dll">
+      <publishTime>04/19/2020 17:39:28</publishTime>
+    </File>
+    <File Include="deploySys.Common.pdb">
+      <publishTime>04/19/2020 17:39:28</publishTime>
+    </File>
+    <File Include="deploySys.Server.deps.json">
+      <publishTime>04/19/2020 18:29:07</publishTime>
+    </File>
+    <File Include="deploySys.Server.dll">
+      <publishTime>04/19/2020 18:29:02</publishTime>
+    </File>
+    <File Include="deploySys.Server.pdb">
+      <publishTime>04/19/2020 18:29:02</publishTime>
+    </File>
+    <File Include="deploySys.Server.runtimeconfig.json">
+      <publishTime>04/19/2020 18:29:07</publishTime>
+    </File>
+    <File Include="deploySys.Server.Views.dll">
+      <publishTime>04/19/2020 18:29:05</publishTime>
+    </File>
+    <File Include="deploySys.Server.Views.pdb">
+      <publishTime>04/19/2020 18:29:05</publishTime>
+    </File>
+    <File Include="DotNetty.Buffers.dll">
+      <publishTime>10/08/2018 10:15:44</publishTime>
+    </File>
+    <File Include="DotNetty.Codecs.dll">
+      <publishTime>10/08/2018 10:14:34</publishTime>
+    </File>
+    <File Include="DotNetty.Common.dll">
+      <publishTime>10/08/2018 10:14:24</publishTime>
+    </File>
+    <File Include="DotNetty.Handlers.dll">
+      <publishTime>10/08/2018 10:14:44</publishTime>
+    </File>
+    <File Include="DotNetty.Transport.dll">
+      <publishTime>10/08/2018 10:14:44</publishTime>
+    </File>
+    <File Include="DotNetty.Transport.Libuv.dll">
+      <publishTime>10/08/2018 10:14:44</publishTime>
+    </File>
+    <File Include="Google.Protobuf.dll">
+      <publishTime>12/21/2017 20:23:44</publishTime>
+    </File>
+    <File Include="log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="MailKit.dll">
+      <publishTime>03/18/2018 10:46:42</publishTime>
+    </File>
+    <File Include="MessagePack.Annotations.dll">
+      <publishTime>02/10/2020 14:33:36</publishTime>
+    </File>
+    <File Include="MessagePack.dll">
+      <publishTime>02/10/2020 14:33:52</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>09/13/2019 02:27:48</publishTime>
+    </File>
+    <File Include="Microsoft.Data.Sqlite.dll">
+      <publishTime>02/16/2019 02:19:30</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Caching.Redis.dll">
+      <publishTime>08/26/2019 19:22:21</publishTime>
+    </File>
+    <File Include="Microsoft.Win32.Registry.dll">
+      <publishTime>09/13/2019 02:27:52</publishTime>
+    </File>
+    <File Include="MimeKit.dll">
+      <publishTime>03/17/2018 10:05:20</publishTime>
+    </File>
+    <File Include="ModelCore.dll">
+      <publishTime>04/19/2020 17:39:30</publishTime>
+    </File>
+    <File Include="ModelCore.dll.config">
+      <publishTime>05/16/2018 13:48:03</publishTime>
+    </File>
+    <File Include="ModelCore.pdb">
+      <publishTime>04/19/2020 17:39:30</publishTime>
+    </File>
+    <File Include="MongoDB.Bson.dll">
+      <publishTime>06/08/2017 14:46:02</publishTime>
+    </File>
+    <File Include="MongoDB.Driver.Core.dll">
+      <publishTime>06/08/2017 14:46:04</publishTime>
+    </File>
+    <File Include="MongoDB.Driver.dll">
+      <publishTime>06/08/2017 14:46:04</publishTime>
+    </File>
+    <File Include="MySql.Data.dll">
+      <publishTime>06/28/2018 16:53:30</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm/native/libuv.so">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libuv.so">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/linux-armel/native/libuv.so">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libuv.so">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/netstandard2.0/SQLite.Interop.dll">
+      <publishTime>10/27/2019 20:14:50</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/netstandard2.0/SQLite.Interop.dll">
+      <publishTime>10/27/2019 20:14:54</publishTime>
+    </File>
+    <File Include="runtimes/osx/native/libSkiaSharp.dylib">
+      <publishTime>12/14/2019 02:41:02</publishTime>
+    </File>
+    <File Include="runtimes/osx/native/libuv.dylib">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/tizen-armel/native/libSkiaSharp.so">
+      <publishTime>12/14/2019 02:41:02</publishTime>
+    </File>
+    <File Include="runtimes/tizen-x86/native/libSkiaSharp.so">
+      <publishTime>12/14/2019 02:41:02</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>09/13/2019 02:41:04</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll">
+      <publishTime>09/13/2019 02:41:04</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll">
+      <publishTime>09/13/2019 02:39:26</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/libuv.dll">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/sni.dll">
+      <publishTime>04/05/2020 22:07:38</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libSkiaSharp.dll">
+      <publishTime>12/14/2019 02:41:08</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/libuv.dll">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/netstandard2.0/SQLite.Interop.dll">
+      <publishTime>10/27/2019 06:41:32</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/sni.dll">
+      <publishTime>04/05/2020 22:07:38</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libSkiaSharp.dll">
+      <publishTime>12/14/2019 02:41:08</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/libuv.dll">
+      <publishTime>04/05/2020 22:07:39</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/netstandard2.0/SQLite.Interop.dll">
+      <publishTime>10/27/2019 06:36:20</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/sni.dll">
+      <publishTime>04/05/2020 22:07:38</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll">
+      <publishTime>09/13/2019 02:39:42</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/15/2019 08:54:18</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>09/13/2019 02:41:08</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll">
+      <publishTime>09/13/2019 02:41:10</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll">
+      <publishTime>09/13/2019 02:39:10</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>07/19/2017 10:01:34</publishTime>
+    </File>
+    <File Include="SharpCompress.dll">
+      <publishTime>04/03/2020 07:26:26</publishTime>
+    </File>
+    <File Include="SkiaSharp.dll">
+      <publishTime>12/14/2019 02:41:06</publishTime>
+    </File>
+    <File Include="spNettyRPC.dll">
+      <publishTime>04/19/2020 18:13:29</publishTime>
+    </File>
+    <File Include="spNettyRPC.pdb">
+      <publishTime>04/19/2020 18:13:29</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.core.dll">
+      <publishTime>12/18/2018 15:00:30</publishTime>
+    </File>
+    <File Include="StackExchange.Redis.StrongName.dll">
+      <publishTime>08/26/2019 19:22:19</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Annotations.dll">
+      <publishTime>11/07/2018 10:25:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.dll">
+      <publishTime>11/07/2018 10:25:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>11/07/2018 10:25:06</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>11/07/2018 10:25:08</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>11/07/2018 10:25:06</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>11/20/2017 18:09:04</publishTime>
+    </File>
+    <File Include="System.Data.SqlClient.dll">
+      <publishTime>09/13/2019 02:29:22</publishTime>
+    </File>
+    <File Include="System.Data.SQLite.dll">
+      <publishTime>10/27/2019 06:31:50</publishTime>
+    </File>
+    <File Include="System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>09/13/2019 02:39:58</publishTime>
+    </File>
+    <File Include="System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>11/15/2019 08:54:50</publishTime>
+    </File>
+    <File Include="System.Security.AccessControl.dll">
+      <publishTime>09/13/2019 02:28:26</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>07/19/2017 10:01:34</publishTime>
+    </File>
+    <File Include="System.Security.Principal.Windows.dll">
+      <publishTime>09/13/2019 02:28:32</publishTime>
+    </File>
+    <File Include="System.Text.Encoding.CodePages.dll">
+      <publishTime>11/15/2019 08:37:52</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>04/19/2020 18:29:07</publishTime>
+    </File>
+    <File Include="wwwroot/Content/images/ORMicon%28200x200%29.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/Content/images/ORMicon%28330x330%29.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/Content/images/qrcode.jpg">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/Content/images/tip.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/css/index.css">
+      <publishTime>03/10/2020 14:55:26</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/img/excel.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/folder-open.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/folder.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/login/admin-login-bg.jpg">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/login/admin-loginform-bg.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/login/admin.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/login/pwd.jpg">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/pdf.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/pic.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/ppt.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/unknown.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/img/word.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/js/dataTranslate.js">
+      <publishTime>03/10/2020 14:54:22</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery-3.3.1.js">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery-3.3.1.min.js">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.md5.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/js/utils.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/js/vmbase.js">
+      <publishTime>03/15/2020 20:03:04</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/layui.css">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/layui.mobile.css">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/code.css">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/laydate/default/laydate.css">
+      <publishTime>03/10/2020 14:57:51</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/icon-ext.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/icon.png">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/layer.css">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/loading-0.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/loading-1.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/css/modules/layer/default/loading-2.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/font/iconfont.eot">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/font/iconfont.svg">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/layui/font/iconfont.ttf">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/font/iconfont.woff">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/0.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/1.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/10.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/11.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/12.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/13.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/14.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/15.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/16.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/17.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/18.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/19.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/2.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/20.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/21.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/22.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/23.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/24.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/25.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/26.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/27.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/28.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/29.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/3.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/30.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/31.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/32.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/33.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/34.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/35.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/36.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/37.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/38.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/39.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/4.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/40.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/41.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/42.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/43.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/44.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/45.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/46.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/47.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/48.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/49.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/5.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/50.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/51.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/52.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/53.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/54.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/55.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/56.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/57.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/58.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/59.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/6.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/60.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/61.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/62.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/63.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/64.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/65.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/66.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/67.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/68.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/69.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/7.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/70.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/71.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/8.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/images/face/9.gif">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/carousel.js">
+      <publishTime>03/10/2020 14:56:06</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/code.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/element.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/flow.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/form.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/jquery.js">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/laydate.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/layedit.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/layer.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/laypage.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/laytpl.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/mobile.js">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/rate.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/table.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/theme/default/layer.css">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/tree.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/upload.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/lay/modules/util.js">
+      <publishTime>11/18/2019 17:10:57</publishTime>
+    </File>
+    <File Include="wwwroot/layui/layui.all.js">
+      <publishTime>11/22/2019 19:08:44</publishTime>
+    </File>
+    <File Include="wwwroot/layui/layui.js">
+      <publishTime>03/10/2020 14:55:48</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>03/08/2020 08:19:02</publishTime>
+    </File>
+    <File Include="ZKWeb.System.Drawing.dll">
+      <publishTime>12/08/2017 16:36:04</publishTime>
+    </File>
+    <File Include="zxing.dll">
+      <publishTime>09/11/2017 22:55:06</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

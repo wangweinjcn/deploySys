@@ -128,7 +128,7 @@ namespace deploySys.Node
 
             var tasklist = initTasklist(taskConfFileName);
             foreach (var task in tasklist)
-               Task.Run(()=> task.start());
+                Task.Run(() => task.start());
         }
 
         private RunConfig()

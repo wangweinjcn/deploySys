@@ -101,8 +101,9 @@ namespace FrmLib.Extend
                 {
                     try
                     {
-                        Assembly asm = Assembly.Load(fcontent);
-                        this.Dllversion = asm.GetName().Version.ToString();
+                        var am = AssemblyName.GetAssemblyName(fullfilename);
+                        this.Dllversion = am.Version.ToString();
+                        
                     }
                     catch (Exception exp)
                     {
@@ -219,31 +220,40 @@ namespace FrmLib.Extend
             }
             
         }
-        public void initFiles(string filePath, bool needfillcontent = true, bool enableWatcher = true)
+        private void iterInitDirs(string basePath, string filePath, bool needfillcontent = true)
+        {
+            string[] filelist = Directory.GetFiles(filePath);
+            string relatPath, filename;
+            foreach (var onefile in filelist)
+            {
+                if (validFileType(onefile))
+                {
+                    relatPath = System.IO.Path.GetDirectoryName(onefile).Replace(basePath, "");
+                    relatPath = relatPath.TrimStart(System.IO.Path.DirectorySeparatorChar);
+                    filename = System.IO.Path.GetFileName(onefile);
+                    InstallFileInfo fi = new InstallFileInfo(filename, relatPath, needfillcontent);
+                    this.softfile.Add(fi);
+                }
+            }
+            var dirlist = Directory.GetDirectories(filePath);
+            foreach (var onedir in dirlist)
+                this.iterInitDirs(basePath, onedir, needfillcontent);
+        }
+        public void initFiles(string basePath,  bool needfillcontent = true, bool enableWatcher = true)
        {
-           if (!Directory.Exists(filePath))
+           if (!Directory.Exists(basePath))
            {
                return;
            }
-            this.dir = filePath;
+            this.dir = basePath;
             needFillContent = needfillcontent;
             this.enableWatcher = enableWatcher;
            this.softfile.Clear();
-           string[] filelist = Directory.GetFiles(filePath);
-           string filepath, filename;
-           foreach (var onefile in filelist)
-           {
-               if (validFileType(onefile))
-               {
-                   filepath = System.IO.Path.GetDirectoryName(onefile);
-                   filename = System.IO.Path.GetFileName(onefile);
-                   InstallFileInfo fi = new InstallFileInfo(filename, filepath, needfillcontent);
-                   this.softfile.Add(fi);
-               }
-           }
+            iterInitDirs(basePath, basePath, needfillcontent);
             isEnable = true;
             if (enableWatcher)
             {
+                watchDir();
                 watcher.EnableRaisingEvents = true;
                 checkFileChangeTimer.Start();
             }
@@ -295,6 +305,7 @@ namespace FrmLib.Extend
             checkFileChangeTimer.Elapsed += new System.Timers.ElapsedEventHandler(checkInitFiles);
             checkFileChangeTimer.AutoReset = true;
             checkFileChangeTimer.Stop();
+          
         }
        public List<InstallFileInfo> CompareDiffFile(Dictionary<string,InstallFileInfo> allfiles)
        {

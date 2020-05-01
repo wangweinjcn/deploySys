@@ -474,5 +474,23 @@ public   partial class HistoryBaseObject : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

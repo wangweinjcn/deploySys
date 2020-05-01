@@ -553,5 +553,23 @@ public   partial class SysUser : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

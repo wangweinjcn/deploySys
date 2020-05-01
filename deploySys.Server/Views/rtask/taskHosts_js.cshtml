@@ -1,7 +1,7 @@
 ﻿
 
 
-<el-dialog title="区域维护" :visible="mainDialog.IsShow"
+<el-dialog :close-on-click-modal=false title="任务" :visible="mainDialog.IsShow"
            v-on:close='mainDialog.Close' v-on:open=""
            v-loading="mainDialog.loading" width="1100px">
     <el-form :model="mainDialog.EditModel">

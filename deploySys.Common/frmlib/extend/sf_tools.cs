@@ -20,6 +20,7 @@ using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace FrmLib.Extend
 {
@@ -133,6 +134,7 @@ namespace FrmLib.Extend
                         if (InnerException != null) // the method threw an exeption
                         {
                             throw new AggregateException("AsyncHelpers.Run method threw an exception.", InnerException);
+                            
                         }
                     }
                     else
@@ -734,23 +736,19 @@ namespace FrmLib.Extend
     {
     winclient=0,webclient=1,webapiclient=2,mobile_ios=3,mobile_android=4,mobile_wp=5,nwServer=6
     }
-   static public class static_sysdata
-    {
-        public static enum_Apptype clienttype = enum_Apptype.winclient;//default=0:windows client;1: web applicaion;2:Webapi;nwServer:6 //must set for all application
-
-        public static string AppSiteKey;
-        public static string DateTimeFormatter;
-        public static string mongdbConn;
-        public static string mongdbName;
-        public static string mongdbCollectionName;
-        public static string SignatureSecret;
-        public static string mysqldbconn;
-        public static Assembly modelasm;
-
-       
-   }
+ 
    public static class tools_static
    {
+        public static bool isUnix()
+        {
+            var isUnix = RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ||
+                       RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+            return isUnix;
+        }
+        public static bool isWindows()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        }
         public static Type[] GetTypesFromAssemblysByType(Type t)
         {
             IList<Assembly> allAssemblies = Assembly.GetEntryAssembly().GetReferencedAssemblies().Select(Assembly.Load).ToList();
@@ -987,11 +985,11 @@ namespace FrmLib.Extend
        }
         public static string getExceptionMessage(Exception ex)
         {
-            string message = ex.Message;
+            string message = ex.Message+System.Environment.NewLine+ex.StackTrace;
             Exception e = ex;
             while (e.InnerException != null)
             {
-                message = message + System.Environment.NewLine + e.InnerException.Message;
+                message = message + System.Environment.NewLine + e.InnerException.Message +  System.Environment.NewLine+e.StackTrace;
                 e = e.InnerException;
             }
             return message;
@@ -1141,143 +1139,7 @@ namespace FrmLib.Extend
 
 
    }
-   public class logintoken
-   {
-       public string UID;
-       public string loginID;
-       public string roleKeyList;
-       public string tokenID;
-        /// <summary>
-        /// 归属组织id和组织type，！分割多个归属组织，$分割同一个组织的id和typekey
-        /// </summary>
-        public string OrgList;/* */
-       public logintoken(string struid,string str_loginid,string strrolelist)
-       {
-           UID = struid;
-           loginID = str_loginid;
-           roleKeyList = strrolelist;
-         
-       }
-        public logintoken()
-        {
-            UID = "-1";
-            loginID = "~Anonymous";
-            roleKeyList = "$";
-            tokenID = "-1";
-            OrgList = "!$";
-        }
-        public logintoken(string strDesToken)
-        {
-            string[] strarray = strDesToken.Split(':');
-            UID = strarray[0];
-            roleKeyList = strarray[1];
-            OrgList = strarray[2];
-            if (strarray.Length == 5)
-                tokenID = strarray[4];
-        }
-   
-   
-
-
-   }
-   public class CustomPrincipal : IPrincipal
-   {
-
-       private CustomIdentity identity;
-
-       public CustomPrincipal(CustomIdentity identity)
-       {
-           this.identity = identity;
-       }
-
-        public CustomPrincipal(IPrincipal principal)
-        {
-            this.identity = principal.Identity as CustomIdentity;
-        }
-       public IIdentity Identity
-       {
-           get
-           {
-               return identity;
-           }
-       }
-
-       public bool IsInRole(string role)
-       {
-           return identity.IsInRole(role);
-       }
-   }
-
-   public class CustomIdentity : IIdentity
-   {
-       private logintoken _token;
-       private string ApiLoginIP;
-        public string Uid {
-           get
-           {
-               if (_token != null)
-                   return _token.UID;
-               else
-                   return "";
-       }}
-       public bool IsInRole(string inroleid)
-       {
-           return _token.roleKeyList.Split('$').Contains(inroleid);
        
-       }
-       public CustomIdentity(string strLoginToken )
-       {
-           this._token = new logintoken(strLoginToken);
-          
-        
-       }
-        public CustomIdentity()
-        {
-            this._token = new logintoken();
-        }
-        public CustomIdentity(logintoken token)
-       {
-
-           this._token = token;
-       }
-        public string AuthenticationType
-       {
-           get { return "Custom"; }
-       }
-
-       public bool IsAuthenticated
-       {
-           get { return true; }
-       }
-
-       public string Name
-       {
-           get
-           {
-               if (static_sysdata.clienttype == enum_Apptype.webclient)
-                   return _token.loginID;
-               else
-                   return this._token.UID;
-           }
-       }
-       public string ApiIP
-       {
-           get
-           {
-               return this.ApiLoginIP;
-           }
-           set
-           {
-               this.ApiLoginIP = value;
-           }
-       }
-      
-      
-     
-      
-   }
-
-
   
   public static class PredicateExtensionses
   {

@@ -1,20 +1,23 @@
 ﻿
 
 
-<el-dialog title="区域维护" :visible="mainDialog.IsShow"
+<el-dialog :close-on-click-modal=false title="应用类型" :visible="mainDialog.IsShow"
            v-on:close='mainDialog.Close' v-on:open=""
            v-loading="mainDialog.loading" width="1100px">
     <el-form :model="mainDialog.EditModel">
-
-
+         <el-tabs  type="card"  value="first">
+             <el-tab-pane label="基础信息" name="first" >
         <el-row :gutter="10">
             <el-col :span="12">
-                <el-form-item label="Key:">
+                <el-form-item label="Key:" label-width="100px">
                     <el-input v-model="mainDialog.EditModel.key" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
                 </el-form-item>
             </el-col>
+             </el-row>
+      
+        <el-row>
             <el-col :span="12">
-                <el-form-item label="名称:">
+                <el-form-item label="名称:" label-width="100px">
                     <el-input v-model="mainDialog.EditModel.name" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
                 </el-form-item>
             </el-col>
@@ -22,20 +25,34 @@
 
         </el-row>
       
-        <el-row>
+       
+             </el-tab-pane>
+
+              <el-tab-pane label="创建容器参数" name="second">
+                   <el-row>
             <el-col :span="24">
-                    <el-form-item label="编译脚本:">
-                        <el-input v-model="mainDialog.EditModel.buildScript" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                    <el-form-item label="编译脚本:" label-width="100px">
+                        <el-input v-model="mainDialog.EditModel.buildScript" rows="6" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                    </el-form-item>
+                </el-col>
+        </el-row>
+                   <el-row>
+            <el-col :span="24" >
+                    <el-form-item label="容器参数(主机网络):" label-width="150px">
+                        <el-input v-model="mainDialog.EditModel.createContainerParams" rows="6" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:300px"></el-input>
                     </el-form-item>
                 </el-col>
         </el-row>
         <el-row>
             <el-col :span="24" >
-                    <el-form-item label="容器参数:" >
-                        <el-input v-model="mainDialog.EditModel.createContainerParams" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:100px"></el-input>
+                    <el-form-item label="容器参数(桥接网络):" label-width="150px">
+                        <el-input v-model="mainDialog.EditModel.createContainerParams2" rows="6" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:300px"></el-input>
                     </el-form-item>
                 </el-col>
         </el-row>
+               
+                   </el-tab-pane>
+        <!--
          <el-row>
             <el-col :span="24">
                     <el-form-item label="启动脚本:">
@@ -50,6 +67,8 @@
                     </el-form-item>
                 </el-col>
         </el-row>
+            -->
+             </el-tabs>
     </el-form>
     <div slot="footer" class="dialog-footer">
         <el-button v-on:click="mainDialog.Close">取 消</el-button>

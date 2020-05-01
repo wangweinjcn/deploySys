@@ -5,7 +5,6 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\Google.Protobuf.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\log4net.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\MailKit.dll
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\ChnCharInfo.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\MimeKit.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\MongoDB.Bson.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Release\net452\MongoDB.Driver.dll

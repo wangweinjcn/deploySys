@@ -31,9 +31,10 @@
         <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
         <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
-         <el-button type="primary" icon="el-icon-s-grid" v-on:click="openAppVersions" :disabled="mainCommandDisnable||disableOssCbe">查看版本</el-button>
-        <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppInstances" :disabled="mainCommandDisnable||disableOssCbe">查看实例</el-button>
-       
+         <el-button type="primary" icon="el-icon-s-grid" v-on:click="openAppVersions" :disabled="mainCommandDisnable">查看版本</el-button>
+        <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppInstances" :disabled="mainCommandDisnable">查看实例</el-button>
+         <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppWebsites" :disabled="mainCommandDisnable">查看站点</el-button>
+       <el-button type="primary" icon="el-icon-document-copy" v-on:click="openCopyAppEdit" :disabled="mainCommandDisnable">复制</el-button>
     </el-button-group>
 }
 
@@ -81,18 +82,19 @@
             ViewModelBase.call(me);
             vmExtend.call(me);
             me.data.allAppTypes = [];
-
+            me.data.regions = [];
+             me.data.regionIds = [];
             me.data.mainSearchModel = { "keyword": null, "Id": 1 };
 
 
             me.data.mainTableConfig.columns = [
                  {
-                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:true
                 },
-                { field: 'key', width: 150, titleAlign: 'center', title: 'key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'memo', width: 300, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'key', width: 150, titleAlign: 'center', title: 'key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'memo', width: 300, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
 
             ];
 
@@ -109,11 +111,26 @@
                     me.data.appVDialog.Open(me.data.mainSelectedModel, "版本列表");
                 }
             }
+              me.methods.openCopyAppEdit = function () {
+                var newobj = {};
+                $.extend(true, newobj, me.data.mainSelectedModel);
+                  newobj.Id = -1;
+                  newobj.Key = "";
+               
+                me.data.mainDialog.Open(newobj, "新增");
+            }
          me.methods.openAppInstances = function () {
                 var xx = top.layui.element;
                 var tabUrl = "/home/appInstances/" + me.data.mainSelectedModel.Id;
                 var tabDDid = "appInstances-" + me.data.mainSelectedModel.Id;
                 var tabTitle = "应用运行实例[" + me.data.mainSelectedModel.key + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            }
+             me.methods.openAppWebsites = function () {
+                var xx = top.layui.element;
+                var tabUrl = "/home/webSites/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "website-" + me.data.mainSelectedModel.Id;
+                var tabTitle = "应用运行站点[" + me.data.mainSelectedModel.key + "]";
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
             }
             me.methods.sortChange = function (params) {
@@ -149,12 +166,26 @@
                         me.data.allAppTypes = result.Data.DataList;
                     }
                 });
-               
+               $vmpa.get("/Api/sysconf/Regions?PageSize=100", null, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.regions = result.Data.DataList;
+                       
+                    }
+                });
             }
             me.methods.mainAdd = function () {
-                var newmodel = { Id: -1, allroles: [] };
+                var newmodel = { Id: -1,useSsl:false,serviceType:0};
                 me.OnMainEdit(newmodel, "新增");
             }
+             me.methods.mainEdit = function () {
+                 if (me.data.mainSelectedModel.regionIds == null) {
+                     me.data.regionIds = [];
+                }
+                else {
+                    me.data.regionIds = me.data.mainSelectedModel.regionIds.split(',');
+                        }
+                    me.OnMainEdit(me.data.mainSelectedModel, "编辑");
+             }
         }
         function goodsDialog(vm, _ismain) {
             var me = this;
@@ -173,7 +204,10 @@
                         };
                         if (me.EditModel.createContainerParams == null) {
                             me.EditModel.createContainerParams = value.createContainerParams;
+
                         };
+                         if (me.EditModel.createContainerParams2 == null) {
+                            me.EditModel.createContainerParams2 = value.createContainerParams2;
                     }
                 });
                 
@@ -181,7 +215,9 @@
             me.OnSave = function (model) {
                 var updateurl = "";
 
-
+                
+                    me.EditModel.regionIds = me._vm.data.regionIds.join(',');
+                  
                 if (me.EditModel[me._vm.ModelKeyName] > 0) {
 
 
@@ -197,6 +233,7 @@
                         updateurl = me._vm.mainAddUrl + "/" + me.EditModel["Ass_AppType_Id"];
                     else
                         updateurl = me._vm.slaveAddUrl;
+                  
                     $vmpa.post(updateurl, me.EditModel, function (result) {
                         me.refreshTable();
                     })

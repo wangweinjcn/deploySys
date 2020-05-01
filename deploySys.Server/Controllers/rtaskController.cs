@@ -63,9 +63,10 @@ namespace deploySys.Server.Controllers
         [HttpGet]
         [Route("{Id?}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        public IActionResult taskHosts([FromRoute]string Id)
+        public IActionResult taskHosts([FromRoute]string Id,[FromQuery]int hostId=-1)
         {
             ViewBag.taskId = Id;
+            ViewBag.hostId = hostId;
             return View();
         }
 

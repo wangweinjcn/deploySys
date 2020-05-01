@@ -1,17 +1,14 @@
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\ModelCore.dll.config
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\ModelCore.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\ModelCore.pdb
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\Antlr3.Runtime.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\AipSdk.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\BouncyCastle.Crypto.dll
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\ExpressionEvaluator.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\Google.Protobuf.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\log4net.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MailKit.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MessagePack.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MessagePack.Annotations.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\Microsoft.Bcl.AsyncInterfaces.dll
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\ChnCharInfo.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MimeKit.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MongoDB.Bson.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\MongoDB.Driver.dll

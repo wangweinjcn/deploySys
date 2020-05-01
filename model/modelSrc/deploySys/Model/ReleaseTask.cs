@@ -73,5 +73,23 @@ public   partial class ReleaseTask : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }

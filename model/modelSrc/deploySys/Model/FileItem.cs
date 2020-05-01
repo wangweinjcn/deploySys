@@ -78,8 +78,8 @@ public   partial class FileItem : Application.Model.Base.BaseObject{
 
 {
             var extname = System.IO.Path.GetExtension(this.fileName);
-            if (string.Equals(extname, "dll", StringComparison.CurrentCultureIgnoreCase)
-                || string.Equals(extname, "exe", StringComparison.CurrentCultureIgnoreCase))
+            if (string.Equals(extname, ".dll", StringComparison.CurrentCultureIgnoreCase)
+                || string.Equals(extname, ".exe", StringComparison.CurrentCultureIgnoreCase))
                 return true;
             else
                 return false;
@@ -102,17 +102,6 @@ public   partial class FileItem : Application.Model.Base.BaseObject{
 {
  
        }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -13,10 +13,11 @@ using deploySys.Server.rpcFilters;
 using FrmLib.Extend;
 using deploySys.Model;
 using Application.Model.Base;
+using System.IO;
 
 namespace deploySys.Server.rpcApi
 {
-   /// <summary>
+    /// <summary>
     /// fast协议Api服务  
     /// </summary>
     public class rpcFastCallService : choRpcApiService
@@ -63,15 +64,15 @@ namespace deploySys.Server.rpcApi
         [Api]
         [FastLogFilter("比较差异文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public IList<FileItem> CompareRemoteFiles(int taskId,List<FileItem> clientfiles)
+        public IList<FileItem> CompareRemoteFiles(int taskId, List<FileItem> clientfiles)
         {
-             RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles "));
+            RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles "));
             ReleaseTask rt = objectSpace.ObjectForIntId<ReleaseTask>(taskId);
             if (rt == null)
                 throw new Exception("ReleaseTask is null");
 
-            var resultlist = rt.Ass_appVersion.CompareDiffFile(clientfiles);
-           RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles result:{0}",resultlist.Count));
+            var resultlist = rt.Ass_appVersion.CompareDiffFile(rt.Ass_appVersion.Ass_FileItem, clientfiles);
+            RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles result:{0}", resultlist.Count));
 
             return resultlist;
 
@@ -87,14 +88,14 @@ namespace deploySys.Server.rpcApi
             var list = objectSpace.SpaceQuery<FileItem>().Join<appVersion>(Chloe.JoinType.InnerJoin, (a, b) => a.Ass_appVersion == b && b.Ass_ReleaseTask == rt).Select((a, b) => a).ToCommList();
             return list;
         }
-       
+
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
         public byte[] GetFileContentByGuid(string guid)
         {
             return SysFunc.getInstance(objectSpace).GetFile(guid);
-           
+
         }
         /// <summary>
         /// 新增docker容器实例
@@ -109,31 +110,57 @@ namespace deploySys.Server.rpcApi
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public int addNewDockerInstance(string baseDir,string instanceId,int proxyPort,int hostid,int taskId,int msAppId,int htId)
+        public int addNewDockerInstance(string baseDir, string instanceId, int proxyPort, int hostid, int taskId, int msAppId, int htId, bool isNginx = false, string nginxConfDir = "")
         {
+            FrmLib.Log.commLoger.runLoger.Info(" create di start");
             var host = objectSpace.ObjectForIntId<HostResource>(hostid);
             if (host == null)
-                return -1;
+                return -101;
             var rt = objectSpace.ObjectForIntId<ReleaseTask>(taskId);
             if (rt == null)
-                return -1;
+                return -102;
             var msapp = objectSpace.ObjectForIntId<MicroServiceApp>(msAppId);
             if (msapp == null)
-                return -1;
+                return -103;
             HostTask ht = objectSpace.ObjectForIntId<HostTask>(htId);
             if (ht == null)
-                return -1;
-            DockerInstance di = new DockerInstance(objectSpace);
+                return -104;
+            DockerInstance di = null;
+            if (isNginx)
+            {
+                var old = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource == host && a.isNginx.Value).FirstOrDefault();
+                if (old != null)
+                    di = old;
+
+                host.haveNginx = true;
+                host.nginxIsRun = true;
+                host.nginxConfPath = nginxConfDir;//如果主机和node操作系统不同，目录的分界符会有问题，待定？？？
+            }
+            if (di == null)
+            {
+                FrmLib.Log.commLoger.runLoger.Info(" new DockerInstance");
+                di = new DockerInstance(objectSpace);
+            }
             di.baseDir = baseDir;
             di.instanceId = instanceId;
             di.proxyPort = proxyPort;
-
-            di.Ass_HostResource_Id = hostid;
-            di.Ass_ReleaseTask_Id = taskId;
-            di.Ass_MicroServiceApp_Id = msAppId;
+            di.isNginx = isNginx;
+            di.Ass_HostResource_Id = hostid;           
             di.status = (int)EnumDockerInstanceStatus.prepare;
-            ht.dockerInanceId = di.instanceId;
+          
+            if (!isNginx)
+            {
+                di.Ass_ReleaseTask_Id = taskId;
+                di.Ass_MicroServiceApp_Id = msAppId;
+                ht.dockerInanceId = di.instanceId;
+                di.status = (int)EnumDockerInstanceStatus.running;
+                di.version = rt.Version;
+                di.domain = rt.domainName;
+                di.IP=rt.useWIP.Value?host.WIP:"127.0.0.1";
+            }
+                         
             UpdateDatabase();
+            FrmLib.Log.commLoger.runLoger.Info(" create di:"+di.Id.ToString());
             return di.Id;
         }
         /// <summary>
@@ -145,7 +172,7 @@ namespace deploySys.Server.rpcApi
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public int setDockInstanceStatus(int diId,int status)
+        public int setDockInstanceStatus(int diId, int status)
         {
             DockerInstance di = objectSpace.ObjectForIntId<DockerInstance>(diId);
             if (di == null)
@@ -155,58 +182,200 @@ namespace deploySys.Server.rpcApi
             return 0;
 
         }
-  
+
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public int setTaskStart(int hrtId )
+        public int setTaskStart(int hrtId)
         {
             HostTask hrt = objectSpace.ObjectForIntId<HostTask>(hrtId);
             if (hrt == null)
                 throw new Exception("HostReleaseTask is null");
             hrt.Status = (int)EnumHostTaskStatus.started;
+            var di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.instanceId == hrt.dockerInanceId).FirstOrDefault();
+            if (di != null)
+                di.status = (int)EnumDockerInstanceStatus.ready;
             UpdateDatabase();
             return 0;
         }
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public int setTaskFial(int hrtId,string failedMsg)
+        public int setTaskFial(int hrtId, string failedMsg)
         {
             HostTask hrt = objectSpace.ObjectForIntId<HostTask>(hrtId);
             if (hrt == null)
                 throw new Exception("HostReleaseTask is null");
             hrt.Status = (int)EnumHostTaskStatus.failed;
             hrt.ProcessInfo = failedMsg;
+            if (hrt.Ass_ReleaseTask != null)
+            {
+                hrt.Ass_ReleaseTask.status = (int)EnumReleaseTaskStatus.error;
+                hrt.Ass_ReleaseTask.memo = failedMsg;
+            }
+            var di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.instanceId == hrt.dockerInanceId).FirstOrDefault();
+            switch (hrt.taskType)
+            {
+                case ((int)EnumHostTaskType.releaseTask):
+                    if (di != null)
+                        di.choDelete();
+                    break;
+                case ((int)EnumHostTaskType.restartDockerInstance):
+                   
+
+                case ((int)EnumHostTaskType.stopDockerInstance):
+                  
+                case ((int)EnumHostTaskType.removeDockerInstance):
+                    if (di != null)
+                        di.status = (int)EnumDockerInstanceStatus.other;
+                   
+                    break;
+            }
+            hrt.Status = (int)EnumHostTaskStatus.failed;
             UpdateDatabase();
             return 0;
         }
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public int setTaskComplete(int hrtId )
+        public int setTaskComplete(int hrtId,string siteDirName)
         {
             HostTask hrt = objectSpace.ObjectForIntId<HostTask>(hrtId);
             if (hrt == null)
                 throw new Exception("HostReleaseTask is null");
             hrt.Status = (int)EnumHostTaskStatus.finished;
-            UpdateDatabase();
+             var rt = hrt.Ass_ReleaseTask;
+            var di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.instanceId == hrt.dockerInanceId).FirstOrDefault();
+            if (di != null)
+            {
+                switch (hrt.taskType)
+                {
+                    case ((int)EnumHostTaskType.restartDockerInstance):
+                        if (di != null)
+                            di.status = (int)EnumDockerInstanceStatus.running;
+                        break;
+
+                    case ((int)EnumHostTaskType.releaseTask):
+                        di.status = (int)EnumDockerInstanceStatus.running;
+                        break;
+                    case ((int)EnumHostTaskType.stopDockerInstance):
+                        if (di != null)
+                            di.status = (int)EnumDockerInstanceStatus.stop;
+                        break;
+                    case ((int)EnumHostTaskType.removeDockerInstance):
+                        if (di != null)
+                            di.choDelete();
+                        break;
+                    case ((int)EnumHostTaskType.removeNgixSite):
+                        var msapp = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => a.key == hrt.taskParms).FirstOrDefault();
+
+                       var  ws = objectSpace.SpaceQuery<webSite>().Where(a => a.Ass_DockerInstance == di && a.Ass_MicroServiceApp == msapp).FirstOrDefault();
+                        if (ws != null)
+                            ws.choDelete();
+                        break;
+                }
+            }
+           
+            if (rt != null) // 存在releaseTask，一定是发布任务
+            {
+                bool needAddWebSite = false; //只有新增任务才需要增加站点，更新任务不需要添加;
+                if (rt.releaseType == 0) //新增
+                {
+                    if (rt.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webSite)
+                    {
+                        di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource_Id == hrt.HostId && a.isNginx.Value).FirstOrDefault();
+                        if (di == null)
+                            throw new Exception("");
+                        needAddWebSite = true;
+                    }
+                    else
+                    {
+                        if (rt.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webServiceSite)
+                        {
+                            if (di == null)
+                                throw new Exception("");
+                            needAddWebSite = true;
+                        }
+                    }
+                }
+                webSite ws;
+                if (needAddWebSite)
+                {
+
+                    ws = new webSite(objectSpace);
+                    ws.Ass_DockerInstance = di;
+                    ws.Ass_MicroServiceApp = rt.Ass_appVersion.Ass_MicroServiceApp;
+                    ws.domain = string.IsNullOrEmpty(rt.domainName) ? rt.Ass_MicroServiceApp.hostname : rt.domainName;
+                    ws.version = rt.Version;
+                    ws.isWebService = (rt.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webServiceSite);
+                    ws.siteDirName = siteDirName;
+                }
+                else
+                {
+                    //更新站点对应的版本号
+                    List<int> listSiteId = null;
+                    if (rt.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webSite || rt.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webServiceSite)
+                    {
+                        if(!string.IsNullOrEmpty(hrt.taskParms))
+                            listSiteId= hrt.taskParms.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList();
+
+                        if (listSiteId != null && listSiteId.Count > 0)
+                        {
+                            objectSpace.BatchUpdate<webSite>(a => listSiteId.Contains(a.Id), a => new webSite() { version = rt.Version });
+                        }
+                        else
+                            objectSpace.BatchUpdate<webSite>(a => a.Ass_DockerInstance == di && a.Ass_MicroServiceApp == rt.Ass_MicroServiceApp, a => new webSite() { version = rt.Version });
+                    }
+
+                  
+               
+                }
+            }
+             UpdateDatabase();
             return 0;
         }
         [Api]
         [FastLogFilter("根据hashcode获取文件")]
         [FastLoginFilter] // 登录了才能请求Api
-        public List<object> getAllTask()
+        public string getAllTask()
         {
+            Console.WriteLine("getAllTask");
             string nodeToken = this.CurrentContext.Session.Tag.Get("ApiToken").AsString();
 
             UnitNodeSession uns = RunConfig.Instance.nodedeviceStat_dic[nodeToken];
             if (uns == null)
                 return null;
-            var hostid = uns.und.hostId;
-            var list = objectSpace.SpaceQuery<HostTask>().Join<appVersion>(Chloe.JoinType.LeftJoin, (a, b) => a.Ass_appVersion == b && a.Id == hostid).Join<MicroServiceApp>(Chloe.JoinType.InnerJoin, (a, b, c) => b.Ass_MicroServiceApp == c).Join<ReleaseTask>(Chloe.JoinType.LeftJoin, (a, b, c,  e) => a.Ass_ReleaseTask == e).Select((a, b, c,  e) => new {HostTask=a,appVersion=b,versionApp=c,ReleaseTask=e }).ToCommList();
-            return list as List<object>;
+            try
+            {
+                var hostid = uns.und.hostId;
+                var list = objectSpace.SpaceQuery<HostTask>().Join<appVersion>(Chloe.JoinType.InnerJoin, (a, b) => !a.IsDeleted&&a.Ass_appVersion == b && a.HostId == hostid && a.taskType==(int)EnumHostTaskType.releaseTask && a.Status==(int)EnumHostTaskStatus.waitForProcess).Join<MicroServiceApp>(Chloe.JoinType.InnerJoin, (a, b, c) => b.Ass_MicroServiceApp == c).Join<ReleaseTask>(Chloe.JoinType.InnerJoin, (a, b, c, e) => !e.IsDeleted &&a.Ass_ReleaseTask == e && e.status==(int)EnumReleaseTaskStatus.assigned).Select((a, b, c, e) => new { HostTask = a, appVersion = b, versionApp = c, ReleaseTask = e }).ToCommList();
+                var jarr = JArray.FromObject(list);
+                var list2 = objectSpace.SpaceQuery<HostTask>().Join<DockerInstance>(Chloe.JoinType.InnerJoin, (a, b) => a.dockerInanceId == b.instanceId && a.HostId == hostid && a.taskType != (int)EnumHostTaskType.releaseTask && a.Status==(int)EnumHostTaskStatus.waitForProcess).Select((a, b) => new { HostTask = a, DockerInstance=b}).ToCommList();
+                var jarr2 = JArray.FromObject(list2);
+                foreach (var obj in jarr2)
+                    jarr.Add(obj);  
+               FrmLib.Log.commLoger.devLoger.Debug( string.Format("jarr:{0} ",jarr.ToString()));
+                return jarr.ToString();
+            }
+            catch (Exception exp)
+            {
+                FrmLib.Log.commLoger.runLoger.Error("getall task "+ FrmLib.Extend.tools_static.getExceptionMessage(exp)) ;
+            }
+            return new JArray().ToString();
 
+        }
+
+        [Api]
+        [FastLogFilter("根据hashcode获取文件")]
+        [FastLoginFilter] // 登录了才能请求Api
+        public byte[] getNginxConfFileContent(string fileName)
+        {
+            var fn = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "configs", fileName);
+            Console.WriteLine(fn);
+            if (!File.Exists(fn))
+                return null;
+            var loadstr = File.ReadAllBytes(fn);
+            return loadstr;
         }
         /// <summary>
         /// 获取本机任务对应app的所有dockerInstance
@@ -223,13 +392,70 @@ namespace deploySys.Server.rpcApi
                 throw new Exception("hostTask is null") ;
             if (ht.taskType != (int)EnumHostTaskType.releaseTask)
                 throw new Exception("not releaseTask");
+            if (ht.Ass_appVersion.Ass_MicroServiceApp.serviceType == (int)EnumAppServiceType.webSite)
+                throw new Exception("website not have instance");
+            List<int> specialInstance = new List<int>();
+            if (ht.Ass_ReleaseTask.releaseType == 1 && !string.IsNullOrEmpty(ht.taskParms)) //更新
+            {
+                specialInstance=ht.taskParms.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList();
+            }
 
-
-            var list = objectSpace.SpaceQuery<DockerInstance>().Join<MicroServiceApp>(Chloe.JoinType.InnerJoin, (a, b) => a.Ass_MicroServiceApp == b && a.Ass_HostResource_Id==ht.HostId).Join<ReleaseTask>(Chloe.JoinType.InnerJoin, (a, b, c) => c.Ass_MicroServiceApp == b && b.Id == ht.Ass_ReleaseTask_Id).Select((a, b, c) => a).ToCommList();
+            IList<DockerInstance> list;
+            if (specialInstance.Count > 0)
+            {
+                list = objectSpace.SpaceQuery<DockerInstance>().Where(a => specialInstance.Contains(a.Id)).ToCommList();
+            }
+            else
+             list = objectSpace.SpaceQuery<DockerInstance>().Join<MicroServiceApp>(Chloe.JoinType.InnerJoin, (a, b) => a.Ass_MicroServiceApp == b && a.Ass_HostResource_Id==ht.HostId).Join<ReleaseTask>(Chloe.JoinType.InnerJoin, (a, b, c) => c.Ass_MicroServiceApp == b && c.Id == ht.Ass_ReleaseTask_Id).Select((a, b, c) => a).ToCommList();
             return list;
 
         }
+        /// <summary>
+        /// 获取指定任务的website实例
+        /// </summary>
+        /// <param name="hostTaskId"></param>
+        /// <returns></returns>
+        [Api]
+        [FastLogFilter("根据hashcode获取文件")]
+        [FastLoginFilter] // 登录了才能请求Api
+        public IList<webSite> getAppWebSite(int hostTaskId)
+        {
+            HostTask ht = objectSpace.ObjectForIntId<HostTask>(hostTaskId);
+            if (ht == null )
+                throw new Exception("hostTask is null");
+            if (ht.taskType != (int)EnumHostTaskType.releaseTask)
+            {
+                throw new Exception("not release task");
+            }
+            IList<webSite> list;
+            DockerInstance di;
+            MicroServiceApp msapp = ht.Ass_appVersion.Ass_MicroServiceApp;
+            if (msapp.serviceType == (int)EnumAppServiceType.socketService || msapp.serviceType == (int)EnumAppServiceType.webService)
+                throw new Exception("this apps not have any website");
 
+            List<int> specialInstance = new List<int>();
+            if (ht.Ass_ReleaseTask.releaseType == 1 && !string.IsNullOrEmpty(ht.taskParms)) //更新
+            {
+                specialInstance = ht.taskParms.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList();
+            }
+
+
+
+            if (msapp.serviceType == (int)EnumAppServiceType.webSite)
+            {
+
+                di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource_Id == ht.HostId && a.isNginx.Value).FirstOrDefault();
+
+            }
+            else
+                di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource_Id == ht.HostId && a.Ass_MicroServiceApp == msapp).FirstOrDefault();
+
+            if (specialInstance.Count > 0)
+                list = objectSpace.SpaceQuery<webSite>().Where(a => specialInstance.Contains(a.Id)).ToCommList();
+            else
+            list = objectSpace.SpaceQuery<webSite>().Join<MicroServiceApp>(Chloe.JoinType.InnerJoin, (a, b) => a.Ass_MicroServiceApp == b && b == msapp).Join<DockerInstance>(Chloe.JoinType.InnerJoin, (a, b, c) => a.Ass_DockerInstance == c && c == di).Select((a, b, c) => a).ToCommList();
+            return list;
+        }
         /// <summary>
         /// 获取服务组件版本号
         /// </summary>       
@@ -273,8 +499,8 @@ namespace deploySys.Server.rpcApi
             try
             {
 
-
-                    string nodeToken = this.CurrentContext.Session.Tag.Get("ApiToken").AsString();
+                   macid = macid.Replace(":","").Replace("-","").ToLower();
+                    string nodeToken = macid;
                 if (nodeToken!=null)
                 {
                     UnitNodeSession uns = RunConfig.Instance.nodedeviceStat_dic[nodeToken];
@@ -313,6 +539,7 @@ namespace deploySys.Server.rpcApi
         {
             try
             {
+                macid = macid.Replace(":","").Replace("-","").ToLower();
                 RunConfig.Instance.devlog.Info(String.Format("Login ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
                 var host = objectSpace.SpaceQuery<HostResource>().Where(a => a.macId == macid).FirstOrDefault();
                 if (host!=null)
@@ -528,6 +755,9 @@ namespace deploySys.Server.rpcApi
             host.cpuName = metrics.cpu.cpuname;
             host.OsName = metrics.osName;
             UpdateDatabase();
+           var di= objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource_Id == host.Id && a.isNginx.Value).FirstOrDefault();
+            if (di != null)
+                host.nginxInstanceId = di.instanceId; 
             return host;
             //var result = JsonConvert.SerializeObject(host);
             //Console.WriteLine(result);

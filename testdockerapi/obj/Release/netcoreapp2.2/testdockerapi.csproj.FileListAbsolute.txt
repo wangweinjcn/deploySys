@@ -1,0 +1,12 @@
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\diconfig.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\testdockerapi.deps.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\testdockerapi.runtimeconfig.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\testdockerapi.runtimeconfig.dev.json
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\testdockerapi.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\bin\Release\netcoreapp2.2\testdockerapi.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.csprojAssemblyReference.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.csproj.CoreCompileInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.AssemblyInfoInputs.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.AssemblyInfo.cs
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.dll
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\testdockerapi\obj\Release\netcoreapp2.2\testdockerapi.pdb

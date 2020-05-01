@@ -1,0 +1,21 @@
+2020-04-04 18:50:38,206 [1] ERROR runInfo [(null)] - [GetHost:131@nodeClient.cs]要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+2020-04-04 18:50:38,271 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 18:50:38,534 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2020-04-04 18:52:29,306 [1] ERROR runInfo [(null)] - [GetHost:131@nodeClient.cs]要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+2020-04-04 18:52:29,354 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 18:52:29,542 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2020-04-04 18:55:04,220 [1] ERROR runInfo [(null)] - [GetHost:131@nodeClient.cs]要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+2020-04-04 18:55:04,272 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 18:55:04,521 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2020-04-04 18:55:34,589 [26] ERROR runInfo [(null)] - [ReportPerf:186@nodeClient.cs]要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+2020-04-04 18:57:38,659 [1] ERROR runInfo [(null)] - [GetHost:131@nodeClient.cs]要重定向 IO 流，Process 对象必须将 UseShellExecute 属性设置为 False。
+2020-04-04 18:57:38,712 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 18:57:38,921 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2020-04-04 18:59:25,513 [1] ERROR runInfo [(null)] - [GetHost:131@nodeClient.cs]StandardOut 未重定向或者该进程尚未启动。
+2020-04-04 18:59:25,562 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 18:59:25,826 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2020-04-04 19:00:24,529 [24] ERROR runInfo [(null)] - [ReportPerf:186@nodeClient.cs]StandardOut 未重定向或者该进程尚未启动。
+2020-04-04 19:00:25,873 [24] ERROR runInfo [(null)] - [ReportPerf:186@nodeClient.cs]StandardOut 未重定向或者该进程尚未启动。
+2020-04-04 19:00:55,871 [24] ERROR runInfo [(null)] - [ReportPerf:186@nodeClient.cs]StandardOut 未重定向或者该进程尚未启动。
+2020-04-04 19:02:56,248 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2020-04-04 19:02:56,442 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4

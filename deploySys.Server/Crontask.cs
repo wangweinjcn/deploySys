@@ -36,28 +36,7 @@ namespace deploySys.Server
         private static IObjectSpaceService _oss = new ObjectSpaceService();
         private static IDistributedCache _distributedCache = Globals.ServiceProvider.GetService(typeof(IDistributedCache)) as IDistributedCache;
 
-        private static string findMainFileDir(string basepath,string filename)
-        {
-            if (!Directory.Exists(basepath))
-                return null;
-            DirectoryInfo Dir = new DirectoryInfo(basepath);
-            FileInfo[] allfiles = Dir.GetFiles();
-            foreach (var obj in allfiles)
-            {
-                var fn = Path.GetFileName(obj.FullName);
-                if (string.Equals(filename, fn, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    var fpath = Path.GetFullPath(obj.FullName);
-                    return fpath;
-                }
-            }
-            DirectoryInfo[] DirSub = Dir.GetDirectories();
-            foreach (var obj in DirSub)
-            {
-                return findMainFileDir(obj.FullName,filename);
-            }
-            return null;
-        }
+        
        
         /// <summary>
         /// 判断是否是奇数
@@ -84,7 +63,7 @@ namespace deploySys.Server
                 return null;
             ///注意右连接
             ///
-            var glist = space.SpaceQuery<DockerInstance>().Join<HostResource>(Chloe.JoinType.RightJoin, (a, b) => a.Ass_HostResource == b && b.Ass_Zone_Id == zoneId).Select((a, b) => new {a.Id,b.clientSessionId }).GroupBy(a=>a.clientSessionId).Select(a=>new {a.clientSessionId,count=  Sql.Count() }).OrderBy(a=>a.count).ToCommList();
+            var glist = space.SpaceQuery<DockerInstance>().Join<HostResource>(Chloe.JoinType.RightJoin, (a, b) => a.Ass_HostResource == b && b.Ass_Zone_Id == zoneId && b.canAutoAssign).Select((a, b) => new {a.Id,b.macId }).GroupBy(a=>a.macId).Select(a=>new {a.macId,count=  Sql.Count() }).OrderBy(a=>a.count).ToCommList();
             double MedianValue;
             if (IsOdd(glist.Count))
             {
@@ -106,10 +85,10 @@ namespace deploySys.Server
             int avCount;
             foreach (var obj in list)
             {
-                var host = (from x in allhr where x.clientSessionId == obj.clientSessionId select x).FirstOrDefault();
+                var host = (from x in allhr where x.macId == obj.macId select x).FirstOrDefault();
                 if (host == null)
                 {
-                    throw new Exception("指定clientSessionId的主机不存在");
+                    throw new Exception("指定macId的主机不存在");
                 }
                  if (remainHostcount <= 0 || remainCount<=0)
                     break;
@@ -119,7 +98,7 @@ namespace deploySys.Server
                 var allocPortList = host.getAllocPorts(tmpcount);
                 foreach (var oneport in allocPortList)
                 {
-                    result.Add(new Tuple<string, int>(obj.clientSessionId, oneport));
+                    result.Add(new Tuple<string, int>(obj.macId, oneport));
                 }
                 remainCount = remainCount - allocPortList.Count();
                 remainHostcount--;
@@ -179,20 +158,20 @@ namespace deploySys.Server
                         var remainCount = task.count; //剩余分配数量
                         var remainHostcount = selectRes.Count;//剩余主机数量
                         int avCount;
-                        foreach (var obj in selectRes)
+                        foreach (var onehost in selectRes)
                         {
 
                             if (remainHostcount <= 0 || remainCount <= 0)
                                 break;
 
-                            var host = obj;
+                            var host = onehost;
                             avCount = (int)Math.Ceiling(((double)(remainCount)) / remainHostcount);
                             var tmpcount = Math.Min(avCount, remainCount);
                             var allocPortList = host.getAllocPorts(tmpcount);
 
                             foreach (var oneport in allocPortList)
                             {
-                                hostports.Add(new Tuple<string, int>(obj.clientSessionId, oneport));
+                                hostports.Add(new Tuple<string, int>(onehost.macId, oneport));
                             }
                             remainCount = remainCount - allocPortList.Count();
                             remainHostcount--;
@@ -203,9 +182,9 @@ namespace deploySys.Server
                         return;
                     foreach (var oneh in hostports)
                     {
-                        var host = appv.GetSpace().SpaceQuery<HostResource>().Where(a => a.clientSessionId == oneh.Item1).FirstOrDefault();
+                        var host = appv.GetSpace().SpaceQuery<HostResource>().Where(a => a.macId == oneh.Item1).FirstOrDefault();
                         if (host == null)
-                            throw new Exception("指定sessionId的host不存在");
+                            throw new Exception("指定macId的host不存在");
                         HostTask hrt = new HostTask(appv.GetSpace());
                         hrt.Ass_appVersion = appv;
                         hrt.Ass_ReleaseTask = task;
@@ -238,73 +217,90 @@ namespace deploySys.Server
 
             try
             {
-               var list= _objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.status == 0).OrderBy(a=>a.CreateDt).ToList();
+               var list= _objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.status == (int)EnumReleaseTaskStatus.audited).OrderBy(a=>a.CreateDt).ToList();
 
                 foreach (var obj in list)
                 {
-                    SysFunc sf = SysFunc.getInstance(_objectSpace);
-                    var content=    sf.GetFile(obj.FileGuid);
-                    var baseDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"tmpdata", obj.Id.ToString());
+
+                    appVersion appver = new appVersion(_objectSpace);
+                    appver.version = obj.Version;
+                    appver.Ass_ReleaseTask = obj;
+                    appver.Ass_MicroServiceApp = obj.Ass_MicroServiceApp;
+
+                    var baseDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tmpdata");
+                    if (!Directory.Exists(baseDir))
+                        Directory.CreateDirectory(baseDir);
+
+                    baseDir = Path.Combine(baseDir, obj.Id.ToString());
+
                     try
                     {
-                        if (!Directory.Exists(baseDir))
-                            Directory.CreateDirectory(baseDir);
-                        //解压文件
-                        using (var stream = new MemoryStream(content))
+                        if (obj.unzipInServer)
                         {
-                            using (var reader = ReaderFactory.Open(stream))
+                            if (!Directory.Exists(baseDir))
+                                Directory.CreateDirectory(baseDir);
+                            SysFunc sf = SysFunc.getInstance(_objectSpace);
+                            var content = sf.GetFile(obj.FileGuid);
+
+                            //解压文件
+                            using (var stream = new MemoryStream(content))
                             {
-                                if (!reader.Entry.IsDirectory)
+                                stream.Seek(0, SeekOrigin.Begin);
+                                using (var reader = ReaderFactory.Open(stream))
                                 {
-                                    Console.WriteLine(reader.Entry.Key);
-                                    reader.WriteEntryToDirectory(baseDir, new ExtractionOptions()
+                                    while (reader.MoveToNextEntry())
                                     {
-                                        PreserveAttributes = true,
-                                        ExtractFullPath = true,
-                                        Overwrite = true
-                                        
-                                    });
+                                        if (!reader.Entry.IsDirectory)
+                                        {
+                                            Console.WriteLine(reader.Entry.Key);
+                                            reader.WriteEntryToDirectory(baseDir, new ExtractionOptions()
+                                            {
+                                                ExtractFullPath = true,
+                                                Overwrite = true
+
+                                            });
+                                        }
+                                    }
                                 }
                             }
-                        }
-                        var fpath = findMainFileDir(baseDir, obj.Ass_MicroServiceApp.rootDirMainFile);
-                        if (fpath == null)
-                        {
-                            obj.status = (int) EnumReleaseTaskStatus.error;;
-                            obj.ProcessInfo = "找不到根目录";
-                        }
-                        else
-                        {
-                            appVersion appver = new appVersion(_objectSpace);
-                            appver.version = obj.Version;
-                            appver.Ass_ReleaseTask = obj;
+                            var fpath = dsFunc.findMainFileDir(baseDir, obj.Ass_MicroServiceApp.rootDirMainFile);
+                            if (fpath == null)
+                            {
+                                throw new Exception("找不到根目录");
+                            }
                             List<string> conffile = null;
                             var msapps = appver.Ass_MicroServiceApp;
                             if (msapps == null)
                                 throw new Exception("找不到微服务应用");
                             if (!string.IsNullOrEmpty(msapps.confFileNames))
-                                conffile = msapps.confFileNames.Split(",", StringSplitOptions.RemoveEmptyEntries).ToList();
+                                conffile = msapps.confFileNames.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList();
                             else
                                 conffile = new List<string>();
                             IList<FileItem> allFIs = new List<FileItem>();
-                            dsFunc.initPathToFileItem(appver, baseDir, fpath,true,conffile, allFIs);
-                            processVersionToHost(appver);
-                            obj.status =(int) EnumReleaseTaskStatus.assigned;
+
+                            dsFunc.initPathToFileItem(appver, baseDir, fpath, true, conffile, allFIs);
+
                         }
+
+                        processVersionToHost(appver);
+                        obj.status = (int)EnumReleaseTaskStatus.assigned;
                     }
                     catch (Exception ex)
                     {
-                        obj.status = (int) EnumReleaseTaskStatus.error;
+                        obj.status = (int)EnumReleaseTaskStatus.error;
                         obj.ProcessInfo = ex.Message;
 
                     }
-                    finally {
-                        Directory.Delete(baseDir, true);
+                    finally
+                    {
+                        if (Directory.Exists(baseDir))
+                            Directory.Delete(baseDir, true);
                     }
                       _objectSpace.UpdateAllDirtyObjects(true);
                 }
 
 
+                    
               
                 
             }
@@ -319,6 +315,28 @@ namespace deploySys.Server
             }
         }
 
-       
+        public static void checkReleaseTaskFinished()
+        {
+            var _objectSpace = _oss.getContextSpace();
+
+            try
+            {
+                 var list= _objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.status == (int)EnumReleaseTaskStatus.assigned).OrderBy(a=>a.CreateDt).ToList();
+                foreach (var obj in list)
+                {
+                  var nofinishcount=  _objectSpace.SpaceQuery<HostTask>().Where(a => a.Ass_ReleaseTask == obj && a.Status != (int)EnumHostTaskStatus.finished).Count();
+                    if (nofinishcount == 0)
+                    {
+                        obj.status = (int)EnumReleaseTaskStatus.released;
+                        _objectSpace.UpdateAllDirtyObjects();
+                    }
+                }
+            }
+            catch (Exception ex)
+            { }
+            finally {
+            }
+
+            }
     }
 }

@@ -35,17 +35,21 @@ public   partial class dsFunc : Application.Model.Base.BaseObject{
 {
             if (createFile && appVer.GetSpace() == null)
                 throw new Exception("createFile and  space is null ");
-            var relationBDir = processPath.TrimStart(baseDir.ToCharArray());
+           
+               
+            var relationBDir = processPath.Replace(baseDir,"");
             relationBDir = relationBDir.TrimStart(System.IO.Path.DirectorySeparatorChar);
             DirectoryInfo Dir = new DirectoryInfo(processPath);
             FileInfo[] allfiles = Dir.GetFiles();
           
             foreach (var obj in allfiles)
             {
-
+                if (obj.FullName.EndsWith(".pdb", StringComparison.InvariantCultureIgnoreCase))
+                    continue;
                 var fn = Path.GetFileName(obj.FullName);
+
                 FileItem fi = new FileItem(appVer.GetSpace());
-                var content = File.ReadAllBytes(fn);
+                var content = File.ReadAllBytes(obj.FullName);
                 if (createFile)
                 {
                     
@@ -60,10 +64,12 @@ public   partial class dsFunc : Application.Model.Base.BaseObject{
                                  || fn.EndsWith(x,StringComparison.CurrentCultureIgnoreCase) select x).Count() > 0; //判断是否是配置文件
                 fi.Ass_appVersion = appVer;
                 allFItems.Add(fi);
-                using (HashAlgorithm hash = HashAlgorithm.Create())
+              
+
+                using (var calculator = MD5.Create())
                 {
                     MemoryStream fstream = new MemoryStream(content);
-                    byte[] hashByte1 = hash.ComputeHash(fstream);//哈希算法根据文本得到哈希码的字节数组 
+                    byte[] hashByte1 =calculator.ComputeHash(fstream);//哈希算法根据文本得到哈希码的字节数组 
                     fi.hashCode = BitConverter.ToString(hashByte1);//将字节数组装换为字符串 
                     BinaryReader r = new BinaryReader(fstream);
                     r.BaseStream.Seek(0, SeekOrigin.Begin);    //将文件指针设置到文件开
@@ -73,8 +79,9 @@ public   partial class dsFunc : Application.Model.Base.BaseObject{
                     {
                         try
                         {
-                            Assembly asm = Assembly.Load(fcontent);
-                            fi.dllVersion = asm.GetName().Version.ToString();
+                           var an= AssemblyName.GetAssemblyName(obj.FullName);
+                           
+                            fi.dllVersion = an.Version.ToString();
                         }
                         catch (Exception exp)
                         {
@@ -166,25 +173,34 @@ dsFunc instance = null;
 {
  
        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       ///<summary>
+       ///                                                                                                    获取指定目录下，指定文件名的目录                                                                                                    
+       ///</summary>
+        ///<param name="basepath"></param>
+        ///<param name="filename"></param>
+        ///<returns></returns>
+public static string findMainFileDir(string basepath, string filename)     
+ {
+            if (!Directory.Exists(basepath))
+                return null;
+            DirectoryInfo Dir = new DirectoryInfo(basepath);
+            FileInfo[] allfiles = Dir.GetFiles();
+            foreach (var obj in allfiles)
+            {
+                var fn = Path.GetFileName(obj.FullName);
+                if (string.Equals(filename, fn, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    var fpath = Path.GetDirectoryName(obj.FullName);
+                    return fpath;
+                }
+            }
+            DirectoryInfo[] DirSub = Dir.GetDirectories();
+            foreach (var obj in DirSub)
+            {
+                return findMainFileDir(obj.FullName, filename);
+            }
+            return null;
+        }
 
 
 

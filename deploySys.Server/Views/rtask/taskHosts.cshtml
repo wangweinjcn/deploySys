@@ -7,7 +7,7 @@
 }
 @section _command{
     <el-button-group>
-        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-switch-button" v-on:click="openRestartTask" :disabled="mainCommandDisnable">重启</el-button>
     </el-button-group>
 }
 
@@ -53,14 +53,25 @@
             me.data.rolesOptions = [];
             me.data.mainTableConfig.columns = [
                 {
-                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                    field: 'Id', width: 50, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen:true
                 },
-                { field: 'Version', width: 330, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'IP', width: 330, titleAlign: 'center', title: 'IP', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'hostName', width: 100, titleAlign: 'center', title: '主机名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'allocPort', width: 100, titleAlign: 'center', title: '分配端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'dockerInanceId', width: 100, titleAlign: 'center', title: 'docker实例Id', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
-                { field: 'Status', width: 100, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: true },
+                { field: 'Version', width: 330, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'IP', width: 330, titleAlign: 'center', title: 'IP', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'hostName', width: 100, titleAlign: 'center', title: '主机名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'allocPort', width: 100, titleAlign: 'center', title: '分配端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'dockerInanceId', width: 100, titleAlign: 'center', title: 'docker实例Id', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                {
+                    field: 'taskType', width: 100, titleAlign: 'center', title: '任务类型', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', formatter: function (rowData, rowIndex, pagingIndex, field) {
+                        console.log(rowData);
+                        return rowData.taskType == 0 ? '发布任务' : rowData.taskType == 10 ? '停止docker' : rowData.taskType == 15 ? '重启docker实例' : rowData.taskType == 30 ? "删除docker实例" : '其他'
+                    }, isFrozen: false
+                },
+                { field: 'Status', width: 100, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', formatter: function (rowData, rowIndex, pagingIndex, field) {
+                        console.log(rowData);
+                        return rowData.Status == 0 ? '待处理' : rowData.Status == 10 ? '已开始' : rowData.Status == 20 ? '已完成' : rowData.Status == -1 ? "已失败" : '其他'
+                }, isFrozen: false
+                },
+
 
             ];
 
@@ -87,10 +98,24 @@
                 }
 
             };
+             me.methods.openRestartTask = function () {
+               
+                    $vmpa.confirm("确定要重启该任务吗？", me.methods.restartTask);
+                
+            };
             
-            me.mainLoadTablePagedDataUrl = "/Api/SysManage/taskHosts/@ViewBag.taskId";
+             me.methods.restartTask = function () {
+                 var url ="/Api/SysManage/restartHostTask"+ "/" + me.data.mainSelectedModel[me.ModelKeyName];
+                var params = {};
+                var _this = this;
+                $vmpa.post(url, params, function (result) {
+                    me.methods.getMainTableData();
+                    me.methods.mainSelectedModel = null;
+                });
+            };
+            me.mainLoadTablePagedDataUrl = "/Api/SysManage/taskHosts/@ViewBag.taskId?hostId=@ViewBag.hostId";
             me.mainAddUrl = " ";
-            me.mainDeleteUrl = "/Api/SysManage/deletetaskHosts";
+            me.mainDeleteUrl = "";
             me.mainUpdateUrl = "";
             me.data.mainDialog = new appTypeDialog(this, true);
             me.mainDetailUrl = "";

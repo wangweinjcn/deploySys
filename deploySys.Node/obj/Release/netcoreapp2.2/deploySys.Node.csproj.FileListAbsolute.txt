@@ -20,3 +20,4 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\spNettyRPC.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\deploySys.Common.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\ModelCore.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\mime.types

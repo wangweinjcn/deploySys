@@ -1,6 +1,0 @@
-2020-03-16 10:15:12,494 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
-2020-03-16 10:15:15,117 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
-2020-03-16 10:17:41,435 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
-2020-03-16 10:17:44,518 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*
-2020-03-16 21:14:58,740 [1] INFO  runInfo [(null)] -  [ConfigureServices:?@baseStartup]now configure main service
-2020-03-16 21:15:02,186 [1] DEBUG runInfo [(null)] -  [Configure:?@baseStartup]*

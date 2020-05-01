@@ -422,5 +422,23 @@ public   partial class AssC_SysRoleSysUser : _baseObject{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }
