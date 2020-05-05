@@ -290,7 +290,7 @@
                 });
             }
             me.methods.mainAdd = function () {
-                var newmodel = { Id: -1, confFileOverride: false,overridePolicy:0,releaseType:0,dockerNetType:0,useWIP:true,selectHostPolicy:1,unzipInServer:false,count:1 ,memo:"",Ass_Zone_Id:-1,domainName:"",sslPem:"",sslKey:"",memo:"",dockerNetType:1,useSSL:2,needRegister:false};
+                var newmodel = { Id: -1, confFileOverride: false,overridePolicy:0,releaseType:0,dockerNetType:0,useWIP:true,selectHostPolicy:1,unzipInServer:false,count:1 ,memo:"",Ass_Zone_Id:-1,domainName:"",sslPem:"",sslKey:"",memo:"",dockerNetType:1,useSSL:2,needRegister:false,domainName:""};
                 me.OnMainEdit(newmodel, "新增");
             };
             me.methods.mainEdit = function () {
@@ -361,11 +361,12 @@
 
                 console.log(formData);
 
-                $.ajax({
+               var ret=   $.ajax({
                     url: vm.mainAddUrl,
                     type: "POST",
                     timeout: 1200000,
-                    data: formData,
+                   data: formData,
+                    async: false, 
                     /**
                     *必须false才会自动加上正确的Content-Type
                     */
@@ -380,20 +381,41 @@
                        
                     },
                     success: function (result) {
-                        if (result.Status == 100) {
-                            me.Close();
-                             me.refreshTable();
+                        var isStandardResult = ("Status" in result) && ("Msg" in result);
+                        if (isStandardResult) {
+                            if (result.Status === ResultStatus.Failed) {
+                                $vmpa.alert(result.Msg || "操作失败");
+                                return result;
+                            }
+                            if (result.Status === ResultStatus.NotLogin) {
+                                $vmpa.alert(result.Msg || "未登录或登录过期，请重新登录");
+                                return result;
+                            }
+                            if (result.Status === ResultStatus.Unauthorized) {
+                                $vmpa.alert(result.Msg || "权限不足，禁止访问");
+                                return result;
+                            }
 
-                        } else {
+                            if (result.Status === ResultStatus.OK) {
+                                /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
 
+
+                                return result;
+                            }
+                            $vmpa.alert("其他错误：" + result);
+                            return result;
                         }
+
+                        else {
+                            return result;
+                        };
                     },
                     error: function () {
-                        alert("上传失败！");
+                        $vmpa.alert("上传失败！");
                     }
                 });
-
-               
+                
+                return ret.responseJSON.Status;
             }
 
 

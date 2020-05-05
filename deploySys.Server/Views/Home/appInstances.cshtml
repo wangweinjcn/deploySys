@@ -59,7 +59,8 @@
                 { field: 'proxyPort', width: 100, titleAlign: 'center', title: '端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
                 { field: 'IP', width: 100, titleAlign: 'center', title: '访问IP', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
                 { field: 'domain', width: 100, titleAlign: 'center', title: '域名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
-
+                { field: 'isNginx', width: 100, titleAlign: 'center', title: '是Nginx', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                
                 { field: 'status', width: 100, titleAlign: 'center', title: '实例状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',formatter: function (rowData, rowIndex, pagingIndex, field) {
                         console.log(rowData);
                         return rowData.status == 0 ? '预分配' : rowData.status == 10 ? '待处理' : rowData.status == 20 ? '运行中' :rowData.status == -1 ? '已停止':rowData.status == 100 ? '等待停止':rowData.status == 101 ? '等待重启':rowData.status == 102 ? '等待删除': '其他未知'
@@ -68,7 +69,7 @@
 
                 { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
                 { field: 'key', width: 100, titleAlign: 'center', title: '应用Key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
-             { field: 'Version', width: 100, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+             { field: 'version', width: 100, titleAlign: 'center', title: '版本', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
            { field: 'port', width: 100, titleAlign: 'center', title: '应用端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
 
             ];

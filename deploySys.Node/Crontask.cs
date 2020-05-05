@@ -392,7 +392,36 @@ namespace deploySys.Node
             var fn = Path.Combine(destPath, "release.ver");
             File.WriteAllText(fn, versionstr);
         }
-
+        private static string prepareNginxDir()
+        {
+            var basenginxDir = RunConfig.Instance.serverHostResource.nginxConfPath;
+            basenginxDir = string.IsNullOrEmpty(basenginxDir) ? "/opt/nginx" : basenginxDir;
+            if (!Directory.Exists(basenginxDir))
+            {
+                Directory.CreateDirectory(basenginxDir);
+            }
+            var sitenginxDir = Path.Combine(basenginxDir, "site");
+            if (!Directory.Exists(sitenginxDir))
+            {
+                Directory.CreateDirectory(sitenginxDir);
+            }
+            var lognginxDir = Path.Combine(basenginxDir, "log");
+            if (!Directory.Exists(lognginxDir))
+            {
+                Directory.CreateDirectory(lognginxDir);
+            }
+            var confnginxDir = Path.Combine(basenginxDir, "conf.d");
+            if (!Directory.Exists(confnginxDir))
+            {
+                Directory.CreateDirectory(confnginxDir);
+            }
+            var sslnginxDir = Path.Combine(basenginxDir, "ssl");
+            if (!Directory.Exists(sslnginxDir))
+            {
+                Directory.CreateDirectory(sslnginxDir);
+            }
+            return basenginxDir;
+        }
         private static void createOneWebSite(ReleaseTask rt, HostTask ht, appVersion version, MicroServiceApp msapps,out string siteDirName)
         {
              Console.WriteLine("createOneWebSite");
@@ -402,47 +431,27 @@ namespace deploySys.Node
             var sslKey= string.IsNullOrEmpty(rt.sslKey) ? msapps.sslKey : rt.sslKey;
             try
             {
-                var basenginxDir = RunConfig.Instance.serverHostResource.nginxConfPath;
-                basenginxDir = string.IsNullOrEmpty(basenginxDir) ? "/opt/nginx" : basenginxDir;
-                if (!Directory.Exists(basenginxDir))
-                {
-                    Directory.CreateDirectory(basenginxDir);
-                }
-                var sitenginxDir = Path.Combine(basenginxDir, "site");
-                if (!Directory.Exists(sitenginxDir))
-                {
-                    Directory.CreateDirectory(sitenginxDir);
-                }
-                var lognginxDir = Path.Combine(basenginxDir, "log");
-                if (!Directory.Exists(lognginxDir))
-                {
-                    Directory.CreateDirectory(lognginxDir);
-                }
-                var confnginxDir = Path.Combine(basenginxDir, "conf.d");
-                if (!Directory.Exists(confnginxDir))
-                {
-                    Directory.CreateDirectory(confnginxDir);
-                }
-                var sslnginxDir = Path.Combine(basenginxDir, "ssl");
-                if (!Directory.Exists(sslnginxDir))
-                {
-                    Directory.CreateDirectory(sslnginxDir);
-                }
 
-                var appname = string.Format("{0}", msapps.key);
-                var thissiteDir = Path.Combine(sitenginxDir, appname);
+                var basenginxDir=  prepareNginxDir();
+                 var sitenginxDir = Path.Combine(basenginxDir, "site");
+                 var sslnginxDir = Path.Combine(basenginxDir, "ssl");
+                var confnginxDir = Path.Combine(basenginxDir, "conf.d");
+                var appversionName = string.Format("{0}_{1}", msapps.key,rt.Version);
+                var thissiteDir = Path.Combine(sitenginxDir, appversionName);
+               
                 if (!Directory.Exists(thissiteDir))
                 {
                     Directory.CreateDirectory(thissiteDir);
                 }
                 string sslstr = "80";
                 string sslRemark = "#";
-
+                Console.WriteLine("rt.usessl:{0};apps.usessl:{1}", rt.useSSL, msapps.useSsl);
                 if (rt.useSSL == 1 || (rt.useSSL == 2 && msapps.useSsl.HasValue && msapps.useSsl.Value))
                 {
-                    var fn1 = Path.Combine(sslnginxDir, appname + ".pem");
+                    Console.WriteLine("now configure ssl");
+                    var fn1 = Path.Combine(sslnginxDir, appversionName + ".pem");
                     File.WriteAllText(fn1, sslPem);
-                    fn1 = Path.Combine(sslnginxDir, appname + ".key");
+                    fn1 = Path.Combine(sslnginxDir, appversionName + ".key");
                     File.WriteAllText(fn1, sslKey);
                     sslstr = "443 ssl";
                     sslRemark = "";
@@ -454,7 +463,7 @@ namespace deploySys.Node
                     if (content == null || content.Length == 0)
                         throw new Exception("site  configure file is null or empty");
                     loadstr = System.Text.Encoding.UTF8.GetString(content);
-                    loadstr = loadstr.Replace("{appname}", appname).Replace("{msapps.hostname}", domainName).Replace("{sslstr}", sslstr).Replace("{sslRemark}", sslRemark);
+                    loadstr = loadstr.Replace("{appname}", appversionName).Replace("{msapps.hostname}", domainName).Replace("{sslstr}", sslstr).Replace("{sslRemark}", sslRemark);
                 }
                 else
                 {
@@ -465,12 +474,12 @@ namespace deploySys.Node
                             throw new Exception("site  configure file is null or empty");
                         string ip = rt.useWIP.HasValue && rt.useWIP.Value ? RunConfig.Instance.serverHostResource.WIP : "127.0.0.1"; //RunConfig.Instance.serverHostResource.IP;
                         loadstr = System.Text.Encoding.UTF8.GetString(content);
-                        loadstr = loadstr.Replace("{appname}", appname).Replace("{ip}", ip).Replace("{ht.allocPort}", ht.allocPort.ToString()).Replace("{msapps.hostname}", domainName).Replace("{sslstr}", sslstr).Replace("{sslRemark}", sslRemark);
+                        loadstr = loadstr.Replace("{appname}", appversionName).Replace("{ip}", ip).Replace("{ht.allocPort}", ht.allocPort.ToString()).Replace("{msapps.hostname}", domainName).Replace("{sslstr}", sslstr).Replace("{sslRemark}", sslRemark);
                     }
                 }
                 if (string.IsNullOrEmpty(loadstr))
                     throw new Exception("site  configure file is null or empty");
-                siteDirName = string.Format("{0}_{1}",appname,version.version);
+                siteDirName =appversionName;
                 var fn = Path.Combine(confnginxDir, siteDirName + ".conf");
                
                 File.WriteAllText(fn, loadstr);
@@ -522,6 +531,8 @@ namespace deploySys.Node
                 PullImage(cparams[0], cparams[1]);
             }
             var response =FrmLib.Extend.AsyncHelpers.RunSync<CreateContainerResponse>(() =>  dockerC.Containers.CreateContainerAsync(dparam));
+            var iid = response.ID;
+             AsyncHelpers.RunSync(() => dockerC.Containers.RenameContainerAsync(iid,new ContainerRenameParameters() {NewName="nginx" },new CancellationToken()));
             DockerInstance di = new DockerInstance();
             di.instanceId = response.ID;
             di.proxyPort = 80;
@@ -557,9 +568,9 @@ namespace deploySys.Node
             {
                 string origParamstr = null;
                 if (rt.dockerNetType == 0)
-                    origParamstr = msapps.createContainerParams2;
-                if (rt.dockerNetType == 1)
                     origParamstr = msapps.createContainerParams;
+                if (rt.dockerNetType == 1)
+                    origParamstr = msapps.createContainerParams2;
                 if (string.IsNullOrEmpty(origParamstr))
                     throw new Exception("容器创建参数为空");
 
@@ -811,22 +822,32 @@ namespace deploySys.Node
                           
                             break;
                             case ((int)EnumHostTaskType.removeNgixSite): //移除nginx站点 ???
-                            var siteName = ht.taskParms;
+                            var siteName = JObject.Parse( ht.taskParms)["siteKey"].ToString();
                             var siteDir = Path.Combine(RunConfig.Instance.serverHostResource.nginxConfPath, "site", siteName);
                             if (Directory.Exists(siteDir))
                                 Directory.Delete(siteDir, true);
                             var siteConfFile=Path.Combine(RunConfig.Instance.serverHostResource.nginxConfPath, "conf.d",string.Format("{0}.conf", siteName));
                             if (File.Exists(siteConfFile))
                                 File.Delete(siteConfFile);
+                            var sslKeyFile=Path.Combine(RunConfig.Instance.serverHostResource.nginxConfPath, "ssl",string.Format("{0}.key", siteName));
+                            if (File.Exists(sslKeyFile))
+                                File.Delete(sslKeyFile);
+                            var sslPemFile = Path.Combine(RunConfig.Instance.serverHostResource.nginxConfPath, "ssl", string.Format("{0}.pem", siteName));
+                            if (File.Exists(sslPemFile))
+                                File.Delete(sslPemFile);
                             nginxDockerReload(RunConfig.Instance.serverHostResource.nginxInstanceId);
                             break;
 
                             case ((int)EnumHostTaskType.removeDockerInstance):
                             if (di == null || string.IsNullOrEmpty(di.instanceId))
                                 throw new Exception("docker instance is null");
-
+                            if (di.isNginx.Value)
+                            {
+                                RunConfig.Instance.serverHostResource.nginxInstanceId = null;
+                            }
                             stopDockerInstance(di.instanceId);
                             removeDockerInstance(di.instanceId,Path.Combine(RunConfig.Instance.serverHostResource.appBaseDir,di.baseDir));
+
                             break;
                     }
                       nodeClient.Instance.reportTaskFinish(ht.Id,siteDirName);

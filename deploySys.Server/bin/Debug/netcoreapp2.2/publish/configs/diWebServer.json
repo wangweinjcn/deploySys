@@ -24,7 +24,7 @@
                 "-g",
                 "daemon off;"
             ],
-            "Image": "nginx",
+            "Image": "wangweinjcn/web:nginx1.0",
             "Volumes": null,
             "WorkingDir": "",
             "Entrypoint": null,

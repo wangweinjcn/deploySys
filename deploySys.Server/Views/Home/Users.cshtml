@@ -129,17 +129,19 @@
                         updateurl = me._vm.mainUpdateUrl;
                     else
                         updateurl = me._vm.slaveUpdateUrl;
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
+                    var ret = $vmpa.postSync(updateurl, me.EditModel, function (result) {
+
+                    });
+                     return ret.responseJSON.Status;
                 } else {
                     if (me.isMain)
                         updateurl = me._vm.mainAddUrl;
                     else
                         updateurl = me._vm.slaveAddUrl;
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
+                    var ret = $vmpa.postSync(updateurl, me.EditModel, function (result) {
+
+                    });
+                     return ret.responseJSON.Status;
                 }
             }
         

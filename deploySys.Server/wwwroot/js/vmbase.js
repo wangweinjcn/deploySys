@@ -178,24 +178,29 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
                     if (result.Status === ResultStatus.Failed) {
                         layerAlert(result.Msg || "操作失败");
                         callback(result);
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.NotLogin) {
                         layerAlert(result.Msg || "未登录或登录过期，请重新登录");
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.Unauthorized) {
                         layerAlert(result.Msg || "权限不足，禁止访问");
-                        return;
+                        return result;
                     }
 
                     if (result.Status === ResultStatus.OK) {
                         /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
                         callback(result);
+                        return result;
                     }
+                    layerAlert("其他错误：" + result);
+                    return result;
                 }
-                else
+                else {
                     callback(result);
+                    return result;
+                }
             },
             error: errorCallback
         });
@@ -220,24 +225,29 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
                     if (result.Status === ResultStatus.Failed) {
                         layerAlert(result.Msg || "操作失败");
                         callback(result);
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.NotLogin) {
                         layerAlert(result.Msg || "未登录或登录过期，请重新登录");
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.Unauthorized) {
                         layerAlert(result.Msg || "权限不足，禁止访问");
-                        return;
+                        return result;
                     }
 
                     if (result.Status === ResultStatus.OK) {
                         /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
                         callback(result);
+                        return result;
                     }
+                    layerAlert("其他错误：" + result);
+                    return result;
                 }
-                else
+                else {
                     callback(result);
+                    return result;
+                }
             },
             error: errorCallback
         });
@@ -258,29 +268,35 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
             complete: function (xhr) {
                 layer.close(layerIndex);
             },
-            success: function (result) {
+             success: function (result) {
                 var isStandardResult = ("Status" in result) && ("Msg" in result);
                 if (isStandardResult) {
                     if (result.Status === ResultStatus.Failed) {
                         layerAlert(result.Msg || "操作失败");
-                        return;
+                        callback(result);
+                        return result;
                     }
                     if (result.Status === ResultStatus.NotLogin) {
                         layerAlert(result.Msg || "未登录或登录过期，请重新登录");
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.Unauthorized) {
                         layerAlert(result.Msg || "权限不足，禁止访问");
-                        return;
+                        return result;
                     }
 
                     if (result.Status === ResultStatus.OK) {
                         /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
                         callback(result);
+                        return result;
                     }
+                    layerAlert("其他错误：" + result);
+                    return result;
                 }
-                else
+                else {
                     callback(result);
+                    return result;
+                }
             },
             error: errorCallback
         });
@@ -302,24 +318,30 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
                 if (isStandardResult) {
                     if (result.Status === ResultStatus.Failed) {
                         layerAlert(result.Msg || "操作失败");
-                        return;
+                        callback(result);
+                        return result;
                     }
                     if (result.Status === ResultStatus.NotLogin) {
                         layerAlert(result.Msg || "未登录或登录过期，请重新登录");
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.Unauthorized) {
                         layerAlert(result.Msg || "权限不足，禁止访问");
-                        return;
+                        return result;
                     }
 
                     if (result.Status === ResultStatus.OK) {
                         /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
                         callback(result);
+                        return result;
                     }
+                    layerAlert("其他错误：" + result);
+                    return result;
                 }
-                else
+                else {
                     callback(result);
+                    return result;
+                }
             },
             error: errorCallback
         });
@@ -340,24 +362,30 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
                 if (isStandardResult) {
                     if (result.Status === ResultStatus.Failed) {
                         layerAlert(result.Msg || "操作失败");
-                        return;
+                        callback(result);
+                        return result;
                     }
                     if (result.Status === ResultStatus.NotLogin) {
                         layerAlert(result.Msg || "未登录或登录过期，请重新登录");
-                        return;
+                        return result;
                     }
                     if (result.Status === ResultStatus.Unauthorized) {
                         layerAlert(result.Msg || "权限不足，禁止访问");
-                        return;
+                        return result;
                     }
 
                     if (result.Status === ResultStatus.OK) {
                         /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
                         callback(result);
+                        return result;
                     }
+                    layerAlert("其他错误：" + result);
+                    return result;
                 }
-                else
+                else {
                     callback(result);
+                    return result;
+                }
             },
             error: errorCallback
         });
@@ -686,6 +714,7 @@ function DialogBase(vm, _isMain) {
     me.EditModel = {};
     
     me.Close = function () {
+        me.refreshTable();
         me.IsShow = false;
     }
     me.Open = function (model, title) {
@@ -699,9 +728,9 @@ function DialogBase(vm, _isMain) {
         me.OnOpen();
     }
     me.Save = function () {
-        me.OnSave();
-        
-        me.Close();
+        var ret = me.OnSave();
+        if (ret== ResultStatus.OK)        
+            me.Close();
     }
     me.refreshTable = function () {
         if (me.isMain)
@@ -728,24 +757,23 @@ function DialogBase(vm, _isMain) {
     me.OnSave = function (model) {
         var updateurl = "";
         if (me.EditModel[me._vm.ModelKeyName] > 0) {
-
-
             if (me.isMain)
                 updateurl = me._vm.mainUpdateUrl;
             else
                 updateurl = me._vm.slaveUpdateUrl;
-            $vmpa.post(updateurl, me.EditModel, function (result) {
-                me.refreshTable();
-            })
+            var ret = $vmpa.postSync(updateurl, me.EditModel, function (result) {
+
+            });
+            return ret.responseJSON.Status;
         } else {
             if (me.isMain)
                 updateurl = me._vm.mainAddUrl;
             else
                 updateurl = me._vm.slaveAddUrl;
-            $vmpa.post(updateurl, me.EditModel, function (result) {
-                me.refreshTable();
-            })
+            var ret = $vmpa.postSync(updateurl, me.EditModel, function (result) {
 
+            });
+            return ret.responseJSON.Status;
         }
 
     }

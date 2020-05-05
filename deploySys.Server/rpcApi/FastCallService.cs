@@ -146,8 +146,8 @@ namespace deploySys.Server.rpcApi
             di.proxyPort = proxyPort;
             di.isNginx = isNginx;
             di.Ass_HostResource_Id = hostid;           
-            di.status = (int)EnumDockerInstanceStatus.prepare;
-          
+            di.status = (int)EnumDockerInstanceStatus.running;
+
             if (!isNginx)
             {
                 di.Ass_ReleaseTask_Id = taskId;
@@ -156,7 +156,11 @@ namespace deploySys.Server.rpcApi
                 di.status = (int)EnumDockerInstanceStatus.running;
                 di.version = rt.Version;
                 di.domain = rt.domainName;
-                di.IP=rt.useWIP.Value?host.WIP:"127.0.0.1";
+                di.IP = rt.useWIP.Value ? host.WIP : "127.0.0.1";
+            }
+            else
+            {
+                
             }
                          
             UpdateDatabase();
@@ -263,13 +267,18 @@ namespace deploySys.Server.rpcApi
                             di.status = (int)EnumDockerInstanceStatus.stop;
                         break;
                     case ((int)EnumHostTaskType.removeDockerInstance):
+                        if (di.isNginx.Value)
+                        {
+                            di.Ass_HostResource.nginxInstanceId = null;
+                            objectSpace.BatchDelete<webSite>(a => a.Ass_DockerInstance == di);
+                        }
                         if (di != null)
                             di.choDelete();
                         break;
                     case ((int)EnumHostTaskType.removeNgixSite):
-                        var msapp = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => a.key == hrt.taskParms).FirstOrDefault();
+                       var wsid= JObject.Parse( hrt.taskParms)["Id"].ToString();
 
-                       var  ws = objectSpace.SpaceQuery<webSite>().Where(a => a.Ass_DockerInstance == di && a.Ass_MicroServiceApp == msapp).FirstOrDefault();
+                        var ws = objectSpace.ObjectForId<webSite>(wsid);
                         if (ws != null)
                             ws.choDelete();
                         break;

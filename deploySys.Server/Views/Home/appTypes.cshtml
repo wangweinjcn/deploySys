@@ -101,32 +101,7 @@
         function appTypeDialog(vm, _ismain) {
             var me = this;
             DialogBase.call(me, vm, _ismain);
-            me.OnSave = function (model) {
-                var updateurl = "";
-                
-               
-                if (me.EditModel[me._vm.ModelKeyName] > 0) {
-
-
-                   
-
-                    if (me.isMain)
-                        updateurl = me._vm.mainUpdateUrl;
-                    else
-                        updateurl = me._vm.slaveUpdateUrl;
-                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
-                } else {
-                    if (me.isMain)
-                        updateurl = me._vm.mainAddUrl;
-                    else
-                        updateurl = me._vm.slaveAddUrl;
-                    $vmpa.postJson(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
-                }
-            }
+          
         
            
         }

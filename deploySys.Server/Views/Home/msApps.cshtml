@@ -95,6 +95,7 @@
                 { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
                 { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
                 { field: 'memo', width: 300, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'useSsl', width: 300, titleAlign: 'center', title: '是否使用ssl', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
 
             ];
 
@@ -196,18 +197,19 @@
                         if (me.EditModel.buildScript == null) {
                             me.EditModel.buildScript = value.buildScript;
                         };
-                         if (me.EditModel.startCommand == null) {
+                        if (me.EditModel.startCommand == null) {
                             me.EditModel.startCommand = value.startCommand;
                         };
-                         if (me.EditModel.stopCommand == null) {
+                        if (me.EditModel.stopCommand == null) {
                             me.EditModel.stopCommand = value.stopCommand;
                         };
                         if (me.EditModel.createContainerParams == null) {
                             me.EditModel.createContainerParams = value.createContainerParams;
 
                         };
-                         if (me.EditModel.createContainerParams2 == null) {
+                        if (me.EditModel.createContainerParams2 == null) {
                             me.EditModel.createContainerParams2 = value.createContainerParams2;
+                        }
                     }
                 });
                 
@@ -225,18 +227,20 @@
                         updateurl = me._vm.mainUpdateUrl + "/" + me.EditModel["Ass_AppType_Id"];
                     else
                         updateurl = me._vm.slaveUpdateUrl;
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
+                   var ret= $vmpa.postSync(updateurl, me.EditModel, function (result) {
+
+                    });
+                     return ret.responseJSON.Status;
                 } else {
                     if (me.isMain)
                         updateurl = me._vm.mainAddUrl + "/" + me.EditModel["Ass_AppType_Id"];
                     else
                         updateurl = me._vm.slaveAddUrl;
                   
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
+                    var ret= $vmpa.postSync(updateurl, me.EditModel, function (result) {
+
+                    });
+                     return ret.responseJSON.Status;
                 }
             }
 

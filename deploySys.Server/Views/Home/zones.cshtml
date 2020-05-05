@@ -192,28 +192,11 @@
             DialogBase.call(me, vm, _ismain);
 
             me.OnSave = function (model) {
-                var updateurl = "";
+                var  updateurl = me._vm.mainUpdateUrl + "/" + me.EditModel["Ass_Region_Id"];
+                var ret = $vmpa.post(updateurl, me.EditModel, function (result) { });
+                     return ret.responseJSON.Status;
 
-
-                if (me.EditModel[me._vm.ModelKeyName] > 0) {
-
-
-                    if (me.isMain)
-                        updateurl = me._vm.mainUpdateUrl + "/" + me.EditModel["Ass_Region_Id"];
-                    else
-                        updateurl = me._vm.slaveUpdateUrl;
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
-                } else {
-                    if (me.isMain)
-                        updateurl = me._vm.mainAddUrl + "/" + me.EditModel["Ass_Region_Id"];
-                    else
-                        updateurl = me._vm.slaveAddUrl;
-                    $vmpa.post(updateurl, me.EditModel, function (result) {
-                        me.refreshTable();
-                    })
-                }
+               
             }
 
 

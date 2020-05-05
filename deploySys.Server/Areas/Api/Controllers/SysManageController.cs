@@ -77,7 +77,7 @@ namespace deploySys.Server.Controller.Admin
         {
 
 
-            var q = objectSpace.SpaceQuery<ReleaseTask>().Join<MicroServiceApp>(JoinType.InnerJoin,( a,b) => !a.IsDeleted && a.Ass_MicroServiceApp==b  ).Select((a,b)=>new {a.Id,a.HostIds,a.Ass_Zone_Id,a.Ass_Region_Id,a.Ass_MicroServiceApp_Id,a.count,a.CreateDt,a.CreaterID,a.CreaterName,a.dockerNetType,a.FileGuid,a.FileName,a.memo,a.overridePolicy,a.ProcessInfo,a.releaseType,a.selectHostPolicy,a.status,a.unzipInServer,a.UpdateDt,a.UpdaterID,a.UpdaterName,a.useWIP,a.Version,b.appName,b.key,a.sslKey,a.sslPem});
+            var q = objectSpace.SpaceQuery<ReleaseTask>().Join<MicroServiceApp>(JoinType.InnerJoin,( a,b) => !a.IsDeleted && a.Ass_MicroServiceApp==b  ).Select((a,b)=>new {a.Id,a.useSSL,a.needRegister, a.HostIds,a.Ass_Zone_Id,a.Ass_Region_Id,a.Ass_MicroServiceApp_Id,a.count,a.CreateDt,a.CreaterID,a.CreaterName,a.dockerNetType,a.FileGuid,a.FileName,a.memo,a.overridePolicy,a.ProcessInfo,a.releaseType,a.selectHostPolicy,a.status,a.unzipInServer,a.UpdateDt,a.UpdaterID,a.UpdaterName,a.useWIP,a.Version,b.appName,b.key,a.sslKey,a.sslPem});
             if (regId > 0)
                 q = q.Where(a => a.Ass_Region_Id == regId);
             if (zoneId > 0)
@@ -131,6 +131,7 @@ namespace deploySys.Server.Controller.Admin
             MicroServiceApp msa = objectSpace.ObjectForIntId<MicroServiceApp>(serverAppId);
             if (msa == null)
                 return FailedMsg("应用不存在");
+            
             var count1 = objectSpace.SpaceQuery<appVersion>().Where(a => a.Ass_MicroServiceApp == msa && a.version == offobj.Version).Count();
             var count2 = objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.Ass_MicroServiceApp == msa && a.Version == offobj.Version).Count();
             if ( offobj.Id<=0 &&( count1 > 0 || count2>0))
@@ -152,7 +153,16 @@ namespace deploySys.Server.Controller.Admin
                     return FailedMsg("找不到对象");
                 obj = new ReleaseTask(objectSpace);
             }
+            else
+            {
+                if (obj.status != (int)EnumReleaseTaskStatus.created)
+                    return FailedMsg("不能修改");
+            }
             objectSpace.applyValueFromOffObject(obj, offobj);
+            if (!string.IsNullOrEmpty(obj.sslKey) && obj.sslKey.ToLower() == "null")
+                obj.sslKey = null;
+            if (!string.IsNullOrEmpty(obj.sslKey) && obj.sslPem.ToLower() == "null")
+                obj.sslPem = null;
             if (importfile1.Count > 0 && importfile1[0].Length > 0)
             {
                 var fullfn = Path.GetFileName(importfile1[0].FileName);
@@ -362,7 +372,7 @@ namespace deploySys.Server.Controller.Admin
         public IActionResult MicroServiceAppsInstance([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int appId=-1,[FromQuery]int hostId=-1)
         {
 
-            var q = objectSpace.SpaceQuery<DockerInstance>().Where(a => !a.IsDeleted ).Join<HostResource>(JoinType.InnerJoin, (a, b) => a.Ass_HostResource == b).Join<MicroServiceApp>(JoinType.LeftJoin,(a,b,c)=>a.Ass_MicroServiceApp==c).Select((a, b,c) => new {a.proxyPort,a.status, a.version,a.IP,a.domain,a.Id,a.Ass_MicroServiceApp_Id,a.baseDir,a.instanceId,b.appBaseDir,b.hostName,b.macId,hostId=b.Id,a.CreateDt,apps=c,appName=""});
+            var q = objectSpace.SpaceQuery<DockerInstance>().Where(a => !a.IsDeleted ).Join<HostResource>(JoinType.InnerJoin, (a, b) => a.Ass_HostResource == b).Join<MicroServiceApp>(JoinType.LeftJoin,(a,b,c)=>a.Ass_MicroServiceApp==c).Select((a, b,c) => new {a.proxyPort,a.status, a.isNginx,a.version,a.IP,a.domain,a.Id,a.Ass_MicroServiceApp_Id,a.baseDir,a.instanceId,b.appBaseDir,b.hostName,b.macId,hostId=b.Id,a.CreateDt,apps=c,appName=c.appName,key=c.key,port=c.port});
             if (appId > 0)
             {
                 q = q.Where(a => a.Ass_MicroServiceApp_Id == appId);
@@ -385,7 +395,8 @@ namespace deploySys.Server.Controller.Admin
                 if (FrmLib.Extend.tools_static.jobjectHaveKey(jobj, "apps") && jobj["apps"].HasValues &&
                     FrmLib.Extend.tools_static.jobjectHaveKey(jobj["apps"] as JObject, "appName"))
                     jobj["appName"] = jobj["apps"]["appName"];
-                
+                if (jobj["isNginx"].ToObject<bool>())
+                    jobj["appName"] = "Nginx";
             }
             PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
             return this.SuccessData(pagedData);
@@ -436,12 +447,31 @@ namespace deploySys.Server.Controller.Admin
             DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
             if (di == null)
                 return FailedMsg("实例不存在");
+            if (di.isNginx.Value)
+                return FailedMsg("nginx不允许删除");
              di.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
             
             HostTask ht = new HostTask(objectSpace);
             ht.dockerInanceId = di.instanceId;
             ht.taskType = (int)EnumHostTaskType.removeDockerInstance;
             ht.HostId = di.Ass_HostResource_Id.Value;
+
+            ht.taskParms = string.Format("{0}_{1}", di.Ass_MicroServiceApp.key,di.version);
+            if (di.Ass_webSite.Count > 0)
+            {
+                foreach (var ws in di.Ass_webSite)
+                {
+                    ws.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
+
+                    HostTask ht2 = new HostTask(objectSpace);
+
+                    ht2.taskType = (int)EnumHostTaskType.removeNgixSite;
+                    ht2.dockerInanceId = ws.Ass_DockerInstance.instanceId;
+                    ht2.HostId = ws.Ass_DockerInstance.Ass_HostResource_Id.Value;
+                    JObject jobj = JObject.FromObject(new {Id=ws.Id,siteKey= string.Format("{0}_{1}", ws.Ass_MicroServiceApp.key, ws.version)});
+                    ht2.taskParms = jobj.ToString();
+                }
+            }
             UpdateDatabase();
             return SuccessMsg();
 
@@ -463,12 +493,18 @@ namespace deploySys.Server.Controller.Admin
                 return FailedMsg("站点不存在");
             ws.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
 
-            HostTask ht = new HostTask(objectSpace);
-          
+            HostTask ht = new HostTask(objectSpace);          
             ht.taskType = (int)EnumHostTaskType.removeNgixSite;
+            if (ws.Ass_DockerInstance == null)
+            {
+                return FailedMsg("实例不存在");
+            }
             ht.dockerInanceId = ws.Ass_DockerInstance.instanceId;
+            
             ht.HostId = ws.Ass_DockerInstance.Ass_HostResource_Id.Value;
-            ht.taskParms = ws.Ass_MicroServiceApp.key;
+                
+            JObject jobj = JObject.FromObject(new { Id = ws.Id, siteKey = string.Format("{0}_{1}", ws.Ass_MicroServiceApp.key, ws.version) });
+            ht.taskParms = jobj.ToString();
             UpdateDatabase();
             return SuccessMsg();
 

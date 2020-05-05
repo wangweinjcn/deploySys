@@ -268,7 +268,15 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auRegion([FromForm]Region offobj)
         {
+            if (string.IsNullOrEmpty(offobj.Key))
+                return FailedMsg("key不可以为空");
+            if (objectSpace.SpaceQuery<Region>().Where(a => a.Key.ToLower() == offobj.Key.ToLower()).Count() > 0)
+                return FailedMsg("重复的Key");
             Region obj = objectSpace.ObjectForIntId<Region>(offobj.Id);
+            if (!MetarnetRegex.IsNumAndEnCh(offobj.Key))
+            {
+                return FailedMsg("应用Key只能使用英文字符和数字");
+            }
             if (obj == null)
             {
                 if (offobj.Id > 0)
@@ -345,6 +353,15 @@ namespace deploySys.Server.Controller.Admin
             Region reg = objectSpace.ObjectForIntId<Region>(regId);
             if (reg == null)
                 return FailedMsg("区域不存在");
+            if (string.IsNullOrEmpty(offobj.Key))
+                return FailedMsg("key不可以为空");
+            if (objectSpace.SpaceQuery<Zone>().Where(a => a.Key.ToLower() == offobj.Key.ToLower()).Count() > 0)
+                return FailedMsg("重复的Key");
+
+            if (!MetarnetRegex.IsNumAndEnCh(offobj.Key))
+            {
+                return FailedMsg("应用Key只能使用英文字符和数字");
+            }
             Zone obj = objectSpace.ObjectForIntId<Zone>(offobj.Id);
             if (obj == null)
             {
@@ -539,6 +556,14 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auAppType([FromBody]AppType offobj)
         {
+            if (string.IsNullOrEmpty(offobj.key))
+                return FailedMsg("key不可以为空");
+            if (objectSpace.SpaceQuery<AppType>().Where(a => a.key.ToLower() == offobj.key.ToLower()).Count() > 0)
+                return FailedMsg("重复的Key");
+            if (!MetarnetRegex.IsNumAndEnCh(offobj.key))
+            {
+                return FailedMsg("应用Key只能使用英文字符和数字");
+            }
             AppType obj = objectSpace.ObjectForIntId<AppType>(offobj.Id);
             if (obj == null)
             {
@@ -646,6 +671,11 @@ namespace deploySys.Server.Controller.Admin
             if ((offobj.serviceType == (int)EnumAppServiceType.webSite
                 || offobj.serviceType == (int)EnumAppServiceType.webServiceSite) && string.IsNullOrEmpty(offobj.hostname))
                 return FailedMsg("web站点，域名不能为空");
+            if (string.IsNullOrEmpty(offobj.key))
+                return FailedMsg("key不可以为空");
+            if (objectSpace.SpaceQuery<MicroServiceApp>().Where(a => a.key.ToLower() == offobj.key.ToLower()).Count() > 0)
+                return FailedMsg("重复的Key");
+
             if (!MetarnetRegex.IsNumAndEnCh(offobj.key))
             {
                 return FailedMsg("应用Key只能使用英文字符和数字");
