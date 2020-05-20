@@ -56,7 +56,7 @@ namespace deploySys.Node
                     {
                         if (_instance == null)
                         {
-                            _instance = new nodeClient();
+                            _instance = new nodeClient(new mpSerializer());
                             _instance.TimeOut = TimeSpan.FromSeconds(150);
                         }
                     }

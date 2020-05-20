@@ -1,0 +1,45 @@
+05 May 2020 08:54:39,501  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+05 May 2020 08:54:43,261  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+05 May 2020 08:54:43,262  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+05 May 2020 08:54:47,463  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+05 May 2020 08:54:47,467  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
+05 May 2020 08:54:49,172  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2
+05 May 2020 08:59:12,585  ERROR [58] ?.?  -  [LogException:?@HttpGlobalExceptionFilter]Error: Object reference not set to an instance of an object.
+   at deploySys.Server.Controller.Admin.SysManageController.auReleaseTask(IList`1 importfile1, ReleaseTask offobj, Int32 regId, Int32 zoneId, Int32 serverAppId) in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Areas\Api\Controllers\SysManageController.cs:line 162
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+     at deploySys.Server.Controller.Admin.SysManageController.auReleaseTask(IList`1 importfile1, ReleaseTask offobj, Int32 regId, Int32 zoneId, Int32 serverAppId) in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Areas\Api\Controllers\SysManageController.cs:line 162
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+05 May 2020 09:03:58,690  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+05 May 2020 09:04:02,058  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+05 May 2020 09:04:02,059  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+05 May 2020 09:04:06,255  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+05 May 2020 09:04:06,258  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
+05 May 2020 09:04:07,493  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2
+05 May 2020 09:16:17,627  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+05 May 2020 09:16:20,891  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+05 May 2020 09:16:20,891  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+05 May 2020 09:16:24,975  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+05 May 2020 09:16:24,978  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
+05 May 2020 09:16:26,183  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2
+05 May 2020 09:51:26,566  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+05 May 2020 09:51:29,938  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+05 May 2020 09:51:29,938  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+05 May 2020 09:51:34,075  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+05 May 2020 09:51:34,079  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
+05 May 2020 09:51:35,164  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2

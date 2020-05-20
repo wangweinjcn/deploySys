@@ -155,7 +155,7 @@ namespace deploySys.Server.rpcApi
                 ht.dockerInanceId = di.instanceId;
                 di.status = (int)EnumDockerInstanceStatus.running;
                 di.version = rt.Version;
-                di.domain = rt.domainName;
+                di.domain =string.IsNullOrEmpty( rt.domainName)?msapp.hostname:rt.domainName;
                 di.IP = rt.useWIP.Value ? host.WIP : "127.0.0.1";
             }
             else
@@ -721,7 +721,7 @@ namespace deploySys.Server.rpcApi
         {
             try
             {
-                Console.WriteLine("ReportPerformance");
+                Console.WriteLine("ReportPerformance ,{0}",JsonConvert.SerializeObject(metrics));
                 string nodeToken = this.CurrentContext.Session.Tag.Get("ApiToken").AsString();
                 var uns = RunConfig.Instance.nodedeviceStat_dic[nodeToken];
                 CirQueue<osMetrics> nodeQueue = uns.und.metrics;

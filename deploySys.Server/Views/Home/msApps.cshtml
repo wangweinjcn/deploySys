@@ -93,8 +93,10 @@
                 },
                 { field: 'key', width: 150, titleAlign: 'center', title: 'key', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
                 { field: 'appName', width: 200, titleAlign: 'center', title: '应用名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
-                { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
-                { field: 'memo', width: 300, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
+                { field: 'port', width: 100, titleAlign: 'center', title: '监听端口', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+                { field: 'hostname', width: 300, titleAlign: 'center', title: '域名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen: false },
+
+                { field: 'memo', width: 100, titleAlign: 'center', title: '备注', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
                 { field: 'useSsl', width: 300, titleAlign: 'center', title: '是否使用ssl', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isFrozen:false },
 
             ];
@@ -183,11 +185,21 @@
                      me.data.regionIds = [];
                 }
                 else {
-                    me.data.regionIds = me.data.mainSelectedModel.regionIds.split(',');
+                    me.data.regionIds =quchong( me.data.mainSelectedModel.regionIds.split(','));
                         }
                     me.OnMainEdit(me.data.mainSelectedModel, "编辑");
              }
         }
+         function quchong(arr){
+             var len = arr.length;
+             arr.sort();
+             for(var i=len-1;i>0;i--){
+                 if(arr[i]==arr[i-1]){
+                     arr.splice(i,1);
+                 }
+             }
+             return arr;
+         }
         function goodsDialog(vm, _ismain) {
             var me = this;
             DialogBase.call(me, vm, _ismain);

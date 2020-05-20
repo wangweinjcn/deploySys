@@ -131,3 +131,4 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Release\net461\ModelCore.csproj.CopyComplete
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Release\net461\ModelCore.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\obj\Release\net461\ModelCore.pdb
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\model\bin\Release\net461\NodaTime.dll

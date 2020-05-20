@@ -512,7 +512,7 @@ namespace deploySys.Server.Controller.Admin
                 if (RunConfig.Instance.nodedeviceStat_dic.ContainsKey(obj.macId))
                 {
                     var list1 = RunConfig.Instance.nodedeviceStat_dic[obj.macId].und.metrics.getlist();
-                    var list = (from x in list1 select new { cpuLoad= x.cpu.loadPer, memoryUsage= x.mem.usePercent,reportDt= x.reportdt.ToString("yyyyMMdd hhmmss") } ).OrderBy(a=>a.reportDt).ToList();
+                    var list = (from x in list1 select new { cpuLoad = x.cpu.loadPer, memoryUsage = x.mem.usePercent, reportDt = x.reportdt } ).OrderBy(a=>a.reportDt).ToList();
                     return SuccessData(list);
                 }
 
@@ -621,7 +621,7 @@ namespace deploySys.Server.Controller.Admin
             var q = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => !a.IsDeleted && a.Ass_AppType == at);
             if (!string.IsNullOrEmpty(keyword))
             {
-                q = q.Where(a => a.appName.Contains(keyword) || a.memo.Contains(keyword) || a.key.Contains(keyword));
+                q = q.Where(a => a.appName.Contains(keyword)|| a.hostname.Contains(keyword) || a.memo.Contains(keyword) || a.key.Contains(keyword));
             }
             var count = q.Count();
             var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using NodaTime;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,24 @@ using System.Text;
 
 namespace FrmLib.Extend
 {
+    public class TimeUtil
+    {
+        public static DateTime GetCstDateTime()
+        {
+            Instant now = SystemClock.Instance.GetCurrentInstant();
+            var shanghaiZone = DateTimeZoneProviders.Tzdb["Asia/Shanghai"];
+            return now.InZone(shanghaiZone).ToDateTimeUnspecified();
+        }
+
+    }
+    public static class DateTimeExtentions
+    {
+        public static DateTime ToCstTime(this DateTime time)
+        {
+            return TimeUtil.GetCstDateTime();
+        }
+    }
+
 
     public class cpuMetrics
     {
@@ -33,7 +52,7 @@ namespace FrmLib.Extend
      public   MemoryMetrics mem;
      public   cpuMetrics cpu;
         public string osName;
-        public DateTime reportdt = DateTime.Now;
+        public string reportdt = DateTime.Now.ToCstTime().ToString("yyyyMMdd HHmmss");
 
      public double loadaverage { get { return (mem.usePercent + cpu.loadPer * 0.01) / 2.0; } }
         public static osMetrics getvalue()

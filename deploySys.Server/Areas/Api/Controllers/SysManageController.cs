@@ -120,7 +120,7 @@ namespace deploySys.Server.Controller.Admin
         /// <param name="offobj"></param>
         /// <returns></returns>
         [HttpPost]
-        [RequestSizeLimit(100000000)] //最大100m左右
+        [RequestSizeLimit(1000000000)] //最大100m左右
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auReleaseTask(IList<IFormFile> importfile1,[FromForm]ReleaseTask offobj, [FromForm]int regId,[FromForm]int zoneId,[FromForm]int serverAppId)
         {
@@ -414,6 +414,7 @@ namespace deploySys.Server.Controller.Admin
             ht.dockerInanceId = di.instanceId;
             ht.taskType = (int)EnumHostTaskType.stopDockerInstance;
             ht.HostId = di.Ass_HostResource_Id.Value;
+            ht.Ass_appVersion =di.Ass_ReleaseTask!=null? di.Ass_ReleaseTask.Ass_appVersion:null;
             UpdateDatabase();
             return SuccessMsg();
         }
@@ -430,6 +431,7 @@ namespace deploySys.Server.Controller.Admin
             ht.dockerInanceId = di.instanceId;
             ht.taskType = (int)EnumHostTaskType.restartDockerInstance;
             ht.HostId = di.Ass_HostResource_Id.Value;
+            ht.Ass_appVersion =di.Ass_ReleaseTask!=null? di.Ass_ReleaseTask.Ass_appVersion:null;
             UpdateDatabase();
             return SuccessMsg();
 

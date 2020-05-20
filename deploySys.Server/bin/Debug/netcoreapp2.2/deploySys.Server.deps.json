@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "36ff729cacc087e65d8027f389aa3ea6bb44f4f9"
+    "signature": "705072092656f2808a6d47e2dca9989a2d3f8d0c"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,7 @@
     ".NETCoreApp,Version=v2.2": {
       "deploySys.Server/1.0.0": {
         "dependencies": {
-          "MessagePack": "2.1.90",
+          "MessagePack": "2.1.115",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.Extensions.Caching.Redis": "2.2.0",
@@ -310,9 +310,9 @@
           "lib/netstandard2.0/MailKit.dll": {}
         }
       },
-      "MessagePack/2.1.90": {
+      "MessagePack/2.1.115": {
         "dependencies": {
-          "MessagePack.Annotations": "2.1.90",
+          "MessagePack.Annotations": "2.1.115",
           "Microsoft.Bcl.AsyncInterfaces": "1.0.0",
           "System.Memory": "4.5.4",
           "System.Reflection.Emit": "4.6.0",
@@ -323,18 +323,18 @@
         "runtime": {
           "lib/netcoreapp2.1/MessagePack.dll": {
             "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.90.20873"
+            "fileVersion": "2.1.115.61496"
           }
         },
         "compile": {
           "lib/netcoreapp2.1/MessagePack.dll": {}
         }
       },
-      "MessagePack.Annotations/2.1.90": {
+      "MessagePack.Annotations/2.1.115": {
         "runtime": {
           "lib/netstandard2.0/MessagePack.Annotations.dll": {
             "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.90.20873"
+            "fileVersion": "2.1.115.61496"
           }
         },
         "compile": {
@@ -512,6 +512,17 @@
         },
         "compile": {
           "lib/netcoreapp2.0/MySql.Data.dll": {}
+        }
+      },
+      "NodaTime/2.4.8": {
+        "runtime": {
+          "lib/netstandard2.0/NodaTime.dll": {
+            "assemblyVersion": "2.4.8.0",
+            "fileVersion": "2.4.8.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NodaTime.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.1.3": {
@@ -1469,6 +1480,7 @@
           "MongoDB.Driver": "2.4.4",
           "MySql.Data": "8.0.12",
           "Newtonsoft.Json": "11.0.2",
+          "NodaTime": "2.4.8",
           "System.ComponentModel.Annotations": "4.6.0",
           "System.Data.SqlClient": "4.7.0",
           "System.Reflection.Emit": "4.6.0",
@@ -1487,7 +1499,7 @@
       "ModelCore/1.0.0": {
         "dependencies": {
           "MailKit": "2.0.2",
-          "MessagePack": "2.1.90",
+          "MessagePack": "2.1.115",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.0",
           "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel.Annotations": "4.6.0",
@@ -1511,7 +1523,7 @@
           "DotNetty.Handlers": "0.6.0",
           "DotNetty.Transport": "0.6.0",
           "DotNetty.Transport.Libuv": "0.6.0",
-          "MessagePack": "2.1.90",
+          "MessagePack": "2.1.115",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
@@ -4653,19 +4665,19 @@
       "path": "mailkit/2.0.2",
       "hashPath": "mailkit.2.0.2.nupkg.sha512"
     },
-    "MessagePack/2.1.90": {
+    "MessagePack/2.1.115": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-frdAkIQyILYjAhH8Q107N77eccLjnkYr8/L+3vHeCezI0rvfCB2xiZjin936QFtskLBmgW1D9y6bKs45zddVLQ==",
-      "path": "messagepack/2.1.90",
-      "hashPath": "messagepack.2.1.90.nupkg.sha512"
+      "sha512": "sha512-QLLsIPUSoS7j1b/1qf5EXhl6bMMDlYu8iqVO+yim+xtehE1lhAGhIkK/hdGwNT5M2niK1uJTuof29K7XGSHMWA==",
+      "path": "messagepack/2.1.115",
+      "hashPath": "messagepack.2.1.115.nupkg.sha512"
     },
-    "MessagePack.Annotations/2.1.90": {
+    "MessagePack.Annotations/2.1.115": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YnS4qdOMFJuC8TDvXK8ECjWn+hI/B6apwMSgQsiynVXxsvFiiSyun7OXgVT7KxkR8qLinFuASzoG/5zv3kemwQ==",
-      "path": "messagepack.annotations/2.1.90",
-      "hashPath": "messagepack.annotations.2.1.90.nupkg.sha512"
+      "sha512": "sha512-AZu+lE3/lImOpK0wnUwWWSds6YZCm7zX3ooViuezYJRRp9TIy+d1MgZPMEsyE+WL2Vt8IwP8GjsJI9soBiZ5zw==",
+      "path": "messagepack.annotations/2.1.115",
+      "hashPath": "messagepack.annotations.2.1.115.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.0.0": {
       "type": "package",
@@ -4743,6 +4755,13 @@
       "sha512": "sha512-I2jGfuyeomrGJ+N9O+vuV2ucyeayf/tMFREKPdjUcs1/wUF0t+WgUnnzJmJl4sNePNR1fEvAGaGbVAo4uLSF2A==",
       "path": "mysql.data/8.0.12",
       "hashPath": "mysql.data.8.0.12.nupkg.sha512"
+    },
+    "NodaTime/2.4.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6oKjwf3TNiaNa6HdQyarK+E3sfTzNFNEUZ+7YJpWEbeL25xKG1A/yUh4PsPmWJjJ45fJq+mN/L7EdBLRg7yHwg==",
+      "path": "nodatime/2.4.8",
+      "hashPath": "nodatime.2.4.8.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.8.1.3": {
       "type": "package",

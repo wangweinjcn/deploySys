@@ -335,6 +335,7 @@ namespace deploySys.Server
             catch (Exception ex)
             { }
             finally {
+                  _oss.returnContextSpace(_objectSpace);
             }
 
             }

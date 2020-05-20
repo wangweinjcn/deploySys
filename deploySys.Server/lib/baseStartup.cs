@@ -143,6 +143,7 @@ namespace FrmLib.web
                 strtmp = Globals.Configuration["swaggerDoc:url"];
             services.AddMvc(options =>
             {
+                
                 var policy = new AuthorizationPolicyBuilder(new string[] { CookieAuthenticationDefaults.AuthenticationScheme, JwtBearerDefaults.AuthenticationScheme })
                 .RequireAuthenticatedUser()
         .Build();
@@ -175,8 +176,8 @@ namespace FrmLib.web
             });
             services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(x =>
             {
-                x.ValueLengthLimit = 2147483647;
-                x.MultipartBodyLengthLimit = 2147483647; //2G
+                x.ValueLengthLimit = int.MaxValue; 
+                x.MultipartBodyLengthLimit = int.MaxValue;  //2G
             });
             services.AddSession();
             initSwagger(services);

@@ -241,11 +241,13 @@ namespace deploySys.Server
                 if (tmpobj!=null)
                 {
                     _queue.Enqueue(obj);
+                     Console.WriteLine("now Enqueue one,{0}",lists.Count());
                     lists.Add(obj);
+                     Console.WriteLine("now list add one,{0}",lists.Count());
                 }
                 else
-                    throw new KeyNotFoundException("TryDequeueError");
-
+                    throw new Exception("TryDequeueError");
+                    
             }
             else
             {
@@ -260,7 +262,9 @@ namespace deploySys.Server
             T tmpobj;
             if (_queue.TryDequeue(out tmpobj))
             {
+                Console.WriteLine("now dequeue one,{0}",lists.Count());
                 lists.Remove(tmpobj);
+                 Console.WriteLine("now remove from list,{0}",lists.Count());
                 return tmpobj;
             }
             else

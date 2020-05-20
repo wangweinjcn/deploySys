@@ -764,7 +764,7 @@ function DialogBase(vm, _isMain) {
             var ret = $vmpa.postSync(updateurl, me.EditModel, function (result) {
 
             });
-            return ret.Status;
+            return ret.responseJSON.Status;
         } else {
             if (me.isMain)
                 updateurl = me._vm.mainAddUrl;

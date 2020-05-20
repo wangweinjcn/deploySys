@@ -104,7 +104,7 @@ namespace deploySys.Server.Controllers.Comm
         /// <param name="file"></param>
         /// <returns></returns>
         [HttpPost]
-        [RequestSizeLimit(100000000)]
+        [RequestSizeLimit(1000000000)]
         [SwaggerOperation(Tags = new[] { "Common" })]
         public IActionResult auOne([FromForm]IList<IFormFile> file)
         {

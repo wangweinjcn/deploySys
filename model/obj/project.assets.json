@@ -191,6 +191,21 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "NodaTime/2.4.8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "System",
+          "System.Numerics",
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net45/NodaTime.dll": {}
+        },
+        "runtime": {
+          "lib/net45/NodaTime.dll": {}
+        }
+      },
       "System.Buffers/4.4.0": {
         "type": "package",
         "compile": {
@@ -368,6 +383,7 @@
           "MongoDB.Driver": "2.4.4",
           "MySql.Data": "8.0.12",
           "Newtonsoft.Json": "11.0.2",
+          "NodaTime": "2.4.8",
           "System.ComponentModel.Annotations": "4.4.1",
           "System.Data.SqlClient": "4.7.0",
           "ZKWeb.System.Drawing": "4.0.0",
@@ -1110,6 +1126,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NodaTime/2.4.8": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NodaTime.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NodaTime.dll": {}
         }
       },
       "Portable.BouncyCastle/1.8.1.3": {
@@ -3040,6 +3065,7 @@
           "MongoDB.Driver": "2.4.4",
           "MySql.Data": "8.0.12",
           "Newtonsoft.Json": "11.0.2",
+          "NodaTime": "2.4.8",
           "System.ComponentModel.Annotations": "4.6.0",
           "System.Data.SqlClient": "4.7.0",
           "System.Reflection.Emit": "4.3.0",
@@ -4012,6 +4038,26 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "NodaTime/2.4.8": {
+      "sha512": "6oKjwf3TNiaNa6HdQyarK+E3sfTzNFNEUZ+7YJpWEbeL25xKG1A/yUh4PsPmWJjJ45fJq+mN/L7EdBLRg7yHwg==",
+      "type": "package",
+      "path": "nodatime/2.4.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/NodaTime.dll",
+        "lib/net45/NodaTime.pdb",
+        "lib/net45/NodaTime.xml",
+        "lib/netstandard1.3/NodaTime.dll",
+        "lib/netstandard1.3/NodaTime.pdb",
+        "lib/netstandard1.3/NodaTime.xml",
+        "lib/netstandard2.0/NodaTime.dll",
+        "lib/netstandard2.0/NodaTime.pdb",
+        "lib/netstandard2.0/NodaTime.xml",
+        "nodatime.2.4.8.nupkg.sha512",
+        "nodatime.nuspec"
       ]
     },
     "Portable.BouncyCastle/1.8.1.3": {
@@ -9246,7 +9292,8 @@
             "target": "Package",
             "version": "[3.9.0, )"
           }
-        }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       },
       "netstandard2.0": {
         "dependencies": {
@@ -9290,10 +9337,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
