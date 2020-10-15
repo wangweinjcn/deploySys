@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj",
         "projectName": "deploySys.Common",
         "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj",
-        "packagesPath": "C:\\Users\\wangwei\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ww\\.nuget\\packages\\",
         "outputPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
@@ -19,7 +19,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wangwei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ww\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -29,7 +29,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nugetserver.njxhby.com/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -94,7 +93,7 @@
               "version": "[2.0.8, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "dependencies": {
@@ -175,7 +174,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -185,7 +184,7 @@
         "projectUniqueName": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Server\\deploySys.Server.csproj",
         "projectName": "deploySys.Server",
         "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Server\\deploySys.Server.csproj",
-        "packagesPath": "C:\\Users\\wangwei\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ww\\.nuget\\packages\\",
         "outputPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -193,7 +192,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wangwei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ww\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -202,7 +201,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nugetserver.njxhby.com/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -286,6 +284,10 @@
               "target": "Package",
               "version": "[0.25.0, )"
             },
+            "wChloe.MySql": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
             "wChloe.SQLite": {
               "target": "Package",
               "version": "[3.9.2, )"
@@ -301,7 +303,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -311,7 +313,7 @@
         "projectUniqueName": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\model\\ModelCore.csproj",
         "projectName": "ModelCore",
         "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\model\\ModelCore.csproj",
-        "packagesPath": "C:\\Users\\wangwei\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ww\\.nuget\\packages\\",
         "outputPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\model\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
@@ -320,7 +322,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wangwei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ww\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -330,7 +332,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nugetserver.njxhby.com/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -383,7 +384,7 @@
               "version": "[3.9.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "dependencies": {
@@ -436,7 +437,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -446,7 +447,7 @@
         "projectUniqueName": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\rpc\\spNettyRPC\\spNettyRPC.csproj",
         "projectName": "spNettyRPC",
         "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\rpc\\spNettyRPC\\spNettyRPC.csproj",
-        "packagesPath": "C:\\Users\\wangwei\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\ww\\.nuget\\packages\\",
         "outputPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\rpc\\spNettyRPC\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
@@ -455,7 +456,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\wangwei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ww\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -465,7 +466,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nugetserver.njxhby.com/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -550,7 +550,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         },
         "net451": {
           "dependencies": {
@@ -603,7 +603,7 @@
               "version": "[10.0.1, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -107,9 +107,20 @@
             </el-col>
         </el-row>
         <el-row>
-             <el-col :span="24">
+             <el-col :span="12">
                 <el-form-item label-width="100px" label="其他备注:">
                     <el-input v-model="mainDialog.EditModel.memo" :disabled="false" placeholder="请输入" style="width:500px"></el-input>
+                </el-form-item>
+            </el-col>
+             <el-col :span="12">
+                <el-form-item label="责任人：" label-width="100px" :rules="[ { required: true, message: '责任人不能为空'}  ]">
+                    <el-select v-model="mainDialog.EditModel.OwnerId" placeholder="请选择">
+                        <el-option v-for="item in allusers"
+                                   :key="item.Id"
+                                   :label="item.UserName"
+                                   :value="item.Id">
+                        </el-option>
+                    </el-select>
                 </el-form-item>
             </el-col>
         </el-row>

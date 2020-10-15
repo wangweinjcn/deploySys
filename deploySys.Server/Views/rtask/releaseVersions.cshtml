@@ -71,6 +71,7 @@
         <el-button type="primary" icon="el-icon-set-up" v-on:click="openHostTask" :disabled="mainCommandDisnable">主机任务</el-button>
         <el-button type="primary" icon="el-icon-download" v-on:click="downFile" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-document-copy" v-on:click="openCopyRtEdit" :disabled="mainCommandDisnable">复制</el-button>
+        <el-button type="primary" icon="el-icon-document-copy" v-on:click="openUpdateDialog" :disabled="mainCommandDisnable">版本更新</el-button>
     </el-button-group>
 }
 
@@ -136,13 +137,13 @@
                 { field: 'releaseType', width: 100, titleAlign: 'center', title: '发布类型', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', formatter: function (rowData, rowIndex, pagingIndex, field) {                        
                         return rowData.releaseType == 0 ? '新增实例' : rowData.releaseType == 1 ? '更新实例' : '其他'
                     },isResize: true },
-                { field: 'overRideType', width: 100, titleAlign: 'center', title: '覆盖方式', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {                        
-                        return rowData.overRideType == 0 ? '部分覆盖' : rowData.overRideType == 1 ? '全部覆盖' : '其他'
+                { field: 'overridePolicy', width: 100, titleAlign: 'center', title: '文件覆盖', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {                        
+                        return rowData.overridePolicy == 0 ? '部分文件全覆盖' : rowData.overridePolicy == 2 ? '全部文件全覆盖' : rowData.overridePolicy == 1 ?"对比覆盖" :'其他'
                     },isResize: true },
 
                  { field: 'FileName', width: 200, titleAlign: 'center', title: '文件名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
                 { field: 'status', width: 50, titleAlign: 'center', title: '状态', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',  formatter: function (rowData, rowIndex, pagingIndex, field) {
-                        console.log(rowData);
+                       
                         return rowData.status == 0 ? '待处理' : rowData.status == 10 ? '已分配' : rowData.status == 20? '已发布' : rowData.status == 11 ? '已审核' : rowData.status == 30 ? "已注册" : rowData.status == -1 ? "已取消" :'其他'
                     }, isResize: true },
                 { field: 'count', width: 100, titleAlign: 'center', title: '数量', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true }  
@@ -205,24 +206,24 @@
            
             me.methods.regionOnchange = function () {
                 me.data.categorys = [];
-                if (me.data.mainSearchModel.regionId <= 0)
-                    return;
+
                 $vmpa.get("/Api/sysconf/Zones?PageSize=100&Id=" + me.data.mainSearchModel.regionId, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.categorys = result.Data.DataList;
+                        me.data.categorys.splice(0, 0, {Id:null});
                         if (me.data.categorys.length > 0) {
-                        me.data.mainSearchModel.Id = me.data.categorys[0].Id;
+                            me.data.mainSearchModel.Id = me.data.categorys[0].Id;
                         }
                     }
                 });
             };
             me.methods.appTypeOnchange = function () {
                 me.data.msApps = [];
-                if (me.data.mainSearchModel.appTypeId <= 0)
-                    return;
-                $vmpa.get("/Api/sysconf/MicroServiceApps?PageSize=100&Id=" + me.data.mainSearchModel.appTypeId, null, function (result) {
+
+                $vmpa.get("/Api/sysconf/MyMicroServiceApps?PageSize=100&Id=" + me.data.mainSearchModel.appTypeId, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.msApps = result.Data.DataList;
+                        me.data.msApps.splice(0, 0, {Id:null});
                         if (me.data.msApps.length > 0) {
                             me.data.mainSearchModel.msAppId = me.data.msApps[0].Id;
                         }
@@ -231,13 +232,27 @@
             };
             me.methods.openCopyRtEdit = function () {
                 var newobj = {};
-                console.log(me.data.mainSelectedModel)
+                console.log( me.data.mainSelectedModel)
                 $.extend(true, newobj, me.data.mainSelectedModel);
+                 console.log( newobj)
                 newobj.Id = -1;
                 var c = newobj.Version.split('.');
                 c[c.length - 1] =parseInt(c[c.length - 1]) + 1;
                 newobj.Version = c.join(".");
                 me.data.mainDialog.Open(newobj, "新增");
+            }
+            me.methods.openUpdateDialog = function () {
+                 var newobj = {};
+                console.log("old", me.data.mainSelectedModel)
+                $.extend(true, newobj, me.data.mainSelectedModel);
+                 console.log("new", newobj)
+                newobj.Id = -1;
+                var c = newobj.Version.split('.');
+                c[c.length - 1] =parseInt(c[c.length - 1]) + 1;
+                newobj.Version = c.join(".");
+                newobj.overridePolicy = 2;
+                newobj.releaseType = 1;
+                me.data.updateDialog.Open(newobj, "版本更新");
             }
             me.methods.customCompFunc = function (params) {
                 //console.log(params);
@@ -266,22 +281,25 @@
             me.mainAddUrl = "/Api/SysManage/auReleaseTask";
             me.mainDeleteUrl = "/Api/SysManage/deleteReleaseTask";
             me.mainUpdateUrl = "/Api/SysManage/auReleaseTask";
-            me.data.mainDialog = new goodsDialog(this, true);
+            me.data.mainDialog = new rvAUDialog(this, true);
+            me.data.updateDialog = new verUpdateDialog(this,true);
             me.mainDetailUrl = "";
             me.methods.OnCreate = function () {
 
                 $vmpa.get("/Api/sysconf/Regions?PageSize=100", null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.regions = result.Data.DataList;
+                         me.data.regions.splice(0, 0, {Id:null});
                         if (me.data.regions.length > 0) {
                            me.data.mainSearchModel.regionId = me.data.regions[0].Id;
-                            me.methods.regionOnchange();
+                           me.methods.regionOnchange();
                         }
                     }
                 });
                 $vmpa.get("/Api/sysconf/appTypes?PageSize=100", null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.data.appTypes = result.Data.DataList;
+                        me.data.appTypes.splice(0, 0, { Id: null });
                         if (me.data.regions.length > 0) {
                             me.data.mainSearchModel.appTypeId = me.data.appTypes[0].Id;
                             me.methods.appTypeOnchange();
@@ -306,13 +324,12 @@
                     me.OnMainEdit(me.data.mainSelectedModel, "编辑");
              }
         }
-        function goodsDialog(vm, _ismain) {
+        function rvAUDialog(vm, _ismain) {
             var me = this;
             me.zoneHosts = [];
             DialogBase.call(me, vm, _ismain);
             me.editZoneOnchange = function () {
-                if (me.EditModel.Ass_Zone_Id <= 0 || me.EditModel.Ass_Zone_Id ===null)
-                    return;
+
                  $vmpa.get("/Api/sysconf/HostResources?PageSize=100&Id=" + me.EditModel.Ass_Zone_Id, null, function (result) {
                     if (result.Status == ResultStatus.OK) {
                         me.zoneHosts = result.Data.DataList;
@@ -321,6 +338,7 @@
             }
             me.OnOpen = function () {
                 me.editZoneOnchange();
+                
             };
             me.OnSave = function (model) {
                 var updateurl = "";
@@ -421,7 +439,115 @@
 
         }
 
-       
+        function verUpdateDialog(vm, _ismain) {
+            var me = this;
+            me.zoneHosts = [];
+            DialogBase.call(me, vm, _ismain);
+          
+            me.OnSave = function (model) {
+                var updateurl = "";
+
+                var formData = new window.FormData()
+                var files = document.getElementById("importfile1").files;
+                if (files.length < 1) {
+                    if (me.EditModel.Id < 0) {
+                        alert("请添加文件");
+                        return;
+                    }
+                } else {
+                    for (var x = 0; x < files.length; x++) {
+                        formData.append("importfile1", files[x]);
+                    };
+                }
+                formData.append("Id", me.EditModel.Id);
+                
+                formData.append("Version", me.EditModel.Version);
+                formData.append("count", me.EditModel.count);
+               formData.append("releaseType", me.EditModel.releaseType);
+                formData.append("overridePolicy", me.EditModel.overridePolicy);
+                formData.append("confFileOverride", me.EditModel.confFileOverride);
+               // formData.append("regId", me._vm.EditModel.regionId);
+                formData.append("zoneId", me.EditModel.Ass_Zone_Id);
+                formData.append("serverAppId", me.EditModel.Ass_MicroServiceApp_Id);
+                formData.append("useWIP", me.EditModel.useWIP);
+                formData.append("selectHostPolicy", me.EditModel.selectHostPolicy);
+                if (me.EditModel.memo != null) {
+                    formData.append("memo", me.EditModel.memo);
+                }
+                formData.append("HostIds", me.EditModel.HostIds);
+                formData.append("unzipInServer", me.EditModel.unzipInServer);
+                formData.append("domainName", me.EditModel.domainName);
+                if (me.EditModel.sslKey != null) {
+                    formData.append("sslKey", me.EditModel.sslKey);
+                }
+                if (me.EditModel.sslPem != null) {
+                    formData.append("sslPem", me.EditModel.sslPem);
+                }
+                formData.append("needRegister", me.EditModel.needRegister);
+                formData.append("useSSL", me.EditModel.useSSL);
+                formData.append("dockerNetType", me.EditModel.dockerNetType);
+
+                console.log(formData);
+
+               var ret=   $.ajax({
+                    url: vm.mainAddUrl,
+                    type: "POST",
+                    timeout: 1200000,
+                   data: formData,
+                    async: false, 
+                    /**
+                    *必须false才会自动加上正确的Content-Type
+                    */
+                    contentType: false,
+                    dataType: "json",
+                    /**
+                    * 必须false才会避开jQuery对 formdata 的默认处理
+                    * XMLHttpRequest会对 formdata 进行正确的处理
+                    */
+                    processData: false,
+                    complete: function (xhr) {
+                       
+                    },
+                    success: function (result) {
+                        var isStandardResult = ("Status" in result) && ("Msg" in result);
+                        if (isStandardResult) {
+                            if (result.Status === ResultStatus.Failed) {
+                                $vmpa.alert(result.Msg || "操作失败");
+                                return result;
+                            }
+                            if (result.Status === ResultStatus.NotLogin) {
+                                $vmpa.alert(result.Msg || "未登录或登录过期，请重新登录");
+                                return result;
+                            }
+                            if (result.Status === ResultStatus.Unauthorized) {
+                                $vmpa.alert(result.Msg || "权限不足，禁止访问");
+                                return result;
+                            }
+
+                            if (result.Status === ResultStatus.OK) {
+                                /* 传 result，用 result.Data 还是 result.Msg，由调用者决定 */
+
+
+                                return result;
+                            }
+                            $vmpa.alert("其他错误：" + result);
+                            return result;
+                        }
+
+                        else {
+                            return result;
+                        };
+                    },
+                    error: function () {
+                        $vmpa.alert("上传失败！");
+                    }
+                });
+                
+                return ret.responseJSON.Status;
+            }
+
+
+        }
        
     </script>
 

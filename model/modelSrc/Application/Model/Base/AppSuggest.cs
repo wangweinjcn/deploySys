@@ -169,5 +169,12 @@ public   partial class AppSuggest : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
 }
 }

@@ -481,5 +481,12 @@ public   partial class Citys : _baseObject{
 
 
 
+
+
+
+
+
+
+
 }
 }

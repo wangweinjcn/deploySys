@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "_dataLayout";
+}
+
+@section _search {
+    <searchEditor v-bind:SearchModel="mainSearchModel" v-on:dosearch="getMainTableData"></searchEditor>
+}
+@section _command{
+    <el-button-group>
+        <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
+        <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd" ></el-button>
+        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+    </el-button-group>
+}
+
+<template>
+    <div>
+        <v-table is-vertical-resize
+                 :vertical-resize-offset='60'
+                 is-horizontal-resize
+                 style="width:100%"
+                 :multiple-sort="false"
+                 :min-height="550"
+                 even-bg-color="#f2f2f2"
+                 :columns="mainTableConfig.columns"
+                 :table-data="mainTableConfig.tableData"
+                 row-hover-color="#eee"
+                 row-click-color="#edf7ff"
+                 :row-click="mainRowClick"
+                 v-on:sort-change="sortChange"
+                 :paging-index="(mainPageIndex-1)*pageSize">
+
+        </v-table>
+
+        <div class="mt20 mb20 bold"></div>
+
+        <div class="pages">
+            <v-pagination v-on:page-change="mainPageChange" v-on:page-size-change="mainPageSizeChange" :total="mainTotalCount" :page-size="pageSize" :layout="['total', 'prev', 'pager', 'next', 'sizer', 'jumper']">
+
+            </v-pagination>
+        </div>
+    </div>
+    <div>
+        @Html.Partial("Roles_js")
+    </div>
+</template>
+
+
+@section vueScript{
+    <script>
+        var vmd = new ViewModel();
+        vmd.init("#app");
+        function ViewModel() {
+            var me = this;
+            ViewModelBase.call(me);
+            vmExtend.call(me);
+            me.data.roleMenus = [];
+            me.data.deptOptions = [];
+            me.data.menuOptions = [];
+            me.data.mainTableConfig.columns = [
+                {
+                    field: 'Id', width: 80, titleAlign: 'center', columnAlign: 'center', title: 'ID', titleCellClassName: 'title-cell-class-name-title', isFrozen: true
+                },
+                { field: 'Name', width: 120, titleAlign: 'center', title: '名称', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title', isResize: true },
+
+                { field: 'RoleID', width: 120, titleAlign: 'center', title: '角色名', columnAlign: 'center', titleCellClassName: 'title-cell-class-name-title',isResize: true }
+               
+
+
+            ];
+
+        }
+        function vmExtend() {
+            var me = this;
+
+            me.methods.sortChange = function (params) {
+                if (params.height.length > 0) {
+
+                    this.mainTableConfig.tableData.sort(function (a, b) {
+
+                        if (params.height === 'asc') {
+
+                            return a.height - b.height;
+                        } else if (params.height === 'desc') {
+
+                            return b.height - a.height;
+                        } else {
+
+                            return 0;
+                        }
+                    });
+                }
+
+            };
+            me.mainLoadTablePagedDataUrl = "/Api/SysConf/Roles";
+            me.mainAddUrl = "/Api/SysConf/AuRole";
+            me.mainDeleteUrl = "/Api/SysConf/DeleteRole";
+            me.mainUpdateUrl = "/Api/SysConf/AuRole";
+            me.data.mainDialog = new userDialog(this, true);
+            me.mainDetailUrl = "";
+            me.methods.OnCreate = function () {
+                $vmpa.get("/Api/SysConf/Menus", {PageSize:100}, function (result) {
+                    if (result.Status == ResultStatus.OK) {
+                        me.data.menuOptions = result.Data.DataList;
+                    }
+                });
+                
+            }
+            me.methods.mainAdd = function () {
+                var newmodel = { Id: -1, allMenus: []};
+                me.OnMainEdit(newmodel, "新增");
+            }
+        }
+        function userDialog(vm, _ismain) {
+            var me = this;
+           
+            DialogBase.call(me, vm, _ismain);
+            me.roleMenus = [];
+            me.OnOpen = function (model) {
+
+                $vmpa.get("/Api/SysConf/RoleMenuTree?roleId=" + me.EditModel.Id, { PageSize: 100 }, function (result) {
+                      if (result.Status == ResultStatus.OK) {
+                          me._vm.data.mainDialog.roleMenus = result.Data;
+                    }
+                });
+            };
+            me.OnSave = function (model) {
+                var updateurl = "";
+                
+                if (me.EditModel.OrigonPassword != null &&
+                    me.EditModel.OrigonPassword !="")
+                    me.EditModel["Password"] = $.md5($.trim(me.EditModel["OrigonPassword"]))
+                me.EditModel["menuIds"] = me.roleMenus.join(",");
+                if (me.EditModel[me._vm.ModelKeyName] > 0) {
+
+
+                    if (me.isMain)
+                        updateurl = me._vm.mainUpdateUrl;
+                    else
+                        updateurl = me._vm.slaveUpdateUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                } else {
+                    if (me.isMain)
+                        updateurl = me._vm.mainAddUrl;
+                    else
+                        updateurl = me._vm.slaveAddUrl;
+                    $vmpa.post(updateurl, me.EditModel, function (result) {
+                        me.refreshTable();
+                    })
+                }
+            }
+        
+           
+        }
+    </script>
+
+}
+

@@ -30,6 +30,10 @@ using Chloe.ObjectSpace;
 using Ace.Web.Mvc;
 using deploySys.Model;
 using Chloe;
+using System.Data;
+using deploySys.Server.lib;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace deploySys.Server.Controller.Admin
 {
@@ -61,7 +65,64 @@ namespace deploySys.Server.Controller.Admin
         {
             base.OnActionExecuted(context);
         }
-        #region user
+#region role
+        /// <summary>
+        /// 获取角色已有的菜单树
+        /// </summary>
+        /// <param name="roleId">当前角色ID</param>
+        /// <returns>菜单组和菜单组成的树状结构，节点上的Checkstate表示该角色有权限</returns>
+        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [SwaggerOperation(Tags = new[] { "System" })]
+        public ActionResult RoleMenuTree([FromQuery]string roleId)
+        {
+            var MgList = this.objectSpace.SpaceQuery<MenuGroup>().ToList();
+            var mList = this.objectSpace.SpaceQuery<Menu>().ToList();
+            IList<int> authorizedata = new List<int>();
+            if (!string.IsNullOrEmpty(roleId))
+            {
+                SysRole sr = objectSpace.ObjectForId<SysRole>(roleId);
+
+                authorizedata = objectSpace.SpaceQuery<AssC_SysRoleMenu>().Where(a=>a.AssC_SysRole==sr).Select(a=>a.AssC_Menu_Id).ToCommList();
+            }
+            /*
+            var treeList = new List<TreeViewModel>();
+            foreach (var module in MgList)
+            {
+                TreeViewModel tree = new TreeViewModel();
+                bool hasChildren = true;
+                tree.Id = "MenuG_" + module.Id.ToString();
+                tree.Text = module.Name;
+                tree.Value = "MenuG_" + module.Id.ToString();
+                tree.ParentId = module.Ass_Parent == null ? null : "MenuG_" + module.Ass_Parent.Id.ToString();
+                tree.Isexpand = true;
+                tree.Complete = true;
+                tree.Showcheck = false;
+                tree.HasChildren = hasChildren;
+                tree.Img = module.Icon == "" ? "" : module.Icon;
+                treeList.Add(tree);
+            }
+            foreach (var module in mList)
+            {
+                TreeViewModel tree = new TreeViewModel();
+                bool hasChildren = false;
+                tree.Id = module.Id.ToString();
+                tree.Text = module.Name;
+                tree.Value = module.Id.ToString();
+                tree.ParentId = module.Ass_MenuGroup == null ? "-1" : "MenuG_" + module.Ass_MenuGroup.Id.ToString();
+                tree.Isexpand = true;
+                tree.Complete = true;
+                tree.Showcheck = true;
+                int menuid = module.Id;
+                tree.Checkstate = authorizedata.Count(t => t.Id == menuid);
+                tree.HasChildren = hasChildren;
+                tree.Img = "";
+                treeList.Add(tree);
+            }
+            */
+            return SuccessData(authorizedata);
+
+        }
         /// <summary>
         /// 获取角色列表
         /// </summary>
@@ -76,9 +137,9 @@ namespace deploySys.Server.Controller.Admin
         [HttpGet]
         [ApiExplorerSettings(IgnoreApi = true)]
         [SwaggerOperation(Tags = new[] { "System" })]
-        public ActionResult Roles([FromQuery]string keyword)
+        public ActionResult Roles([FromQuery]Pagination pagination,[FromQuery]string keyword)
         {
-            var q = objectSpace.SpaceQuery<SysRole>().Where(a => !a.IsDeleted);
+            var q = objectSpace.SpaceQuery<SysRole>().Where(a=>!a.IsDeleted);
 
             if (!string.IsNullOrEmpty(keyword))
 
@@ -86,10 +147,125 @@ namespace deploySys.Server.Controller.Admin
 
 
 
-            var list = q.ToCommList();
+            q = q.Distinct().OrderBy(a => a.CreateDt);
+            var count = q.Count();
+            var list1 = q.ToList();
+            string baseurl = this.Url.Action("Roles");
+            PagedJObjData pagedData = new PagedJObjData(BaseContextSpace.CsObjToJson(list1)
+                as JArray, count, pagination.Page, pagination.PageSize, baseurl);
+            return this.SuccessData(pagedData);
+        }
+        /// <summary>
+        /// [FromBody]
+        /// 增加或更新角色
+        /// </summary>
+        /// <param name="input">
+        /// id为空或-1，表示是新增对象；Id大于0，表示更新指定对象
+        /// 关联对象Ass_Menu需复制Id字段，表示关联的菜单ID
+        /// </param>
+        ///<remarks>
+        ///input.Ass_Menu 存放
+        ///</remarks>
+        /// <returns> 返回信息是Id值无效，表示传回的Id找不到对象
+        /// </returns>
+        [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [SwaggerOperation(Tags = new[] { "System" })]
 
+        public ActionResult AuRole([FromForm]SysRole input, [FromForm]string menuIds)
+
+
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            /*
+            string json = "";
+            using (var sr = new StreamReader(Request.Body))
+            {
+                json = sr.ReadToEnd();
+            }
+
+          //  Model.View_SysRole input = JsonConvert.DeserializeObject<Model.View_SysRole>(json);
+            SysRole input = JsonConvert.DeserializeObject<SysRole>(json   );
+            */
+            IList<int> tmplist = menuIds.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList(); ;
+
+            SysRole onlineobj = objectSpace.ObjectForIntId<SysRole>(input.Id);
+
+            if (onlineobj == null)
+            {
+                if (input.Id <= 0)
+                    onlineobj = new SysRole(objectSpace);
+                else
+                    return FailedMsg("Id值无效");
+            }
+
+            objectSpace.applyValueFromOffObject(onlineobj, input);
+
+            var rolemnlist = objectSpace.SpaceQuery<AssC_SysRoleMenu>().Where(a => a.AssC_SysRole_Id == onlineobj.Id).ToList();
+
+
+            if (tmplist.Count() > 0)
+            {
+
+                foreach (var mid in tmplist)
+                {
+                   
+                    var oldrmenu = (from x in rolemnlist where x.AssC_Menu_Id == mid select x).FirstOrDefault();
+                    if (oldrmenu != null)
+                    {
+                        rolemnlist.Remove(oldrmenu);
+                        continue;
+                    }
+                    var obj = objectSpace.ObjectForIntId<Menu>(mid);
+                    if (obj == null)
+                        continue;
+                    onlineobj.AddMenu(obj);
+                }
+                foreach (var obj in rolemnlist)
+                    obj.choDelete();
+            }
+            objectSpace.UpdateAllDirtyObjects(true);
+            return this.UpdateSuccessMsg();
+        }
+
+        /// <summary>
+        /// 删除角色
+        /// </summary>
+        /// <param name="id">角色主键</param>
+        /// <returns></returns>
+        [Route("{id?}")]
+        [HttpPost]
+        [SwaggerOperation(Tags = new[] { "System" })]
+
+        public ActionResult DeleteRole([FromRoute]string id)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            SysRole onlineobj = objectSpace.ObjectForId<SysRole>(id);
+            if (onlineobj == null)
+            {
+                string msg = "input id is null";
+                return this.FailedMsg(msg);
+            }
+            onlineobj.choDelete();
+            UpdateDatabase();
+            return this.DeleteSuccessMsg();
+        }
+        #endregion
+        #region user
+
+        [HttpGet]
+
+        [SwaggerOperation(Tags = new[] { "System" })]
+        public IActionResult getOwnerUer()
+        {
+            var list = objectSpace.SpaceQuery<SysUser>().Select(a => new { a.Id, a.UserName }).ToCommList();
             return SuccessData(list);
         }
+        
         /// <summary>
         /// [FromForm]
         /// 添加或修改用户
@@ -111,6 +287,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "System" })]
         public ActionResult AuUser([FromForm]SysUser input, [FromForm]string roleid, [FromForm]string Password,[FromHeader]string sitekey)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             IList<int> tmplist = roleid.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList(); ;
 
             var setrolelist = objectSpace.SpaceQuery<SysRole>().Where(a => tmplist.Contains(a.Id)).ToList();
@@ -197,6 +376,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "System" })]
         public ActionResult DeleteUser([FromRoute]string id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             SysUser onlineobj = objectSpace.ObjectForId<SysUser>(id);
             if (onlineobj == null)
             {
@@ -268,6 +450,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auRegion([FromForm]Region offobj)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             if (string.IsNullOrEmpty(offobj.Key))
                 return FailedMsg("key不可以为空");
             if (objectSpace.SpaceQuery<Region>().Where(a => a.Key.ToLower() == offobj.Key.ToLower()).Count() > 0)
@@ -298,6 +483,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteRegion([FromRoute]int Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             Region obj = objectSpace.ObjectForIntId<Region>(Id);
             if (obj != null)
             {
@@ -325,10 +513,11 @@ namespace deploySys.Server.Controller.Admin
         public IActionResult Zones([FromQuery]string keyword, [FromQuery]Pagination pagination,[FromQuery]int Id)
         {
             Region reg = objectSpace.ObjectForIntId<Region>(Id);
-            if (reg == null)
-                return FailedMsg("区域不存在");
 
-            var q = objectSpace.SpaceQuery<Zone>().Where(a => !a.IsDeleted && a.Ass_Region==reg );
+
+            var q = objectSpace.SpaceQuery<Zone>().Where(a => !a.IsDeleted);
+            if (reg != null)
+                q = q.Where(a => a.Ass_Region == reg);
             if (!string.IsNullOrEmpty(keyword))
             {
                 q = q.Where(a => a.Name.Contains(keyword) || a.Key.Contains(keyword));
@@ -350,6 +539,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auZone( [FromForm]Zone offobj,[FromRoute]int regId)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             Region reg = objectSpace.ObjectForIntId<Region>(regId);
             if (reg == null)
                 return FailedMsg("区域不存在");
@@ -384,6 +576,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteZone([FromRoute]int Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             Zone obj = objectSpace.ObjectForIntId<Zone>(Id);
             if (obj != null)
             {
@@ -417,7 +612,7 @@ namespace deploySys.Server.Controller.Admin
 
             var q = objectSpace.SpaceQuery<HostResource>().Where(a => !a.IsDeleted);
             if(zo!=null)
-            q=q.Where(a=> a.Ass_Zone == zo);
+                q=q.Where(a=> a.Ass_Zone == zo);
             if (reg != null)
             {
                 q = q.Join<Zone>(JoinType.InnerJoin, (a, b) => a.Ass_Zone == b && b.Ass_Region == reg).Select((a, b) => a);
@@ -459,6 +654,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult auHostResource([FromForm]HostResource offobj, [FromRoute]int zoneId)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             Zone zo = objectSpace.ObjectForIntId<Zone>(zoneId);
             if (zo == null)
                 return FailedMsg("区域不存在");
@@ -486,6 +684,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteHostResource([FromRoute]int Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             HostResource obj = objectSpace.ObjectForIntId<HostResource>(Id);
             if (obj != null)
             {
@@ -554,11 +755,14 @@ namespace deploySys.Server.Controller.Admin
         /// <returns></returns>
         [HttpPost]
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
-        public IActionResult auAppType([FromBody]AppType offobj)
+        public IActionResult auAppType([FromForm]AppType offobj)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             if (string.IsNullOrEmpty(offobj.key))
                 return FailedMsg("key不可以为空");
-            if (objectSpace.SpaceQuery<AppType>().Where(a => a.key.ToLower() == offobj.key.ToLower()).Count() > 0)
+            if (objectSpace.SpaceQuery<AppType>().Where(a => a.key.ToLower() == offobj.key.ToLower() && offobj.Id<0).Count() > 0)
                 return FailedMsg("重复的Key");
             if (!MetarnetRegex.IsNumAndEnCh(offobj.key))
             {
@@ -571,6 +775,7 @@ namespace deploySys.Server.Controller.Admin
                     return FailedMsg("找不到对象");
                 obj = new AppType(objectSpace);
             }
+
             objectSpace.applyValueFromOffObject(obj, offobj);
 
             UpdateDatabase();
@@ -586,6 +791,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteAppType([FromRoute]int Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
             AppType obj = objectSpace.ObjectForIntId<AppType>(Id);
             if (obj != null)
             {
@@ -603,6 +811,48 @@ namespace deploySys.Server.Controller.Admin
         }
         #endregion
         #region 微服务应用
+
+        /// <summary>
+        /// 所有微服务应用
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
+        [HttpGet]
+
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult MyMicroServiceApps([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int Id)
+        {
+            AppType at = objectSpace.ObjectForIntId<AppType>(Id);
+
+             var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            var q = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => !a.IsDeleted);
+            if (at != null)
+                q = q.Where(a => a.Ass_AppType == at);
+            if (!curruser.IsAdmin())
+                q = q.Where(a => a.OwnerId == curruser.Id.ToString());
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                q = q.Where(a => a.appName.Contains(keyword) || a.hostname.Contains(keyword) || a.memo.Contains(keyword) || a.key.Contains(keyword));
+            }
+            var count = q.Count();
+            var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+                .Take(pagination.PageSize).ToCommList();
+            var allids = (from x in list select x.Id).ToList();
+            var allregionapps = objectSpace.SpaceQuery<RegionApps>().Where(a => allids.Contains(a.AssC_MicroServiceApp_Id)).Select(a => a.AssC_Region_Id).ToCommList();
+            var listUserId = (from x in list select x.OwnerId.ToInt32()).ToList();
+            var listUserName = objectSpace.SpaceQuery<SysUser>().Where(a => listUserId.Contains(a.Id)).Select(a => new { a.Id, a.UserName }).ToCommList();
+            foreach (var apps in list)
+            {
+                apps.regionIds = string.Join(",", (from x in allregionapps select x.ToString()).ToArray());
+                if (!string.IsNullOrEmpty(apps.OwnerId))
+                    apps.UserName = (from x in listUserName where x.Id.ToString() == apps.OwnerId select x.UserName).FirstOrDefault();
+            }
+            JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+            PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
+            return this.SuccessData(pagedData);
+        }
+
         /// <summary>
         /// 所有微服务应用
         /// </summary>
@@ -614,11 +864,10 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult MicroServiceApps([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int Id)
         {
+            var q = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => !a.IsDeleted);
             AppType at = objectSpace.ObjectForIntId<AppType>(Id);
-            if (at == null)
-                return FailedMsg("应用类型不存在");
-
-            var q = objectSpace.SpaceQuery<MicroServiceApp>().Where(a => !a.IsDeleted && a.Ass_AppType == at);
+            if (at != null)
+                q = q.Where(a => a.Ass_AppType == at);
             if (!string.IsNullOrEmpty(keyword))
             {
                 q = q.Where(a => a.appName.Contains(keyword)|| a.hostname.Contains(keyword) || a.memo.Contains(keyword) || a.key.Contains(keyword));
@@ -628,9 +877,13 @@ namespace deploySys.Server.Controller.Admin
                 .Take(pagination.PageSize).ToCommList();
             var allids = (from x in list select x.Id).ToList();
             var allregionapps = objectSpace.SpaceQuery<RegionApps>().Where(a => allids.Contains(a.AssC_MicroServiceApp_Id)).Select(a => a.AssC_Region_Id).ToCommList();
+            var listUserId = (from x in list select x.OwnerId.ToInt32()).ToList();
+            var listUserName = objectSpace.SpaceQuery<SysUser>().Where(a => listUserId.Contains(a.Id)).Select(a => new { a.Id, a.UserName }).ToCommList();
             foreach (var apps in list)
             {
                 apps.regionIds = string.Join(",", (from x in allregionapps select x.ToString()).ToArray());
+                if(!string.IsNullOrEmpty(apps.OwnerId))
+                 apps.UserName = (from x in listUserName where x.Id.ToString() == apps.OwnerId select x.UserName).FirstOrDefault();
             }
             JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
             PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
@@ -673,20 +926,29 @@ namespace deploySys.Server.Controller.Admin
                 return FailedMsg("web站点，域名不能为空");
             if (string.IsNullOrEmpty(offobj.key))
                 return FailedMsg("key不可以为空");
-            if (objectSpace.SpaceQuery<MicroServiceApp>().Where(a => a.key.ToLower() == offobj.key.ToLower()).Count() > 0)
+            if (objectSpace.SpaceQuery<MicroServiceApp>().Where(a => a.key.ToLower() == offobj.key.ToLower() && a.Id!=offobj.Id).Count() > 0)
                 return FailedMsg("重复的Key");
 
             if (!MetarnetRegex.IsNumAndEnCh(offobj.key))
             {
                 return FailedMsg("应用Key只能使用英文字符和数字");
             }
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
             if (obj == null)
             {
                 if (offobj.Id > 0)
                     return FailedMsg("找不到对象");
                 obj = new MicroServiceApp(objectSpace);
+              
+            }
+            else
+            {
+                if (!curruser.IsAdmin() && (obj.OwnerId != curruser.Id.ToString()))
+                    return FailedMsg("你无权修改此应用");
             }
             objectSpace.applyValueFromOffObject(obj, offobj);
+            if(string.IsNullOrEmpty(obj.OwnerId))
+                  obj.OwnerId = curruser.Id.ToString();
             IList<int> newIdlist = null;
             if (!string.IsNullOrEmpty(offobj.regionIds))
                 newIdlist = offobj.regionIds.Split(",", StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToList();
@@ -733,6 +995,9 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteMicroServiceApp([FromRoute]int Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许删除");
             MicroServiceApp obj = objectSpace.ObjectForIntId<MicroServiceApp>(Id);
             if (obj != null)
             {
@@ -749,7 +1014,264 @@ namespace deploySys.Server.Controller.Admin
             return SuccessMsg();
         }
         #endregion
-       
+        #region db
+
+        /// <summary>
+        /// 所有数据库服务器
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult DbServers([FromQuery] string keyword, [FromQuery] Pagination pagination)
+        {
+
+
+            var q = objectSpace.SpaceQuery<DbServer>().Where(a => !a.IsDeleted);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                q = q.Where(a => a.IP.Contains(keyword) || a.dbType.Contains(keyword));
+            }
+
+            var count = q.Count();
+            var list = q.Select(a=>new {a.IP,a.Name,a.Port,a.dbType,a.rootUser,a.CreateDt,a.UpdateDt,a.CreaterID,a.Id,a.UpdaterID,rootPassword="" }).OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+                .Take(pagination.PageSize).ToCommList();
+            JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+            PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
+            return this.SuccessData(pagedData);
+        }
+        /// <summary>
+        /// 新增或更改数据库服务器
+        /// </summary>
+        /// <param name="offobj"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult auDbServer([FromForm] DbServer offobj)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            if (string.IsNullOrEmpty(offobj.IP) || string.IsNullOrEmpty(offobj.dbType))
+                return FailedMsg("IP is null ");
+            if (offobj.Id<0 && objectSpace.SpaceQuery<DbServer>().Where(a => a.IP.ToLower() == offobj.IP.ToLower() && a.Port==offobj.Port && a.dbType.ToLower()==offobj.dbType.ToLower() ).Count() > 0)
+                return FailedMsg("重复的数据库服务器");
+            //if (!MetarnetRegex.IsIPv4(offobj.IP))
+            //{
+            //    return FailedMsg("应用IP只能使用英文点和数字");
+            //}
+            DbServer obj = objectSpace.ObjectForIntId<DbServer>(offobj.Id);
+            if (obj == null)
+            {
+                if (offobj.Id > 0)
+                    return FailedMsg("找不到对象");
+                obj = new DbServer(objectSpace);
+
+            }
+
+            obj.IP = offobj.IP;
+            obj.Name = offobj.Name;
+            obj.Port = offobj.Port;
+            obj.dbType = offobj.dbType;
+            obj.rootUser = offobj.rootUser;
+            if (!string.IsNullOrEmpty(offobj.rootPassword))
+            {
+                var origPass=this.DecryptByAES(offobj.rootPassword, getAesKey(), getAesIV());
+                obj.rootPassword = offobj.rootPassword;
+            }
+           
+
+
+            UpdateDatabase();
+            return SuccessData(obj);
+        }
+        /// <summary>
+        /// 删除数据库服务器
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("{Id?}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult deleteDbServer([FromRoute] int Id)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            DbServer obj = objectSpace.ObjectForIntId<DbServer>(Id);
+            if (obj != null)
+            {
+                if (!obj.IsDeleted)
+                {
+                    var x = objectSpace.SpaceQuery<Db>().Where(a => a.Ass_DbServer_Id == Id && !a.IsDeleted).Count();
+                    if (x > 0)
+                        return FailedMsg("还有Db，不能删除");
+                }
+                obj.IsDeleted = true;
+                UpdateDatabase();
+
+            }
+            return SuccessMsg();
+        }
+
+        /// <summary>
+        /// 所有数据库
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult Dbs([FromQuery] string keyword, [FromQuery] Pagination pagination)
+        {
+
+
+            var q = objectSpace.SpaceQuery<Db>().Where(a => !a.IsDeleted);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                q = q.Where(a => a.Name.Contains(keyword) || a.User.Contains(keyword));
+            }
+            var count = q.Count();
+            var list = q.OrderByDesc(a => a.CreateDt).Skip(pagination.PageSize * (pagination.Page - 1))
+                .Take(pagination.PageSize).ToCommList();
+            JArray jarr = JArray.Parse(Newtonsoft.Json.JsonConvert.SerializeObject(list));
+            PagedJObjData pagedData = new PagedJObjData(jarr, count, pagination.Page, pagination.PageSize);
+            return this.SuccessData(pagedData);
+        }
+        /// <summary>
+        /// 将指定的16进制字符串转换为byte数组
+        /// </summary>
+        /// <param name="s">16进制字符串(如：“7F 2C 4A”或“7F2C4A”都可以)</param>
+        /// <returns>16进制字符串对应的byte数组</returns>
+        private  byte[] HexStringToByteArray(string s)
+        {
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            return buffer;
+        }
+        /// AES解密  
+        /// </summary>  
+        /// <param name="input">密文字节数组</param>  
+        /// <param name="key">密钥（32位）</param>  
+        /// <returns>返回解密后的字符串</returns>  
+        private  string DecryptByAES(string input, string key,string IV)
+        {
+            byte[] inputBytes = HexStringToByteArray(input);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key.Substring(0, 32));
+            using (AesCryptoServiceProvider aesAlg = new AesCryptoServiceProvider())
+            {
+                aesAlg.Key = keyBytes;
+                aesAlg.IV = Encoding.UTF8.GetBytes(IV.Substring(0, 16));
+
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+                using (MemoryStream msEncrypt = new MemoryStream(inputBytes))
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srEncrypt = new StreamReader(csEncrypt))
+                        {
+                            return srEncrypt.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
+        private string getAesIV()
+        {
+        var sf = SysFunc.getInstance(objectSpace);
+            return sf.getParamValue("AESIV");
+        }
+        private string getAesKey()
+        {
+            var sf = SysFunc.getInstance(objectSpace);
+            var key = sf.getParamValue("AESKey");
+            if (key.Length < 32)
+            {
+                // 不足32补全
+                key = key.PadRight(32, '0');
+            }
+            else if (key.Length > 32)
+            {
+                key = key.Substring(0, 32);
+            }
+            return key;
+        }
+        /// <summary>
+        /// 新增或更改数据库
+        /// </summary>
+        /// <param name="offobj"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult auDb([FromForm] Db offobj)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            var ds = objectSpace.ObjectForIntId<DbServer>(offobj.Ass_DbServer_Id.Value);
+            if (ds == null)
+                return FailedMsg("数据库服务器不存在");
+            if (string.IsNullOrEmpty(offobj.Name))
+                return FailedMsg("Name不可以为空");
+            if (offobj.Id<0 && objectSpace.SpaceQuery<Db>().Where(a => a.Name.ToLower() == offobj.Name.ToLower()  && a.Ass_DbServer==ds).Count() > 0)
+                return FailedMsg("重复的数据库");
+            if (!MetarnetRegex.IsNumAndEnCh(offobj.Name))
+            {
+                return FailedMsg("应用数据库只能使用英文字符和数字");
+            }
+            Db obj = objectSpace.ObjectForIntId<Db>(offobj.Id);
+            if (obj == null)
+            {
+                if (offobj.Id > 0)
+                    return FailedMsg("找不到对象");
+                obj = new Db(objectSpace);
+            }
+            objectSpace.applyValueFromOffObject(obj, offobj);
+            var origp = this.DecryptByAES(offobj.Password, getAesKey(), getAesIV());
+            var origServerp = this.DecryptByAES(ds.rootPassword, getAesKey(), getAesIV());
+            if (offobj.needCreateDb && offobj.Status==0)
+            {
+                var bdb = baseDbTools.getInstance(ds.dbType, ds.IP, ds.Port.ToString(), ds.rootUser, origServerp);
+           
+                bdb.createDbWithUser(obj.Name, obj.Ecoder, obj.User, origp);
+                obj.Status = 1;
+            }
+            UpdateDatabase();
+            return SuccessData(obj);
+        }
+        /// <summary>
+        /// 删除数据库
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("{Id?}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult deleteDb([FromRoute] int Id)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null || !curruser.IsAdmin())
+                return FailedMsg("不是管理员不允许修改");
+            Db obj = objectSpace.ObjectForIntId<Db>(Id);
+            if (obj != null)
+            {
+                if (!obj.IsDeleted)
+                {
+                    var x = objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.DbId == Id && !a.IsDeleted && (a.status==0 || a.status==10)).Count();
+                    if (x > 0)
+                        return FailedMsg("还有待处理的发布任务，不能删除");
+                }
+                obj.IsDeleted = true;
+                UpdateDatabase();
+
+            }
+            return SuccessMsg();
+        }
+
+        #endregion
     }
 
 }

@@ -1,6 +1,0 @@
-27 Apr 2020 07:30:03,668  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
-27 Apr 2020 07:30:07,319  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
-27 Apr 2020 07:30:07,319  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
-27 Apr 2020 07:30:11,057  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
-27 Apr 2020 07:30:11,059  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
-27 Apr 2020 07:30:12,477  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2

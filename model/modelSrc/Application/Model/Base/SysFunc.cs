@@ -86,14 +86,20 @@ public   partial class SysFunc : _baseObject{
             SysUser curr = null;
             string userid = "";
             ClaimsPrincipal iprincipal = System.Threading.Thread.CurrentPrincipal as ClaimsPrincipal;
+            FrmLib.Log.commLoger.devLoger.Debug("iprincipal:"+(iprincipal==null).ToString());
             if (iprincipal != null)
             {
                 ClaimsIdentity ci = (iprincipal.Identity as ClaimsIdentity);
                 var clm = (from x in ci.Claims where x.Type == "UserId" select x).FirstOrDefault();
                 userid = clm == null ? "" : clm.Value;
+                FrmLib.Log.commLoger.devLoger.Debug("iprincipal user id:" + userid);
                 var space = GetSpace();
+                FrmLib.Log.commLoger.devLoger.Debug("iprincipal space :" + (space==null).ToString());
                 if (space != null)
+                {
                     curr = space.ObjectForId<SysUser>(userid);
+                     FrmLib.Log.commLoger.devLoger.Debug("iprincipal curr :" + (curr==null).ToString());
+                }
                
             }
             return curr;
@@ -810,6 +816,13 @@ private void cycleTree(MenuGroup mg, treeNode ParentNode)
 
 
         
+
+
+
+
+
+
+
 
 
 

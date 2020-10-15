@@ -32,7 +32,7 @@
                    <el-row>
             <el-col :span="24">
                     <el-form-item label="编译脚本:" label-width="100px">
-                        <el-input v-model="mainDialog.EditModel.buildScript" rows="6" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
+                        <el-input v-model="mainDialog.EditModel.buildScript" rows="6" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:300px"></el-input>
                     </el-form-item>
                 </el-col>
         </el-row>
@@ -52,22 +52,7 @@
         </el-row>
                
                    </el-tab-pane>
-        <!--
-         <el-row>
-            <el-col :span="24">
-                    <el-form-item label="启动脚本:">
-                        <el-input v-model="mainDialog.EditModel.startCommand" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
-                    </el-form-item>
-                </el-col>
-        </el-row>
-         <el-row>
-            <el-col :span="24">
-                    <el-form-item label="停止脚本:">
-                        <el-input v-model="mainDialog.EditModel.stopCommand" type="textarea" :disabled="false" placeholder="请输入" style="width:700px;height:20px"></el-input>
-                    </el-form-item>
-                </el-col>
-        </el-row>
-            -->
+       
              </el-tabs>
     </el-form>
     <div slot="footer" class="dialog-footer">

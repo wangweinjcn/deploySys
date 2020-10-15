@@ -179,5 +179,38 @@ namespace deploySys.Server.Controllers
 
             return View();
         }
+        private void setAesParams()
+        {
+            SysFunc sf = SysFunc.getInstance(objectSpace);
+
+            ViewBag.AesIV = sf.getParamValue("AESIV");
+            var key=sf.getParamValue("AESKey");
+            if (key.Length < 32)
+            {
+                // 不足32补全
+                key = key.PadRight(32, '0');
+            }
+            else if (key.Length > 32)
+            {
+                key = key.Substring(0, 32);
+            }
+            ViewBag.AesKey = key;
+        }
+        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult dbServer()
+        {
+            setAesParams();
+            return View();
+        }
+        [HttpGet]
+        [Route("{id?}")]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult DbInstance([FromRoute]string id)
+        {
+            setAesParams();
+             ViewBag.serverId = id;
+            return View();
+        }
     }
 }

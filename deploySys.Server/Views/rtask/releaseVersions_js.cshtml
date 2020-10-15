@@ -195,5 +195,31 @@
         <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
     </div>
 </el-dialog>
+<el-dialog :close-on-click-modal=false title="版本更新" :visible="updateDialog.IsShow"
+           v-on:close='updateDialog.Close' v-on:open=""
+           v-loading="updateDialog.loading" width="900px">
+    <el-form :model="updateDialog.EditModel">
+         <el-tabs  type="card" value="first">
+             <el-tab-pane label="基础信息" name="first">
 
+
+         <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="更新文件（rar格式）：" label-width="200px">
+                    <input type="file" id="importfile1" class="file">
+                </el-form-item>
+            </el-col>
+             
+        </el-row>
+
+
+                    </el-tab-pane>
+                   
+                </el-tabs>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="updateDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="updateDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
 

@@ -1,0 +1,19 @@
+02 Jun 2020 20:31:57,268  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+02 Jun 2020 20:32:00,433  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+02 Jun 2020 20:32:00,434  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+02 Jun 2020 20:32:04,166  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+02 Jun 2020 20:32:04,169  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+02 Jun 2020 20:32:05,345  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+02 Jun 2020 20:34:58,367  FATAL [50] ?.?  - Duplicate entry '10-1' for key 'RegionApps__uniidx0'
+02 Jun 2020 20:38:20,821  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+02 Jun 2020 20:38:24,078  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+02 Jun 2020 20:38:24,079  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+02 Jun 2020 20:38:27,934  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+02 Jun 2020 20:38:27,937  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+02 Jun 2020 20:38:29,093  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+02 Jun 2020 20:52:09,917  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+02 Jun 2020 20:52:13,170  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+02 Jun 2020 20:52:13,171  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+02 Jun 2020 20:52:17,091  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+02 Jun 2020 20:52:17,094  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+02 Jun 2020 20:52:18,264  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2

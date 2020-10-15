@@ -73,17 +73,19 @@ namespace deploySys.Server.Controller.Admin
         /// <returns></returns>
         [HttpGet]
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
-        public IActionResult ReleaseTasks([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int regId=-1,[FromQuery]int zoneId=-1,[FromQuery]int serverAppId=-1)
+        public IActionResult ReleaseTasks([FromQuery]string keyword, [FromQuery]Pagination pagination, [FromQuery]int regionId=-1,[FromQuery]int Id=-1,[FromQuery]int msAppId=-1,[FromQuery]int appTypeId=-1)
         {
 
-
-            var q = objectSpace.SpaceQuery<ReleaseTask>().Join<MicroServiceApp>(JoinType.InnerJoin,( a,b) => !a.IsDeleted && a.Ass_MicroServiceApp==b  ).Select((a,b)=>new {a.Id,a.useSSL,a.needRegister, a.HostIds,a.Ass_Zone_Id,a.Ass_Region_Id,a.Ass_MicroServiceApp_Id,a.count,a.CreateDt,a.CreaterID,a.CreaterName,a.dockerNetType,a.FileGuid,a.FileName,a.memo,a.overridePolicy,a.ProcessInfo,a.releaseType,a.selectHostPolicy,a.status,a.unzipInServer,a.UpdateDt,a.UpdaterID,a.UpdaterName,a.useWIP,a.Version,b.appName,b.key,a.sslKey,a.sslPem});
-            if (regId > 0)
-                q = q.Where(a => a.Ass_Region_Id == regId);
+            var zoneId = Id;
+            var q = objectSpace.SpaceQuery<ReleaseTask>().Join<MicroServiceApp>(JoinType.InnerJoin,( a,b) => !a.IsDeleted && a.Ass_MicroServiceApp==b  ).Join<AppType>(JoinType.InnerJoin,(a,b,c)=>b.Ass_AppType==c).Select((a,b,c)=>new {a.Id,a.useSSL,a.needRegister, b.Ass_AppType_Id,a.HostIds,a.Ass_Zone_Id,a.Ass_Region_Id,a.Ass_MicroServiceApp_Id,a.count,a.CreateDt,a.CreaterID,a.CreaterName,a.dockerNetType,a.FileGuid,a.FileName,a.memo,a.overridePolicy,a.ProcessInfo,a.releaseType,a.selectHostPolicy,a.status,a.unzipInServer,a.UpdateDt,a.UpdaterID,a.UpdaterName,a.useWIP,a.Version,b.appName,b.key,a.sslKey,a.sslPem,a.domainName,a.confFileOverride});
+            if (regionId > 0)
+                q = q.Where(a => a.Ass_Region_Id == regionId);
             if (zoneId > 0)
                 q = q.Where(a => a.Ass_Zone_Id == zoneId);
-            if (serverAppId > 0)
-                q = q.Where(a => a.Ass_MicroServiceApp_Id == serverAppId);
+            if (msAppId > 0)
+                q = q.Where(a => a.Ass_MicroServiceApp_Id == msAppId);
+            if (appTypeId > 0)
+                q = q.Where(a => a.Ass_AppType_Id == appTypeId);
             if (!string.IsNullOrEmpty(keyword))
             {
                 q = q.Where(a => a.Version.Contains(keyword) );
@@ -131,7 +133,14 @@ namespace deploySys.Server.Controller.Admin
             MicroServiceApp msa = objectSpace.ObjectForIntId<MicroServiceApp>(serverAppId);
             if (msa == null)
                 return FailedMsg("应用不存在");
-            
+            var sf = SysFunc.getInstance(objectSpace);
+            var curruser = sf.getCurrentUser();
+            if (curruser == null )
+                return FailedMsg("当前用户为空");
+            if (!curruser.IsAdmin() && msa.OwnerId != curruser.Id.ToString())
+            { 
+            return FailedMsg("不可以发布不属于你的应用版本");
+            }
             var count1 = objectSpace.SpaceQuery<appVersion>().Where(a => a.Ass_MicroServiceApp == msa && a.version == offobj.Version).Count();
             var count2 = objectSpace.SpaceQuery<ReleaseTask>().Where(a => a.Ass_MicroServiceApp == msa && a.Version == offobj.Version).Count();
             if ( offobj.Id<=0 &&( count1 > 0 || count2>0))
@@ -142,9 +151,7 @@ namespace deploySys.Server.Controller.Admin
                 return FailedMsg("对于需要反向代理的服务或站点，不允许发布数量大于1");
 
             }
-            SysFunc sf = SysFunc.getInstance(objectSpace);
-           
-
+          
            
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(offobj.Id);
             if (obj == null)
@@ -212,6 +219,13 @@ namespace deploySys.Server.Controller.Admin
                     if (x > 0)
                         return FailedMsg("还有运行实例，不能删除");
                 }
+                var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+                if (curruser == null)
+                    return FailedMsg("");
+                if (!curruser.IsAdmin() && obj.Ass_appVersion.Ass_MicroServiceApp.OwnerId == curruser.Id.ToString())
+                {
+                    return FailedMsg("不可以删除不属于你的应用版本");
+                }
                 objectSpace.BatchDelete<HostTask>(a => a.Ass_ReleaseTask == obj);
                 if (obj.Ass_appVersion != null)
                     obj.Ass_appVersion.choDelete();
@@ -231,6 +245,13 @@ namespace deploySys.Server.Controller.Admin
             HostTask obj = objectSpace.ObjectForIntId<HostTask>(Id);
             if (obj.Ass_ReleaseTask != null)
                 return FailedMsg("版本发布必须使用版本重启");
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            if (!curruser.IsAdmin() &&(obj.Ass_appVersion==null || obj.Ass_appVersion.Ass_MicroServiceApp==null || obj.Ass_appVersion.Ass_MicroServiceApp.OwnerId == curruser.Id.ToString()))
+            {
+                return FailedMsg("不可以重启不属于你的应用版本");
+            }
 
             if (obj != null && obj.Status != (int)EnumHostTaskStatus.finished)
             {
@@ -250,6 +271,13 @@ namespace deploySys.Server.Controller.Admin
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(Id);
             if (obj != null && obj.status == (int)EnumReleaseTaskStatus.error)
             {
+                var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+                if (curruser == null)
+                    return FailedMsg("");
+                if (!curruser.IsAdmin() && (obj.Ass_appVersion == null || obj.Ass_appVersion.Ass_MicroServiceApp == null || obj.Ass_appVersion.Ass_MicroServiceApp.OwnerId == curruser.Id.ToString()))
+                {
+                    return FailedMsg("不可以发布不属于你的应用版本");
+                }
                 obj.status = (int)EnumReleaseTaskStatus.assigned;
                 foreach (var ht in obj.Ass_HostTask)
                 {
@@ -406,6 +434,13 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult stopInstance([FromRoute]string Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            if (!curruser.IsAdmin())
+            {
+                return FailedMsg("只可以管理员操作");
+            }
             DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
             if (di == null)
                 return FailedMsg("实例不存在");
@@ -423,6 +458,14 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult restartInstance([FromRoute]string Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            if (!curruser.IsAdmin())
+            {
+                return FailedMsg("只可以管理员操作");
+            }
+
             DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
             if (di == null)
                 return FailedMsg("实例不存在");
@@ -446,6 +489,14 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult removeInstance([FromRoute]string Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            if (!curruser.IsAdmin() )
+            {
+                return FailedMsg("只可以管理员操作");
+            }
+
             DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
             if (di == null)
                 return FailedMsg("实例不存在");
@@ -490,6 +541,13 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult removeWebSite([FromRoute]string Id)
         {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            if (!curruser.IsAdmin())
+            {
+                return FailedMsg("只可以管理员操作");
+            }
             webSite ws = objectSpace.ObjectForId<webSite>(Id);
             if (ws == null)
                 return FailedMsg("站点不存在");

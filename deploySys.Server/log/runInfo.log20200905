@@ -1,0 +1,16 @@
+05 Sep 2020 20:38:21,863  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+05 Sep 2020 20:38:25,423  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+05 Sep 2020 20:38:25,423  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+05 Sep 2020 20:38:29,902  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+05 Sep 2020 20:38:29,903  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+05 Sep 2020 20:38:31,440  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+05 Sep 2020 20:39:02,890  FATAL [7] ?.?  - Unknown column 'ReleaseTask.DbId' in 'field list'
+05 Sep 2020 20:39:02,890  FATAL [45] ?.?  - Unknown column 'ReleaseTask.DbId' in 'field list'
+05 Sep 2020 20:39:03,174  FATAL [7] ?.?  -  [FatalFormat:?@myLogger]doImportCbeTask fatal error:An exception occurred while executing DbCommand. For details please see the inner exception. Unknown column 'ReleaseTask.DbId' in 'field list',   at Chloe.Core.InternalAdoSession.ExecuteReader(String cmdText, DbParam[] parameters, CommandType cmdType, CommandBehavior behavior)
+   at Chloe.Core.InternalAdoSession.ExecuteReader(String cmdText, DbParam[] parameters, CommandType cmdType)
+   at Chloe.Ext.Query.SpaceQueryEnumeratorCreator.QueryEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Chloe.Ext.Query.SpaceQuery`1.ToList()
+   at deploySys.Server.Crontask.doUncompressReleaseTask() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 220
+05 Sep 2020 20:39:09,639  FATAL [39] ?.?  - Table 'depsDb.DbServer' doesn't exist

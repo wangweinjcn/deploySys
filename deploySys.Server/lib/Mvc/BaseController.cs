@@ -16,6 +16,7 @@ using Chloe.Ext.Intf;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Chloe.Ext;
+using System.Security.Claims;
 
 namespace Ace.Web.Mvc
 {
@@ -59,7 +60,16 @@ namespace Ace.Web.Mvc
         [NonAction]
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-          
+            if (filterContext.HttpContext.User == null || filterContext.HttpContext.User.Identity == null)
+            {
+                filterContext.Result = this.FailedMsg("用户授权有异常");
+            }
+            if (System.Threading.Thread.CurrentPrincipal == null)
+            {
+                ClaimsIdentity ci = filterContext.HttpContext.User.Identity as ClaimsIdentity;
+                var userPrincipal = new ClaimsPrincipal(ci);
+                System.Threading.Thread.CurrentPrincipal = userPrincipal;
+            }
             base.OnActionExecuting(filterContext);
         }
         [NonAction]

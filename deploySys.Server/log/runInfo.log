@@ -1,6 +1,24 @@
-09 May 2020 21:04:04,240  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
-09 May 2020 21:04:07,511  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
-09 May 2020 21:04:07,511  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
-09 May 2020 21:04:11,412  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
-09 May 2020 21:04:11,414  DEBUG [1] ?.?  - [initTasklist:660@baseStartup.cs]now createTaskList
-09 May 2020 21:04:12,824  DEBUG [1] ?.?  - [initTasklist:669@baseStartup.cs]createTaskList count:2
+23 Sep 2020 19:52:06,685  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+23 Sep 2020 19:52:10,352  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+23 Sep 2020 19:52:10,353  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+23 Sep 2020 19:52:14,431  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+23 Sep 2020 19:52:14,432  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+23 Sep 2020 19:52:16,007  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+23 Sep 2020 19:57:42,103  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+23 Sep 2020 19:57:45,450  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+23 Sep 2020 19:57:45,455  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+23 Sep 2020 19:57:49,305  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+23 Sep 2020 19:57:49,307  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+23 Sep 2020 19:57:50,755  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+23 Sep 2020 20:31:36,782  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+23 Sep 2020 20:31:40,054  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+23 Sep 2020 20:31:40,054  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+23 Sep 2020 20:31:43,982  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+23 Sep 2020 20:31:43,984  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+23 Sep 2020 20:31:45,258  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+23 Sep 2020 20:34:27,358  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+23 Sep 2020 20:34:30,630  INFO [1] ?.?  - [.ctor:204@Confg.cs]runconfig ok
+23 Sep 2020 20:34:30,630  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+23 Sep 2020 20:34:34,797  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+23 Sep 2020 20:34:34,799  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+23 Sep 2020 20:34:36,100  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2

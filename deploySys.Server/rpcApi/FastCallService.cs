@@ -28,7 +28,7 @@ namespace deploySys.Server.rpcApi
         [FastLoginFilter] // 登录了才能请求Api
         public List<InstallFileInfo> CompareClientFiles(List<InstallFileInfo> clientfiles)
         {
-            RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles "));
+            // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles "));
 
             Dictionary<string, InstallFileInfo> inputDic = new Dictionary<string, InstallFileInfo>();
             foreach (var obj in clientfiles)
@@ -44,7 +44,7 @@ namespace deploySys.Server.rpcApi
                 ifi.isdelete = obj.isdelete;
                 resultlist.Add(ifi);
             }
-            RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles result:{0}", resultlist.Count));
+            // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles result:{0}", resultlist.Count));
 
             return resultlist;
 
@@ -66,13 +66,12 @@ namespace deploySys.Server.rpcApi
         [FastLoginFilter] // 登录了才能请求Api
         public IList<FileItem> CompareRemoteFiles(int taskId, List<FileItem> clientfiles)
         {
-            RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles "));
             ReleaseTask rt = objectSpace.ObjectForIntId<ReleaseTask>(taskId);
             if (rt == null)
                 throw new Exception("ReleaseTask is null");
 
             var resultlist = rt.Ass_appVersion.CompareDiffFile(rt.Ass_appVersion.Ass_FileItem, clientfiles);
-            RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles result:{0}", resultlist.Count));
+            // RunConfig.Instance.devlog.Info(String.Format("CompareRemoteFiles result:{0}", resultlist.Count));
 
             return resultlist;
 
@@ -363,7 +362,7 @@ namespace deploySys.Server.rpcApi
                 var jarr2 = JArray.FromObject(list2);
                 foreach (var obj in jarr2)
                     jarr.Add(obj);  
-               FrmLib.Log.commLoger.devLoger.Debug( string.Format("jarr:{0} ",jarr.ToString()));
+             //  FrmLib.Log.commLoger.devLoger.Debug( string.Format("jarr:{0} ",jarr.ToString()));
                 return jarr.ToString();
             }
             catch (Exception exp)
@@ -517,19 +516,19 @@ namespace deploySys.Server.rpcApi
                     this.CurrentContext.Session.Tag.Set("Logined", true);
 
                     uns.stocSession = this.CurrentContext.Session;
-                    RunConfig.Instance.devlog.Info(String.Format("registe ok"));
+                    // RunConfig.Instance.devlog.Info(String.Format("registe ok"));
                     return 0;
 
                 }
                 {
-                    RunConfig.Instance.devlog.Info(String.Format("registe fail"));
+                    // RunConfig.Instance.devlog.Info(String.Format("registe fail"));
                     return -1;
                 }
             }
 
             catch (Exception exp)
             {
-                RunConfig.Instance.devlog.Info(String.Format("registe  exception,thread id:{0},message:{1}",
+                 RunConfig.Instance.runlog.Error(String.Format("registe  exception,thread id:{0},message:{1}",
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 return -2;
             }
@@ -549,7 +548,7 @@ namespace deploySys.Server.rpcApi
             try
             {
                 macid = macid.Replace(":","").Replace("-","").ToLower();
-                RunConfig.Instance.devlog.Info(String.Format("Login ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
+                // RunConfig.Instance.devlog.Info(String.Format("Login ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
                 var host = objectSpace.SpaceQuery<HostResource>().Where(a => a.macId == macid).FirstOrDefault();
                 if (host!=null)
                 {
@@ -573,19 +572,19 @@ namespace deploySys.Server.rpcApi
                     this.CurrentContext.Session.Tag.Set("Logined", true);
                     uns.und.AliveDt = DateTime.Now;
                     uns.session = this.CurrentContext.Session;
-                    RunConfig.Instance.devlog.Info(String.Format("registe ok"));
+                    // RunConfig.Instance.devlog.Info(String.Format("registe ok"));
                     return 0;
                 }
                 else
                 {
-                    RunConfig.Instance.devlog.Info(String.Format("registe fail"));
+                    // RunConfig.Instance.devlog.Info(String.Format("registe fail"));
                     return -1;
                 }
             }
 
             catch (Exception exp)
             {
-                RunConfig.Instance.devlog.Info(String.Format("registe  exception,thread id:{0},message:{1}",
+                 RunConfig.Instance.runlog.Error(String.Format("registe  exception,thread id:{0},message:{1}",
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 return -2;
             }
@@ -614,12 +613,12 @@ namespace deploySys.Server.rpcApi
               
                 if (uns.session != this.CurrentContext.Session)
                     uns.session = this.CurrentContext.Session;
-                RunConfig.Instance.devlog.Info(String.Format("sayalive ok"));
+              //  // RunConfig.Instance.devlog.Info(String.Format("sayalive ok"));
                 return 0;
             }
             catch (Exception exp)
             {
-                RunConfig.Instance.devlog.Info(String.Format("SayAlive  exception,thread id:{0},message:{1}", 
+                RunConfig.Instance.runlog.Info(String.Format("SayAlive  exception,thread id:{0},message:{1}", 
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 return -2;
             }
@@ -633,7 +632,7 @@ namespace deploySys.Server.rpcApi
         {
             try
             {
-               RunConfig.Instance.devlog.Info(String.Format("GetRsycData ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
+               // RunConfig.Instance.devlog.Info(String.Format("GetRsycData ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
 
                 string nodeToken = this.CurrentContext.Session.Tag.Get("ApiToken").AsString();
 
@@ -649,7 +648,7 @@ namespace deploySys.Server.rpcApi
             }
             catch (Exception exp)
             {
-               RunConfig.Instance.devlog.Info(String.Format("GetRsycData  exception,thread id:{0},message:{1}",
+                RunConfig.Instance.runlog.Error(String.Format("GetRsycData  exception,thread id:{0},message:{1}",
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 throw exp;
             }

@@ -43,6 +43,7 @@
           "log4net": "2.0.8",
           "SharpCompress": "0.25.0",
           "spNettyRPC": "1.0.4",
+          "wChloe.MySql": "3.9.0",
           "wChloe.SQLite": "3.9.2"
         },
         "runtime": {
@@ -497,7 +498,7 @@
           "lib/netstandard1.5/MongoDB.Driver.Core.dll": {}
         }
       },
-      "MySql.Data/8.0.12": {
+      "MySql.Data/8.0.15": {
         "dependencies": {
           "Google.Protobuf": "3.5.1",
           "System.Configuration.ConfigurationManager": "4.4.1",
@@ -506,8 +507,8 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/MySql.Data.dll": {
-            "assemblyVersion": "8.0.12.0",
-            "fileVersion": "8.0.12.0"
+            "assemblyVersion": "8.0.15.0",
+            "fileVersion": "8.0.15.0"
           }
         },
         "compile": {
@@ -1250,6 +1251,21 @@
           "lib/netstandard2.0/Chloe.dll": {}
         }
       },
+      "wChloe.MySql/3.9.0": {
+        "dependencies": {
+          "MySql.Data": "8.0.15",
+          "wChloe": "3.9.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Chloe.MySql.dll": {
+            "assemblyVersion": "3.9.0.0",
+            "fileVersion": "3.9.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Chloe.MySql.dll": {}
+        }
+      },
       "wChloe.SQLite/3.9.2": {
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "2.2.3",
@@ -1306,7 +1322,7 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
           "MongoDB.Driver": "2.4.4",
-          "MySql.Data": "8.0.12",
+          "MySql.Data": "8.0.15",
           "Newtonsoft.Json": "11.0.2",
           "NodaTime": "2.4.8",
           "System.ComponentModel.Annotations": "4.6.0",
@@ -4577,12 +4593,12 @@
       "path": "mongodb.driver.core/2.4.4",
       "hashPath": "mongodb.driver.core.2.4.4.nupkg.sha512"
     },
-    "MySql.Data/8.0.12": {
+    "MySql.Data/8.0.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I2jGfuyeomrGJ+N9O+vuV2ucyeayf/tMFREKPdjUcs1/wUF0t+WgUnnzJmJl4sNePNR1fEvAGaGbVAo4uLSF2A==",
-      "path": "mysql.data/8.0.12",
-      "hashPath": "mysql.data.8.0.12.nupkg.sha512"
+      "sha512": "sha512-PnjT2+TzlYUBF5cILcLMD1ux85P5iiRTF9PWx+Mel6/Z/rx+k39aWuA0mozfdgd+0TlJjGKKTyQZfKeYlRXTUA==",
+      "path": "mysql.data/8.0.15",
+      "hashPath": "mysql.data.8.0.15.nupkg.sha512"
     },
     "NodaTime/2.4.8": {
       "type": "package",
@@ -4790,7 +4806,7 @@
     "System.ComponentModel.TypeConverter/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
+      "sha512": "sha512-HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
@@ -4993,7 +5009,7 @@
     "System.Threading.ThreadPool/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==",
+      "sha512": "sha512-SrCOmTvvOOCmJT4BBxdZcwhz6XEMsjBGZvGSVorOxdCznaUNeVotEjDfXGIZ8gcGo00qgPbTV6puHDgcFYl6Iw==",
       "path": "system.threading.threadpool/4.3.0",
       "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     },
@@ -5010,6 +5026,13 @@
       "sha512": "sha512-fyYNCTJhEEmVXHriucxTOTX73ZSGIaRjDRG1Djjxxb6k3zEHw2RRQLAJQPIX8JfAUrBBMJq+vcVX/ytUmt3F6w==",
       "path": "wchloe/3.9.0",
       "hashPath": "wchloe.3.9.0.nupkg.sha512"
+    },
+    "wChloe.MySql/3.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nFRGqSFmMtiHkH6FbbHhYn5FhFZN2WfixAniAPPmeJoRnUQ0dn2t52/Am8aXvNZoRyIfFD0s6271/b9/0m2P9Q==",
+      "path": "wchloe.mysql/3.9.0",
+      "hashPath": "wchloe.mysql.3.9.0.nupkg.sha512"
     },
     "wChloe.SQLite/3.9.2": {
       "type": "package",
@@ -6331,7 +6354,7 @@
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
+      "sha512": "sha512-LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
       "path": "system.collections.nongeneric/4.3.0",
       "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
     },

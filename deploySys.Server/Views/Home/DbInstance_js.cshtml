@@ -1,0 +1,59 @@
+﻿
+
+
+<el-dialog :close-on-click-modal=false title="数据库服务维护" :visible="mainDialog.IsShow"
+           v-on:close='mainDialog.Close' v-on:open=""
+           v-loading="mainDialog.loading" width="800px">
+    <el-form :model="mainDialog.EditModel">
+
+
+        <el-row :gutter="10">
+            <el-col :span="12">
+                <el-form-item label="名称："  :rules="[
+      { required: true, message: '名称不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.Name" :disabled="false"  placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="编码：" :rules="[
+      { required: true, message: '编码不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.Ecoder" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+           
+            <el-col :span="12">
+                <el-form-item label="用户：" :rules="[
+      { required: true, message: '用户不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.User" :disabled="false" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+
+            <el-col :span="12">
+                <el-form-item label="密码：" :rules="[
+      { required: true, message: '密码不能为空'}      
+    ]">
+                    <el-input v-model="mainDialog.EditModel.origPassword" :disabled="false" type="password" placeholder="请输入" style="width:250px"></el-input>
+                </el-form-item>
+            </el-col>
+            <el-col :span="12">
+                <el-form-item label="创建数据库:" label-width="100px">
+                  <el-radio-group v-model="mainDialog.EditModel.needCreateDb">
+    <el-radio :label="true">创建</el-radio>
+    <el-radio :label="false">不创建</el-radio>  
+  </el-radio-group>
+                </el-form-item>
+            </el-col>
+            
+        </el-row>              
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+        <el-button v-on:click="mainDialog.Close">取 消</el-button>
+        <el-button type="primary" v-on:click="mainDialog.Save">确 定</el-button>
+    </div>
+</el-dialog>
+
+

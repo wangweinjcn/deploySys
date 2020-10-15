@@ -149,7 +149,7 @@ namespace deploySys.Server.lib
             public T data;
             public object props;
             public int count;
-           
+
 
             public dataPack(T value, object p)
             {
@@ -159,7 +159,7 @@ namespace deploySys.Server.lib
             }
 
         }
-         private const long MemoryCacheMax = 4294967296;//4G 最大允许使用内存
+        private const long MemoryCacheMax = 4294967296;//4G 最大允许使用内存
         private int maxLength;
 
         private IList<dataPack> datalist;
@@ -208,11 +208,11 @@ namespace deploySys.Server.lib
             if (!dict.ContainsKey(key))
                 return;
             dataPack oldone;
-                   dict.TryRemove(key, out oldone);
-            
+            dict.TryRemove(key, out oldone);
+
             if (datalist.Contains(oldone))
                 datalist.Remove(oldone);
-     
+
 
         }
         public bool addOne(string key, T data, Object props)
@@ -223,7 +223,7 @@ namespace deploySys.Server.lib
             {
                 if (dict.ContainsKey(key))
                     return false;
-                if (dict.Keys.Count >= maxLength || cacheSizeMemory>=MemoryCacheMax)
+                if (dict.Keys.Count >= maxLength || cacheSizeMemory >= MemoryCacheMax)
                 {
                     try
                     {
@@ -325,4 +325,6 @@ namespace deploySys.Server.lib
             return dict.Keys.Count();
         }
     }
+
+
 }

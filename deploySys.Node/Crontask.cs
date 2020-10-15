@@ -11,6 +11,7 @@ using SharpCompress.Common;
 using Docker.DotNet;
 using Docker.DotNet.Models;
 using System.Threading;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace deploySys.Node
 {
@@ -210,8 +211,12 @@ namespace deploySys.Node
                 Console.WriteLine(" instance is not exist");
                 return;
             }
-
+            System.Threading.Thread.Sleep(1000);
+            FrmLib.Log.commLoger.devLoger.Debug("now stop docker instance :" + instanceId);
+            FrmLib.Extend.AsyncHelpers.RunSync(() => dockerC.Containers.StopContainerAsync(instanceId, new Docker.DotNet.Models.ContainerStopParameters()));
+            FrmLib.Log.commLoger.devLoger.Debug("now start docker instance :" + instanceId);
             FrmLib.Extend.AsyncHelpers.RunSync(() => dockerC.Containers.StartContainerAsync(instanceId, new Docker.DotNet.Models.ContainerStartParameters()));
+            
         }
         public static void removeDockerInstance(string instanceId,string path)
         {
@@ -228,6 +233,19 @@ namespace deploySys.Node
             {
                 Directory.Delete(path, true);
             }
+        }
+        /// <summary>
+        /// 下载jar文件到发布目录
+        /// </summary>
+        /// <param name="rt"></param>
+        /// <param name="version"></param>
+        /// <param name="msapps"></param>
+        /// <param name="destPath"></param>
+        private static void overrideTaskJarFilesInNode(ReleaseTask rt, appVersion version, MicroServiceApp msapps, string destPath)
+        { 
+         var content = FrmLib.Extend.AsyncHelpers.RunSync<byte[]>(() => nodeClient.Instance.InvokeApi<byte[]>("GetFileContentByGuid", rt.FileGuid));
+             var fullfilename = Path.Combine(destPath, rt.FileName);        
+            File.WriteAllBytes(fullfilename, content);
         }
         /// <summary>
         /// 下载整包文件在本地解压更新
@@ -380,12 +398,17 @@ namespace deploySys.Node
        /// <param name="destPath"></param>
             private static void overrideTaskFiles(ReleaseTask rt,appVersion version,MicroServiceApp msapps,string destPath)
         {
-            Console.WriteLine("unzipInServer:{0}",rt.unzipInServer);
-            if (rt.unzipInServer)
+            Console.WriteLine("overrideTaskFiles:{0},{1}",rt.unzipInServer,rt.FileName);
+            if (rt.unzipInServer &&!rt.FileName.ToLower().EndsWith(".jar"))
                 overrideTaskFilesInServer(rt, version, msapps, destPath);
             else
             {
 
+                if (rt.FileName.ToLower().EndsWith(".jar"))
+                { 
+                overrideTaskJarFilesInNode(rt, version, msapps, destPath);
+                }
+                else
                 overrideTaskFilesInNode(rt, version, msapps, destPath);
             }
             var versionstr = string.Format("{0}_{1}_{2}@{3}",msapps.key,version.version,rt.Id,DateTime.Now.ToString("yyyyMMddHHmmss"));
@@ -485,6 +508,7 @@ namespace deploySys.Node
                 File.WriteAllText(fn, loadstr);
                 // nginxDockerReload(RunConfig.Instance.serverHostResource.nginxInstanceId);
                 Console.WriteLine("now restart nginx");
+
                 restartDockerInstance(RunConfig.Instance.serverHostResource.nginxInstanceId);
                 Console.WriteLine("createOneWebSite ok");
             }

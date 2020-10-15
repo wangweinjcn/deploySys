@@ -235,7 +235,7 @@ namespace deploySys.Server
 
                     try
                     {
-                        if (obj.unzipInServer)
+                        if (obj.unzipInServer && !obj.FileName.ToLower().EndsWith(".jar"))
                         {
                             if (!Directory.Exists(baseDir))
                                 Directory.CreateDirectory(baseDir);

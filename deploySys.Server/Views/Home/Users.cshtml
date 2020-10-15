@@ -101,7 +101,7 @@
             me.methods.OnCreate = function () {
                 $vmpa.get("/Api/SysConf/Roles", null, function (result) {
                     if (result.Status == ResultStatus.OK) {
-                        me.data.rolesOptions = result.Data;
+                        me.data.rolesOptions = result.Data.DataList;
                     }
                 });
                 

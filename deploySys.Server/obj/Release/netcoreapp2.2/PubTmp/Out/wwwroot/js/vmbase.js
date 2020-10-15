@@ -451,7 +451,36 @@ var ResultStatus = { OK: 100, Failed: 101, NotLogin: 102, Unauthorized: 103 };
         layer.msg(msg, { time: 2000, shift: 0 });
     }
 
+   function AesEncrypt(str,_KEY,_IV) {
+            var key = CryptoJS.enc.Utf8.parse(_KEY);
+            var iv = CryptoJS.enc.Utf8.parse(_IV);
 
+            var encrypted = '';
+
+            var srcs = CryptoJS.enc.Utf8.parse(str);
+            encrypted = CryptoJS.AES.encrypt(srcs, key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+            return encrypted.ciphertext.toString();
+        }
+
+
+       function AesDecrypt(str,_KEY,_IV) {
+            var key = CryptoJS.enc.Utf8.parse(_KEY);
+            var iv = CryptoJS.enc.Utf8.parse(_IV);
+            var encryptedHexStr = CryptoJS.enc.Hex.parse(str);
+            var srcs = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+            var decrypt = CryptoJS.AES.decrypt(srcs, key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+            var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+            return decryptedStr.toString();
+        }
     window.$vmpa = $vmpa;
 })($);
 

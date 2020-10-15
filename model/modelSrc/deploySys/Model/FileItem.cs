@@ -117,5 +117,12 @@ public   partial class FileItem : Application.Model.Base.BaseObject{
 
 
 
+
+
+
+
+
+
+
 }
 }
