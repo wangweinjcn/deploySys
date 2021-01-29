@@ -37,7 +37,7 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.10" />
     <PackageReference Include="MailKit" Version="2.0.2" />
     <PackageReference Include="MessagePack" Version="1.7.3.4" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -48,7 +48,7 @@
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.10" />
     <PackageReference Include="MessagePack" Version="2.1.90" />
     <PackageReference Include="wChloe" Version="3.9.0" />
    
