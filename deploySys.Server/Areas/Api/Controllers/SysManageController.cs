@@ -151,8 +151,19 @@ namespace deploySys.Server.Controller.Admin
                 return FailedMsg("对于需要反向代理的服务或站点，不允许发布数量大于1");
 
             }
-          
-           
+            if (msa.serviceType != (int)EnumAppServiceType.webSite)
+            {
+                if (offobj.dockerNetType == 0 && string.IsNullOrEmpty(msa.Ass_AppType.createContainerParams))
+                {
+                    return FailedMsg("不支持创建桥接网络的容器");
+
+                }
+                if (offobj.dockerNetType == 1 && string.IsNullOrEmpty(msa.Ass_AppType.createContainerParams2))
+                {
+                    return FailedMsg("不支持创建主机网络的容器");
+
+                }
+            }
             ReleaseTask obj = objectSpace.ObjectForIntId<ReleaseTask>(offobj.Id);
             if (obj == null)
             {
@@ -500,8 +511,8 @@ namespace deploySys.Server.Controller.Admin
             DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
             if (di == null)
                 return FailedMsg("实例不存在");
-            if (di.isNginx.Value)
-                return FailedMsg("nginx不允许删除");
+            if (di.isNginx.Value || di.isNodeMonitor)
+                return FailedMsg("系统实例不允许删除");
              di.status = (int)EnumDockerInstanceStatus.waitForTaskRemove;
             
             HostTask ht = new HostTask(objectSpace);
@@ -525,6 +536,7 @@ namespace deploySys.Server.Controller.Admin
                     ht2.taskParms = jobj.ToString();
                 }
             }
+
             UpdateDatabase();
             return SuccessMsg();
 
@@ -541,6 +553,7 @@ namespace deploySys.Server.Controller.Admin
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult removeWebSite([FromRoute]string Id)
         {
+            //TODO 删除站点
             var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
             if (curruser == null)
                 return FailedMsg("");
@@ -602,6 +615,110 @@ namespace deploySys.Server.Controller.Admin
             return this.SuccessData(pagedData);
         }
 
+        #endregion
+        #region 日志
+        /// <summary>
+        /// 获取实例日志
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("{Id}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult getLogs([FromRoute] string Id,[FromQuery]Pagination pagination)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+            
+            DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
+            if (di == null)
+                return FailedMsg("实例不存在");
+            if (!curruser.IsAdmin() && (di.Ass_MicroServiceApp.OwnerId != curruser.Id.ToString()))
+            {
+                return FailedMsg("不可以获取不属于你管理的应用日志");
+            }
+            var macid = di.Ass_HostResource.macId;
+            if (!RunConfig.Instance.nodedeviceStat_dic.ContainsKey(macid))
+            {
+                return FailedMsg("节点未上线");
+            }
+            var session = RunConfig.Instance.nodedeviceStat_dic[macid];
+            var logdir = Path.Combine(di.Ass_HostResource.appBaseDir,di.baseDir, di.Ass_MicroServiceApp.LogRelationDir);
+            var tmpstr = session.session.InvokeApi<string>("getlogs", logdir).GetResult();
+            if (string.IsNullOrEmpty(tmpstr))
+                return FailedMsg("");
+            var jarr = JArray.Parse(tmpstr);
+            PagedJObjData pagedData = new PagedJObjData(jarr, jarr.Count, pagination.Page, pagination.PageSize);
+            return this.SuccessData(pagedData);
+
+        }
+        /// <summary>
+        /// 删除日志文件
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <param name="fn"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("{Id}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult deleteLogFile([FromRoute] string Id, [FromForm] string fn)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+
+            DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
+            if (di == null)
+                return FailedMsg("实例不存在");
+            if (!curruser.IsAdmin() && (di.Ass_MicroServiceApp.OwnerId != curruser.Id.ToString()))
+            {
+                return FailedMsg("不可删除不属于你管理的应用日志");
+            }
+            var macid = di.Ass_HostResource.macId;
+            if (!RunConfig.Instance.nodedeviceStat_dic.ContainsKey(macid))
+            {
+                return FailedMsg("节点未上线");
+            }
+            var session = RunConfig.Instance.nodedeviceStat_dic[macid];
+            var res = session.session.InvokeApi<int>("deletelog", fn).GetResult();
+            if (res == 0)
+                return SuccessMsg("");
+            else
+                return FailedMsg();
+        }
+            /// <summary>
+            /// 获取文件内容
+            /// </summary>
+            /// <param name="Id"></param>
+            /// <param name="fn"></param>
+            /// <returns></returns>
+            [HttpGet]
+        [Route("{Id}")]
+        [SwaggerOperation(Tags = new[] { "ProductParams" })]
+        public IActionResult getLogContent([FromRoute] string Id, [FromQuery] string fn)
+        {
+            var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
+            if (curruser == null)
+                return FailedMsg("");
+
+            DockerInstance di = objectSpace.ObjectForId<DockerInstance>(Id);
+            if (di == null)
+                return FailedMsg("实例不存在");
+            if (!curruser.IsAdmin() && (di.Ass_MicroServiceApp.OwnerId != curruser.Id.ToString()))
+            {
+                return FailedMsg("不可以获取不属于你管理的应用日志");
+            }
+            var macid = di.Ass_HostResource.macId;
+            if (!RunConfig.Instance.nodedeviceStat_dic.ContainsKey(macid))
+            {
+                return FailedMsg("节点未上线");
+            }
+            var session = RunConfig.Instance.nodedeviceStat_dic[macid];
+            var tmpstr = session.session.InvokeApi<string>("getlog", fn).GetResult();
+            FrmLib.Log.commLoger.runLoger.Debug(tmpstr);
+            return Content(tmpstr);
+        }
         #endregion
     }
 

@@ -178,12 +178,12 @@ public   partial class SysFunc : _baseObject{
 
 
             var str2 = "d" + DateTime.Now.ToString("MMdd");
-            PhysicalPath phday = GetSpace().SpaceQuery<PhysicalPath>().Where(a => a.Name.StartsWith( str2)).OrderByDesc(a=>a.Id).FirstOrDefault();
+            PhysicalPath phday = GetSpace().SpaceQuery<PhysicalPath>().Where(a => a.Name.StartsWith( str2) && a.Ass_LocalPath_parent==phyear).OrderByDesc(a=>a.Id).FirstOrDefault();
             if (phday == null)
             {
                 lock (_lockObj)
                 {
-                    phday = GetSpace().SpaceQuery<PhysicalPath>().Where(a => a.Name.StartsWith(str2)).OrderByDesc(a => a.Id).FirstOrDefault();
+                    phday = GetSpace().SpaceQuery<PhysicalPath>().Where(a => a.Name.StartsWith(str2)  && a.Ass_LocalPath_parent==phyear).OrderByDesc(a => a.Id).FirstOrDefault();
                     if (phday == null)
                     {
                         phday = new PhysicalPath(GetSpace());
@@ -816,6 +816,8 @@ private void cycleTree(MenuGroup mg, treeNode ParentNode)
 
 
         
+
+
 
 
 

@@ -31,7 +31,7 @@ public   partial class FileItem : Application.Model.Base.BaseObject{
 
 {
             InstallFileInfo fi = new InstallFileInfo();
-            fi.basepath = this.retationPath;
+            fi.relationDir = this.retationPath;
             fi.filename = this.fileName;
             fi.hashcode = this.hashCode;
             fi.Dllversion = this.dllVersion;
@@ -102,6 +102,8 @@ public   partial class FileItem : Application.Model.Base.BaseObject{
 {
  
        }
+
+
 
 
 

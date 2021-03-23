@@ -33,7 +33,7 @@ namespace deploySys.Node
         private static RunConfig _instance;
 
 
-        public SoftUpdateFiles clientFiles;
+        public SoftUpdateFiles clientFiles { get; set; }
         public HostResource  serverHostResource{ get; private set; }
          public IPAddress hostAddr { get; private set; }
         public string MacID { get;  set; }
@@ -44,7 +44,7 @@ namespace deploySys.Node
         public int AutoReconnectTimeSpan { get; private set; }
         public string rpcHost { get; private set; }
         public int rpcPort { get; private set; }
-       
+       public string httpGetFileUrl { get; private set; }
 
         public void Refresh()
         {
@@ -155,6 +155,7 @@ namespace deploySys.Node
                 hostAddr = ipaddr;
                 this.rpcPort = int.Parse(commSetting.Configuration["deploySys:rpcPort"]);
                 clientFiles = SoftUpdateFiles.instance;
+                this.httpGetFileUrl = commSetting.Configuration["deploySys:httpGetFileUrl"];
                 clientFiles.initFiles(AppDomain.CurrentDomain.BaseDirectory, false, false);
                
                

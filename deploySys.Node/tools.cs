@@ -37,7 +37,7 @@ namespace deploySys.Node
        
          return assembly.GetName().Version.ToString();
      }
-        public static void restartSelf()
+        public static void restartSelfOnLinux()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
@@ -48,14 +48,14 @@ namespace deploySys.Node
                
                 File.WriteAllText(fn, getrstartCmdContent());
                 var chmodcmd = "chmod +x " + fn;
-                excutScript(chmodcmd);
+                excutScriptOnLinux(chmodcmd);
                 var restartcmd = fn + " " + fileName + "  " + path;
-                excutScript(restartcmd);
+                excutScriptOnLinux(restartcmd);
 
             }
 
         }
-     public static string excutScript(string cmdStr)
+     public static string excutScriptOnLinux(string cmdStr)
      {
          Process p = new Process();
          p.StartInfo.FileName = "sh";

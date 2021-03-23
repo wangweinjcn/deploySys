@@ -42,7 +42,7 @@
           "deploySys.Common": "1.1.14.1",
           "log4net": "2.0.8",
           "SharpCompress": "0.25.0",
-          "spNettyRPC": "1.0.4",
+          "spNettyRPC": "1.0.6",
           "wChloe.MySql": "3.9.0",
           "wChloe.SQLite": "3.9.2"
         },
@@ -1230,7 +1230,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "wChloe/3.9.0": {
+      "wChloe/3.9.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
@@ -1243,8 +1243,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Chloe.dll": {
-            "assemblyVersion": "3.9.0.0",
-            "fileVersion": "3.9.0.0"
+            "assemblyVersion": "3.9.1.0",
+            "fileVersion": "3.9.1.0"
           }
         },
         "compile": {
@@ -1254,7 +1254,7 @@
       "wChloe.MySql/3.9.0": {
         "dependencies": {
           "MySql.Data": "8.0.15",
-          "wChloe": "3.9.0"
+          "wChloe": "3.9.1"
         },
         "runtime": {
           "lib/netstandard2.0/Chloe.MySql.dll": {
@@ -1270,7 +1270,7 @@
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "2.2.3",
           "System.Data.SQLite": "1.0.112",
-          "wChloe": "3.9.0"
+          "wChloe": "3.9.1"
         },
         "runtime": {
           "lib/netstandard2.0/Chloe.SQLite.dll": {
@@ -1350,7 +1350,7 @@
           "System.Reflection.Emit": "4.6.0",
           "deploySys.Common": "1.1.14.1",
           "log4net": "2.0.8",
-          "wChloe": "3.9.0"
+          "wChloe": "3.9.1"
         },
         "runtime": {
           "ModelCore.dll": {}
@@ -1359,7 +1359,7 @@
           "ModelCore.dll": {}
         }
       },
-      "spNettyRPC/1.0.4": {
+      "spNettyRPC/1.0.6": {
         "dependencies": {
           "DotNetty.Buffers": "0.6.0",
           "DotNetty.Codecs": "0.6.0",
@@ -4806,7 +4806,7 @@
     "System.ComponentModel.TypeConverter/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "sha512-16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
@@ -5009,7 +5009,7 @@
     "System.Threading.ThreadPool/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SrCOmTvvOOCmJT4BBxdZcwhz6XEMsjBGZvGSVorOxdCznaUNeVotEjDfXGIZ8gcGo00qgPbTV6puHDgcFYl6Iw==",
+      "sha512": "sha512-k/+g4b7vjdd4aix83sTgC9VG6oXYKAktSfNIJUNGxPEj7ryEOfzHHhfnmsZvjxawwcD9HyWXKCXmPjX8U4zeSw==",
       "path": "system.threading.threadpool/4.3.0",
       "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     },
@@ -5020,24 +5020,24 @@
       "path": "system.threading.timer/4.3.0",
       "hashPath": "system.threading.timer.4.3.0.nupkg.sha512"
     },
-    "wChloe/3.9.0": {
+    "wChloe/3.9.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fyYNCTJhEEmVXHriucxTOTX73ZSGIaRjDRG1Djjxxb6k3zEHw2RRQLAJQPIX8JfAUrBBMJq+vcVX/ytUmt3F6w==",
-      "path": "wchloe/3.9.0",
-      "hashPath": "wchloe.3.9.0.nupkg.sha512"
+      "sha512": "sha512-MYYgOxF8jgOoKbcpCBlWhcJrGdN1EzUVKbBYgpVoymkgoACuagx2rrlG7eaKTT7Nt0vEB5ri9NG/+6OUtBFZtg==",
+      "path": "wchloe/3.9.1",
+      "hashPath": "wchloe.3.9.1.nupkg.sha512"
     },
     "wChloe.MySql/3.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nFRGqSFmMtiHkH6FbbHhYn5FhFZN2WfixAniAPPmeJoRnUQ0dn2t52/Am8aXvNZoRyIfFD0s6271/b9/0m2P9Q==",
+      "sha512": "sha512-atCrL9vbZrN4w5g/9GRCl2iqz96GLX3WL2anWYBYKsExBm1KVQvhN4l/vyQUbet/c/70jLoXjefTYubA4aknhA==",
       "path": "wchloe.mysql/3.9.0",
       "hashPath": "wchloe.mysql.3.9.0.nupkg.sha512"
     },
     "wChloe.SQLite/3.9.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mAcBpgbhJupFkIh+KlrShdmSV5Z/79/Yzpj0PRpM5ApHM/KZr5NLQpYIsIoPd4zkNgd5Rfft3jcEy9EEpIE2xQ==",
+      "sha512": "sha512-F5ujQXCHMNNkLgbLgDaKQN6j0EmPvZqM7hl+G+U4sqFsjk5kkokm/zSqLtH5/dMUg/CKyYKwsYHXGWMU0X9jjQ==",
       "path": "wchloe.sqlite/3.9.2",
       "hashPath": "wchloe.sqlite.3.9.2.nupkg.sha512"
     },
@@ -5065,7 +5065,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "spNettyRPC/1.0.4": {
+    "spNettyRPC/1.0.6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -6354,7 +6354,7 @@
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LE/oChpRvkSi3U25u0KnJcI44JeDZ1QJCyN4qFDx2uusEypdqR24w7lKYw21eYe5esuCBuc862wRmpF63Yy1KQ==",
+      "sha512": "sha512-prtjIEMhGUnQq6RnPEYLpFt8AtLbp9yq2zxOSrY7KJJZrw25Fi97IzBqY7iqssbM61Ek5b8f3MG/sG1N2sN5KA==",
       "path": "system.collections.nongeneric/4.3.0",
       "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
     },

@@ -337,7 +337,7 @@
           "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
-      "wChloe/3.9.1": {
+      "wChloe/3.9.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
@@ -3006,7 +3006,7 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "wChloe/3.9.1": {
+      "wChloe/3.9.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.2.0",
@@ -9068,16 +9068,15 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "wChloe/3.9.1": {
-      "sha512": "MYYgOxF8jgOoKbcpCBlWhcJrGdN1EzUVKbBYgpVoymkgoACuagx2rrlG7eaKTT7Nt0vEB5ri9NG/+6OUtBFZtg==",
+    "wChloe/3.9.0": {
+      "sha512": "fyYNCTJhEEmVXHriucxTOTX73ZSGIaRjDRG1Djjxxb6k3zEHw2RRQLAJQPIX8JfAUrBBMJq+vcVX/ytUmt3F6w==",
       "type": "package",
-      "path": "wchloe/3.9.1",
+      "path": "wchloe/3.9.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "lib/net452/Chloe.dll",
         "lib/netstandard2.0/Chloe.dll",
-        "wchloe.3.9.1.nupkg.sha512",
+        "wchloe.3.9.0.nupkg.sha512",
         "wchloe.nuspec"
       ]
     },
@@ -9245,10 +9244,12 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://nugetserver.njxhby.com/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net461": {
+          "targetAlias": "net461",
           "projectReferences": {
             "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj": {
               "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj"
@@ -9256,6 +9257,7 @@
           }
         },
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {
             "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj": {
               "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj"
@@ -9271,6 +9273,7 @@
     },
     "frameworks": {
       "net461": {
+        "targetAlias": "net461",
         "dependencies": {
           "MailKit": {
             "target": "Package",
@@ -9297,9 +9300,10 @@
             "version": "[3.9.0, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       },
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
           "MailKit": {
             "target": "Package",
@@ -9350,21 +9354,8 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "ModelCore 依赖于 wChloe (>= 3.9.0)，但找不到 wChloe 3.9.0。 已解决 wChloe 3.9.1 的近似最佳匹配。 ",
-      "libraryId": "wChloe",
-      "targetGraphs": [
-        ".NETFramework,Version=v4.6.1",
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }

@@ -181,7 +181,7 @@
             }
              me.methods.openAppInstances = function () {
                 var xx = top.layui.element;
-                var tabUrl = "/home/appInstances/-1&hostId=" + me.data.mainSelectedModel.Id;
+                var tabUrl = "/home/appInstances/-1?hostId=" + me.data.mainSelectedModel.Id;
                 var tabDDid = "hostInstances-" + me.data.mainSelectedModel.Id;
                 var tabTitle = "主机运行实例[" + me.data.mainSelectedModel.hostName + "]";
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);

@@ -176,7 +176,6 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Release\netcoreapp2.2\appsettings.Development.json
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Release\netcoreapp2.2\appsettings.json
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Release\netcoreapp2.2\configs\ViewModelConf\SysUser.json
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Release\netcoreapp2.2\Properties\launchSettings.json
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\appInstances.cshtml.g.cs
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\appTypes.cshtml.g.cs
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\appTypes_js.cshtml.g.cs
@@ -272,3 +271,5 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\DbInstance_js.cshtml.g.cs
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\dbServer.cshtml.g.cs
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\dbServer_js.cshtml.g.cs
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\instanceLogs.cshtml.g.cs
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\obj\Release\netcoreapp2.2\Razor\Views\Home\instanceLogs_js.cshtml.g.cs

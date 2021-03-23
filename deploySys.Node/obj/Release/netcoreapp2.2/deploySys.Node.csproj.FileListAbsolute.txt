@@ -6,8 +6,6 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\ModelCore.dll.config
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.csprojAssemblyReference.cache
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.csproj.CoreCompileInputs.cache
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.AssemblyInfoInputs.cache
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.AssemblyInfo.cs
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.csproj.CopyComplete
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.pdb
@@ -22,3 +20,4 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\ModelCore.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\mime.types
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.genruntimeconfig.cache
+D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\version.txt

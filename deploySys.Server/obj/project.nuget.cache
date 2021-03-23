@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jSMnhYRnAdLbz+8t6eOmvrm2j8bzJ1VKnlwhsoIO6sO1y49z1vHtj9DyNHGeuy1SXdP7vP/NTAwliCW+YMbXsA==",
+  "dgSpecHash": "Aw5mdQktTLiWS1ByLRVWlX9n+cTjKYbZZww2oQN9mRH0vBXuUHmC7CzAIeiBDITX9cbaHMa+4wUDn32wIqAlsg==",
   "success": true,
   "projectFilePath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Server\\deploySys.Server.csproj",
   "expectedPackageFiles": [
@@ -348,18 +348,7 @@
     "C:\\Users\\ww\\.nuget\\packages\\wchloe.sqlite\\3.9.2\\wchloe.sqlite.3.9.2.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zkweb.system.drawing\\4.0.1\\zkweb.system.drawing.4.0.1.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zxing.net\\0.16.2\\zxing.net.0.16.2.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\spnettyrpc\\1.0.4\\spnettyrpc.1.0.4.nupkg.sha512"
+    "C:\\Users\\ww\\.nuget\\packages\\spnettyrpc\\1.0.6\\spnettyrpc.1.0.6.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "ModelCore 依赖于 wChloe (>= 3.9.0)，但找不到 wChloe 3.9.0。 已解决 wChloe 3.9.1 的近似最佳匹配。 ",
-      "libraryId": "wChloe",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  "logs": []
 }

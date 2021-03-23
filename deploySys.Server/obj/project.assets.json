@@ -5639,7 +5639,7 @@
           "bin/placeholder/ModelCore.dll": {}
         }
       },
-      "spNettyRPC/1.0.4": {
+      "spNettyRPC/1.0.6": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -15124,7 +15124,7 @@
       "path": "../model/ModelCore.csproj",
       "msbuildProject": "../model/ModelCore.csproj"
     },
-    "spNettyRPC/1.0.4": {
+    "spNettyRPC/1.0.6": {
       "type": "project",
       "path": "../../rpc/spNettyRPC/spNettyRPC.csproj",
       "msbuildProject": "../../rpc/spNettyRPC/spNettyRPC.csproj"
@@ -15147,7 +15147,7 @@
       "deploySys.Common >= 1.1.14.1",
       "log4net >= 2.0.8",
       "sharpcompress >= 0.25.0",
-      "spNettyRPC >= 1.0.4",
+      "spNettyRPC >= 1.0.6",
       "wChloe.MySql >= 3.9.0",
       "wChloe.SQLite >= 3.9.2"
     ]
@@ -15180,10 +15180,12 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://nugetserver.njxhby.com/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
           "projectReferences": {
             "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj": {
               "projectPath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj"
@@ -15205,6 +15207,7 @@
     },
     "frameworks": {
       "netcoreapp2.2": {
+        "targetAlias": "netcoreapp2.2",
         "dependencies": {
           "MessagePack": {
             "target": "Package",
@@ -15282,20 +15285,8 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "ModelCore 依赖于 wChloe (>= 3.9.0)，但找不到 wChloe 3.9.0。 已解决 wChloe 3.9.1 的近似最佳匹配。 ",
-      "libraryId": "wChloe",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    }
-  ]
+  }
 }

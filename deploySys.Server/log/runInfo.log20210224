@@ -1,0 +1,12 @@
+24 Feb 2021 13:34:49,650  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+24 Feb 2021 13:34:59,161  INFO [1] ?.?  - [.ctor:209@Confg.cs]runconfig ok
+24 Feb 2021 13:34:59,161  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+24 Feb 2021 13:35:03,121  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+24 Feb 2021 13:35:03,123  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+24 Feb 2021 13:35:04,445  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2
+24 Feb 2021 13:37:55,747  INFO [1] ?.?  -  [ConfigureServices:?@baseStartup]now configure main service
+24 Feb 2021 13:38:00,431  INFO [1] ?.?  - [.ctor:209@Confg.cs]runconfig ok
+24 Feb 2021 13:38:00,431  INFO [1] ?.?  - [initOtherServices:51@Startup.cs]rpc server started at 8080
+24 Feb 2021 13:38:03,788  DEBUG [1] ?.?  -  [Configure:?@baseStartup]*
+24 Feb 2021 13:38:03,789  DEBUG [1] ?.?  - [initTasklist:661@baseStartup.cs]now createTaskList
+24 Feb 2021 13:38:04,850  DEBUG [1] ?.?  - [initTasklist:670@baseStartup.cs]createTaskList count:2

@@ -15,11 +15,12 @@ using System.IO;
 
 using System.Net;
 using log4net;
-
+using FrmLib.Http;
 using NettyRPC;
 using NettyRPC.Core;
 using FrmLib.Extend;
 using deploySys.Model;
+using Application.Model.Base;
 
 namespace deploySys.Node
 {
@@ -29,7 +30,8 @@ namespace deploySys.Node
     /// </summary>
     public class nodeClient : RpcClient
     {
-       
+        private string dockerInstanceId;
+        private string clientVersion { get {  return this.GetType().Assembly.GetName().Version.ToString();  } }
         /// <summary>
         /// 唯一实例
         /// </summary>
@@ -41,6 +43,7 @@ namespace deploySys.Node
         private bool nowReconnect = false;
         private int recountMaxCount=20;
         private static object _lockOjb = new object();
+        private HttpHelper hh = new HttpHelper();
         /// <summary>
         /// 获取唯一实例
         /// </summary>
@@ -62,6 +65,7 @@ namespace deploySys.Node
                     }
                   
                 }
+              //  FrmLib.Log.commLoger.runLoger.Info("_instance.connected:"+_instance.connected.ToString());
                 if (!_instance.connected )
                     _instance.refreshConnect();
                 if (!_instance.connected)
@@ -83,6 +87,8 @@ namespace deploySys.Node
         private void refreshConnect()
         {
             //  Client._instance = null;
+
+            FrmLib.Log.commLoger.runLoger.Info("refreshConnect");
             int reconnectCount = 0;
             lock (_lockOjb)
             {
@@ -99,7 +105,7 @@ namespace deploySys.Node
                 }
                 catch (Exception ex)
                 {
-                    FrmLib.Log.commLoger.runLoger.Error(FrmLib.Extend.tools_static.getExceptionMessage(ex));
+                    FrmLib.Log.commLoger.runLoger.Error("refreshConnect error:"+ FrmLib.Extend.tools_static.getExceptionMessage(ex));
                     reconnectCount++;
                 }
                 finally
@@ -111,11 +117,83 @@ namespace deploySys.Node
                    
                 }
             }
-            if (!string.IsNullOrEmpty(RunConfig.Instance.MacID))
+            FrmLib.Log.commLoger.runLoger.Info("now refresh registe with "+RunConfig.Instance.MacID);
+            if (string.IsNullOrEmpty(RunConfig.Instance.MacID))
             {
-                this.Registe(RunConfig.Instance.MacID);
+                FrmLib.Log.commLoger.runLoger.Info(" restart search macid");
+                foreach (var macid in tools.getNetworkInterfacesMac())
+                {
+                    if (nodeClient.Instance.Registe(macid, dockerInstanceId) == 0)
+                    {
+
+                        RunConfig.Instance.MacID = macid;
+                        break;
+                    }
+                }
+
+
+            }
+            else
+            {
+                FrmLib.Log.commLoger.runLoger.Info("now call remote  registe ");
+                this.Registe(RunConfig.Instance.MacID, dockerInstanceId);
+                FrmLib.Log.commLoger.runLoger.Info("now call remote  registe  ok");
             }
 
+        }
+        /// <summary>
+        /// 获取指定目录下的文件列表（日志文件）
+        /// </summary>
+        /// <param name="logsDir"></param>
+        /// <returns></returns>
+        [Api]
+        public string getlogs(string logsDir)
+        {
+            if (!System.IO.Directory.Exists(logsDir))
+            {
+                return null;
+            }
+            var  root = new DirectoryInfo(logsDir);
+              FileInfo[] files=root.GetFiles();
+            var list = (from x in files where x.Name.Contains("log") select new {x.FullName, x.Name,x.Length,x.CreationTime,x.LastWriteTime }).ToList();
+            return JArray.FromObject(list).ToString();
+        }
+        /// <summary>
+        /// 获取日志文件内容
+        /// </summary>
+        /// <param name="fn"></param>
+        /// <returns></returns>
+        [Api]
+        public int deletelog(string fn)
+        {
+            try
+            {
+                FrmLib.Log.commLoger.devLoger.Debug(" delete fn:" + fn);
+                if (File.Exists(fn))
+                {
+                    File.Delete(fn);
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+            /// <summary>
+            /// 获取日志文件内容
+            /// </summary>
+            /// <param name="fn"></param>
+            /// <returns></returns>
+            [Api]
+        public string getlog(string fn)
+        {
+            FrmLib.Log.commLoger.devLoger.Debug("fn:"+fn);
+            if (!File.Exists(fn))
+                return null;
+            var content = System.IO.File.ReadAllText(fn);
+            FrmLib.Log.commLoger.devLoger.Debug("" + content);
+            return content;
         }
         public byte[] getNginxConfFileContent(string fileName)
         {
@@ -161,11 +239,13 @@ namespace deploySys.Node
             }
 
         }
-        public int Registe(string macid)
+        public int Registe(string macid,string diId)
         {
             try
             {
-                var x = InvokeApi<int>("NodeRegiste", macid).GetAwaiter();
+                this.dockerInstanceId = diId;
+                Console.WriteLine("instanceId:{0},macId:{1}", diId, macid);
+                var x = InvokeApi<int>("NodeRegiste", macid,diId,this.clientVersion).GetAwaiter();
                 int ret = x.GetResult();
                 return ret;
             }
@@ -304,7 +384,7 @@ namespace deploySys.Node
             }
             catch (Exception ex)
             {
-                FrmLib.Log.commLoger.runLoger.Error(FrmLib.Extend.tools_static.getExceptionMessage(ex));
+                FrmLib.Log.commLoger.runLoger.Error("say alive error:"+FrmLib.Extend.tools_static.getExceptionMessage(ex));
                 return -100;
             }
         }
@@ -337,15 +417,46 @@ namespace deploySys.Node
             }
             catch (Exception exp)
             {
-                FrmLib.Log.commLoger.runLoger.Error(string.Format("CompareClientFiles error{0}",exp.Message));
+                FrmLib.Log.commLoger.runLoger.Error(string.Format("CompareClientFiles error{0}",FrmLib.Extend.tools_static.getExceptionMessage( exp)));
                 return new List<InstallFileInfo>();
+            }
+        }
+        public Task<byte[]> GetTaskFileContentByGuid(string Guid)
+        {
+            // var task = this.InvokeApi<byte[]>("GetFileContentByGuid", Guid) ;
+            // return task;
+            try
+            {
+                // var bytes=  this.InvokeApi<byte[]>("GetClientUpdateFile", hashcode).GetAwaiter().GetResult();
+                var response = hh.doAsycHttpRequest(RunConfig.Instance.httpGetFileUrl + "getTaskFile/" + Guid, new Dictionary<string, string>(), true);
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception("GetTaskFileContentByGuid httpRequest is error code: " + response.StatusCode);
+                }
+                var bytes = hh.asyncResponseToFile(response);
+
+                return bytes;
+            }
+            catch (Exception exp)
+            {
+                FrmLib.Log.commLoger.runLoger.Error(string.Format("GetTaskFileContentByGuid error{0}", exp.Message));
+                return null;
             }
         }
         public byte[] GetClientUpdateFile(string hashcode)
         {
             try
             {
-                return  this.InvokeApi<byte[]>("GetClientUpdateFile", hashcode).GetAwaiter().GetResult();
+                // var bytes=  this.InvokeApi<byte[]>("GetClientUpdateFile", hashcode).GetAwaiter().GetResult();
+                var response = hh.doAsycHttpRequest(RunConfig.Instance.httpGetFileUrl+"getClientUpdateFile/" + hashcode, new Dictionary<string,string>(), true);
+                if (!response.IsSuccessStatusCode)
+                { 
+                     throw new Exception("httpRequest is error code: "+response.StatusCode);
+                }
+                var bytes = hh.ResponseToFile(response);
+                if (bytes == null)
+                    throw new Exception("content is null");
+                return bytes;
             }
             catch (Exception exp)
             {

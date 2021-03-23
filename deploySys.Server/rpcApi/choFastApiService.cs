@@ -74,7 +74,7 @@ public    class choRpcApiService : FastApiService
         }
         catch (Exception exp)
         {
-           RunConfig.Instance.runlog.Error(String.Format("EcoFastApiService init,exception {0}", exp.Message));
+          FrmLib.Log.commLoger.runLoger.Error(String.Format("EcoFastApiService init,exception {0}", exp.Message));
 
         }
     }

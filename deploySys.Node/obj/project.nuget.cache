@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AWrzDV4hnNEI1lD2t7Oo/xbQFmBJ7Qxcf2x6k/2aG/xI4xqr3mt4uWSJyeRkv5133cPbRJHqF05X0+OeGe1D0Q==",
+  "dgSpecHash": "Mncn9uDFW+hN3FC4hcRDVoPWpXkVrvrKElslNkTsZRtVDaSMrkg1HpllwqeKwPVTHh+8kP/Brmud2scykxGU4g==",
   "success": true,
   "projectFilePath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Node\\deploySys.Node.csproj",
   "expectedPackageFiles": [
@@ -61,12 +61,12 @@
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\2.2.0\\microsoft.extensions.options.configurationextensions.2.2.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.1.0\\microsoft.netcore.dotnethostpolicy.2.1.0.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.app\\2.2.0\\microsoft.netcore.app.2.2.0.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.2.0\\microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.2.0\\microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.2.0\\microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\microsoft.netcore.targets\\2.0.0\\microsoft.netcore.targets.2.0.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\microsoft.win32.registry\\4.6.0\\microsoft.win32.registry.4.6.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\mimekit\\2.0.2\\mimekit.2.0.2.nupkg.sha512",
@@ -197,21 +197,10 @@
     "C:\\Users\\ww\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\topshelf\\4.2.1\\topshelf.4.2.1.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\topshelf.serviceinstaller\\4.2.1\\topshelf.serviceinstaller.4.2.1.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\wchloe\\3.9.1\\wchloe.3.9.1.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\wchloe\\3.9.0\\wchloe.3.9.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zkweb.system.drawing\\4.0.0\\zkweb.system.drawing.4.0.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zxing.net\\0.16.2\\zxing.net.0.16.2.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\spnettyrpc\\1.0.4\\spnettyrpc.1.0.4.nupkg.sha512"
+    "C:\\Users\\ww\\.nuget\\packages\\spnettyrpc\\1.0.6\\spnettyrpc.1.0.6.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "ModelCore 依赖于 wChloe (>= 3.9.0)，但找不到 wChloe 3.9.0。 已解决 wChloe 3.9.1 的近似最佳匹配。 ",
-      "libraryId": "wChloe",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  "logs": []
 }

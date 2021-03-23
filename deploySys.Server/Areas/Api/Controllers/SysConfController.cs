@@ -626,6 +626,7 @@ namespace deploySys.Server.Controller.Admin
                 .Take(pagination.PageSize).ToCommList();
             foreach (var one in list)
             {
+                one.DispLabel = string.Format("{0}({1}:{2})", one.hostName, one.WIP,one.IP);
                 var und = RunConfig.Instance.getUNDByMac(one.macId);
                 if (und != null)
                 {
@@ -986,15 +987,17 @@ namespace deploySys.Server.Controller.Admin
             return SuccessData(obj);
         }
         /// <summary>
-        /// 删除微服务应用
+        /// 删除微服务应用,删除站点有bug，待处理
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
+        
         [HttpPost]
         [Route("{Id?}")]
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
         public IActionResult deleteMicroServiceApp([FromRoute]int Id)
         {
+            //TODO 删除站点时bug，node没有处理
             var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
             if (curruser == null || !curruser.IsAdmin())
                 return FailedMsg("不是管理员不允许删除");

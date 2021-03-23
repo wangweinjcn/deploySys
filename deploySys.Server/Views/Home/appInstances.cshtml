@@ -7,17 +7,19 @@
 }
 @section _command{
     <el-button-group>
-           <el-button type="primary" icon="el-icon-switch-button" v-on:click="openStopInstance" :disabled="mainCommandDisnable"></el-button>
-           <el-button type="primary" icon="el-icon-magic-stick" v-on:click="openRestartInstance" :disabled="mainCommandDisnable"></el-button>
-         <el-button type="primary" icon="el-icon-delete" v-on:click="openRemoveInstance" :disabled="mainCommandDisnable"></el-button>
+           <el-button type="primary" icon="el-icon-switch-button" v-on:click="openStopInstance" :disabled="mainCommandDisnable">停止</el-button>
+           <el-button type="primary" icon="el-icon-magic-stick" v-on:click="openRestartInstance" :disabled="mainCommandDisnable">重启</el-button>
+          <el-button type="primary" icon="" v-on:click="openInstanceLogs" :disabled="mainCommandDisnable">日志</el-button>
+         <el-button type="primary" icon="el-icon-delete" v-on:click="openRemoveInstance" :disabled="mainCommandDisnable">删除</el-button>
     </el-button-group>
 }
 
 <template>
     <div>
-        <v-table is-vertical-resize
+ <v-table is-vertical-resize
                  :vertical-resize-offset='60'
                  is-horizontal-resize
+                  column-width-drag
                  style="width:100%"
                  :multiple-sort="false"
                  :min-height="550"
@@ -28,7 +30,10 @@
                  row-click-color="#edf7ff"
                  :row-click="mainRowClick"
                  v-on:sort-change="sortChange"
-                 :paging-index="(mainPageIndex-1)*pageSize"></v-table>
+                  v-on:on-custom-comp="customCompFunc"
+                 :paging-index="(mainPageIndex-1)*pageSize">
+                
+        </v-table>
 
        <div class="mt20 mb20 bold"></div>
 
@@ -105,6 +110,13 @@
                         me.methods.mainSelectedModel = null;
                     }
                 });
+            };
+            me.methods.openInstanceLogs = function () {
+                var xx = top.layui.element;
+                var tabUrl = "/home/instanceLogs/" + me.data.mainSelectedModel.Id;
+                var tabDDid = "instanceLogs-" + me.data.mainSelectedModel.Id;
+                var tabTitle = " 实例日志[" + me.data.mainSelectedModel.key + "]";
+                $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
             };
             me.methods.openStopInstance = function () {
                $vmpa.confirm("确定要停止该实例吗？", me.methods.stopInstance);

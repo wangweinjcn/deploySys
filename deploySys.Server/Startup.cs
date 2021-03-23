@@ -49,7 +49,7 @@ namespace deploySys.Server
                 return new Chloe.ObjectSpace.SqlliteContextSpace(new SQLiteConnectionFactory(str));
             });
             FrmLib.Log.commLoger.runLoger.Info(string.Format("rpc server started at {0}",RunConfig.Instance.rpcPort));
-            RpcServer rs = new RpcServer(RunConfig.Instance.rpcBackLength,RunConfig.Instance.rpcPort,new  mpSerializer());
+            RpcServer rs = new RpcServer(RunConfig.Instance.rpcBackLength,RunConfig.Instance.rpcPort,RunConfig.Instance.timeOut,new  mpSerializer());
             rs.start();
            
             //services.AddMvc().AddXmlSerializerFormatters();

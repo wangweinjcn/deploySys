@@ -132,6 +132,15 @@ namespace deploySys.Server.Controllers
         [HttpGet]
         [Route("{id}")]
         [ApiExplorerSettings(IgnoreApi = true)]
+        public IActionResult instanceLogs([FromRoute] string id)
+        {
+            ViewBag.instanceId = id;
+            return View();
+
+        }
+        [HttpGet]
+        [Route("{id}")]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult hostPerf([FromRoute]string id)
         {
             ViewBag.hostId = id;

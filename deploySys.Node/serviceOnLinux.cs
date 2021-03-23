@@ -14,6 +14,7 @@ namespace deploySys.Node
 
         public class serviceOnLinux : IHostedService
         {
+        private string cmdForInstanceId = "cat /proc/self/cgroup |grep cpuset |cut -d/ -f3|cut -c1-12";
             IApplicationLifetime appLifetime;
             ILogger<serviceOnLinux> logger;
             IHostingEnvironment environment;
@@ -29,7 +30,11 @@ namespace deploySys.Node
                 this.logger = logger;
                 this.appLifetime = appLifetime;
                 this.environment = environment;
-            ns = new nodeService();
+            Console.WriteLine("excutScriptOnLinux: "+cmdForInstanceId);
+            var tmp = tools.excutScriptOnLinux(cmdForInstanceId).Replace(AppDomain.CurrentDomain.BaseDirectory.TrimEnd(System.IO.Path.DirectorySeparatorChar) ,"").Trim(System.Environment.NewLine.ToCharArray()).Trim(' ');
+            Console.WriteLine("now get instance id: " + tmp);
+
+            ns = new nodeService(tmp);
             }
 
             public Task StartAsync(CancellationToken cancellationToken)

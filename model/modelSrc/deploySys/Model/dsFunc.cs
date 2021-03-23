@@ -174,7 +174,7 @@ dsFunc instance = null;
  
        }
        ///<summary>
-       ///                                                                                                                                                     获取指定目录下，指定文件名的目录                                                                                                                                                     
+       ///                                                                                                                                                                   获取指定目录下，指定文件名的目录                                                                                                                                                                   
        ///</summary>
         ///<param name="basepath"></param>
         ///<param name="filename"></param>
@@ -201,6 +201,8 @@ public static string findMainFileDir(string basepath, string filename)
             }
             return null;
         }
+
+
 
 
 

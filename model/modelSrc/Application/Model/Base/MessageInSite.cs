@@ -310,5 +310,7 @@ public   partial class MessageInSite : Application.Model.Base.BaseObject{
 
 
 
+
+
 }
 }

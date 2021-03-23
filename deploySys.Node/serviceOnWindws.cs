@@ -7,9 +7,13 @@ namespace deploySys.Node
 {
     public class serviceOnWindws : ServiceControl
     {
-        nodeService ns = new nodeService();
+        /// <summary>
+        /// 待解决
+        /// </summary>
+        nodeService ns = new nodeService("");
         public bool Start(HostControl hostControl)
         {
+          //  throw new NotImplementedException("功能受限，待定处理");
             ns.startService();
             return true;
         }

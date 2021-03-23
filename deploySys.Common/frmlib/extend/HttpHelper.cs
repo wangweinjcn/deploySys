@@ -466,6 +466,12 @@ namespace FrmLib.Http
             string x = await response.Content.ReadAsStringAsync();
             return x;
         }
+        public async Task<byte[]> asyncResponseToFile(HttpResponseMessage response)
+        {
+
+            byte[] x = await response.Content.ReadAsByteArrayAsync();
+            return x;
+        }
         /// <summary>
         /// 根据http流生成文件内容
         /// </summary>

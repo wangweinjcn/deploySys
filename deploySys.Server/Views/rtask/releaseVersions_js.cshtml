@@ -25,7 +25,7 @@
                     <el-select v-model="selectHostIds" multiple  placeholder="请选择">
                         <el-option v-for="item in mainDialog.zoneHosts"
                                    :key="item.Id"
-                                   :label="item.IP"
+                                   :label="item.DispLabel"
                                    :value="item.Id">
                         </el-option>
                     </el-select>
@@ -206,12 +206,22 @@
          <el-row :gutter="10">
             <el-col :span="12">
                 <el-form-item label="更新文件（rar格式）：" label-width="200px">
-                    <input type="file" id="importfile1" class="file">
+                    <input type="file" id="importfile2" class="file">
                 </el-form-item>
             </el-col>
              
         </el-row>
+    <el-row :gutter="10">
+         <el-col :span="12">
+                <el-form-item label="配置文件:" label-width="100px">                    
+                      <el-radio-group v-model="mainDialog.EditModel.confFileOverride">
+    <el-radio :label="false">不覆盖</el-radio>
+    <el-radio :label="true">覆盖</el-radio>  
+  </el-radio-group>
 
+                </el-form-item>
+            </el-col>
+    </el-row>
 
                     </el-tab-pane>
                    

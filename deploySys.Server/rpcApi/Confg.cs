@@ -94,6 +94,10 @@ namespace deploySys.Server
         /// </summary>
         public int rpcPort { get; set; }
         /// <summary>
+        /// rpc服务超时，默认30s
+        /// </summary>
+        public int timeOut { get; set; }
+        /// <summary>
         /// rcp服务等待队列长度
         /// </summary>
         public int rpcBackLength { get; set; }
@@ -180,7 +184,7 @@ namespace deploySys.Server
         }
         public void delayInitClientFiles()
         {
-                         this.clientFiles.initFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, clientSoftDir));
+            this.clientFiles.initFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, clientSoftDir));
         }
         private RunConfig()
      {
@@ -195,6 +199,7 @@ namespace deploySys.Server
 
                 this.rpcBackLength = int.Parse(Globals.Configuration["deploySys:rpcBackLength"]);
                 this.rpcPort = int.Parse(Globals.Configuration["deploySys:rpcPort"]);
+                 this.timeOut = int.Parse(Globals.Configuration["deploySys:timeOut"]);
                 this.maxNodeStateLength = int.Parse(Globals.Configuration["deploySys:maxNodeStateLength"]);
                 this.clientSoftDir = (Globals.Configuration["deploySys:clientSoftDir"]);
                 this.clientFiles = SoftUpdateFiles.instance;  

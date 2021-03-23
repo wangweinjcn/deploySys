@@ -447,5 +447,7 @@ public   partial class SysParams : _baseObject{
 
 
 
+
+
 }
 }

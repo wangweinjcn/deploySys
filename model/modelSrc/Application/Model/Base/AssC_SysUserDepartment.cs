@@ -447,5 +447,7 @@ public   partial class AssC_SysUserDepartment : _baseObject{
 
 
 
+
+
 }
 }

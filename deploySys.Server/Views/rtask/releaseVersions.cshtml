@@ -308,7 +308,7 @@
                 });
             }
             me.methods.mainAdd = function () {
-                var newmodel = { Id: -1, confFileOverride: false,overridePolicy:0,releaseType:0,dockerNetType:0,useWIP:true,selectHostPolicy:1,unzipInServer:false,count:1 ,memo:"",Ass_Zone_Id:-1,domainName:"",sslPem:"",sslKey:"",memo:"",dockerNetType:1,useSSL:2,needRegister:false,domainName:""};
+                var newmodel = { Id: -1, confFileOverride: false,overridePolicy:0,releaseType:0,dockerNetType:0,useWIP:false,selectHostPolicy:1,unzipInServer:false,count:1 ,memo:"",Ass_Zone_Id:-1,domainName:"",sslPem:"",sslKey:"",memo:"",dockerNetType:1,useSSL:2,needRegister:false,domainName:""};
                 me.OnMainEdit(newmodel, "新增");
             };
             me.methods.mainEdit = function () {
@@ -448,7 +448,7 @@
                 var updateurl = "";
 
                 var formData = new window.FormData()
-                var files = document.getElementById("importfile1").files;
+                var files = document.getElementById("importfile2").files;
                 if (files.length < 1) {
                     if (me.EditModel.Id < 0) {
                         alert("请添加文件");

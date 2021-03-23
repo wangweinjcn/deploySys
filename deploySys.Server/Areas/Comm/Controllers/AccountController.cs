@@ -50,6 +50,49 @@ namespace deploySys.Server.Controllers.Comm
 
         }
         /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="loginuser">
+        /// loginId :手机号码
+        /// Password：新密码(md5)
+        /// oldPassword：旧密码(md5)
+        /// </param>
+        /// <returns></returns>
+        [SwaggerOperation(Tags = new[] { "Common" })]
+        [HttpPost]
+        public ActionResult ChangePassword(string loginId,string Password,string oldPassword )
+        {
+            //Stream stream = HttpContext.Request.Body;
+            //byte[] buffer = new byte[HttpContext.Request.ContentLength.Value];
+            //stream.Read(buffer, 0, buffer.Length);
+            //string temp = Encoding.UTF8.GetString(buffer);
+            //if (string.IsNullOrEmpty(temp))
+            //    return FailedMsg("参数为空");
+            //var jsonparams = JObject.Parse(temp);
+
+            string mobilePhone = loginId;
+
+            string newPassword = Password;
+          
+
+            SysFunc sf = SysFunc.getInstance(objectSpace);
+            SysUser curruser = objectSpace.SpaceQuery<SysUser>().Where(a => a.IsEnabled)
+                .Where(a => a.Mobile == mobilePhone || a.Email == mobilePhone
+                || a.LoginId == mobilePhone).FirstOrDefault();
+            if (curruser == null)
+            {
+                return FailedMsg("手机号码不存在");
+            }
+            if (curruser.Password == AesTools.AesEncrypt(oldPassword.ToUpper(), curruser.secretKey))
+            {
+                curruser.Password = AesTools.AesEncrypt(newPassword.ToUpper(), curruser.secretKey);
+                UpdateDatabase(true);
+                return this.SuccessMsg("密码修改成功");
+            }
+            else
+                return FailedMsg("原密码错误");
+        }
+        /// <summary>
         /// 获取未读信息
         /// </summary>
         /// <returns></returns>

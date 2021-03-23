@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XhTaKIsEXypEq3Z9Ufvncmez3fjqjlJ4PlkQlROyQlttWgLyR0orJwbNMTWFaNuEbqzbtQ05bSRviy3ibRfjmg==",
+  "dgSpecHash": "ZfNFZ7IWxYcQGpRHOfKvlKFMLJ84MaTvXei/ocENqXl2D3J//v4CBNvo7mmpkOFZUeAgIGV3kXVMBYehNjrM3w==",
   "success": true,
   "projectFilePath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\model\\ModelCore.csproj",
   "expectedPackageFiles": [
@@ -171,21 +171,9 @@
     "C:\\Users\\ww\\.nuget\\packages\\system.threading.timer\\4.0.1\\system.threading.timer.4.0.1.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
-    "C:\\Users\\ww\\.nuget\\packages\\wchloe\\3.9.1\\wchloe.3.9.1.nupkg.sha512",
+    "C:\\Users\\ww\\.nuget\\packages\\wchloe\\3.9.0\\wchloe.3.9.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zkweb.system.drawing\\4.0.0\\zkweb.system.drawing.4.0.0.nupkg.sha512",
     "C:\\Users\\ww\\.nuget\\packages\\zxing.net\\0.16.2\\zxing.net.0.16.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "ModelCore 依赖于 wChloe (>= 3.9.0)，但找不到 wChloe 3.9.0。 已解决 wChloe 3.9.1 的近似最佳匹配。 ",
-      "libraryId": "wChloe",
-      "targetGraphs": [
-        ".NETFramework,Version=v4.6.1",
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  "logs": []
 }

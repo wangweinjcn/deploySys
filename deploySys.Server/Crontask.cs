@@ -263,9 +263,14 @@ namespace deploySys.Server
                                     }
                                 }
                             }
-                            var fpath = dsFunc.findMainFileDir(baseDir, obj.Ass_MicroServiceApp.rootDirMainFile);
-                            if (fpath == null)
+                            string fpath = null;
+                            if (obj.FileName.ToLower().EndsWith(".war"))
+                                fpath = baseDir;
+                            else
+                                fpath = dsFunc.findMainFileDir(baseDir, obj.Ass_MicroServiceApp.rootDirMainFile);
+                            if (fpath == null )
                             {
+
                                 throw new Exception("找不到根目录");
                             }
                             List<string> conffile = null;

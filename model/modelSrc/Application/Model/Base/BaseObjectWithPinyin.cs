@@ -455,5 +455,7 @@ public   partial class BaseObjectWithPinyin : Application.Model.Base.BaseObject{
 
 
 
+
+
 }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3CKLU5mEKvAMQPApfu6/XRFjq1sIhWPKtpxwZH6cWwItM20vw11ah7TbZVToVjeWvMAzmT3B+1BJqxGdh2CHYw==",
+  "dgSpecHash": "3pEvZhNYgqE+HC0Kc/ai0K+xp6VDqVR1NngTsVvadOOFrT/ThFjnwZ4qnykWf5uooqnUxE/Ksubt8fypXa3unQ==",
   "success": true,
   "projectFilePath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\deploySys.Common\\deploySys.Common.csproj",
   "expectedPackageFiles": [

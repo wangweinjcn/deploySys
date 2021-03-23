@@ -447,5 +447,7 @@ public   partial class AssC_SysRoleMenu : _baseObject{
 
 
 
+
+
 }
 }

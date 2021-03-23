@@ -30,23 +30,31 @@ namespace deploySys.Server.rpcApi
         {
             // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles "));
 
-            Dictionary<string, InstallFileInfo> inputDic = new Dictionary<string, InstallFileInfo>();
-            foreach (var obj in clientfiles)
+            try
             {
-                if (!inputDic.ContainsKey(obj.filename))
-                    inputDic.Add(obj.filename, obj);
-            }
-            var difffiles = RunConfig.Instance.clientFiles.CompareDiffFile(inputDic);
-            List<InstallFileInfo> resultlist = new List<InstallFileInfo>();
-            foreach (var obj in difffiles)
-            {
-                InstallFileInfo ifi = new InstallFileInfo(obj.filename, obj.basepath, obj.hashcode);
-                ifi.isdelete = obj.isdelete;
-                resultlist.Add(ifi);
-            }
-            // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles result:{0}", resultlist.Count));
+                Dictionary<string, InstallFileInfo> inputDic = new Dictionary<string, InstallFileInfo>();
+                foreach (var obj in clientfiles)
+                {
+                    if (!inputDic.ContainsKey(obj.hashcode))
+                        inputDic.Add(obj.hashcode, obj);
+                }
+                var difffiles = RunConfig.Instance.clientFiles.CompareDiffFile(inputDic);
+                List<InstallFileInfo> resultlist = new List<InstallFileInfo>();
+                foreach (var obj in difffiles)
+                {
+                    InstallFileInfo ifi = new InstallFileInfo(obj.filename, obj.relationDir, obj.hashcode);
+                    ifi.isdelete = obj.isdelete;
+                    resultlist.Add(ifi);
+                }
+                // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles result:{0}", resultlist.Count));
 
-            return resultlist;
+                return resultlist;
+            }
+            catch (Exception exp)
+            {
+                  FrmLib.Log.commLoger.runLoger.Error(string.Format("CompareClientFiles error{0}",FrmLib.Extend.tools_static.getExceptionMessage(exp)));
+                throw exp;
+            }
 
         }
         [Api]
@@ -56,9 +64,19 @@ namespace deploySys.Server.rpcApi
         {
             InstallFileInfo fi = RunConfig.Instance.clientFiles.getFileInfoByHashKey(hashcode);
             if (fi != null)
+            {
+               
+                if (fi.filecontent == null || fi.filecontent.Length==0)
+                {
+                    FrmLib.Log.commLoger.runLoger.Error("fi.filecontent is null or empty filename is "+fi.filename);
+                }
+                 FrmLib.Log.commLoger.runLoger.Debug("fi!=null content length:"+fi.filecontent.Length);
                 return fi.filecontent;
+            }
             else
+            {  FrmLib.Log.commLoger.runLoger.Error("fi is null ");
                 return null;
+            }
         }
         #endregion
         [Api]
@@ -266,20 +284,46 @@ namespace deploySys.Server.rpcApi
                             di.status = (int)EnumDockerInstanceStatus.stop;
                         break;
                     case ((int)EnumHostTaskType.removeDockerInstance):
-                        if (di.isNginx.Value)
-                        {
-                            di.Ass_HostResource.nginxInstanceId = null;
-                            objectSpace.BatchDelete<webSite>(a => a.Ass_DockerInstance == di);
-                        }
+
+
+
                         if (di != null)
+                        {
+                            if (di.isNginx.Value)
+                            {
+                                di.Ass_HostResource.nginxInstanceId = null;
+                                objectSpace.BatchDelete<webSite>(a => a.Ass_DockerInstance == di);
+                            }
+                            var rtaskIdList = objectSpace.SpaceQuery<HostTask>().Where(a => a.dockerInanceId == di.instanceId).Select(a => a.Ass_ReleaseTask_Id).ToCommList();
+                            FrmLib.Log.commLoger.runLoger.Info("now delete release task:" + JsonConvert.SerializeObject(rtaskIdList));
+                            
+                            objectSpace.BatchDelete<ReleaseTask>(a => rtaskIdList.Contains(a.Id));
+                            objectSpace.BatchDelete<appVersion>(a => rtaskIdList.Contains(a.Ass_ReleaseTask_Id));
+                            FrmLib.Log.commLoger.runLoger.Info("now delete HostTask diid:" + di.instanceId);
+                            objectSpace.BatchDelete<HostTask>(a => a.dockerInanceId == di.instanceId);
                             di.choDelete();
+                        }
+                        else
+                        {
+                            FrmLib.Log.commLoger.runLoger.Error("removeDockerInstance but di is null");
+                        }
                         break;
                     case ((int)EnumHostTaskType.removeNgixSite):
                        var wsid= JObject.Parse( hrt.taskParms)["Id"].ToString();
 
                         var ws = objectSpace.ObjectForId<webSite>(wsid);
                         if (ws != null)
+                        {
+                            var instanceid = ws.Ass_DockerInstance.instanceId;
+                            //var rtaskIdList = objectSpace.SpaceQuery<HostTask>().Where(a => a.dockerInanceId == instanceid && a.taskParms.Contains(ws.siteDirName)).Select(a => a.Ass_ReleaseTask_Id).ToList();
+                            //FrmLib.Log.commLoger.runLoger.Info("now delete release task:" + JsonConvert.SerializeObject(rtaskIdList));
+
+                            //objectSpace.BatchDelete<ReleaseTask>(a => rtaskIdList.Contains(a.Id));
+                            //objectSpace.BatchDelete<appVersion>(a => rtaskIdList.Contains(a.Ass_ReleaseTask_Id));
+                            //FrmLib.Log.commLoger.runLoger.Info("now delete HostTask diid:" + di.instanceId);
+                            //objectSpace.BatchDelete<HostTask>(a => a.dockerInanceId == di.instanceId);
                             ws.choDelete();
+                        }
                         break;
                 }
             }
@@ -491,6 +535,12 @@ namespace deploySys.Server.rpcApi
             if (host != null)
             {
                 host.inLine = false;
+                   var dockinstance = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource == host && a.isNodeMonitor).FirstOrDefault() ;
+                if (dockinstance != null)
+                {
+                    dockinstance.status = -1;
+                    dockinstance.instanceId = "";
+                }
                 UpdateDatabase();
             }
             return 0;
@@ -528,7 +578,7 @@ namespace deploySys.Server.rpcApi
 
             catch (Exception exp)
             {
-                 RunConfig.Instance.runlog.Error(String.Format("registe  exception,thread id:{0},message:{1}",
+                FrmLib.Log.commLoger.runLoger.Error(String.Format("registe  exception,thread id:{0},message:{1}",
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 return -2;
             }
@@ -543,12 +593,15 @@ namespace deploySys.Server.rpcApi
         /// <returns></returns>
         [Api]
         [FastLogFilter("注册节点")]
-        public int NodeRegiste(string macid)
+        public int NodeRegiste(string macid,string diId,string version)
         {
             try
             {
+                if (macid == null)
+                    return -1;
                 macid = macid.Replace(":","").Replace("-","").ToLower();
                 // RunConfig.Instance.devlog.Info(String.Format("Login ,thread id:{0}", System.Threading.Thread.CurrentThread.ManagedThreadId));
+                FrmLib.Log.commLoger.runLoger.Info(string.Format( "node registe,macid:{0},instanceId:{1},version:{2}",macid,diId,version));
                 var host = objectSpace.SpaceQuery<HostResource>().Where(a => a.macId == macid).FirstOrDefault();
                 if (host!=null)
                 {
@@ -561,17 +614,39 @@ namespace deploySys.Server.rpcApi
                         uns = new UnitNodeSession();
                         RunConfig.Instance.nodedeviceStat_dic.Add(macid, uns);
                         uns.und = new UnitNodeDevice();
-                        uns.und.MacID = macid;
-                        uns.und.hostId = host.Id;
-                        uns.und.LastRegisterDt = DateTime.Now;
-                        uns.und.AliveDt = DateTime.Now;
+                      
                     }
                  
 
                     this.CurrentContext.Session.Tag.Set("ApiToken", macid);
                     this.CurrentContext.Session.Tag.Set("Logined", true);
+                    uns.und.MacID = macid;
+                    uns.und.hostId = host.Id;
+                    uns.und.LastRegisterDt = DateTime.Now;
+                    uns.und.AliveDt = DateTime.Now;
                     uns.und.AliveDt = DateTime.Now;
                     uns.session = this.CurrentContext.Session;
+                    var dockinstance = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.Ass_HostResource == host && a.isNodeMonitor).FirstOrDefault() ;
+                    if (dockinstance == null && !string.IsNullOrEmpty(diId)) 
+                    {
+                        dockinstance = new DockerInstance(objectSpace);
+                        dockinstance.Ass_HostResource = host;
+                        dockinstance.isNodeMonitor = true;
+                        dockinstance.isNginx = false;
+                        dockinstance.baseDir = "/opt/node";
+                        dockinstance.domain = "";
+                        dockinstance.IP = host.WIP;
+                        dockinstance.proxyPort = -1;
+                      
+
+                    }
+                    if (dockinstance != null)
+                    { 
+                      dockinstance.instanceId = diId;
+                        dockinstance.version = version;
+                        dockinstance.status = 20;
+                        UpdateDatabase();
+                    }
                     // RunConfig.Instance.devlog.Info(String.Format("registe ok"));
                     return 0;
                 }
@@ -584,8 +659,8 @@ namespace deploySys.Server.rpcApi
 
             catch (Exception exp)
             {
-                 RunConfig.Instance.runlog.Error(String.Format("registe  exception,thread id:{0},message:{1}",
-                     System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
+                FrmLib.Log.commLoger.runLoger.Error(String.Format("registe  exception,thread id:{0},message:{1}",
+                     System.Threading.Thread.CurrentThread.ManagedThreadId, FrmLib.Extend.tools_static.getExceptionMessage( exp)));
                 return -2;
             }
 
@@ -618,7 +693,7 @@ namespace deploySys.Server.rpcApi
             }
             catch (Exception exp)
             {
-                RunConfig.Instance.runlog.Info(String.Format("SayAlive  exception,thread id:{0},message:{1}", 
+               FrmLib.Log.commLoger.runLoger.Info(String.Format("SayAlive  exception,thread id:{0},message:{1}", 
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 return -2;
             }
@@ -648,7 +723,7 @@ namespace deploySys.Server.rpcApi
             }
             catch (Exception exp)
             {
-                RunConfig.Instance.runlog.Error(String.Format("GetRsycData  exception,thread id:{0},message:{1}",
+               FrmLib.Log.commLoger.runLoger.Error(String.Format("GetRsycData  exception,thread id:{0},message:{1}",
                      System.Threading.Thread.CurrentThread.ManagedThreadId, exp.Message));
                 throw exp;
             }

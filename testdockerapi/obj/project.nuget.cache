@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OHnJSowTMr2cA3VVoZBTnwm8KmcO4yATLgbc03qtHaM/nsM/Kb8QLlAbI1ew6pslOpocdPTfCdsKmc4UWjc+kA==",
+  "dgSpecHash": "hBx/hMPFc1gVnHI/ADOvvG2d+y9bxEVhM9AYgwugsJreWqVyGePs26Tbr3TTD4CzXL+MYICSeoxtv+00v9213g==",
   "success": true,
   "projectFilePath": "D:\\document\\workSpace\\projects\\dotnetCore\\open_microService\\deploySys\\testdockerapi\\testdockerapi.csproj",
   "expectedPackageFiles": [
