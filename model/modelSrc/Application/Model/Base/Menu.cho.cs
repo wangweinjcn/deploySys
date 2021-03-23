@@ -37,8 +37,8 @@ public override int Id { get; set; }
         ///名称</summary>
 [UmlElement(Id="45c2324d-f037-48b8-8872-9a2ef7409710")]
 [Display(Name="名称")]
-[Required]
 [StringLength(100,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Name{
 get { 
  var pValue= getPropertyValue();
@@ -73,8 +73,8 @@ return res;}
         ///菜单key；可用于前端菜单路由</summary>
 [UmlElement(Id="7edf7d20-de00-4153-a277-c5521a251459")]
 [Display(Name="菜单key；可用于前端菜单路由")]
-[Required]
 [StringLength(40,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Key{
 get { 
  var pValue= getPropertyValue();

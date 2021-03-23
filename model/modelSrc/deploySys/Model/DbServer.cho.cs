@@ -94,8 +94,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="b74538fd-3a84-4a1b-9980-5810983d08e0")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  dbType{
 get { 
  var pValue= getPropertyValue();

@@ -24,4 +24,3 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Debug\net452\deploySys.Common.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Debug\net452\deploySys.Common.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\bin\Debug\net452\NodaTime.dll
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Common\obj\Debug\net452\deploySys.Common.csprojAssemblyReference.cache

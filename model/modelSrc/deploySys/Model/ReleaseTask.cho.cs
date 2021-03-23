@@ -244,8 +244,8 @@ return res;}
         ///git的版本号</summary>
 [UmlElement(Id="86306d44-3e7a-4499-a627-e07df9b1d8c0")]
 [Display(Name="git的版本号")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Version{
 get { 
  var pValue= getPropertyValue();

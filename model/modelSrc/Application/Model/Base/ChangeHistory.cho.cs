@@ -34,8 +34,8 @@ public override int Id { get; set; }
         ///
         ///<summary></summary>
 [UmlElement(Id="003a0e7f-435d-41de-8801-efc293088080")]
-[Required]
 [StringLength(100,ErrorMessage ="超过最大长度")]
+[Required]
 public String  ChangerName{
 get { 
  var pValue= getPropertyValue();
@@ -64,8 +64,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="32c3dc27-2005-4de4-91e9-7ca440766151")]
-[Required]
 [StringLength(10,ErrorMessage ="超过最大长度")]
+[Required]
 public String  ChangeType{
 get { 
  var pValue= getPropertyValue();
@@ -78,8 +78,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="337fb6ee-fab3-45db-9490-df4028c054cd")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  TypeName{
 get { 
  var pValue= getPropertyValue();
@@ -121,8 +121,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="c8535884-bd44-4903-b73e-f71f25675a5f")]
-[Required]
 [StringLength(40,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Changer{
 get { 
  var pValue= getPropertyValue();

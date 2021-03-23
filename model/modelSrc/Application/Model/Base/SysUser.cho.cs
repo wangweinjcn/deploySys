@@ -54,8 +54,8 @@ return res;}
         ///用户姓名</summary>
 [UmlElement(Id="3ac8c883-9a89-4b2d-bab0-2720e207e3e2")]
 [Display(Name="用户姓名")]
-[Required]
 [StringLength(100,ErrorMessage ="超过最大长度")]
+[Required]
 public String  UserName{
 get { 
  var pValue= getPropertyValue();

@@ -475,5 +475,6 @@ public   partial class SysRole : Application.Model.Base.BaseObject{
 
 
 
+
 }
 }

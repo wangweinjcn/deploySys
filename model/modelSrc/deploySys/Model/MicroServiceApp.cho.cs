@@ -37,8 +37,8 @@ public override int Id { get; set; }
         ///应用日志目录</summary>
 [UmlElement(Id="06b25aef-abfa-4fce-92a7-6d64dd7fb8a9")]
 [Display(Name="应用日志目录")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  LogRelationDir{
 get { 
  var pValue= getPropertyValue();

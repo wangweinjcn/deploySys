@@ -18,7 +18,7 @@
           "System.Reflection.Emit": "4.6.0",
           "deploySys.Common": "1.1.14.1",
           "log4net": "2.0.8",
-          "wChloe": "3.9.1"
+          "wChloe": "3.9.0"
         },
         "runtime": {
           "ModelCore.dll": {}
@@ -1961,7 +1961,7 @@
           }
         }
       },
-      "wChloe/3.9.1": {
+      "wChloe/3.9.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
@@ -1974,8 +1974,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Chloe.dll": {
-            "assemblyVersion": "3.9.1.0",
-            "fileVersion": "3.9.1.0"
+            "assemblyVersion": "3.9.0.0",
+            "fileVersion": "3.9.0.0"
           }
         }
       },
@@ -3177,12 +3177,12 @@
       "path": "system.xml.xmldocument/4.0.1",
       "hashPath": "system.xml.xmldocument.4.0.1.nupkg.sha512"
     },
-    "wChloe/3.9.1": {
+    "wChloe/3.9.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MYYgOxF8jgOoKbcpCBlWhcJrGdN1EzUVKbBYgpVoymkgoACuagx2rrlG7eaKTT7Nt0vEB5ri9NG/+6OUtBFZtg==",
-      "path": "wchloe/3.9.1",
-      "hashPath": "wchloe.3.9.1.nupkg.sha512"
+      "sha512": "sha512-fyYNCTJhEEmVXHriucxTOTX73ZSGIaRjDRG1Djjxxb6k3zEHw2RRQLAJQPIX8JfAUrBBMJq+vcVX/ytUmt3F6w==",
+      "path": "wchloe/3.9.0",
+      "hashPath": "wchloe.3.9.0.nupkg.sha512"
     },
     "ZKWeb.System.Drawing/4.0.0": {
       "type": "package",

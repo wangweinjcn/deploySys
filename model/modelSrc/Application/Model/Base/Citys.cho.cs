@@ -84,8 +84,8 @@ return res;}
         ///城市Key</summary>
 [UmlElement(Id="37a0a17e-0411-4abd-8780-b55b9cfe895c")]
 [Display(Name="城市Key")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  cityKey{
 get { 
  var pValue= getPropertyValue();
@@ -153,8 +153,8 @@ return res;}
         ///城市</summary>
 [UmlElement(Id="c059f403-3286-40db-8da9-eb21184b1656")]
 [Display(Name="城市")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  city{
 get { 
  var pValue= getPropertyValue();

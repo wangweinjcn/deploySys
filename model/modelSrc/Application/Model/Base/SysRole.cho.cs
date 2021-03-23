@@ -53,8 +53,8 @@ return res;}
         ///角色Key</summary>
 [UmlElement(Id="19dbc4cf-59b4-43a5-9eb6-f8d10d906aaa")]
 [Display(Name="角色Key")]
-[Required]
 [StringLength(40,ErrorMessage ="超过最大长度")]
+[Required]
 public String  RoleID{
 get { 
  var pValue= getPropertyValue();

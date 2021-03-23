@@ -37,8 +37,8 @@ public override int Id { get; set; }
         ///省份名称</summary>
 [UmlElement(Id="7a10be62-853f-497e-b7be-5e78db57c71c")]
 [Display(Name="省份名称")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  province{
 get { 
  var pValue= getPropertyValue();

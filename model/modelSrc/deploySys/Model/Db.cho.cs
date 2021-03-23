@@ -36,8 +36,8 @@ public override int Id { get; set; }
         ///
         ///<summary></summary>
 [UmlElement(Id="33c95eac-eef3-4a6a-900c-f272479f20b5")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Ecoder{
 get { 
  var pValue= getPropertyValue();
@@ -69,8 +69,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="7c8d24d6-8049-4d37-8246-e59e89b3c7de")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Password{
 get { 
  var pValue= getPropertyValue();
@@ -86,8 +86,8 @@ return res;}
         ///数据库名称或实例名称</summary>
 [UmlElement(Id="8981b7d8-2661-451e-8988-06cb988252db")]
 [Display(Name="数据库名称或实例名称")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Name{
 get { 
  var pValue= getPropertyValue();
@@ -119,8 +119,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="ebe3a12c-d128-4b1c-8d97-0e6ea6c0419d")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  User{
 get { 
  var pValue= getPropertyValue();

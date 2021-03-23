@@ -34,8 +34,8 @@ public override int Id { get; set; }
         ///
         ///<summary></summary>
 [UmlElement(Id="0fb819f0-b894-404d-bc41-ba1d1731fc4e")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Key{
 get { 
  var pValue= getPropertyValue();
@@ -61,8 +61,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="6ccd0b49-6e38-4f63-b1bd-72ccce245f17")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Category{
 get { 
  var pValue= getPropertyValue();

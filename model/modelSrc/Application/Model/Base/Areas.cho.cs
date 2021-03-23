@@ -39,8 +39,8 @@ public override int Id { get; set; }
         ///名称</summary>
 [UmlElement(Id="25b059fc-766b-4a6f-825b-225d4f92492a")]
 [Display(Name="名称")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  area{
 get { 
  var pValue= getPropertyValue();
@@ -56,8 +56,8 @@ return res;}
         ///区县Key</summary>
 [UmlElement(Id="32d8029c-18bf-4c72-8ea9-91755e77b336")]
 [Display(Name="区县Key")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  areaKey{
 get { 
  var pValue= getPropertyValue();

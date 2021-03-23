@@ -34,8 +34,8 @@ public override int Id { get; set; }
         ///
         ///<summary></summary>
 [UmlElement(Id="11501caa-c99b-4213-b5d9-11a7c8371de7")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  areacode{
 get { 
  var pValue= getPropertyValue();
@@ -48,8 +48,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="251c6809-c378-4c17-9bdc-17e8cc2dd40d")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  continent{
 get { 
  var pValue= getPropertyValue();
@@ -94,8 +94,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="90383ebf-1093-4575-872d-a895a8b24d15")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  user{
 get { 
  var pValue= getPropertyValue();
@@ -108,8 +108,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="b4836a0b-ebfe-4284-b70e-6b75949b82a1")]
-[Required]
 [StringLength(225,ErrorMessage ="超过最大长度")]
+[Required]
 public String  country{
 get { 
  var pValue= getPropertyValue();
@@ -122,8 +122,8 @@ return res;}
         ///
         ///<summary></summary>
 [UmlElement(Id="f7f138cd-cfd0-4ad2-a754-1e95c066d326")]
-[Required]
 [StringLength(2147483647,ErrorMessage ="超过最大长度")]
+[Required]
 public String  multiarea{
 get { 
  var pValue= getPropertyValue();

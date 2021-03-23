@@ -37,8 +37,8 @@ public override int Id { get; set; }
 [BindNever]
 [NotApplyFromOffice]
 [NotMonitorProperty]
-[Required]
 [StringLength(20,ErrorMessage ="超过最大长度")]
+[Required]
 public String  UpdaterID{
 get { 
  var pValue= getPropertyValue();
@@ -54,8 +54,8 @@ return res;}
 [BindNever]
 [NotApplyFromOffice]
 [NotMonitorProperty]
-[Required]
 [StringLength(100,ErrorMessage ="超过最大长度")]
+[Required]
 public String  UpdaterName{
 get { 
  var pValue= getPropertyValue();
@@ -136,8 +136,8 @@ return res;}
 [NotApplyFromOffice]
 [NotMonitorProperty]
 [Display(Name="创建人名字")]
-[Required]
 [StringLength(100,ErrorMessage ="超过最大长度")]
+[Required]
 public String  CreaterName{
 get { 
  var pValue= getPropertyValue();
@@ -156,8 +156,8 @@ return res;}
 [NotApplyFromOffice]
 [NotMonitorProperty]
 [Display(Name="生成人id，自动生成")]
-[Required]
 [StringLength(20,ErrorMessage ="超过最大长度")]
+[Required]
 public String  CreaterID{
 get { 
  var pValue= getPropertyValue();

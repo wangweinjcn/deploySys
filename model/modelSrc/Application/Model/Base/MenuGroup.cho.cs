@@ -50,8 +50,8 @@ return res;}
         ///菜单组名</summary>
 [UmlElement(Id="6f7949cd-8c96-448c-9b6c-c0a80f4e5e09")]
 [Display(Name="菜单组名")]
-[Required]
 [StringLength(40,ErrorMessage ="超过最大长度")]
+[Required]
 public String  Name{
 get { 
  var pValue= getPropertyValue();

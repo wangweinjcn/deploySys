@@ -66,6 +66,20 @@
 
 
         </el-row>
+         <el-row :gutter="10">
+            <el-col :span="14">
+                <el-form-item label="nginxHttp端口:">
+                    <el-input v-model="mainDialog.EditModel.nginxHttpPort" :disabled="false" placeholder="请输入" style="width:200px"></el-input>
+                </el-form-item>
+            </el-col>
+           <el-col :span="10">
+                <el-form-item label="nginxHttps端口:">
+                    <el-input v-model="mainDialog.EditModel.nginxHttpsPort" :disabled="false" placeholder="请输入" style="width:200px"></el-input>
+                </el-form-item>
+            </el-col>
+
+
+        </el-row>
        <el-row :gutter="10">
             <el-col :span="14">
                 <el-form-item label="根目录:">

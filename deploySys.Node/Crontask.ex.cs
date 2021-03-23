@@ -555,7 +555,7 @@ namespace deploySys.Node
                 {
                     Directory.CreateDirectory(thissiteDir);
                 }
-                string sslstr = "80";
+                string sslstr = RunConfig.Instance.serverHostResource.nginxHttpPort;
                 string sslRemark = "#";
                 Console.WriteLine("rt.usessl:{0};apps.usessl:{1}", rt.useSSL, msapps.useSsl);
                 if (rt.useSSL == 1 || (rt.useSSL == 2 && msapps.useSsl.HasValue && msapps.useSsl.Value))
@@ -565,7 +565,7 @@ namespace deploySys.Node
                     File.WriteAllText(fn1, sslPem);
                     fn1 = Path.Combine(sslnginxDir, appversionName + ".key");
                     File.WriteAllText(fn1, sslKey);
-                    sslstr = "443 ssl";
+                    sslstr = string.Format("{0} ssl",RunConfig.Instance.serverHostResource.nginxHttpsPort);
                     sslRemark = "";
                 }
                 string loadstr = null;
@@ -625,8 +625,9 @@ namespace deploySys.Node
             File.WriteAllBytes(fn, content);
              content = nodeClient.Instance.getNginxConfFileContent("diWebServer.json");
                //处理nginx端口
-
+            
             var loadstr = System.Text.Encoding.UTF8.GetString(content);
+            loadstr.Replace("{HT.WebPort}", RunConfig.Instance.serverHostResource.nginxHttpPort);
             loadstr = loadstr.Replace("{basenginxDir}", basenginxDir);
             CreateContainerParameters dparam = JsonConvert.DeserializeObject<CreateContainerParameters>(loadstr);
 
