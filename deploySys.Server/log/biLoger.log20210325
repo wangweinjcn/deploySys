@@ -1,0 +1,44 @@
+2021-03-25 09:18:09,973 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-25 09:18:16,391 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-25 09:18:21,010 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "edda0bce-e8ee-4503-b6bd-d2aa285cb65a"
+}
+2021-03-25 15:12:05,262 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-25 15:12:13,127 [39] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-25 15:12:14,886 [39] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:19,183 [8] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/dbServer||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:19,761 [41] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/SysConf/DbServers?_dc=1616656339423&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:22,051 [8] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/DbInstance/6||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:23,132 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/SysConf/Dbs?dbsId=6&_dc=1616656342217&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:26,656 [38] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/DbInstance/2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:27,477 [35] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/SysConf/Dbs?dbsId=2&_dc=1616656346881&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:30,539 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/DbInstance/5||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}
+2021-03-25 15:12:31,036 [41] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/SysConf/Dbs?dbsId=5&_dc=1616656350720&keyword=&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "5027a9b1-4c0d-4aa6-8d05-36692b4f7672"
+}

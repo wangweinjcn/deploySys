@@ -37,17 +37,30 @@ namespace deploySys.Server.Controllers.Comm
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme + "," + CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[Area]/[controller]/[action]")]
    
-    public class AccountController : pageController
+    public class AccountController : CsHttpController
     {
         const string key = "message";
         const string message = "hello";
 
 
 
-        public AccountController(IDistributedCache distributedCache) : base()
+        public AccountController(IDistributedCache distributedCache) : base(distributedCache)
         {
 
 
+        }
+        [SwaggerOperation(Tags = new[] { "Common" })]
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult test1()
+        {
+            return SuccessMsg("test1 ok");
+        }
+        [SwaggerOperation(Tags = new[] { "Common" })]
+        [HttpGet]
+         public IActionResult test2()
+        {
+            return SuccessMsg("test2 ok");
         }
         /// <summary>
         /// 修改密码
@@ -243,7 +256,7 @@ namespace deploySys.Server.Controllers.Comm
                 }
                 roleid = roleid.TrimStart(',');
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(Globals.Configuration["Audience:Secret"]);
+                var key = Encoding.ASCII.GetBytes(Globals.Configuration["jwt:Secret"]);
                 var expTimestr = Globals.Configuration["Cookie:ExpireSeconds"];
                 int expSeconds = 600;
                 int.TryParse(expTimestr, out expSeconds);
@@ -251,8 +264,8 @@ namespace deploySys.Server.Controllers.Comm
                 var expiresAt = authTime.AddSeconds(expSeconds);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Audience = Globals.Configuration["Audience:Audience"],
-                    Issuer = Globals.Configuration["Audience:Issuer"],
+                    Audience = Globals.Configuration["jwt:Audience"],
+                    Issuer = Globals.Configuration["jwt:Issuer"],
                     Subject = new ClaimsIdentity(new Claim[]
                     {
 
@@ -365,7 +378,7 @@ namespace deploySys.Server.Controllers.Comm
 
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Globals.Configuration["Audience:Secret"]);
+            var key = Encoding.ASCII.GetBytes(Globals.Configuration["jwt:Secret"]);
             var expTimestr = Globals.Configuration["Cookie:ExpireSeconds"];
             int expSeconds = 600;
             int.TryParse(expTimestr, out expSeconds);
@@ -373,8 +386,8 @@ namespace deploySys.Server.Controllers.Comm
             var expiresAt = authTime.AddSeconds(expSeconds);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Audience = Globals.Configuration["Audience:Audience"],
-                Issuer = Globals.Configuration["Audience:Issuer"],
+                Audience = Globals.Configuration["jwt:Audience"],
+                Issuer = Globals.Configuration["jwt:Issuer"],
                 Subject = new ClaimsIdentity(new Claim[]
                 {
 

@@ -13,17 +13,20 @@
     <DefineConstants>NETCORE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'net461'">
+    
     <DefineConstants>NETFX</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
    
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.0">
     
     </PackageReference>
-        <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0">
+        <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0">
      
     </PackageReference>
-    <PackageReference Include="System.Reflection.Emit" Version="4.6.0" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+      <PackageReference Include="MessagePack" Version="2.1.90" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
@@ -31,36 +34,29 @@
       <Version>4.4.1</Version>
     </PackageReference>
     <Reference Include="System.Web" />
+    <PackageReference Include="MessagePack" Version="1.7.3.4" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FrmlibCore" Version="1.1.14.7" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="MailKit" Version="2.0.2" />
-    <PackageReference Include="MessagePack" Version="1.7.3.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-   
-   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="MessagePack" Version="2.1.90" />
+    
+    <PackageReference Include="Microsoft.PinYinConverter" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NPOI" Version="2.5.2" />
     <PackageReference Include="wChloe" Version="3.9.0" />
    
    </ItemGroup>
+
+
   
   <ItemGroup>
     <Folder Include="modelViewConf\" />
     <Folder Include="Properties\" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\deploySys.Common\deploySys.Common.csproj" />
   </ItemGroup>
   
 

@@ -1,0 +1,38 @@
+24 Mar 2021 15:05:49,083  INFO [5] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+24 Mar 2021 15:05:58,092  INFO [7] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+24 Mar 2021 15:06:02,824  INFO [7] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a2a82255-5d52-42ff-a158-a4db16f8973c"
+}
+24 Mar 2021 15:15:48,406  INFO [6] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a2a82255-5d52-42ff-a158-a4db16f8973c"
+}
+24 Mar 2021 15:15:59,527  INFO [14] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a2a82255-5d52-42ff-a158-a4db16f8973c"
+}
+24 Mar 2021 15:16:07,772  INFO [14] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}
+24 Mar 2021 15:16:10,340  INFO [5] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/hostResouces||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}
+24 Mar 2021 15:16:12,625  INFO [4] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/Regions?PageSize=100&_dc=1616570170773||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}
+24 Mar 2021 15:16:14,922  INFO [4] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/Zones?PageSize=100&Id=4&_dc=1616570172666||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}
+24 Mar 2021 15:16:15,769  INFO [6] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/HostResources?_dc=1616570170767&keyword=&Id=&regionId=1&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}
+24 Mar 2021 15:16:27,810  INFO [9] ?.?  -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/refreshClientSoftware?_dc=1616570176008||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "d1f5e8da-a0a3-438d-8469-0a15b3137cf2"
+}

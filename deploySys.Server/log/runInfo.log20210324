@@ -1,0 +1,123 @@
+24 Mar 2021 14:33:40,827  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:*
+24 Mar 2021 14:35:31,016  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:*
+24 Mar 2021 14:35:32,013  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:35:35,366  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:35:35,373  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:35:36,509  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:35:36,510  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 14:40:39,920  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:*
+24 Mar 2021 14:40:40,849  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:40:43,561  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:40:43,565  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:40:44,476  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:40:44,477  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 14:45:33,234  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:*
+24 Mar 2021 14:45:34,265  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:45:37,561  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:45:37,565  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:45:38,652  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:45:38,653  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 14:52:47,261  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:*
+24 Mar 2021 14:52:48,287  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:52:51,606  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:52:51,612  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:52:52,712  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:52:52,712  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 14:56:06,579  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net/
+24 Mar 2021 14:56:07,490  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:56:10,237  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:56:10,242  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:56:11,133  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:56:11,133  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 14:56:45,168  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 14:56:46,133  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 14:56:48,955  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 14:56:48,959  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 14:56:49,868  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 14:56:49,869  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:02:07,741  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:02:08,652  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:02:11,360  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:02:11,364  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:02:12,252  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:02:12,252  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:05:22,950  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:05:23,900  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:05:26,654  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:05:26,658  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:05:27,682  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:05:27,682  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:15:12,596  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:15:13,516  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:15:16,276  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:15:16,280  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:15:17,165  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:15:17,165  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:33:33,102  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:33:34,036  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:33:36,788  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:33:36,793  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:33:37,688  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:33:37,689  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:36:35,994  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:36:36,929  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:36:39,685  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:36:39,690  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:36:40,571  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:36:40,571  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:38:13,029  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:38:14,001  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:38:16,721  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:38:16,726  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:38:17,607  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:38:17,607  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:39:12,525  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:39:13,445  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:39:16,177  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:39:16,181  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:39:17,093  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:39:17,094  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:40:39,771  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:40:40,709  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:40:43,490  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:40:43,494  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:40:44,426  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:40:44,427  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:42:06,571  INFO [1] ?.?  - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+24 Mar 2021 15:42:07,504  DEBUG [1] ?.?  - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+24 Mar 2021 15:42:10,289  DEBUG [1] ?.?  - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+24 Mar 2021 15:42:10,292  DEBUG [1] ?.?  - [initTasklist:342@baseStartupExt.cs]createTaskList count:3
+24 Mar 2021 15:42:11,242  INFO [1] ?.?  - [.ctor:223@Confg.cs]runconfig ok
+24 Mar 2021 15:42:11,243  INFO [1] ?.?  - [initOtherServices:65@Startup.cs]rpc server started at 8080
+24 Mar 2021 15:43:20,174  ERROR [4] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void doUncompressReleaseTask() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.checkReleaseTaskFinished() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 328
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+24 Mar 2021 15:43:20,174  ERROR [9] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void checkReleaseTaskFinished() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.checkReleaseTaskFinished() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 328
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+24 Mar 2021 15:43:40,356  ERROR [9] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void checkReleaseTaskFinished() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.doUncompressReleaseTask() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 219
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+24 Mar 2021 15:43:40,382  ERROR [4] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void doUncompressReleaseTask() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.doUncompressReleaseTask() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 219
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+24 Mar 2021 15:43:44,391  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:00ff34502efa,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:43:46,782  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:380025ac16d9,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:43:46,861  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:3a0025ac16d8,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:43:47,727  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:00ff34502efa,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:43:47,805  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:380025ac16d9,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:43:47,890  INFO [12] ?.?  - [NodeRegiste:612@FastCallService.cs]node registe,macid:3a0025ac16d8,instanceId:,version:1.0.7753.27219
+24 Mar 2021 15:44:10,367  ERROR [35] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void checkReleaseTaskFinished() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.doUncompressReleaseTask() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 219
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)
+24 Mar 2021 15:44:10,381  ERROR [8] ?.?  - [pTimer_Elapsed:106@TimeDoTask.cs]now do func Void doUncompressReleaseTask() exception :The type initializer for 'deploySys.Server.Crontask' threw an exception.
+Object reference not set to an instance of an object.
+,stack:   at deploySys.Server.Crontask.doUncompressReleaseTask() in D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\Crontask.cs:line 219
+   at FrmLib.Extend.TimeDoTask.pTimer_Elapsed(Object sender, ElapsedEventArgs e)

@@ -44,14 +44,14 @@ namespace deploySys.Server.Controllers.Comm
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme + "," + CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[Area]/[controller]/[action]")]
 
-  public class FileController : apiController
+  public class FileController : CsApiHttpController
     {
         const string key = "message";
         const string message = "hello";
         const int maxCacheFileLength = 5242880;
         
         
-        public FileController() : base()
+        public FileController(IDistributedCache distributedCache) : base(distributedCache)
         {
           
 

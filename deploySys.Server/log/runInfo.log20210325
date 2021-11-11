@@ -1,0 +1,30 @@
+2021-03-25 09:00:06,717 [1] INFO  runInfo [(null)] - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:00:07,925 [1] DEBUG runInfo [(null)] - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+2021-03-25 09:00:11,236 [1] DEBUG runInfo [(null)] - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+2021-03-25 09:00:11,248 [1] DEBUG runInfo [(null)] - [initTasklist:342@baseStartupExt.cs]createTaskList count:2
+2021-03-25 09:00:12,296 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:00:12,296 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:01:46,634 [1] INFO  runInfo [(null)] - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:01:47,704 [1] DEBUG runInfo [(null)] - [initTasklist:333@baseStartupExt.cs]now createTaskList:D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Server\bin\Debug\netcoreapp3.1\configs/CronTask.config
+2021-03-25 09:01:50,448 [1] DEBUG runInfo [(null)] - [initTasklist:336@baseStartupExt.cs]now get nodeTaskHandles
+2021-03-25 09:01:50,452 [1] DEBUG runInfo [(null)] - [initTasklist:342@baseStartupExt.cs]createTaskList count:2
+2021-03-25 09:01:51,361 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:01:51,362 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:03:21,964 [1] INFO  runInfo [(null)] - [ConfigureServices:154@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:03:24,680 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:03:24,680 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:07:13,719 [1] INFO  runInfo [(null)] - [ConfigureServices:157@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:07:16,523 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:07:16,524 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:10:09,950 [1] INFO  runInfo [(null)] - [ConfigureServices:157@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:10:30,561 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:10:30,561 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:17:43,695 [1] INFO  runInfo [(null)] - [ConfigureServices:157@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:17:46,456 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:17:46,456 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 09:54:42,872 [1] INFO  runInfo [(null)] - [ConfigureServices:157@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 09:54:45,378 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 09:54:45,379 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080
+2021-03-25 15:11:43,230 [1] INFO  runInfo [(null)] - [ConfigureServices:165@baseStartup.cs]cors allow:http://localhost:8000,http://deps.db.01shopping.net
+2021-03-25 15:11:46,642 [1] INFO  runInfo [(null)] - [.ctor:223@Confg.cs]runconfig ok
+2021-03-25 15:11:46,642 [1] INFO  runInfo [(null)] - [initOtherServices:65@Startup.cs]rpc server started at 8080

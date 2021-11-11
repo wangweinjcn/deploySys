@@ -41,12 +41,13 @@
     <el-button-group>
         <el-button type="primary" icon="el-icon-edit" v-on:click="mainEdit" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-circle-plus" v-on:click="mainAdd"></el-button>
-        <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
+         <el-button type="primary" icon="el-icon-delete" v-on:click="mainDelete" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-s-data" v-on:click="openViewPerf" :disabled="mainCommandDisnable"></el-button>
         <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppInstances" :disabled="mainCommandDisnable">查看实例</el-button>
          <el-button type="primary" icon="el-icon-s-tools" v-on:click="openAppWebSites" :disabled="mainCommandDisnable">查看站点</el-button>
          <el-button type="primary" icon="el-icon-s-tools" v-on:click="openHostTask" :disabled="mainCommandDisnable">查看主机任务</el-button>
-
+        <el-button type="primary"  v-on:click="refreshClient">更新客户端</el-button>
+        
         
     </el-button-group>
 }
@@ -199,6 +200,13 @@
                 var tabDDid = "hostPerf-" + me.data.mainSelectedModel.Id;
                 var tabTitle = "主机性能[" + me.data.mainSelectedModel.Id + "]";
                 $vmpa.addOrChangeToTab(tabUrl, tabDDid, tabTitle);
+            }
+            me.methods.refreshClient = function () {
+                                $vmpa.get("/Api/sysconf/refreshClientSoftware" , null, function (result) {
+                    if (result.Status != ResultStatus.OK) {
+                        $vmpa.alert("更新失败");
+                    }
+                });
             }
             me.methods.customCompFunc = function (params) {
                 console.log(params);

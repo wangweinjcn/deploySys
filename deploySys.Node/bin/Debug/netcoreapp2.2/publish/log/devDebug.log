@@ -1,0 +1,14 @@
+﻿2021-03-24 15:43:51,268 [1] DEBUG devDebug [(null)] - [checkSelfUpdate:56@Crontask.cs]obj :{
+  "filename": "BouncyCastle.Crypto.dll",
+  "relationDir": "",
+  "lastwriteDt": "0001-01-01T00:00:00",
+  "hashcode": "401FCCFA3C96ADC1FFC7490E7C75E545",
+  "isdelete": true
+}
+2021-03-24 15:43:51,270 [1] DEBUG devDebug [(null)] - [checkSelfUpdate:56@Crontask.cs]obj :{
+  "filename": "Chloe.dll",
+  "relationDir": "",
+  "lastwriteDt": "0001-01-01T00:00:00",
+  "hashcode": "F2698AFCEDA61D95069A377F1B7461A8",
+  "isdelete": true
+}

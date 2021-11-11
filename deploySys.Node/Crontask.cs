@@ -87,13 +87,20 @@ namespace deploySys.Node
                                 File.WriteAllBytes(fullfilename, content);
                             }
                         }
+                        
+
                         FrmLib.Log.commLoger.runLoger.Debug("now move to basedir ");
-                        string cmd = "mv " + Path.Combine(bakpath, "*") + "  " + AppDomain.CurrentDomain.BaseDirectory;
+                        string cmd = "cp -R " + Path.Combine(bakpath, "*") + "  " + AppDomain.CurrentDomain.BaseDirectory;
                         FrmLib.Log.commLoger.runLoger.Debug("cmd string: " + cmd);
                         string res = tools.excutScriptOnLinux(cmd);
-                         cmd = "mv " + Path.Combine(bakpath,"configs") + "  " + AppDomain.CurrentDomain.BaseDirectory;
-                        FrmLib.Log.commLoger.runLoger.Debug("cmd string: " + cmd);
-                         res = tools.excutScriptOnLinux(cmd);
+                        //var di = new DirectoryInfo(bakpath);
+                        //var subdir = di.GetDirectories();
+                        //foreach (var onedir in subdir)
+                        //{
+                        //    cmd = "mv " + onedir.FullName.Trim().TrimEnd(System.Environment.NewLine.ToCharArray()) + "/*  " + AppDomain.CurrentDomain.BaseDirectory;
+                        //    FrmLib.Log.commLoger.runLoger.Debug("cmd string: " + cmd);
+                        //    res = tools.excutScriptOnLinux(cmd);
+                        //}
                     }
                     finally
                     {

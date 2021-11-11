@@ -31,7 +31,7 @@ using Ace.Web.Mvc;
 using deploySys.Model;
 using Chloe;
 using System.Data;
-using deploySys.Server.lib;
+
 using System.Text;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
@@ -42,8 +42,14 @@ namespace deploySys.Server.Areas.Api.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme + "," + CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[Area]/[controller]/[action]")]
     [AllowAnonymous]
-    public class fileController : apiController
+    public class fileController :  CsApiHttpController
     {
+        public fileController(IDistributedCache distributedCache) : base(distributedCache)
+        {
+
+
+
+        }
         [HttpGet]
         [AllowAnonymous]
         [Route("{id?}")]

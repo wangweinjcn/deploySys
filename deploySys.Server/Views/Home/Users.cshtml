@@ -120,7 +120,7 @@
                 
                 if (me.EditModel.OrigonPassword != null &&
                     me.EditModel.OrigonPassword !="")
-                    me.EditModel["Password"] = $.md5($.trim(me.EditModel["OrigonPassword"]))
+                    me.EditModel["md5Password"] = $.md5($.trim(me.EditModel["OrigonPassword"]))
                 me.EditModel["roleid"] = me.EditModel["allroles"].join(",");
                 if (me.EditModel[me._vm.ModelKeyName] > 0) {
 

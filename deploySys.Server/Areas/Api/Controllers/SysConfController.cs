@@ -31,7 +31,7 @@ using Ace.Web.Mvc;
 using deploySys.Model;
 using Chloe;
 using System.Data;
-using deploySys.Server.lib;
+
 using System.Text;
 using System.Security.Cryptography;
 
@@ -45,11 +45,11 @@ namespace deploySys.Server.Controller.Admin
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme+","+CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[Area]/[controller]/[action]")]
 
-    public class SysConfController : apiController
+    public class SysConfController : CsApiHttpController
     {
         //private IDatabase _redisDB;
         //private IDistributedCache _distributedCache;
-        public SysConfController( ) : base()
+        public SysConfController(IDistributedCache distributedCache) : base(distributedCache)
         {
 
             
@@ -65,7 +65,15 @@ namespace deploySys.Server.Controller.Admin
         {
             base.OnActionExecuted(context);
         }
-#region role
+        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [SwaggerOperation(Tags = new[] { "System" })]
+        public IActionResult refreshClientSoftware()
+        {
+            RunConfig.Instance.refreshClientFiles();
+            return SuccessMsg("ok");
+        }
+        #region role
         /// <summary>
         /// 获取角色已有的菜单树
         /// </summary>
@@ -273,7 +281,7 @@ namespace deploySys.Server.Controller.Admin
         /// <param name="input">
         /// id为空或-1，表示是新增对象；Id大于0，表示更新指定对象
         /// </param>
-        /// <param name="Password">
+        /// <param name="md5Password">
         /// 密码的md5格式
         /// </param>
         /// <param name="roleid">
@@ -285,7 +293,7 @@ namespace deploySys.Server.Controller.Admin
         /// <returns></returns>
         [HttpPost]
         [SwaggerOperation(Tags = new[] { "System" })]
-        public ActionResult AuUser([FromForm]SysUser input, [FromForm]string roleid, [FromForm]string Password,[FromHeader]string sitekey)
+        public ActionResult AuUser([FromForm]SysUser input, [FromForm]string roleid, [FromForm]string md5Password,[FromHeader]string sitekey)
         {
             var curruser = SysFunc.getInstance(objectSpace).getCurrentUser();
             if (curruser == null || !curruser.IsAdmin())
@@ -307,7 +315,7 @@ namespace deploySys.Server.Controller.Admin
                 {
 
                   
-                    onlineobj = sf.AddUser(input.LoginId, input.Mobile, input.UserName, Password, input.Email, input.sex, 0, input.OtherLoginId,sitekey);
+                    onlineobj = sf.AddUser(input.LoginId, input.Mobile, input.UserName, md5Password, input.Email, input.sex, 0, input.OtherLoginId,sitekey);
                    
 
                 }
@@ -321,8 +329,8 @@ namespace deploySys.Server.Controller.Admin
                 onlineobj.Email = input.Email;
                 onlineobj.Mobile = input.Mobile;
                 onlineobj.OtherLoginId = input.OtherLoginId;
-                if (!string.IsNullOrEmpty(Password))
-                    onlineobj.Password = AesTools.AesEncrypt(Password.ToUpper(), onlineobj.secretKey);
+                if (!string.IsNullOrEmpty(md5Password))
+                    onlineobj.Password = AesTools.AesEncrypt(md5Password.ToUpper(), onlineobj.secretKey);
 
             }
             var oldlist = onlineobj.Ass_SysRole;
@@ -1125,12 +1133,13 @@ namespace deploySys.Server.Controller.Admin
         /// <param name="pagination"></param>
         /// <returns></returns>
         [HttpGet]
+        
         [SwaggerOperation(Tags = new[] { "ProductParams" })]
-        public IActionResult Dbs([FromQuery] string keyword, [FromQuery] Pagination pagination)
+        public IActionResult Dbs([FromQuery] string keyword,[FromQuery]int dbsId, [FromQuery] Pagination pagination)
         {
 
 
-            var q = objectSpace.SpaceQuery<Db>().Where(a => !a.IsDeleted);
+            var q = objectSpace.SpaceQuery<Db>().Where(a => !a.IsDeleted && a.Ass_DbServer_Id==dbsId);
             if (!string.IsNullOrEmpty(keyword))
             {
                 q = q.Where(a => a.Name.Contains(keyword) || a.User.Contains(keyword));
@@ -1237,7 +1246,7 @@ namespace deploySys.Server.Controller.Admin
             var origServerp = this.DecryptByAES(ds.rootPassword, getAesKey(), getAesIV());
             if (offobj.needCreateDb && offobj.Status==0)
             {
-                var bdb = baseDbTools.getInstance(ds.dbType, ds.IP, ds.Port.ToString(), ds.rootUser, origServerp);
+                var bdb = lib.baseDbTools.getInstance(ds.dbType, ds.IP, ds.Port.ToString(), ds.rootUser, origServerp);
            
                 bdb.createDbWithUser(obj.Name, obj.Ecoder, obj.User, origp);
                 obj.Status = 1;

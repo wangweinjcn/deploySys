@@ -12,11 +12,9 @@ D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\appsettings.json
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\CronTask.config
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\log4net.config
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\deploySys.Common.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\ModelCore.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\spNettyRPC.dll
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\spNettyRPC.pdb
-D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\deploySys.Common.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\ModelCore.pdb
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Release\netcoreapp2.2\configs\mime.types
 D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\obj\Release\netcoreapp2.2\deploySys.Node.genruntimeconfig.cache

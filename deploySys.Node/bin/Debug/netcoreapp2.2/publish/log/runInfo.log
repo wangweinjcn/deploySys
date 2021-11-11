@@ -1,0 +1,24 @@
+2021-03-24 15:35:28,054 [1] INFO  runInfo [(null)] - [refreshConnect:91@nodeClient.cs]refreshConnect
+2021-03-24 15:35:30,320 [1] ERROR runInfo [(null)] - [refreshConnect:108@nodeClient.cs]refreshConnect error:AsyncHelpers.Run method threw an exception. (AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080))
+AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080)
+LogError connecting to 127.0.0.1:8080
+由于目标计算机积极拒绝，无法连接。
+2021-03-24 15:35:33,367 [1] ERROR runInfo [(null)] - [refreshConnect:108@nodeClient.cs]refreshConnect error:AsyncHelpers.Run method threw an exception. (AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080))
+AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080)
+LogError connecting to 127.0.0.1:8080
+由于目标计算机积极拒绝，无法连接。
+2021-03-24 15:35:37,436 [1] ERROR runInfo [(null)] - [refreshConnect:108@nodeClient.cs]refreshConnect error:AsyncHelpers.Run method threw an exception. (AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080))
+AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080)
+LogError connecting to 127.0.0.1:8080
+由于目标计算机积极拒绝，无法连接。
+2021-03-24 15:35:42,462 [1] ERROR runInfo [(null)] - [refreshConnect:108@nodeClient.cs]refreshConnect error:AsyncHelpers.Run method threw an exception. (AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080))
+AsyncHelpers.Run method threw an exception. (LogError connecting to 127.0.0.1:8080)
+LogError connecting to 127.0.0.1:8080
+由于目标计算机积极拒绝，无法连接。
+2021-03-24 15:43:43,688 [1] INFO  runInfo [(null)] - [refreshConnect:120@nodeClient.cs]now refresh registe with 
+2021-03-24 15:43:43,689 [1] INFO  runInfo [(null)] - [refreshConnect:123@nodeClient.cs] restart search macid
+2021-03-24 15:43:48,030 [1] INFO  runInfo [(null)] - [startService:34@nodeService.cs]regist macid is :3A-00-25-AC-16-D8 old macid:3A-00-25-AC-16-D8
+2021-03-24 15:43:51,031 [1] DEBUG runInfo [(null)] - [initTasklist:81@Confg.cs]now createTaskList
+2021-03-24 15:43:51,111 [1] DEBUG runInfo [(null)] - [initTasklist:90@Confg.cs]createTaskList count:4
+2021-03-24 15:43:51,269 [1] INFO  runInfo [(null)] - [checkSelfUpdate:63@Crontask.cs]now delete file D:\document\workSpace\projects\dotnetCore\open_microService\deploySys\deploySys.Node\bin\Debug\netcoreapp2.2\publish\BouncyCastle.Crypto.dll
+2021-03-24 15:43:51,281 [1] ERROR runInfo [(null)] - [checkSelfUpdate:126@Crontask.cs]checkSelfUpdate error系统找不到指定的文件。

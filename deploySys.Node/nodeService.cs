@@ -34,6 +34,7 @@ namespace deploySys.Node
                     FrmLib.Log.commLoger.runLoger.Info("regist macid is :"+RunConfig.Instance.MacID + " old macid:"+macid);
                     RunConfig.Instance.setHost();
                     RunConfig.Instance.startTask();
+                    Crontask.checkSelfUpdate();
                     break;
                 }
             }

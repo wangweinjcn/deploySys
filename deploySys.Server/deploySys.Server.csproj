@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-     <DefineConstants>DEBUG;NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+     <DefineConstants>DEBUG;NETCORE;NETSTANDARD;NETSTANDARD3_0</DefineConstants>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>c1b3b49e-e94c-4b51-8692-ce86f5877bda</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -206,14 +207,13 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="MessagePack" Version="2.1.90" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="netCoreWebServer" Version="1.0.12" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="sharpcompress" Version="0.25.0" />
     <PackageReference Include="SkiaSharp" Version="1.68.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.112" />
     <PackageReference Include="wChloe.MySql" Version="3.9.0" />
     <PackageReference Include="wChloe.SQLite" Version="3.9.2" />
@@ -222,8 +222,8 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\FrmTools\Frmlib3\netCoreWebServer\netCoreWebServer.csproj" />
     <ProjectReference Include="..\..\rpc\spNettyRPC\spNettyRPC.csproj" />
-    <ProjectReference Include="..\deploySys.Common\deploySys.Common.csproj" />
     <ProjectReference Include="..\model\ModelCore.csproj" />
   </ItemGroup>
 

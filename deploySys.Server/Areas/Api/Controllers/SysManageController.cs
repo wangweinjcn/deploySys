@@ -41,11 +41,11 @@ namespace deploySys.Server.Controller.Admin
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme+","+CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[Area]/[controller]/[action]")]
 
-    public class SysManageController: apiController
+    public class SysManageController: CsApiHttpController
     {
         //private IDatabase _redisDB;
         //private IDistributedCache _distributedCache;
-        public SysManageController( ) : base()
+        public SysManageController(IDistributedCache distributedCache) : base(distributedCache)
         {
 
             

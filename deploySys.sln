@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelCore", "model\ModelCore.csproj", "{3D94A359-EBED-4473-ABF7-63D4120F454D}"
 EndProject
@@ -9,13 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "deploySys.Server", "deployS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "deploySys.Node", "deploySys.Node\deploySys.Node.csproj", "{8E64DE0E-BB98-41D4-BEEC-A4B3CF714A96}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "deploySys.Common", "deploySys.Common\deploySys.Common.csproj", "{6593642F-CAA7-422A-A9FD-C6BB68BCC14D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "spNettyRPC", "..\rpc\spNettyRPC\spNettyRPC.csproj", "{6FF969BA-5789-4835-93E7-250C8464528D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deploySys.NodeFrm", "deploySys.NodeFrm\deploySys.NodeFrm.csproj", "{62E36382-CF49-4A41-AE4C-9214A66B8706}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testdockerapi", "testdockerapi\testdockerapi.csproj", "{6768B3EB-B7CC-40DC-8FC3-E4205DBCF102}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "netCoreWebServer", "..\..\FrmTools\Frmlib3\netCoreWebServer\netCoreWebServer.csproj", "{07970FAF-74E8-4655-BF9F-F2CCC1757245}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,22 +31,14 @@ Global
 		{8E64DE0E-BB98-41D4-BEEC-A4B3CF714A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E64DE0E-BB98-41D4-BEEC-A4B3CF714A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E64DE0E-BB98-41D4-BEEC-A4B3CF714A96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6593642F-CAA7-422A-A9FD-C6BB68BCC14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6593642F-CAA7-422A-A9FD-C6BB68BCC14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6593642F-CAA7-422A-A9FD-C6BB68BCC14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6593642F-CAA7-422A-A9FD-C6BB68BCC14D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FF969BA-5789-4835-93E7-250C8464528D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FF969BA-5789-4835-93E7-250C8464528D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FF969BA-5789-4835-93E7-250C8464528D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FF969BA-5789-4835-93E7-250C8464528D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62E36382-CF49-4A41-AE4C-9214A66B8706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62E36382-CF49-4A41-AE4C-9214A66B8706}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62E36382-CF49-4A41-AE4C-9214A66B8706}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62E36382-CF49-4A41-AE4C-9214A66B8706}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6768B3EB-B7CC-40DC-8FC3-E4205DBCF102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6768B3EB-B7CC-40DC-8FC3-E4205DBCF102}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6768B3EB-B7CC-40DC-8FC3-E4205DBCF102}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6768B3EB-B7CC-40DC-8FC3-E4205DBCF102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07970FAF-74E8-4655-BF9F-F2CCC1757245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07970FAF-74E8-4655-BF9F-F2CCC1757245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07970FAF-74E8-4655-BF9F-F2CCC1757245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07970FAF-74E8-4655-BF9F-F2CCC1757245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

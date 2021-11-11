@@ -23,8 +23,9 @@ using deploySys.Model;
 using Chloe;
 using System.Collections.Concurrent;
 using deploySys.Server.lib;
-using deploySys.Common;
+
 using Ace;
+using Chloe.SQLite;
 
 namespace deploySys.Server
 {
@@ -66,15 +67,20 @@ namespace deploySys.Server
 
         private ConcurrentQueue<IDbContext> dbpool = new ConcurrentQueue<IDbContext>();
         SQLiteConnectionFactory dbconnfactory = null;
+
         /// <summary>
         /// 登录节点设备性能监控列表，主键是token,macid；主键值是UnitNodeSession对象
         /// </summary>
-        public Dictionary<string, UnitNodeSession> nodedeviceStat_dic;
+        public Dictionary<string, UnitNodeSession> nodedeviceStat_dic { get; set; }
 
         /// <summary>
         /// 芯跳超时节点
         /// </summary>
         public List<UnitNodeDevice> NotAliveNode;
+        /// <summary>
+        /// 客户端文件锁定状态
+        /// </summary>
+        public bool clinetFilesLocking { get; private set; }
         /// <summary>
         /// 客户端文件集合
         /// </summary>
@@ -182,9 +188,18 @@ namespace deploySys.Server
             //返回主机sessionid和对应的端口
             return null;
         }
-        public void delayInitClientFiles()
+        public void refreshClientFiles()
         {
-            this.clientFiles.initFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, clientSoftDir));
+
+            clinetFilesLocking = true;
+            try
+            {
+                this.clientFiles.initFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, clientSoftDir), true, false);
+            }
+            finally
+            {
+                clinetFilesLocking = false;
+            }
         }
         private RunConfig()
      {
@@ -205,7 +220,7 @@ namespace deploySys.Server
                 this.clientFiles = SoftUpdateFiles.instance;  
 
                 maxOfflineMinutes = int.Parse(Globals.Configuration["deploySys:maxOfflineMinutes"]);
-                delayInitClientFiles();
+                refreshClientFiles();
                 runlog.Info("runconfig ok");
          }
          catch (Exception e)

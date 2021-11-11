@@ -1,0 +1,68 @@
+2021-03-26 14:40:02,136 [8] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]::ffff:192.168.2.203||||http://desktop-8kdb3ec:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:48:50,392 [65] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]192.168.2.203||||http://DESKTOP-8KDB3EC:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:50:23,276 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]192.168.2.203||||http://DESKTOP-8KDB3EC:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:51:14,091 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/home/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:51:20,091 [60] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:51:21,913 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/login||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "de8ba282-a078-4b94-9f1c-a8e36ae64051"
+}
+2021-03-26 14:51:22,155 [60] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "de8ba282-a078-4b94-9f1c-a8e36ae64051"
+}
+2021-03-26 14:51:22,781 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/Index||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:24,609 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Home/msApps||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:25,927 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/getOwnerUer?_dc=1616741484925||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:26,331 [55] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/AppTypes?PageSize=100&_dc=1616741484919||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:26,861 [60] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/Regions?PageSize=100&_dc=1616741484922||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:27,624 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/MicroServiceApps?_dc=1616741487053&keyword=&Id=1&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:51:27,624 [57] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Api/sysconf/MicroServiceApps?_dc=1616741484910&keyword=&Id=1&Page=1&PageSize=10||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:55:32,814 [39] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:56:09,907 [43] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/LoginWithJwt||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 14:58:26,369 [43] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]192.168.2.203||||http://DESKTOP-8KDB3EC:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:58:47,866 [81] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]192.168.2.203||||http://DESKTOP-8KDB3EC:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 14:59:11,836 [43] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 15:08:02,096 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/LoginWithJwt||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57||200||
+2021-03-26 15:18:55,364 [47] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 15:18:58,402 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/LoginWithJwt||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||{
+  "uid": "1",
+  "sid": "a87e8c3e-e989-4f6a-93a4-a2ca43ab4105"
+}
+2021-03-26 15:19:13,207 [44] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/LoginWithJwt||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57||200||
+2021-03-26 15:19:37,126 [45] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57||200||
+2021-03-26 15:19:52,656 [42] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]127.0.0.1||||http://localhost:8000/Comm/Account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 15:31:20,512 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]fe80:0:0:0:6d18:e1fa:95b:aa01%13||||http://DESKTOP-8KDB3EC:8000/comm/account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 15:31:40,198 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]fe80:0:0:0:6d18:e1fa:95b:aa01%13||||http://DESKTOP-8KDB3EC:8000/comm/account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 15:31:42,713 [5] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]fe80:0:0:0:6d18:e1fa:95b:aa01%13||||http://DESKTOP-8KDB3EC:8000/comm/account/test2||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||
+2021-03-26 15:40:21,857 [4] INFO  biLoger [(null)] -  [OnActionExecuted:?@HttpGlobalActionFilter]fe80:0:0:0:6d18:e1fa:95b:aa01%13||||http://DESKTOP-8KDB3EC:8000/comm/account/test1||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36||200||

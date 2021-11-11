@@ -36,7 +36,7 @@ namespace deploySys.Server
         private static IObjectSpaceService _oss = new ObjectSpaceService();
         private static IDistributedCache _distributedCache = Globals.ServiceProvider.GetService(typeof(IDistributedCache)) as IDistributedCache;
 
-        
+
        
         /// <summary>
         /// 判断是否是奇数

@@ -35,12 +35,12 @@ namespace deploySys.Server.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     [Route("[controller]/[action]")]
-
-    public class HomeController : BaseController
+    [AllowAnonymous]
+    public class HomeController : CsHttpController
     {
         private IDatabase _redisDB;
         private IDistributedCache _distributedCache;
-        public HomeController(IDistributedCache distributedCache) : base()
+        public HomeController(IDistributedCache distributedCache) : base(distributedCache)
         {
 
 

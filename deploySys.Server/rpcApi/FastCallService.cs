@@ -28,8 +28,12 @@ namespace deploySys.Server.rpcApi
         [FastLoginFilter] // 登录了才能请求Api
         public List<InstallFileInfo> CompareClientFiles(List<InstallFileInfo> clientfiles)
         {
+               List<InstallFileInfo> resultlist = new List<InstallFileInfo>();
             // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles "));
-
+            if (RunConfig.Instance.clinetFilesLocking)
+            {
+                return resultlist;
+            }
             try
             {
                 Dictionary<string, InstallFileInfo> inputDic = new Dictionary<string, InstallFileInfo>();
@@ -39,7 +43,7 @@ namespace deploySys.Server.rpcApi
                         inputDic.Add(obj.hashcode, obj);
                 }
                 var difffiles = RunConfig.Instance.clientFiles.CompareDiffFile(inputDic);
-                List<InstallFileInfo> resultlist = new List<InstallFileInfo>();
+             
                 foreach (var obj in difffiles)
                 {
                     InstallFileInfo ifi = new InstallFileInfo(obj.filename, obj.relationDir, obj.hashcode);
@@ -47,7 +51,11 @@ namespace deploySys.Server.rpcApi
                     resultlist.Add(ifi);
                 }
                 // RunConfig.Instance.devlog.Info(String.Format("CompareClientFiles result:{0}", resultlist.Count));
-
+                if (RunConfig.Instance.clinetFilesLocking) //如果被锁定了，正在更新，返回空。
+                {
+                    resultlist.Clear();
+                    return resultlist;
+                }
                 return resultlist;
             }
             catch (Exception exp)
@@ -263,7 +271,10 @@ namespace deploySys.Server.rpcApi
         {
             HostTask hrt = objectSpace.ObjectForIntId<HostTask>(hrtId);
             if (hrt == null)
+            {
+                FrmLib.Log.commLoger.runLoger.Error("HostReleaseTask is null :"+hrtId);
                 throw new Exception("HostReleaseTask is null");
+            }
             hrt.Status = (int)EnumHostTaskStatus.finished;
              var rt = hrt.Ass_ReleaseTask;
             var di = objectSpace.SpaceQuery<DockerInstance>().Where(a => a.instanceId == hrt.dockerInanceId).FirstOrDefault();

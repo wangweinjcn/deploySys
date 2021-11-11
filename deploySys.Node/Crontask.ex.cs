@@ -13,23 +13,34 @@ using Docker.DotNet.Models;
 using System.Threading;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.IO.Compression;
+using System.Runtime.InteropServices;
 
 namespace deploySys.Node
 {
      public partial class Crontask:ICronTask
     {
+        public static bool isUnix()
+        {
+            var isUnix = RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ||
+                       RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+            return isUnix;
+        }
+        public static bool isWindows()
+        {
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+        }
         private static string DockerApiUri()
         {
 
 
-            if (FrmLib.Extend.tools_static.isWindows())
+            if (isWindows())
             {
                 return "npipe://./pipe/docker_engine";
             }
 
 
 
-            if (FrmLib.Extend.tools_static.isUnix())
+            if (isUnix())
             {
                 return "unix:/var/run/docker.sock";
             }
@@ -323,7 +334,7 @@ namespace deploySys.Node
             }
             finally
             {
-              //  Directory.Delete(localTmpBaseDir, true);
+                Directory.Delete(localTmpBaseDir, true);
             }
 
         }
@@ -627,8 +638,10 @@ namespace deploySys.Node
                //处理nginx端口
             
             var loadstr = System.Text.Encoding.UTF8.GetString(content);
-            loadstr.Replace("{HT.WebPort}", RunConfig.Instance.serverHostResource.nginxHttpPort);
+            loadstr = loadstr.Replace("{HT.WebPort}", RunConfig.Instance.serverHostResource.nginxHttpPort);
+            FrmLib.Log.commLoger.devLoger.Debug(JsonConvert.SerializeObject( RunConfig.Instance.serverHostResource));
             loadstr = loadstr.Replace("{basenginxDir}", basenginxDir);
+               FrmLib.Log.commLoger.devLoger.Debug("parms:"+loadstr);
             CreateContainerParameters dparam = JsonConvert.DeserializeObject<CreateContainerParameters>(loadstr);
 
             if (string.IsNullOrEmpty(dparam.Image))

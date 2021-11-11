@@ -1,0 +1,19 @@
+{
+  
+  "nettyComm": {
+    "MAX_FRAME_LENGTH": "1024*1024*100",
+    "LENGTH_FIELD_LENGTH": 4,
+    "LENGTH_FIELD_OFFSET": 1,
+    "LENGTH_ADJUSTMENT": 0,
+    "INITIAL_BYTES_TO_STRIP": 0,
+    "IdleStateTime": 15,
+    "useConsoleLoger": true
+  },
+  "deploySys": {
+    "rpcPort": 8080,
+    "rpcHost": "119.3.126.117",
+    "httpGetFileUrl": "http://deps.db.01shopping.net/api/file/"
+  },
+  "tmpDataDir": "/tmp"
+
+}

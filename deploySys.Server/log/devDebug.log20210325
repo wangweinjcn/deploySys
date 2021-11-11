@@ -1,0 +1,12 @@
+﻿2021-03-25 09:00:11,249 [1] DEBUG devDebug [(null)] - [initTasklist:367@baseStartupExt.cs]now time spane is :30000 naem:FrmLib.Extend.TimeNowDoEventHandler
+2021-03-25 09:00:11,250 [1] DEBUG devDebug [(null)] - [initTasklist:367@baseStartupExt.cs]now time spane is :30000 naem:FrmLib.Extend.TimeNowDoEventHandler
+2021-03-25 09:01:50,454 [1] DEBUG devDebug [(null)] - [initTasklist:367@baseStartupExt.cs]now time spane is :30000 naem:FrmLib.Extend.TimeNowDoEventHandler
+2021-03-25 09:01:50,455 [1] DEBUG devDebug [(null)] - [initTasklist:367@baseStartupExt.cs]now time spane is :30000 naem:FrmLib.Extend.TimeNowDoEventHandler
+2021-03-25 09:18:19,356 [4] DEBUG devDebug [(null)] - [getCurrentUser:89@SysFunc.cs]iprincipal:False
+2021-03-25 09:18:19,359 [4] DEBUG devDebug [(null)] - [getCurrentUser:95@SysFunc.cs]iprincipal user id:1
+2021-03-25 09:18:19,361 [4] DEBUG devDebug [(null)] - [getCurrentUser:97@SysFunc.cs]iprincipal space :False
+2021-03-25 09:18:19,449 [4] DEBUG devDebug [(null)] - [getCurrentUser:101@SysFunc.cs]iprincipal curr :False
+2021-03-25 15:12:13,420 [39] DEBUG devDebug [(null)] - [getCurrentUser:89@SysFunc.cs]iprincipal:False
+2021-03-25 15:12:13,424 [39] DEBUG devDebug [(null)] - [getCurrentUser:95@SysFunc.cs]iprincipal user id:1
+2021-03-25 15:12:13,424 [39] DEBUG devDebug [(null)] - [getCurrentUser:97@SysFunc.cs]iprincipal space :False
+2021-03-25 15:12:13,491 [39] DEBUG devDebug [(null)] - [getCurrentUser:101@SysFunc.cs]iprincipal curr :False

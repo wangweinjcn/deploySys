@@ -1,0 +1,281 @@
+2021-03-26 14:51:19,262 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` IS NULL OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_0 OR `SysUser`.`Mobile` = ?P_0 OR `SysUser`.`Email` = ?P_0)) LIMIT 0,1
+
+2021-03-26 14:51:19,285 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:19,338 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 14:51:19,356 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 14:51:19,800 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 14:51:19,815 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:19,895 [60] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'de8ba282-a078-4b94-9f1c-a8e36ae64051';
+Input DateTime ?P_1 = '2021/3/26 19:51:19';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '1';
+Input String ?P_6 = 'admin';
+Input DateTime ?P_7 = '2021/3/26 14:51:19';
+Input DateTime ?P_8 = '2021/3/26 14:51:19';
+Input Boolean ?P_9 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_6,?P_7,?P_8,?P_9,?P_6,?P_5);SELECT @@IDENTITY
+
+2021-03-26 14:51:19,912 [60] DEBUG dbLoger [(null)] - [ScalarExecuted]300
+2021-03-26 14:51:19,919 [60] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (298)
+
+2021-03-26 14:51:19,935 [60] DEBUG dbLoger [(null)] - [NonQueryExecuted]1
+2021-03-26 14:51:20,392 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]Input Int32 ?P_0 = 1;
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE `SysUser`.`Id` = ?P_0 LIMIT 0,1
+
+2021-03-26 14:51:20,414 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:20,474 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 14:51:20,492 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 14:51:20,928 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]Input Int32 ?P_0 = 0;
+SELECT `MenuGroup`.`Id` AS `Id`,`MenuGroup`.`Icon` AS `Icon`,`MenuGroup`.`Name` AS `Name`,`MenuGroup`.`SortCode` AS `SortCode`,`MenuGroup`.`Ass_Parent` AS `Ass_Parent_Id`,`MenuGroup`.`UpdaterID` AS `UpdaterID`,`MenuGroup`.`UpdaterName` AS `UpdaterName`,`MenuGroup`.`CreateDt` AS `CreateDt`,`MenuGroup`.`UpdateDt` AS `UpdateDt`,`MenuGroup`.`IsDeleted` AS `IsDeleted`,`MenuGroup`.`CreaterName` AS `CreaterName`,`MenuGroup`.`CreaterID` AS `CreaterID` FROM `MenuGroup` AS `MenuGroup` WHERE (`MenuGroup`.`Ass_Parent` IS NULL OR `MenuGroup`.`Ass_Parent` <= ?P_0)
+
+2021-03-26 14:51:20,949 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:20,987 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+
+2021-03-26 14:51:21,003 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:21,585 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+
+2021-03-26 14:51:21,600 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:21,629 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+
+2021-03-26 14:51:21,644 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:21,673 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+
+2021-03-26 14:51:21,675 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` IS NULL OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_0 OR `SysUser`.`Mobile` = ?P_0 OR `SysUser`.`Email` = ?P_0)) LIMIT 0,1
+
+2021-03-26 14:51:21,688 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:21,691 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:21,716 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+
+2021-03-26 14:51:21,717 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 14:51:21,731 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 14:51:21,731 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:21,796 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 14:51:21,797 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+
+2021-03-26 14:51:21,811 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:21,813 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:21,841 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+
+2021-03-26 14:51:21,856 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:21,867 [5] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'a87e8c3e-e989-4f6a-93a4-a2ca43ab4105';
+Input DateTime ?P_1 = '2021/3/26 19:51:21';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '1';
+Input String ?P_6 = 'admin';
+Input DateTime ?P_7 = '2021/3/26 14:51:21';
+Input DateTime ?P_8 = '2021/3/26 14:51:21';
+Input Boolean ?P_9 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_6,?P_7,?P_8,?P_9,?P_6,?P_5);SELECT @@IDENTITY
+
+2021-03-26 14:51:21,882 [5] DEBUG dbLoger [(null)] - [ScalarExecuted]301
+2021-03-26 14:51:21,883 [5] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (300)
+
+2021-03-26 14:51:21,887 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+
+2021-03-26 14:51:21,897 [5] DEBUG dbLoger [(null)] - [NonQueryExecuted]1
+2021-03-26 14:51:21,903 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:22,209 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input Int32 ?P_0 = 1;
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE `SysUser`.`Id` = ?P_0 LIMIT 0,1
+
+2021-03-26 14:51:22,356 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:22,384 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 14:51:22,398 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 14:51:22,425 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input Int32 ?P_0 = 0;
+SELECT `MenuGroup`.`Id` AS `Id`,`MenuGroup`.`Icon` AS `Icon`,`MenuGroup`.`Name` AS `Name`,`MenuGroup`.`SortCode` AS `SortCode`,`MenuGroup`.`Ass_Parent` AS `Ass_Parent_Id`,`MenuGroup`.`UpdaterID` AS `UpdaterID`,`MenuGroup`.`UpdaterName` AS `UpdaterName`,`MenuGroup`.`CreateDt` AS `CreateDt`,`MenuGroup`.`UpdateDt` AS `UpdateDt`,`MenuGroup`.`IsDeleted` AS `IsDeleted`,`MenuGroup`.`CreaterName` AS `CreaterName`,`MenuGroup`.`CreaterID` AS `CreaterID` FROM `MenuGroup` AS `MenuGroup` WHERE (`MenuGroup`.`Ass_Parent` IS NULL OR `MenuGroup`.`Ass_Parent` <= ?P_0)
+
+2021-03-26 14:51:22,441 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:22,469 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=1
+
+2021-03-26 14:51:22,484 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:22,512 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=1
+
+2021-03-26 14:51:22,527 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:22,552 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=2
+
+2021-03-26 14:51:22,566 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:22,595 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=2
+
+2021-03-26 14:51:22,609 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:22,636 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=3
+
+2021-03-26 14:51:22,650 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:22,680 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=3
+
+2021-03-26 14:51:22,695 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:22,721 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from Menu table_a where  table_a.Ass_MenuGroup=4
+
+2021-03-26 14:51:22,735 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]13
+2021-03-26 14:51:22,764 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a.* from MenuGroup table_a where  table_a.Ass_Parent=4
+
+2021-03-26 14:51:22,779 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]12
+2021-03-26 14:51:25,519 [4] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`UserName` AS `UserName` FROM `SysUser` AS `SysUser`
+
+2021-03-26 14:51:25,582 [4] DEBUG dbLoger [(null)] - [ReaderExecuted]2
+2021-03-26 14:51:25,612 [55] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT COUNT(1) AS `C` FROM `AppType` AS `AppType` WHERE NOT (`AppType`.`IsDeleted` = 1)
+
+2021-03-26 14:51:25,644 [55] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:25,895 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT COUNT(1) AS `C` FROM `Region` AS `Region` WHERE NOT (`Region`.`IsDeleted` = 1)
+
+2021-03-26 14:51:25,927 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:26,007 [55] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `AppType`.`Id` AS `Id`,`AppType`.`stopCommand` AS `stopCommand`,`AppType`.`createContainerParams2` AS `createContainerParams2`,`AppType`.`name` AS `name`,`AppType`.`key` AS `key`,`AppType`.`startCommand` AS `startCommand`,`AppType`.`createContainerParams` AS `createContainerParams`,`AppType`.`buildScript` AS `buildScript`,`AppType`.`UpdaterID` AS `UpdaterID`,`AppType`.`UpdaterName` AS `UpdaterName`,`AppType`.`CreateDt` AS `CreateDt`,`AppType`.`UpdateDt` AS `UpdateDt`,`AppType`.`IsDeleted` AS `IsDeleted`,`AppType`.`CreaterName` AS `CreaterName`,`AppType`.`CreaterID` AS `CreaterID` FROM `AppType` AS `AppType` WHERE NOT (`AppType`.`IsDeleted` = 1) ORDER BY `AppType`.`CreateDt` DESC LIMIT 0,100
+
+2021-03-26 14:51:26,007 [57] DEBUG dbLoger [(null)] - [ReaderExecuting]Input Int32 ?P_0 = 1;
+SELECT `AppType`.`Id` AS `Id`,`AppType`.`stopCommand` AS `stopCommand`,`AppType`.`createContainerParams2` AS `createContainerParams2`,`AppType`.`name` AS `name`,`AppType`.`key` AS `key`,`AppType`.`startCommand` AS `startCommand`,`AppType`.`createContainerParams` AS `createContainerParams`,`AppType`.`buildScript` AS `buildScript`,`AppType`.`UpdaterID` AS `UpdaterID`,`AppType`.`UpdaterName` AS `UpdaterName`,`AppType`.`CreateDt` AS `CreateDt`,`AppType`.`UpdateDt` AS `UpdateDt`,`AppType`.`IsDeleted` AS `IsDeleted`,`AppType`.`CreaterName` AS `CreaterName`,`AppType`.`CreaterID` AS `CreaterID` FROM `AppType` AS `AppType` WHERE `AppType`.`Id` = ?P_0 LIMIT 0,1
+
+2021-03-26 14:51:26,054 [55] DEBUG dbLoger [(null)] - [ReaderExecuted]15
+2021-03-26 14:51:26,117 [57] DEBUG dbLoger [(null)] - [ReaderExecuted]15
+2021-03-26 14:51:26,397 [60] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `Region`.`Id` AS `Id`,`Region`.`Key` AS `Key`,`Region`.`Name` AS `Name`,`Region`.`UpdaterID` AS `UpdaterID`,`Region`.`UpdaterName` AS `UpdaterName`,`Region`.`CreateDt` AS `CreateDt`,`Region`.`UpdateDt` AS `UpdateDt`,`Region`.`IsDeleted` AS `IsDeleted`,`Region`.`CreaterName` AS `CreaterName`,`Region`.`CreaterID` AS `CreaterID` FROM `Region` AS `Region` WHERE NOT (`Region`.`IsDeleted` = 1) ORDER BY `Region`.`CreateDt` DESC LIMIT 0,100
+
+2021-03-26 14:51:26,397 [57] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT COUNT(1) AS `C` FROM `MicroServiceApp` AS `MicroServiceApp` WHERE (NOT (`MicroServiceApp`.`IsDeleted` = 1) AND `MicroServiceApp`.`Ass_AppType` = ?P_0)
+
+2021-03-26 14:51:26,460 [57] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:26,460 [60] DEBUG dbLoger [(null)] - [ReaderExecuted]10
+2021-03-26 14:51:27,384 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT COUNT(1) AS `C` FROM `MicroServiceApp` AS `MicroServiceApp` WHERE (NOT (`MicroServiceApp`.`IsDeleted` = 1) AND `MicroServiceApp`.`Ass_AppType` = ?P_0)
+
+2021-03-26 14:51:27,416 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:27,474 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `MicroServiceApp`.`Id` AS `Id`,`MicroServiceApp`.`LogRelationDir` AS `LogRelationDir`,`MicroServiceApp`.`createContainerParams` AS `createContainerParams`,`MicroServiceApp`.`buildScript` AS `buildScript`,`MicroServiceApp`.`OwnerId` AS `OwnerId`,`MicroServiceApp`.`confFileNames` AS `confFileNames`,`MicroServiceApp`.`sslKey` AS `sslKey`,`MicroServiceApp`.`appName` AS `appName`,`MicroServiceApp`.`rootDirMainFile` AS `rootDirMainFile`,`MicroServiceApp`.`proxyPort` AS `proxyPort`,`MicroServiceApp`.`serviceType` AS `serviceType`,`MicroServiceApp`.`stopCommand` AS `stopCommand`,`MicroServiceApp`.`key` AS `key`,`MicroServiceApp`.`port` AS `port`,`MicroServiceApp`.`useSsl` AS `useSsl`,`MicroServiceApp`.`createContainerParams2` AS `createContainerParams2`,`MicroServiceApp`.`memo` AS `memo`,`MicroServiceApp`.`hostname` AS `hostname`,`MicroServiceApp`.`sslPem` AS `sslPem`,`MicroServiceApp`.`startCommand` AS `startCommand`,`MicroServiceApp`.`Ass_AppType` AS `Ass_AppType_Id`,`MicroServiceApp`.`UpdaterID` AS `UpdaterID`,`MicroServiceApp`.`UpdaterName` AS `UpdaterName`,`MicroServiceApp`.`CreateDt` AS `CreateDt`,`MicroServiceApp`.`UpdateDt` AS `UpdateDt`,`MicroServiceApp`.`IsDeleted` AS `IsDeleted`,`MicroServiceApp`.`CreaterName` AS `CreaterName`,`MicroServiceApp`.`CreaterID` AS `CreaterID` FROM `MicroServiceApp` AS `MicroServiceApp` WHERE (NOT (`MicroServiceApp`.`IsDeleted` = 1) AND `MicroServiceApp`.`Ass_AppType` = ?P_0) ORDER BY `MicroServiceApp`.`CreateDt` DESC LIMIT 0,10
+
+2021-03-26 14:51:27,474 [57] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `MicroServiceApp`.`Id` AS `Id`,`MicroServiceApp`.`LogRelationDir` AS `LogRelationDir`,`MicroServiceApp`.`createContainerParams` AS `createContainerParams`,`MicroServiceApp`.`buildScript` AS `buildScript`,`MicroServiceApp`.`OwnerId` AS `OwnerId`,`MicroServiceApp`.`confFileNames` AS `confFileNames`,`MicroServiceApp`.`sslKey` AS `sslKey`,`MicroServiceApp`.`appName` AS `appName`,`MicroServiceApp`.`rootDirMainFile` AS `rootDirMainFile`,`MicroServiceApp`.`proxyPort` AS `proxyPort`,`MicroServiceApp`.`serviceType` AS `serviceType`,`MicroServiceApp`.`stopCommand` AS `stopCommand`,`MicroServiceApp`.`key` AS `key`,`MicroServiceApp`.`port` AS `port`,`MicroServiceApp`.`useSsl` AS `useSsl`,`MicroServiceApp`.`createContainerParams2` AS `createContainerParams2`,`MicroServiceApp`.`memo` AS `memo`,`MicroServiceApp`.`hostname` AS `hostname`,`MicroServiceApp`.`sslPem` AS `sslPem`,`MicroServiceApp`.`startCommand` AS `startCommand`,`MicroServiceApp`.`Ass_AppType` AS `Ass_AppType_Id`,`MicroServiceApp`.`UpdaterID` AS `UpdaterID`,`MicroServiceApp`.`UpdaterName` AS `UpdaterName`,`MicroServiceApp`.`CreateDt` AS `CreateDt`,`MicroServiceApp`.`UpdateDt` AS `UpdateDt`,`MicroServiceApp`.`IsDeleted` AS `IsDeleted`,`MicroServiceApp`.`CreaterName` AS `CreaterName`,`MicroServiceApp`.`CreaterID` AS `CreaterID` FROM `MicroServiceApp` AS `MicroServiceApp` WHERE (NOT (`MicroServiceApp`.`IsDeleted` = 1) AND `MicroServiceApp`.`Ass_AppType` = ?P_0) ORDER BY `MicroServiceApp`.`CreateDt` DESC LIMIT 0,10
+
+2021-03-26 14:51:27,491 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:27,492 [57] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:51:27,545 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `RegionApps`.`AssC_Region` AS `C` FROM `RegionApps` AS `RegionApps` WHERE `RegionApps`.`AssC_MicroServiceApp` IN (20,16,13,8,7,6,5,1)
+
+2021-03-26 14:51:27,547 [57] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `RegionApps`.`AssC_Region` AS `C` FROM `RegionApps` AS `RegionApps` WHERE `RegionApps`.`AssC_MicroServiceApp` IN (20,16,13,8,7,6,5,1)
+
+2021-03-26 14:51:27,559 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:27,560 [57] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:51:27,588 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`UserName` AS `UserName` FROM `SysUser` AS `SysUser` WHERE `SysUser`.`Id` IN (2,1,1,NULL,NULL,NULL,NULL,NULL)
+
+2021-03-26 14:51:27,588 [57] DEBUG dbLoger [(null)] - [ReaderExecuting]SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`UserName` AS `UserName` FROM `SysUser` AS `SysUser` WHERE `SysUser`.`Id` IN (2,1,1,NULL,NULL,NULL,NULL,NULL)
+
+2021-03-26 14:51:27,601 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]2
+2021-03-26 14:51:27,602 [57] DEBUG dbLoger [(null)] - [ReaderExecuted]2
+2021-03-26 14:56:09,681 [43] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '';
+Input String ?P_1 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` = ?P_0 OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_1 OR `SysUser`.`Mobile` = ?P_1 OR `SysUser`.`Email` = ?P_1)) LIMIT 0,1
+
+2021-03-26 14:56:09,700 [43] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 14:56:09,725 [43] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 14:56:09,738 [43] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 14:56:09,783 [43] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 14:56:09,797 [43] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 14:56:09,854 [43] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'rniak2iizgyeRxg0QbOHcc0yaje4NuPBlRUzMFWZChA';
+Input DateTime ?P_1 = '2021/3/26 19:56:09';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1@Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '1';
+Input String ?P_6 = 'admin';
+Input DateTime ?P_7 = '2021/3/26 14:56:09';
+Input DateTime ?P_8 = '2021/3/26 14:56:09';
+Input Boolean ?P_9 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_6,?P_7,?P_8,?P_9,?P_6,?P_5);SELECT @@IDENTITY
+
+2021-03-26 14:56:09,870 [43] DEBUG dbLoger [(null)] - [ScalarExecuted]302
+2021-03-26 14:56:09,871 [43] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (301)
+
+2021-03-26 14:56:09,885 [43] DEBUG dbLoger [(null)] - [NonQueryExecuted]1
+2021-03-26 15:08:01,898 [4] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '';
+Input String ?P_1 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` = ?P_0 OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_1 OR `SysUser`.`Mobile` = ?P_1 OR `SysUser`.`Email` = ?P_1)) LIMIT 0,1
+
+2021-03-26 15:08:01,918 [4] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 15:08:01,943 [4] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 15:08:01,957 [4] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 15:08:01,983 [4] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 15:08:01,997 [4] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 15:08:02,049 [4] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'H6ijE9mjn7GuCtm5nzkpBVyd79WKrMT1oEnQAYsz6t8';
+Input DateTime ?P_1 = '2021/3/26 20:08:01';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1@Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '';
+Input DateTime ?P_6 = '2021/3/26 15:08:02';
+Input DateTime ?P_7 = '2021/3/26 15:08:02';
+Input Boolean ?P_8 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_5,?P_6,?P_7,?P_8,?P_5,?P_5);SELECT @@IDENTITY
+
+2021-03-26 15:08:02,066 [4] DEBUG dbLoger [(null)] - [ScalarExecuted]303
+2021-03-26 15:08:02,067 [4] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (302)
+
+2021-03-26 15:08:02,079 [4] DEBUG dbLoger [(null)] - [NonQueryExecuted]1
+2021-03-26 15:18:57,695 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '';
+Input String ?P_1 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` = ?P_0 OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_1 OR `SysUser`.`Mobile` = ?P_1 OR `SysUser`.`Email` = ?P_1)) LIMIT 0,1
+
+2021-03-26 15:18:57,721 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 15:18:57,776 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 15:18:57,790 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 15:18:58,232 [5] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 15:18:58,247 [5] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 15:18:58,325 [5] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'srcQnOozZCtSdTLkJiS9EkeccKaBGjo-NiIOC-5d3VY';
+Input DateTime ?P_1 = '2021/3/26 20:18:58';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1@Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '1';
+Input String ?P_6 = 'admin';
+Input DateTime ?P_7 = '2021/3/26 15:18:58';
+Input DateTime ?P_8 = '2021/3/26 15:18:58';
+Input Boolean ?P_9 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_6,?P_7,?P_8,?P_9,?P_6,?P_5);SELECT @@IDENTITY
+
+2021-03-26 15:18:58,347 [5] DEBUG dbLoger [(null)] - [ScalarExecuted]304
+2021-03-26 15:18:58,357 [5] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (303)
+
+2021-03-26 15:18:58,372 [5] DEBUG dbLoger [(null)] - [NonQueryExecuted]1
+2021-03-26 15:19:13,005 [44] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '';
+Input String ?P_1 = 'admin';
+SELECT `SysUser`.`Id` AS `Id`,`SysUser`.`Email` AS `Email`,`SysUser`.`UserName` AS `UserName`,`SysUser`.`Mobile` AS `Mobile`,`SysUser`.`Password` AS `Password`,`SysUser`.`IsEnabled` AS `IsEnabled`,`SysUser`.`UserType` AS `UserType`,`SysUser`.`RecomendId` AS `RecomendId`,`SysUser`.`Birthday` AS `Birthday`,`SysUser`.`IdentityId` AS `IdentityId`,`SysUser`.`Photo` AS `Photo`,`SysUser`.`TelNo` AS `TelNo`,`SysUser`.`ComName` AS `ComName`,`SysUser`.`loginType` AS `loginType`,`SysUser`.`AppSiteKey` AS `AppSiteKey`,`SysUser`.`secretKey` AS `secretKey`,`SysUser`.`Description` AS `Description`,`SysUser`.`LoginId` AS `LoginId`,`SysUser`.`sex` AS `sex`,`SysUser`.`OtherLoginId` AS `OtherLoginId`,`SysUser`.`Ass_Areas` AS `Ass_Areas_Id`,`SysUser`.`UpdaterID` AS `UpdaterID`,`SysUser`.`UpdaterName` AS `UpdaterName`,`SysUser`.`CreateDt` AS `CreateDt`,`SysUser`.`UpdateDt` AS `UpdateDt`,`SysUser`.`IsDeleted` AS `IsDeleted`,`SysUser`.`CreaterName` AS `CreaterName`,`SysUser`.`CreaterID` AS `CreaterID` FROM `SysUser` AS `SysUser` WHERE (`SysUser`.`IsEnabled` = 1 AND (`SysUser`.`AppSiteKey` = ?P_0 OR `SysUser`.`AppSiteKey` = N'*') AND (`SysUser`.`LoginId` = ?P_1 OR `SysUser`.`Mobile` = ?P_1 OR `SysUser`.`Email` = ?P_1)) LIMIT 0,1
+
+2021-03-26 15:19:13,025 [44] DEBUG dbLoger [(null)] - [ReaderExecuted]28
+2021-03-26 15:19:13,056 [44] DEBUG dbLoger [(null)] - [ReaderExecuting]select table_a .*  from SysRole table_a ,AssC_SysRoleSysUser table_b where table_a.Id=table_b.AssC_SysRole and table_b.AssC_SysUser=1
+
+2021-03-26 15:19:13,070 [44] DEBUG dbLoger [(null)] - [ReaderExecuted]11
+2021-03-26 15:19:13,097 [44] DEBUG dbLoger [(null)] - [ReaderExecuting]Input String ?P_0 = '1';
+SELECT `LoginHistory`.`Id` AS `C` FROM `LoginHistory` AS `LoginHistory` WHERE (`LoginHistory`.`valid` = 1 AND `LoginHistory`.`Ass_SysUser` = ?P_0)
+
+2021-03-26 15:19:13,110 [44] DEBUG dbLoger [(null)] - [ReaderExecuted]1
+2021-03-26 15:19:13,160 [44] DEBUG dbLoger [(null)] - [ScalarExecuting]Input String ?P_0 = 'mD7QnAwJN3nTQsqDmuQjxeWPsSd90JHzjtVmBwuBKC4';
+Input DateTime ?P_1 = '2021/3/26 20:19:13';
+Input Boolean ?P_2 = True;
+Input String ?P_3 = '127.0.0.1@Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57';
+Input Int32 ?P_4 = 1;
+Input String ?P_5 = '';
+Input DateTime ?P_6 = '2021/3/26 15:19:13';
+Input DateTime ?P_7 = '2021/3/26 15:19:13';
+Input Boolean ?P_8 = False;
+INSERT INTO `LoginHistory`(`Token`,`ExpireDt`,`valid`,`IpFrom`,`Ass_SysUser`,`UpdaterID`,`UpdaterName`,`CreateDt`,`UpdateDt`,`IsDeleted`,`CreaterName`,`CreaterID`) VALUES(?P_0,?P_1,?P_2,?P_3,?P_4,?P_5,?P_5,?P_6,?P_7,?P_8,?P_5,?P_5);SELECT @@IDENTITY
+
+2021-03-26 15:19:13,176 [44] DEBUG dbLoger [(null)] - [ScalarExecuted]305
+2021-03-26 15:19:13,176 [44] DEBUG dbLoger [(null)] - [NonQueryExecuting]UPDATE `LoginHistory` SET `valid`=0 WHERE `LoginHistory`.`Id` IN (304)
+
+2021-03-26 15:19:13,190 [44] DEBUG dbLoger [(null)] - [NonQueryExecuted]1

@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = deploySys.Model
+build_property.ProjectDir = D:\document\workspace\projects\dotnetCore\open_microService\deploySys\model\

@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using System.Threading.Tasks;
-using deploySys.Server.lib;
+using Ace;
+using Chloe.Ext.Intf;
+using Chloe.SQLite;
+using FrmLib.Extend;
+using FrmLib.web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
-using Chloe.Ext.Intf;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using NettyRPC;
 using NettyRPC.Core;
+using Newtonsoft.Json.Linq;
+
+using StackExchange.Redis;
 
 namespace deploySys.Server
 {
@@ -20,11 +30,11 @@ namespace deploySys.Server
     {
         public ConcurrentUseListDic<byte[]> fileCaches;
         public static Dictionary<string, string> sdkReoteComs { get; set; }
-        public nStartup(IHostingEnvironment env) : base(env)
+        public nStartup(IWebHostEnvironment env) : base(env)
         {
-            swaggerDocTags = new List<Tag>()
+            swaggerDocTags = new List<OpenApiTag>()
             {
-                new Tag { Name = "deploySys", Description = "部署管理控制台" },
+                new OpenApiTag { Name = "deploySys", Description = "部署管理控制台" },
 
 
             };
@@ -36,9 +46,13 @@ namespace deploySys.Server
         }
 
 
+        public override appConfigure appconfig { get; protected set; }
         protected override IList<string> swaggerXmlList { get; set; }
-        protected override string appName { get { return "msgp"; } set => throw new NotImplementedException(); }
+        protected override string appName { get { return "工行数据报表系统 "; } set => throw new NotImplementedException(); }
         protected override string deverName { get { return "wangwei"; } set {; } }
+
+        protected override string otherSwaggerHeaderDoc { get; set; }
+
         public override void initOtherServices(IServiceCollection services)
         {
 
@@ -52,25 +66,11 @@ namespace deploySys.Server
             RpcServer rs = new RpcServer(RunConfig.Instance.rpcBackLength,RunConfig.Instance.rpcPort,RunConfig.Instance.timeOut,new  mpSerializer());
             rs.start();
            
-            //services.AddMvc().AddXmlSerializerFormatters();
-            //  services.AddTimedJob();
+
         }
-        public override void initOtherConfig(IApplicationBuilder app, IHostingEnvironment env)
+        public override void initOtherConfig(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //var jarrstr = Globals.Configuration["sdkApi:remoteTokens"];
-            //JArray jarr = JArray.Parse(jarrstr);
-            //foreach (JObject jobj in jarr)
-            //{
-            //    var tmpstr = jobj["comKey"].ToString();
-            //    if (sdkReoteComs.ContainsKey(tmpstr))
-            //        continue;
-            //    sdkReoteComs.Add(tmpstr, jobj["secretKey"].ToString());
-            //}
-            //var str = Globals.Configuration["Task:Enable"];
-            //bool enabletask = true;
-            //bool.TryParse(str, out enabletask);
-            //if (enabletask)
-            //    app.UseTimedJob();
+           
           
         }
     }
